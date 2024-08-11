@@ -1,0 +1,216 @@
+@define-color black #16161d;
+@define-color bright-black #727169;
+@define-color red #c34043;
+@define-color bright-red #e82424;
+@define-color green #76946a;
+@define-color bright-green #98bb6c;
+@define-color yellow #c0a36e;
+@define-color bright-yellow #e6c384;
+@define-color blue #7e9cd8;
+@define-color bright-blue #7fb4ca;
+@define-color magenta #957fb8;
+@define-color bright-magenta #938aa9;
+@define-color cyan #6a9589;
+@define-color bright-cyan #7aa89f;
+@define-color white #c8c093;
+@define-color bright-white #dcd7ba;
+
+@define-color background @black;
+@define-color foreground @bright-white;
+@define-color disabled @bright-black;
+
+* {
+	font-family:
+		JetBrainsMonoNL Nerd Font Propo,
+		monospace;
+	font-size: 14px;
+	color: inherit;
+}
+
+window#waybar {
+	background-color: @background;
+	transition-property: background-color;
+	transition-duration: 0.5s;
+	border-radius: 12px;
+	color: @foreground;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#custom-sysmenu {
+	color: @bright-cyan;
+	font-size: 1.3em;
+	margin: 0 8px 0 12px;
+}
+
+#workspaces button {
+	padding: 0 8px;
+	border-radius: 0;
+}
+
+#workspaces button.empty {
+	color: @disabled;
+}
+
+#workspaces button.urgent {
+	background-color: @yellow;
+}
+
+#workspaces button.active {
+	background-color: @blue;
+	color: @background;
+}
+
+#submap,
+#clock,
+#battery,
+#temperature,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mpd {
+	padding: 0 8px;
+}
+
+#window,
+#custom-power {
+	margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+	margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+	margin-right: 0;
+}
+
+#language {
+	padding: 0 5px;
+	margin: 0 5px;
+}
+
+#submap {
+	background-color: @magenta;
+	color: @background;
+}
+
+@keyframes blink {
+	to {
+		background-color: @foreground;
+		color: @background;
+	}
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+label:focus {
+	background-color: @background;
+}
+
+#pulseaudio.muted {
+	color: @disabled;
+}
+
+#wireplumber.muted {
+	background-color: @red;
+}
+
+/* #custom-media { */
+/* 	background-color: #66cc99; */
+/* 	color: #2a5c45; */
+/* 	min-width: 100px; */
+/* } */
+/**/
+/* #custom-media.custom-spotify { */
+/* 	background-color: #66cc99; */
+/* } */
+/**/
+/* #custom-media.custom-vlc { */
+/* 	background-color: #ffa000; */
+/* } */
+
+#network {
+	color: @green;
+}
+
+#network.disconnected {
+	color: @red;
+}
+
+#temperature {
+	color: @blue;
+}
+
+#temperature.critical {
+	background-color: @red;
+	color: @foreground;
+}
+
+#clock {
+	color: @bright-yellow;
+}
+
+#tray > .passive {
+	-gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+	-gtk-icon-effect: highlight;
+	background-color: @red;
+}
+
+/* #mpd { */
+/* 	background-color: #66cc99; */
+/* 	color: #2a5c45; */
+/* } */
+/**/
+/* #mpd.disconnected { */
+/* 	background-color: #f53c3c; */
+/* } */
+/**/
+/* #mpd.stopped { */
+/* 	background-color: #90b1b1; */
+/* } */
+/**/
+/* #mpd.paused { */
+/* 	background-color: #51a37a; */
+/* } */
+
+#custom-power {
+	color: @red;
+}
+
+#privacy {
+	padding: 0;
+}
+
+#privacy-item {
+	padding: 0 5px;
+	color: white;
+}
+
+#privacy-item.screenshare {
+	background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+	background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+	background-color: #0069d4;
+}
