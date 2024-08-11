@@ -50,6 +50,7 @@
     hyprpicker
     networkmanagerapplet
     polkit_gnome
+    rofi-power-menu
     rofimoji
     slurp
     wl-clipboard
