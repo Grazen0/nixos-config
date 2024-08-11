@@ -4,16 +4,11 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ./hardware-configuration.nix
-    ./modules
-  ];
+  imports = [./modules];
 
-  networking.hostName = "takane";
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Lima";
-
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {

@@ -1,15 +1,9 @@
 {config, ...}: {
   imports = [./modules];
 
-  programs.home-manager.enable = true;
-
   home = {
     username = "jdgt";
     homeDirectory = "/home/jdgt";
-
-    sessionPath = [
-      "$HOME/.local/bin"
-    ];
 
     file.wallpapers = {
       enable = true;
