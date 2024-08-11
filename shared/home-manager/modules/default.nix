@@ -9,6 +9,7 @@
     ./git.nix
     ./gtk-qt.nix
     ./kitty.nix
+    ./librewolf.nix
     ./obs-studio.nix
     ./peaclock.nix
     ./ranger.nix

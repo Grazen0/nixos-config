@@ -14,7 +14,6 @@
     gimp
     kitty
     nsxiv
-    librewolf-wayland
     obsidian
     pavucontrol
     spotify
