@@ -1,4 +1,9 @@
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ../../../shared/nixos/configuration.nix

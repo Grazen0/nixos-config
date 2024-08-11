@@ -1,9 +1,13 @@
-{config, ...}: {
+{
+  config,
+  my_username,
+  ...
+}: {
   imports = [./modules];
 
   home = {
-    username = "jdgt";
-    homeDirectory = "/home/jdgt";
+    username = my_username;
+    homeDirectory = "/home/${my_username}";
 
     file.wallpapers = {
       enable = true;

@@ -27,6 +27,9 @@
     inherit (self) outputs;
     system = "x86_64-linux";
 
+    my_username = "jdgt";
+    hosts = ["nitori" "takane"];
+
     specialArgs = {
       pkgs-stable = import nixpkgs-stable {
         inherit system;
@@ -34,44 +37,30 @@
       };
       inherit inputs outputs;
     };
-
-    host_main = "nitori";
-    host_secondary = "takane";
   in {
-    nixosConfigurations = {
-      # My current laptop
-      # ${host_main} = nixpkgs.lib.nixosSystem {
-      #   modules = [
-      #     nixvim.nixosModules.nixvim
-      #     ./hosts/nitori/nixos/configuration.nix
-      #   ];
-      #
-      #   inherit specialArgs;
-      # };
+    nixosConfigurations = builtins.foldl' (acc: host:
+      acc
+      // {
+        ${host} = nixpkgs.lib.nixosSystem {
+          modules = [
+            nixvim.nixosModules.nixvim
+            ./hosts/${host}/nixos/configuration.nix
+          ];
 
-      # My old laptop
-      takane = nixpkgs.lib.nixosSystem {
-        modules = [
-          nixvim.nixosModules.nixvim
-          ./hosts/takane/nixos/configuration.nix
-        ];
+          inherit specialArgs;
+        };
+      }) {}
+    hosts;
 
-        inherit specialArgs;
-      };
-    };
-
-    homeConfigurations = {
-      # "${host_main}@jdgt" = home-manager.lib.homeManagerConfiguration {
-      #   pkgs = nixpkgs.legacyPackages.${system};
-      #   extraSpecialArgs = {inherit inputs outputs;};
-      #   modules = [./hosts/${host_main}/home-manager/home.nix];
-      # };
-
-      jdgt = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./hosts/takane/home-manager/home.nix];
-      };
-    };
+    homeConfigurations = builtins.foldl' (acc: host:
+      acc
+      // {
+        "${my_username}@${host}" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          extraSpecialArgs = {inherit inputs outputs my_username;};
+          modules = [./hosts/${host}/home-manager/home.nix];
+        };
+      }) {}
+    hosts;
   };
 }
