@@ -49,6 +49,15 @@
         "$mainMod, L, movefocus, r"
         "$mainMod, L, alterzorder, top"
 
+        "$mainMod, Left, movefocus, l"
+        "$mainMod, Left, alterzorder, top"
+        "$mainMod, Down, movefocus, d"
+        "$mainMod, Down, alterzorder, top"
+        "$mainMod, Up, movefocus, u"
+        "$mainMod, Up, alterzorder, top"
+        "$mainMod, Right, movefocus, r"
+        "$mainMod, Right, alterzorder, top"
+
         # Focus last window
         "$mainMod, Grave, focuscurrentorlast"
         "$mainMod, Grave, alterzorder, top"
@@ -65,11 +74,21 @@
         "$mainMod CTRL, K, layoutmsg, preselect u"
         "$mainMod CTRL, L, layoutmsg, preselect r"
 
+        "$mainMod CTRL, Left, layoutmsg, preselect l"
+        "$mainMod CTRL, Down, layoutmsg, preselect d"
+        "$mainMod CTRL, Up, layoutmsg, preselect u"
+        "$mainMod CTRL, Right, layoutmsg, preselect r"
+
         # Swap windows
         "$mainMod SHIFT, H, swapwindow, l"
         "$mainMod SHIFT, J, swapwindow, d"
         "$mainMod SHIFT, K, swapwindow, u"
         "$mainMod SHIFT, L, swapwindow, r"
+
+        "$mainMod SHIFT, Left, swapwindow, l"
+        "$mainMod SHIFT, Down, swapwindow, d"
+        "$mainMod SHIFT, Up, swapwindow, u"
+        "$mainMod SHIFT, Right, swapwindow, r"
 
         # Switch workspaces
         "$mainMod, 1, workspace, 1"
@@ -116,11 +135,15 @@
 
       binde = [
         # Resize window
-
         "$mainMod ALT, H, resizeactive, -$resizeStep 0"
         "$mainMod ALT, J, resizeactive, 0 $resizeStep"
         "$mainMod ALT, K, resizeactive, 0 -$resizeStep"
         "$mainMod ALT, L, resizeactive, $resizeStep 0"
+
+        "$mainMod ALT, Left, resizeactive, -$resizeStep 0"
+        "$mainMod ALT, Down, resizeactive, 0 $resizeStep"
+        "$mainMod ALT, Up, resizeactive, 0 -$resizeStep"
+        "$mainMod ALT, Right, resizeactive, $resizeStep 0"
       ];
 
       bindel = [
@@ -157,6 +180,11 @@
       binde = , H, moveactive, -$moveStep 0
       binde = , K, moveactive, 0 -$moveStep
       binde = , J, moveactive, 0 $moveStep
+
+      binde = , Left, moveactive, $moveStep 0
+      binde = , Down, moveactive, -$moveStep 0
+      binde = , Up, moveactive, 0 -$moveStep
+      binde = , Right, moveactive, 0 $moveStep
 
       # Focus last window
       bind = $mainMod, Grave, focuscurrentorlast
