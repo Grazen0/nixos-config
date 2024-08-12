@@ -22,10 +22,7 @@
     gvfs.enable = true;
     tumbler.enable = true;
 
-    pipewire = {
-      enable = true;
-      systemWide = true;
-    };
+    pipewire.enable = true;
   };
 
   programs = {
@@ -38,7 +35,10 @@
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
-  security.polkit.enable = true;
+  security = {
+    polkit.enable = true;
+    rtkit.enable = true;
+  };
 
   users = {
     defaultUserShell = pkgs.zsh;
