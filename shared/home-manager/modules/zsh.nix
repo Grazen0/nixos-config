@@ -24,6 +24,14 @@
       lta = "lt -a";
       l = "lla -h";
 
+      gs = "git status";
+      ga = "git add";
+      gaa = "git add --all";
+      gcm = "git commit --message";
+      gd = "git diff";
+      gl = "git pull";
+      gp = "git push";
+
       rm = "rmtrash";
       rmdir = "rmdirtrash";
 
