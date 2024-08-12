@@ -8,7 +8,7 @@
     package = pkgs.rofi-wayland;
 
     font = "JetBrainsMonoNL Nerd Font 12";
-    terminal = "kitty"; # TODO full binary path with ${config.pkgs.kitty}
+    terminal = "${pkgs.kitty}/bin/kitty";
 
     extraConfig = {
       show-icons = true;
