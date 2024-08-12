@@ -19,8 +19,6 @@
       "$terminal" = "kitty";
       "$browser" = "librewolf";
       "$fileManager" = "thunar";
-
-      monitor = ", preferred, auto, 1";
     };
 
     systemd.variables = ["--all"];
