@@ -2,11 +2,15 @@
   config,
   lib,
   pkgs,
+  host,
   ...
 }: {
   imports = [./modules];
 
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = host;
+    networkmanager.enable = true;
+  };
 
   time.timeZone = "America/Lima";
   i18n.defaultLocale = "en_US.UTF-8";

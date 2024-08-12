@@ -1,13 +1,13 @@
 {
   config,
-  my_username,
+  username,
   ...
 }: {
   imports = [./modules];
 
   home = {
-    username = my_username;
-    homeDirectory = "/home/${my_username}";
+    inherit username;
+    homeDirectory = "/home/${username}";
 
     file.wallpapers = {
       enable = true;

@@ -27,7 +27,7 @@
     inherit (self) outputs;
     system = "x86_64-linux";
 
-    my_username = "jdgt";
+    username = "jdgt";
     hosts = ["nitori" "takane"];
 
     specialArgs = {
@@ -35,7 +35,7 @@
         inherit system;
         config.allowUnfree = true;
       };
-      inherit inputs outputs;
+      inherit inputs outputs username;
     };
   in {
     nixosConfigurations = builtins.foldl' (acc: host:
@@ -44,10 +44,12 @@
         ${host} = nixpkgs.lib.nixosSystem {
           modules = [
             nixvim.nixosModules.nixvim
+            ./shared/nixos/configuration.nix
             ./hosts/${host}/nixos/configuration.nix
+            ./hosts/${host}/nixos/hardware-configuration.nix
           ];
 
-          inherit specialArgs;
+          specialArgs = specialArgs // {inherit host;};
         };
       }) {}
     hosts;
@@ -55,10 +57,13 @@
     homeConfigurations = builtins.foldl' (acc: host:
       acc
       // {
-        "${my_username}@${host}" = home-manager.lib.homeManagerConfiguration {
+        "${username}@${host}" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
-          extraSpecialArgs = {inherit inputs outputs my_username;};
-          modules = [./hosts/${host}/home-manager/home.nix];
+          extraSpecialArgs = specialArgs // {inherit host;};
+          modules = [
+            ./shared/home-manager/home.nix
+            ./hosts/${host}/home-manager/home.nix
+          ];
         };
       }) {}
     hosts;
