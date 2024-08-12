@@ -35,6 +35,7 @@
       rm = "rmtrash";
       rmdir = "rmdirtrash";
 
+      v = "nvim";
       emacs = "nvim";
 
       ve = "python -m venv ./.venv";
@@ -47,7 +48,9 @@
       upd = "nix flake update ${flakeDir}";
       upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
 
-      ":q" = "exit"; # I'm kinda clumsy
+      # I'm kinda clumsy
+      ":q" = "exit";
+      ":x" = "exit";
     };
 
     history = {
