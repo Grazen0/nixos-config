@@ -11,7 +11,7 @@
       range = true;
     };
 
-    WriteSession = {
+    SessionWrite = {
       nargs = 1;
       command.__raw = ''
         function(opts)
@@ -20,7 +20,7 @@
       '';
     };
 
-    DeleteSession = {
+    SessionDelete = {
       nargs = "?";
       command.__raw = ''
         function(opts)
