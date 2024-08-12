@@ -9,6 +9,6 @@
 
     "dex -a"
     "[workspace 2 silent] $browser"
-    "discord --start-minimized"
+    "[workspace 6 silent] discord --start-minimized"
   ];
 }

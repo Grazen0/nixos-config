@@ -5,6 +5,8 @@
     nixpgkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +22,7 @@
     self,
     nixpkgs,
     nixpkgs-stable,
+    nixos-hardware,
     home-manager,
     nixvim,
     ...
@@ -35,6 +38,9 @@
         inherit system;
         config.allowUnfree = true;
       };
+
+      hardware = nixos-hardware.nixosModules;
+
       inherit inputs outputs username;
     };
   in {

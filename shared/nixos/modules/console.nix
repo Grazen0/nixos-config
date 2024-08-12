@@ -1,9 +1,6 @@
 {pkgs, ...}: {
   console = {
     earlySetup = true;
-    packages = with pkgs; [terminus_font];
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-v16b.psf.gz";
-    keyMap = "la-latin1";
     colors = [
       "16161d"
       "c34043"
