@@ -65,5 +65,7 @@
 
     # Misc
     texlive.combined.scheme-medium
+    vitetris
+    _2048-in-terminal
   ];
 }
