@@ -2,6 +2,7 @@
   wayland.windowManager.hyprland.settings = {
     windowrule = [
       "float, Thunar"
+      "float, thunar"
       "float, ^(org.pulseaudio.pavucontrol)$"
       "float, blueman-manager"
       "float, ^(nm-connection-editor)$"
