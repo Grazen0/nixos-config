@@ -24,6 +24,10 @@
       lta = "lt -a";
       l = "lla -h";
 
+      grep = "grep --color=auto";
+      fgrep = "fgrep --color=auto";
+      egrep = "egrep --color=auto";
+
       gs = "git status";
       ga = "git add";
       gaa = "git add --all";
@@ -96,6 +100,8 @@
     '';
 
     initExtra = ''
+      export PATH="$PATH:$HOME/.local/bin"
+
       # Accept autosuggestions with Ctrl+Space
       bindkey '^ ' autosuggest-accept
 

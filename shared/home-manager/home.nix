@@ -11,7 +11,7 @@
 
     file.wallpapers = {
       enable = true;
-      source = ./wallpapers;
+      source = ./files/wallpapers;
       recursive = true;
       target = "${config.xdg.userDirs.pictures}/Wallpapers";
     };
