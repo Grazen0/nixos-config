@@ -10,7 +10,7 @@
     home-manager
 
     # Apps
-    discord
+    vesktop
     gimp
     kitty
     nsxiv

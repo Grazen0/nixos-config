@@ -7,7 +7,7 @@
       "float, ^(nm-connection-editor)$"
 
       "workspace 3, ^(obsidian)$"
-      "workspace 6, ^(discord)$"
+      "workspace 6, ^(vesktop)$"
       "workspace 10, title:Spotify"
     ];
 

@@ -9,6 +9,6 @@
 
     "dex -a"
     "[workspace 2 silent] $browser"
-    "[workspace 6 silent] discord --start-minimized"
+    "[workspace 6 silent] vesktop --start-minimized"
   ];
 }

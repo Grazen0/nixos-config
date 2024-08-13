@@ -11,9 +11,16 @@
 
     file.wallpapers = {
       enable = true;
-      source = ./wallpapers;
+      source = ./files/wallpapers;
       recursive = true;
       target = "${config.xdg.userDirs.pictures}/Wallpapers";
+    };
+
+    file.vesktop = {
+      enable = true;
+      source = ./files/vesktop;
+      recursive = true;
+      target = "${config.xdg.configHome}/vesktop";
     };
 
     stateVersion = "24.05";
