@@ -1,11 +1,8 @@
 {
   imports = [
-    ./hypr
     ./programs
-    ./waybar
-    ./dunst.nix
+    ./wm
     ./gtk-qt.nix
-    ./rofi.nix
     ./xdg.nix
     ./zsh.nix
   ];
