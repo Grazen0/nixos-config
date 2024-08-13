@@ -13,7 +13,7 @@
 
       signcolumn = "yes";
       autoindent = true;
-      expandtab = false;
+      expandtab = true;
       tabstop = 4;
       softtabstop = 4;
       shiftwidth = 4;
@@ -23,7 +23,6 @@
       hlsearch = true;
       incsearch = true;
       number = true;
-      relativenumber = true;
       wildmode = "longest,list";
       colorcolumn = "80";
       mouse = "a";
