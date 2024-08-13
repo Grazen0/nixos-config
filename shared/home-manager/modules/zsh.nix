@@ -28,17 +28,28 @@
       fgrep = "fgrep --color=auto";
       egrep = "egrep --color=auto";
 
+      g = "git";
       gs = "git status";
       ga = "git add";
+      gb = "git branch";
+      gbd = "git branch --delete";
       gaa = "git add --all";
       gcm = "git commit --message";
       gd = "git diff";
+      gdw = "git diff --word-diff";
       gl = "git pull";
       gp = "git push";
+      grm = "git rm";
+      grmc = "git rm --cached";
+      grh = "git reset";
+      grhu = "git reset HEAD~"; # Undo last commit
+      grs = "git restore";
+      grst = "git restore --staged";
 
       rm = "rmtrash";
       rmdir = "rmdirtrash";
 
+      v = "nvim";
       emacs = "nvim";
 
       ve = "python -m venv ./.venv";
@@ -51,7 +62,9 @@
       upd = "nix flake update ${flakeDir}";
       upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
 
-      ":q" = "exit"; # I'm kinda clumsy
+      # I'm kinda clumsy
+      ":q" = "exit";
+      ":x" = "exit";
     };
 
     history = {
