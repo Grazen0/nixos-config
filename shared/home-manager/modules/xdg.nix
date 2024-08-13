@@ -13,7 +13,7 @@
         "x-scheme-handler/http" = "librewolf.desktop";
         "x-scheme-handler/https" = "librewolf.desktop";
 
-        "inode/directory" = "Thunar.desktop";
+        "inode/directory" = "thunar.desktop";
 
         "application/x-zerosize" = "nvim.desktop";
         "text/plain" = "nvim.desktop";
