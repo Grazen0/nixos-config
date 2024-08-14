@@ -57,6 +57,8 @@
 
       peaclock = "peaclock --config-dir ${config.xdg.configHome}/peaclock";
 
+      "2048" = "2048-in-terminal";
+
       rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
       hms = "home-manager switch --flake ${flakeDir}";
       upd = "nix flake update ${flakeDir}";
