@@ -1,0 +1,6 @@
+{
+  imports = [
+    ./hypr
+    ./files.nix
+  ];
+}
