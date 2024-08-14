@@ -16,13 +16,13 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
+    pipewire.enable = true;
+    thermald.enable = true;
     printing.enable = true;
     libinput.enable = true;
     blueman.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
-
-    pipewire.enable = true;
   };
 
   programs = {
