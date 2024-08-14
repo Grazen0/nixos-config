@@ -119,14 +119,7 @@
         "custom/power" = {
           format = "⏻ ";
           tooltip = false;
-          menu = "on-click";
-          menu-file = ./power_menu.xml;
-          menu-actions = {
-            shutdown = "shutdown now";
-            reboot = "reboot";
-            suspend = "systemctl suspend";
-            hibernate = "systemctl hibernate";
-          };
+          on-click = "rofi -show menu -modi \"menu:rofi-power-menu\"";
         };
       };
     };
