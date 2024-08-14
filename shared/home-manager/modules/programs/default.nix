@@ -6,10 +6,11 @@
     ./git.nix
     ./kitty.nix
     ./librewolf.nix
-    ./obs-studio.nix
     ./peaclock.nix
     ./ranger.nix
     ./tmux.nix
     ./zathura.nix
   ];
+
+  programs.obs-studio.enable = true;
 }
