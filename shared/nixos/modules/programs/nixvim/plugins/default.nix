@@ -12,6 +12,7 @@
 
   # Plugins that don't require config
   programs.nixvim.plugins = {
+    comment.enable = true;
     inc-rename.enable = true;
     gitgutter.enable = true;
     markdown-preview.enable = true;
