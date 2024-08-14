@@ -3,9 +3,9 @@
     general = {
       gaps_in = 6;
       gaps_out = 12;
-      border_size = 4;
+      border_size = 3;
 
-      "col.active_border" = "rgb(A3D4D5) rgb(658594) 45deg";
+      "col.active_border" = "rgb(A3D4D5) rgb(76946A) 45deg";
       "col.inactive_border" = "rgba(727169aa)";
       no_focus_fallback = true;
 
@@ -13,6 +13,7 @@
 
       layout = "dwindle";
     };
+
     decoration = {
       rounding = 8;
 
@@ -28,6 +29,7 @@
         vibrancy = 0.1696;
       };
     };
+
     animations = {
       enabled = true;
 
@@ -40,6 +42,7 @@
         "workspaces, 1, 4, default"
       ];
     };
+
     dwindle = {
       pseudotile = true;
       preserve_split = true;
@@ -47,6 +50,7 @@
       force_split = 2;
       default_split_ratio = 1.04;
     };
+
     xwayland = {
       force_zero_scaling = true;
     };
