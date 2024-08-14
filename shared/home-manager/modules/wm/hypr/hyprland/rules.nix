@@ -5,6 +5,7 @@
       "float, thunar"
       "float, ^(org.pulseaudio.pavucontrol)$"
       "float, blueman-manager"
+      "float, ^(org.kde.ark)$"
       "float, ^(nm-connection-editor)$"
       "float, ^(steam)$"
 
