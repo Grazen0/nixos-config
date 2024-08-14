@@ -10,6 +10,7 @@
     home-manager
 
     # Apps
+    ark
     vesktop
     gimp
     kitty
