@@ -15,21 +15,6 @@
   time.timeZone = "America/Lima";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services = {
-    pipewire.enable = true;
-    thermald.enable = true;
-    printing.enable = true;
-    libinput.enable = true;
-    blueman.enable = true;
-    gvfs.enable = true;
-    tumbler.enable = true;
-  };
-
-  programs = {
-    zsh.enable = true;
-    hyprland.enable = true;
-  };
-
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
@@ -48,8 +33,6 @@
       extraGroups = ["wheel" "audio" "networkmanager"];
     };
   };
-
-  nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "24.05";
 }

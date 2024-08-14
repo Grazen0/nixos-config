@@ -16,6 +16,8 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    thorium-browser.url = "git+https://codeberg.org/Tomkoid/thorium-browser-nix";
   };
 
   outputs = {

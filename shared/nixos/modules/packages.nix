@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
@@ -10,6 +14,7 @@
     home-manager
 
     # Apps
+    inputs.thorium-browser.defaultPackage.${system}
     ark
     vesktop
     gimp
