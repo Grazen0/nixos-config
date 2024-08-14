@@ -20,47 +20,47 @@
 @define-color disabled @bright-black;
 
 * {
-	font-family:
-		JetBrainsMonoNL Nerd Font Propo,
-		monospace;
-	font-size: 14px;
-	color: inherit;
+  font-family:
+    JetBrainsMonoNL Nerd Font Propo,
+    monospace;
+  font-size: 14px;
+  color: inherit;
 }
 
 window#waybar {
-	background-color: @background;
-	transition-property: background-color;
-	transition-duration: 0.5s;
-	border-radius: 12px;
-	color: @foreground;
+  background-color: @background;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-radius: 12px;
+  color: @foreground;
 }
 
 window#waybar.hidden {
-	opacity: 0.2;
+  opacity: 0.2;
 }
 
 #custom-sysmenu {
-	color: @bright-cyan;
-	font-size: 1.3em;
-	margin: 0 8px 0 12px;
+  color: @bright-cyan;
+  font-size: 1.3em;
+  margin: 0 8px 0 12px;
 }
 
 #workspaces button {
-	padding: 0 8px;
-	border-radius: 0;
+  padding: 0 8px;
+  border-radius: 0;
 }
 
 #workspaces button.empty {
-	color: @disabled;
+  color: @disabled;
 }
 
 #workspaces button.urgent {
-	background-color: @yellow;
+  background-color: @yellow;
 }
 
 #workspaces button.active {
-	background-color: @blue;
-	color: @background;
+  background-color: @blue;
+  color: @background;
 }
 
 #submap,
@@ -73,60 +73,48 @@ window#waybar.hidden {
 #custom-media,
 #tray,
 #mpd {
-	padding: 0 8px;
+  padding: 0 8px;
 }
 
 #window,
 #custom-power {
-	margin: 0 4px;
+  margin: 0 4px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
-	margin-left: 0;
+  margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
-	margin-right: 0;
+  margin-right: 0;
 }
 
 #language {
-	padding: 0 5px;
-	margin: 0 5px;
+  padding: 0 5px;
+  margin: 0 5px;
 }
 
 #submap {
-	background-color: @magenta;
-	color: @background;
+  background-color: @magenta;
+  color: @background;
 }
 
-@keyframes blink {
-	to {
-		background-color: @foreground;
-		color: @background;
-	}
-}
-
-/* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-	animation-name: blink;
-	animation-duration: 0.5s;
-	animation-timing-function: steps(12);
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+  background-color: @red;
 }
 
 label:focus {
-	background-color: @background;
+  background-color: @background;
 }
 
 #pulseaudio.muted {
-	color: @disabled;
+  color: @disabled;
 }
 
 #wireplumber.muted {
-	background-color: @red;
+  background-color: @red;
 }
 
 /* #custom-media { */
@@ -144,33 +132,33 @@ label:focus {
 /* } */
 
 #network {
-	color: @green;
+  color: @green;
 }
 
 #network.disconnected {
-	color: @red;
+  color: @red;
 }
 
 #temperature {
-	color: @blue;
+  color: @blue;
 }
 
 #temperature.critical {
-	background-color: @red;
-	color: @foreground;
+  background-color: @red;
+  color: @foreground;
 }
 
 #clock {
-	color: @bright-yellow;
+  color: @bright-yellow;
 }
 
 #tray > .passive {
-	-gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-	-gtk-icon-effect: highlight;
-	background-color: @red;
+  -gtk-icon-effect: highlight;
+  background-color: @red;
 }
 
 /* #mpd { */
@@ -191,26 +179,26 @@ label:focus {
 /* } */
 
 #custom-power {
-	color: @red;
+  color: @red;
 }
 
 #privacy {
-	padding: 0;
+  padding: 0;
 }
 
 #privacy-item {
-	padding: 0 5px;
-	color: white;
+  padding: 0 5px;
+  color: white;
 }
 
 #privacy-item.screenshare {
-	background-color: #cf5700;
+  background-color: #cf5700;
 }
 
 #privacy-item.audio-in {
-	background-color: #1ca000;
+  background-color: #1ca000;
 }
 
 #privacy-item.audio-out {
-	background-color: #0069d4;
+  background-color: #0069d4;
 }
