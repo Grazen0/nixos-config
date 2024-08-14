@@ -12,5 +12,10 @@
     ./zathura.nix
   ];
 
-  programs.obs-studio.enable = true;
+  programs = {
+    eza.enable = true;
+    mpv.enable = true;
+    obs-studio.enable = true;
+    vscode.enable = true;
+  };
 }

@@ -18,7 +18,6 @@
     obsidian
     pavucontrol
     spotify
-    vscode
     zoom-us
 
     # LibreOffice + spellcheck
@@ -31,20 +30,16 @@
     brightnessctl
     btop
     cmatrix
-    eza
-    fd
     killall
     peaclock
     pipes-rs
     playerctl
-    ripgrep
     rmtrash
     trash-cli
     unzip
     wget
 
     # System/WM
-    cliphist
     dex
     grim
     hyprpicker
@@ -62,6 +57,7 @@
     cargo
     python3
     rustc
+    ghc
     go
 
     # Misc

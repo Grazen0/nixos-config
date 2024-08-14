@@ -1,8 +1,4 @@
-{
-  config,
-  username,
-  ...
-}: {
+{username, ...}: {
   imports = [./modules];
 
   home = {
