@@ -6,6 +6,25 @@
       "float, ^(org.pulseaudio.pavucontrol)$"
       "float, blueman-manager"
       "float, ^(nm-connection-editor)$"
+      "float, ^(steam)$"
+
+      "float, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
+      "center, title:^(Open File)(.*)$"
+      "center, title:^(Select a File)(.*)$"
+      "center, title:^(Choose wallpaper)(.*)$"
+      "center, title:^(Open Folder)(.*)$"
+      "center, title:^(Save As)(.*)$"
+      "center, title:^(Library)(.*)$"
+      "center, title:^(File Upload)(.*)$"
+
+      # Dialogs
+      "float, title:^(Open File)(.*)$"
+      "float, title:^(Select a File)(.*)$"
+      "float, title:^(Choose wallpaper)(.*)$"
+      "float, title:^(Open Folder)(.*)$"
+      "float, title:^(Save As)(.*)$"
+      "float, title:^(Library)(.*)$"
+      "float, title:^(File Upload)(.*)$"
 
       "workspace 3, ^(obsidian)$"
       "workspace 6, ^(vesktop)$"
