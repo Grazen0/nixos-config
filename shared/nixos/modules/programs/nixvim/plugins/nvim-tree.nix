@@ -5,9 +5,18 @@
     hijackCursor = true;
     view.relativenumber = true;
 
+    diagnostics = {
+      enable = true;
+      showOnDirs = true;
+      showOnOpenDirs = false;
+    };
+
     renderer = {
-      highlightGit.__raw = "'name'";
-      icons.show.folderArrow = false;
+      highlightGit = true;
+      icons.show = {
+        folderArrow = false;
+        git = false;
+      };
     };
 
     filters.custom = ["^.git$"];
