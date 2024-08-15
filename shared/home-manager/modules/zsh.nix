@@ -46,8 +46,13 @@
       grs = "git restore";
       grst = "git restore --staged";
 
+      cat = "bat";
+      catfr = "env cat"; # FIX should have an actual path
+
       rm = "rmtrash";
-      rmdir = "rmdirtrash";
+      rmdir = "rmdirtrash"; # FIX should have an actual path
+      rmfr = "env rm";
+      rmdirfr = "env rmdir"; # FIX should have an actual path
 
       v = "nvim";
       emacs = "nvim";
