@@ -9,22 +9,22 @@
         enable = true;
 
         servers = {
-          nil-ls.enable = true;
-          lua-ls.enable = true;
+          nil-ls.enable = true; # Nix
+          lua-ls.enable = true; # Lua
+          hls.enable = true; # Haskell
+          pyright.enable = true; # Python
 
-          tsserver.enable = true;
-          html.enable = true;
-          emmet-ls.enable = true;
-          cssls.enable = true;
-          jsonls.enable = true;
-          yamlls.enable = true;
-          tailwindcss.enable = true;
-          svelte.enable = true;
+          tsserver.enable = true; # TypeScript/JavaScript
+          html.enable = true; # HTML
+          emmet-ls.enable = true; # HTML emmet snippets
+          cssls.enable = true; # CSS
+          jsonls.enable = true; # JSON
+          yamlls.enable = true; # YAML
+          tailwindcss.enable = true; # TailwindCSS
+          svelte.enable = true; # Svelte
 
-          pyright.enable = true;
-
-          clangd.enable = true;
-          cmake.enable = true;
+          clangd.enable = true; # C/C++
+          cmake.enable = true; # GNU Make
 
           # Rust
           rust-analyzer = {
@@ -33,9 +33,7 @@
             installCargo = true;
           };
 
-          texlab.enable = true;
-
-          hls.enable = true; # Haskell
+          texlab.enable = true; # LaTeX
         };
       };
 
