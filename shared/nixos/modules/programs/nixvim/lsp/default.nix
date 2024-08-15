@@ -26,6 +26,7 @@
           clangd.enable = true;
           cmake.enable = true;
 
+          # Rust
           rust-analyzer = {
             enable = true;
             installRustc = true;
@@ -33,6 +34,8 @@
           };
 
           texlab.enable = true;
+
+          hls.enable = true; # Haskell
         };
       };
 
