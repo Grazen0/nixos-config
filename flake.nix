@@ -54,7 +54,6 @@
             nixvim.nixosModules.nixvim
             ./shared/nixos/configuration.nix
             ./hosts/${host}/nixos/configuration.nix
-            ./hosts/${host}/nixos/hardware-configuration.nix
           ];
 
           specialArgs = specialArgs // {inherit host;};
