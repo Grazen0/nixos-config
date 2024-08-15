@@ -60,10 +60,12 @@
     gnumake
     nodejs
     cargo
+    pnpm
     python3
     rustc
     ghc
     go
+    yarn
 
     # Misc
     texlive.combined.scheme-medium
