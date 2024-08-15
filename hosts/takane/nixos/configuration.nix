@@ -1,3 +1,6 @@
 {
-  imports = [./modules];
+  imports = [
+    ./hardware-configuration.nix
+    ./modules
+  ];
 }

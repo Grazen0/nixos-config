@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   console = {
     earlySetup = true;
     colors = [
