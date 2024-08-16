@@ -2,6 +2,8 @@
   programs.nixvim.plugins.neo-tree = {
     enable = true;
 
+    closeIfLastWindow = true;
+
     # FIX: when quitting nvim from neo-tree, the last open window doesn't get saved
 
     window = {
@@ -37,18 +39,16 @@
         # Trash instead of delete
         d.__raw = ''
           function(state)
-          	local inputs = require("neo-tree.ui.inputs");
-          	local node = state.tree:get_node();
-          	local msg = "Delete " .. node.name .. "?";
+            local inputs = require("neo-tree.ui.inputs");
+            local node = state.tree:get_node();
+            local msg = "Delete " .. node.name .. "?";
 
-          	inputs.confirm(msg, function(confirmed)
-          	  if not confirmed then
-                return;
-              end
+            inputs.confirm(msg, function(confirmed)
+              if not confirmed then return; end
 
-          		vim.fn.system({ "trash", vim.fn.fnameescape(node.path) });
-          		require("neo-tree.sources.manager").refresh(state.name);
-           	end);
+              vim.fn.system({ "trash", vim.fn.fnameescape(node.path) });
+              require("neo-tree.sources.manager").refresh(state.name);
+            end);
           end
         '';
 
