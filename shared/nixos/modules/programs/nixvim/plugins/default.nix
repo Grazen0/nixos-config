@@ -4,7 +4,7 @@
     ./conform.nix
     ./mini.nix
     ./multicursors.nix
-    ./nvim-tree.nix
+    ./neo-tree.nix
     ./telescope.nix
     ./ultisnips.nix
     ./vimtex.nix

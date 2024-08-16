@@ -39,8 +39,8 @@
           "<C-[>" = "<cmd>tabnext<CR>";
           "<C-]>" = "<cmd>tabprevious<CR>";
 
-          # nvim-tree
-          "<leader>e" = "<cmd>NvimTreeToggle<CR>";
+          # neo-tree
+          "<leader>e" = "<cmd>Neotree<CR>";
 
           # multicursors.nvim
           "<leader>m" = "<cmd>MCunderCursor<CR>";
