@@ -6,19 +6,6 @@
       width = 30;
 
       mappings = {
-        # Open directory or preview file with tab
-        "<Tab>".__raw = ''
-          function(state)
-            local node = state.tree:get_node()
-            if require("neo-tree.utils").is_expandable(node) then
-              state.commands["toggle_node"](state)
-            else
-              state.commands.open(state)
-              vim.cmd("Neotree reveal")
-            end
-          end
-        '';
-
         # Navigation with HJKL
         h.__raw = ''
           function(state)
