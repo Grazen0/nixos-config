@@ -26,6 +26,12 @@
         '';
       }
       {
+        # Open help windows in vertical split instead of horizontal
+        event = "FileType";
+        pattern = "help";
+        command = "wincmd L";
+      }
+      {
         # Highlight yanked text
         event = ["TextYankPost"];
         group = "highlight_yank";
