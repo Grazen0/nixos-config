@@ -57,15 +57,16 @@
     wl-clipboard
 
     # Codeing
+    cargo
+    cling
     gcc
+    ghc
+    go
     gnumake
     nodejs
-    cargo
     pnpm
     python3
     rustc
-    ghc
-    go
     yarn
 
     # Misc
