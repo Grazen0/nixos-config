@@ -16,15 +16,15 @@
         d.__raw = ''
           function(state)
           	local inputs = require("neo-tree.ui.inputs");
-          	local path = state.tree:get_node().name;
-          	local msg = "Delete " .. path .. "?";
+          	local node = state.tree:get_node();
+          	local msg = "Delete " .. node.name .. "?";
 
           	inputs.confirm(msg, function(confirmed)
           	  if not confirmed then
                 return;
               end
 
-          		vim.fn.system({ "trash", vim.fn.fnameescape(path) });
+          		vim.fn.system({ "trash", vim.fn.fnameescape(node.path) });
           		require("neo-tree.sources.manager").refresh(state.name);
            	end);
           end
