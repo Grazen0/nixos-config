@@ -1,17 +1,21 @@
 {config, ...}: {
   home.file = {
     wallpapers = {
-      enable = true;
       source = ../files/wallpapers;
       recursive = true;
       target = "${config.xdg.userDirs.pictures}/Wallpapers";
     };
 
     vesktop = {
-      enable = true;
-      source = ../files/vesktop;
+      source = ../files/config/vesktop;
       recursive = true;
       target = "${config.xdg.configHome}/vesktop";
+    };
+
+    whatsapp-for-linux = {
+      source = ../files/config/whatsapp-for-linux;
+      recursive = true;
+      target = "${config.xdg.configHome}/whatsapp-for-linux";
     };
   };
 }
