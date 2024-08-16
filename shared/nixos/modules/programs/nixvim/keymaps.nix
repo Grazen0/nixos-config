@@ -1,9 +1,6 @@
 {lib, ...}: {
   programs.nixvim = {
-    globals = {
-      mapleader = ",";
-      maplocalleader = ",";
-    };
+    globals.mapleader = " ";
 
     keymaps = let
       normal =
@@ -14,6 +11,9 @@
           options.silent = true;
         })
         {
+          # Disable any existing <Space> mappings
+          "<Space>" = "<Nop>";
+
           # Clear highlights with escape
           "<Esc>" = "<cmd>noh<CR>";
 
