@@ -1,12 +1,15 @@
 {
-  programs.nixvim.files = {
-    "ftplugin/nix.lua" = {
+  programs.nixvim.files = let
+    indentSpace = w: {
       opts = {
         expandtab = true;
-        shiftwidth = 2;
-        tabstop = 2;
+        shiftwidth = w;
+        tabstop = w;
       };
     };
+  in {
+    "ftplugin/nix.lua" = indentSpace 2;
+    "ftplugin/haskell.lua" = indentSpace 2;
 
     "ftplugin/tex.lua" = {
       opts = {
