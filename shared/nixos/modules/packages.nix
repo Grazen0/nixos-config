@@ -23,6 +23,7 @@
     obsidian
     pavucontrol
     spotify
+    zapzap
     zoom-us
 
     # LibreOffice + spellcheck
