@@ -27,7 +27,12 @@
         '';
       };
 
-      sessions = {};
+      sessions = {
+        hooks = {
+          pre.write.__raw = ''function() vim.cmd("Neotree close"); end'';
+          post.read.__raw = ''function() vim.cmd("Neotree filesystem show"); end'';
+        };
+      };
     };
   };
 }

@@ -9,6 +9,7 @@
         "<leader>fb" = "buffers";
         "<leader>fr" = "lsp_references";
         "<leader>fh" = "help_tags";
+        "<leader>ft" = "todo-comments";
       };
 
       settings.defaults = {

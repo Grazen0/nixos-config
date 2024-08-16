@@ -2,11 +2,11 @@
   imports = [
     ./cmp.nix
     ./conform.nix
-    ./extra.nix
     ./mini.nix
     ./multicursors.nix
-    ./nvim-tree.nix
+    ./neo-tree.nix
     ./telescope.nix
+    ./ultisnips.nix
     ./vimtex.nix
   ];
 
@@ -14,13 +14,14 @@
   programs.nixvim.plugins = {
     comment.enable = true;
     inc-rename.enable = true;
-    gitgutter.enable = true;
+    indent-blankline.enable = true;
+    gitsigns.enable = true;
     markdown-preview.enable = true;
     neocord.enable = true;
     nvim-autopairs.enable = true;
     nvim-colorizer.enable = true;
     lualine.enable = true;
-    surround.enable = true;
     todo-comments.enable = true;
+    surround.enable = true;
   };
 }

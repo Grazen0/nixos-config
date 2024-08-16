@@ -55,12 +55,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.urgent {
-  background-color: @yellow;
-}
-
-#workspaces button.active {
-  background-color: @blue;
-  color: @background;
+  color: @yellow;
 }
 
 #submap,

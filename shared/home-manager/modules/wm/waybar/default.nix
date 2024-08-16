@@ -41,12 +41,8 @@
         "hyprland/workspaces" = {
           format = "{icon}";
           format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "󰠮";
-            "6" = "";
-            "10" = "";
-            default = "";
+            default = "";
+            active = "";
           };
         };
 
@@ -101,7 +97,7 @@
             critical = 15;
           };
           format = "{icon} {capacity}%";
-          format-full = "{icon} {capacity}%";
+          format-full = " {capacity}%";
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
           format-icons = ["" "" "" "" ""];

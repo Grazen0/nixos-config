@@ -37,7 +37,7 @@
         "$mainMod SHIFT, T, pseudo"
         "$mainMod, S, setfloating"
         "$mainMod, P, pin"
-        # "$mainMod SHIFT, J, togglesplit"
+        "$mainMod SHIFT, S, togglesplit"
 
         # Move window focus
         "$mainMod, H, movefocus, l"
@@ -128,6 +128,7 @@
         # Travel workspaces with mouse
         "$mainMod, mouse_down, workspace, r+1"
         "$mainMod, mouse_up, workspace, r-1"
+
         # Brightness control
         ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
@@ -155,7 +156,7 @@
       bindl = [
         ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
-        # Player contro
+        # Player control
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
         ", XF86AudioNext, exec, playerctl next"
