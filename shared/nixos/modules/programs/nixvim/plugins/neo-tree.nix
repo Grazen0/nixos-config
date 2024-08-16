@@ -2,6 +2,8 @@
   programs.nixvim.plugins.neo-tree = {
     enable = true;
 
+    # FIX: when quitting nvim from neo-tree, the last open window doesn't get saved
+
     window = {
       width = 30;
 
@@ -85,6 +87,12 @@
         showHiddenCount = false;
         hideDotfiles = false;
         hideGitignored = false;
+        hideByName = [
+          ".git"
+          "__pycache__"
+          ".DS_Store"
+          "thumbs.db"
+        ];
       };
     };
 
