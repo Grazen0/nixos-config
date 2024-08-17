@@ -28,7 +28,7 @@
       "float, title:^(File Upload)(.*)$"
 
       "workspace 3, ^(obsidian)$"
-      "workspace 6, ^(whatsapp-for-linux)$"
+      "workspace 6, ^(com.rtosta.zapzap)$"
       "workspace 7, ^(vesktop)$"
       "workspace 10, title:Spotify"
     ];
