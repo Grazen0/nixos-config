@@ -2,7 +2,7 @@
   home.file = let
     programs = [
       "vesktop"
-      "whatsapp-for-linux"
+      "ZapZap"
     ];
   in
     {
