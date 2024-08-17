@@ -1,21 +1,24 @@
 {config, ...}: {
-  home.file = {
-    wallpapers = {
-      source = ../files/wallpapers;
-      recursive = true;
-      target = "${config.xdg.userDirs.pictures}/Wallpapers";
-    };
-
-    vesktop = {
-      source = ../files/config/vesktop;
-      recursive = true;
-      target = "${config.xdg.configHome}/vesktop";
-    };
-
-    whatsapp-for-linux = {
-      source = ../files/config/whatsapp-for-linux;
-      recursive = true;
-      target = "${config.xdg.configHome}/whatsapp-for-linux";
-    };
-  };
+  home.file = let
+    programs = [
+      "vesktop"
+      "whatsapp-for-linux"
+    ];
+  in
+    {
+      wallpapers = {
+        source = ../files/wallpapers;
+        recursive = true;
+        target = "${config.xdg.userDirs.pictures}/Wallpapers";
+      };
+    }
+    // builtins.listToAttrs (builtins.map (program: {
+        name = program;
+        value = {
+          source = ../files/config/${program};
+          recursive = true;
+          target = "${config.xdg.configHome}/${program}";
+        };
+      })
+      programs);
 }
