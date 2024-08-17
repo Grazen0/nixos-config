@@ -15,100 +15,127 @@
 @define-color white #c8c093;
 @define-color bright-white #dcd7ba;
 
-@define-color background @black;
+@define-color background #1f1f28;
 @define-color foreground @bright-white;
-@define-color disabled @bright-black;
 
+/* GENERAL */
 * {
   font-family:
     JetBrainsMonoNL Nerd Font Propo,
     monospace;
-  font-size: 14px;
+  font-size: 10pt;
   color: inherit;
 }
 
 window#waybar {
-  background-color: @background;
+  background-color: transparent;
+  color: @foreground;
   transition-property: background-color;
   transition-duration: 0.5s;
-  border-radius: 12px;
-  color: @foreground;
 }
 
 window#waybar.hidden {
   opacity: 0.2;
 }
 
+#custom-sysmenu,
+#tray,
+#language,
+#custom-media,
+#submap,
+#pulseaudio,
+#battery,
+#temperature,
+#network,
+#clock,
+#custom-power {
+  margin: 0 2px;
+  padding: 0 14px;
+  background-color: @background;
+  border-radius: 8pt;
+}
+
+/* SYSMENU */
 #custom-sysmenu {
+  padding: 0 10px;
   color: @bright-cyan;
   font-size: 1.3em;
-  margin: 0 8px 0 12px;
+}
+
+/* TRAY */
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* LANGUAGE */
+#language {
+  color: @white;
+}
+
+/* MEDIA */
+#custom-media {
+  color: @bright-magenta;
+}
+
+#custom-media.inactive {
+  color: @bright-black;
+}
+
+/* SUBMAP */
+#submap {
+  background-color: @magenta;
+  color: @black;
+}
+
+/* WORKSPACES */
+#workspaces {
+  background-color: @background;
+  border-radius: 8pt;
+  padding: 0 16px;
 }
 
 #workspaces button {
   padding: 0 8px;
-  border-radius: 0;
 }
 
-#workspaces button.empty {
-  color: @disabled;
+#workspaces button.empty:not(.active) {
+  color: @bright-black;
 }
 
 #workspaces button.urgent {
-  color: @yellow;
+  color: @bright-yellow;
 }
 
-#submap,
-#clock,
-#battery,
-#temperature,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mpd {
-  padding: 0 8px;
-}
-
-#window,
-#custom-power {
-  margin: 0 4px;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
-}
-
-#language {
-  padding: 0 5px;
-  margin: 0 5px;
-}
-
-#submap {
-  background-color: @magenta;
-  color: @background;
-}
-
-#battery.critical:not(.charging) {
-  background-color: @red;
-}
-
-label:focus {
-  background-color: @background;
-}
-
+/* PULSEAUDIO */
 #pulseaudio.muted {
-  color: @disabled;
+  color: @bright-black;
 }
 
-#wireplumber.muted {
+/* NETWORK */
+#network {
+  color: @bright-green;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+/* TEMPERATURE */
+#temperature {
+  color: @blue;
+}
+
+#temperature.critical {
+  background-color: @red;
+  color: @foreground;
+}
+
+/* BATTERY */
+#battery.critical:not(.charging) {
   background-color: @red;
 }
 
@@ -126,34 +153,9 @@ label:focus {
 /* 	background-color: #ffa000; */
 /* } */
 
-#network {
-  color: @green;
-}
-
-#network.disconnected {
-  color: @red;
-}
-
-#temperature {
-  color: @blue;
-}
-
-#temperature.critical {
-  background-color: @red;
-  color: @foreground;
-}
-
+/* CLOCK */
 #clock {
   color: @bright-yellow;
-}
-
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: @red;
 }
 
 /* #mpd { */
@@ -172,28 +174,3 @@ label:focus {
 /* #mpd.paused { */
 /* 	background-color: #51a37a; */
 /* } */
-
-#custom-power {
-  color: @red;
-}
-
-#privacy {
-  padding: 0;
-}
-
-#privacy-item {
-  padding: 0 5px;
-  color: white;
-}
-
-#privacy-item.screenshare {
-  background-color: #cf5700;
-}
-
-#privacy-item.audio-in {
-  background-color: #1ca000;
-}
-
-#privacy-item.audio-out {
-  background-color: #0069d4;
-}

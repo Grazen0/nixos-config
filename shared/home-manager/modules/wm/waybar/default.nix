@@ -1,8 +1,14 @@
 {
+  imports = [./scripts.nix];
+
   programs.waybar = {
     enable = true;
+    style = ./style.css;
+
     settings = {
       mainBar = {
+        reload_style_on_change = true;
+
         layer = "top";
         position = "top";
         height = 32;
@@ -11,31 +17,51 @@
         margin-right = 8;
         margin-left = 8;
         margin-bottom = 0;
-        fixed-center = false;
 
         modules-left = [
           "custom/sysmenu"
-          "hyprland/workspaces"
+          "tray"
+          "hyprland/language"
+          "custom/media"
+          "hyprland/submap"
         ];
         modules-center = [
-          "hyprland/window"
+          "hyprland/workspaces"
         ];
         modules-right = [
-          "hyprland/submap"
-          "hyprland/language"
           "pulseaudio"
           "network"
           "temperature"
           "battery"
           "clock"
-          "tray"
           "custom/power"
         ];
 
         "custom/sysmenu" = {
           format = "";
-          tooltip-format = "";
+          tooltip-format = "App launcher";
           on-click = "rofi -show drun";
+        };
+        tray = {
+          spacing = 10;
+        };
+        "hyprland/language" = {
+          format = " {short}";
+        };
+        "custom/media" = {
+          interval = 1;
+          format = "{icon}{}";
+          format-icons = [""];
+          escape = true;
+          return-type = "json";
+          max-length = 35;
+          on-click = "playerctl play-pause";
+          on-click-right = "playerctl stop";
+          exec = "media-query";
+        };
+        "hyprland/submap" = {
+          format = " {}";
+          on-click = "hyprctl dispatch submap reset";
         };
 
         "hyprland/workspaces" = {
@@ -43,32 +69,25 @@
           format-icons = {
             default = "";
             active = "";
+            urgent = "";
           };
         };
 
-        "hyprland/window" = {
-          format = "{initialTitle}";
-          icon = true;
-          icon-size = 20;
-          separate-outputs = true;
+        pulseaudio = {
+          scroll-step = 5;
+          format = "{icon} {volume}%";
+          format-muted = " {volume}%";
+          format-icons.default = ["" ""];
+          on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
         };
-
-        "hyprland/submap" = {
-          format = " {}";
-          on-click = "hyprctl dispatch submap reset";
-        };
-
-        tray = {
-          spacing = 10;
-        };
-
-        clock = {
+        network = {
           interval = 1;
-          format = "{:%d/%m %H:%M}";
-          format-alt = "{:%d/%m/%Y %H:%M:%S}";
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format-wifi = " {bandwidthTotalBytes}";
+          format-ethernet = "{ipaddr}/{cidr} ";
+          tooltip-format = "{essid}";
+          format-disconnected = " Offline";
+          on-click = "nm-connection-editor";
         };
-
         temperature = {
           interval = 2;
           # thermal-zone = 2;
@@ -77,18 +96,6 @@
           format = "{icon} {temperatureC}°C";
           format-icons = ["" "" "" "" ""];
         };
-
-        "hyprland/language" = {
-          format = " {short}";
-        };
-
-        pulseaudio = {
-          scroll-step = 5;
-          format = "{icon} {volume}%";
-          format-muted = " {volume}%";
-          format-icons.default = ["" ""];
-        };
-
         battery = {
           interval = 5;
           full-at = 97;
@@ -102,24 +109,18 @@
           format-plugged = " {capacity}%";
           format-icons = ["" "" "" "" ""];
         };
-
-        network = {
+        clock = {
           interval = 1;
-          format-wifi = " {bandwidthTotalBytes}";
-          format-ethernet = "{ipaddr}/{cidr} ";
-          tooltip-format = "{essid}";
-          format-disconnected = " Offline";
-          on-click = "nm-connection-editor";
+          format = " {:%H:%M}";
+          format-alt = " {:%d/%m/%y}";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
-
         "custom/power" = {
-          format = "⏻ ";
-          tooltip = false;
+          format = "";
+          tooltip-format = "Power menu";
           on-click = "rofi -show menu -modi \"menu:rofi-power-menu\"";
         };
       };
     };
-
-    style = ./style.css;
   };
 }
