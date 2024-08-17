@@ -47,9 +47,9 @@
     extraConfigLua = ''
       -- Custom icons
       local signs = {
-      	Error = '󰅙 ',
+      	Error = ' ',
       	Warn = ' ',
-      	Hint = '󰌵 ',
+      	Hint = ' ',
       	Info = ' ',
       };
 
