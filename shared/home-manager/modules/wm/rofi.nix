@@ -34,12 +34,9 @@
       };
 
       window = {
-        width = lit "720px";
-
-        border-radius = lit "10px";
-
         background-color = background;
         padding = lit "20px";
+        border-radius = lit "10px";
       };
 
       inputbar = {
