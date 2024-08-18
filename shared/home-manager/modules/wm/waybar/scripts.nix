@@ -5,16 +5,17 @@
 
       class=""
       text=""
+      tooltip=""
 
-      if playerctl status &> /dev/null; then
+      # TODO: check this out n fix
+      if playerctl status > /dev/null; then
         text=" $(playerctl metadata title)"
         tooltip=$(playerctl status)
 
         if [ "$tooltip" != "Playing" ]; then
-          class="inactive"
+          class="paused"
         fi
       else
-        tooltip="No media playing"
         class="inactive"
       fi
 

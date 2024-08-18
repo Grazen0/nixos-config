@@ -81,8 +81,16 @@ window#waybar.hidden {
   color: @bright-magenta;
 }
 
-#custom-media.inactive {
+#custom-media.paused {
   color: @bright-black;
+}
+
+#custom-media.inactive {
+  background-color: transparent;
+  color: transparent;
+  font-size: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* SUBMAP */
