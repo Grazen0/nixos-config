@@ -22,7 +22,7 @@
         # Menus
         "$mainMod, Space, exec, pkill rofi || rofi -show drun"
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-        "$mainMod, Period, exec, bemoji -tc"
+        "$mainMod, Period, exec, bemoji -tcn"
         "$mainMod, X, exec, rofi -show menu -modi \"menu:rofi-power-menu\""
 
         # Screen capture
