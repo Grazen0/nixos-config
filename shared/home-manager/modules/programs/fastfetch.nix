@@ -14,10 +14,12 @@
         {
           "type" = "cpu";
           "key" = "  󰻠";
+          "format" = "{name}";
         }
         {
           "type" = "gpu";
           "key" = "  󰍛";
+          "format" = "{vendor} {name}";
         }
         {
           "type" = "disk";
@@ -78,7 +80,7 @@
       "display" = {
         "separator" = "    ";
         "constants" = [
-          "────────────────"
+          "──────────────"
         ];
       };
     };
