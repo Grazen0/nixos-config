@@ -23,6 +23,7 @@
       lt = "ls --tree --icons";
       lta = "lt -a";
       l = "lla -h";
+      lsfr = "${pkgs.coreutils}/bin/ls";
 
       grep = "grep --color=auto";
       fgrep = "fgrep --color=auto";
@@ -47,12 +48,12 @@
       grst = "git restore --staged";
 
       cat = "bat";
-      catfr = "env cat"; # FIX: should have an actual path
+      catfr = "${pkgs.coreutils}/bin/cat";
 
       rm = "rmtrash";
-      rmdir = "rmdirtrash"; # FIX: should have an actual path
-      rmfr = "env rm";
-      rmdirfr = "env rmdir"; # FIX: should have an actual path
+      rmdir = "rmdirtrash";
+      rmfr = "${pkgs.coreutils}/bin/rm";
+      rmdirfr = "${pkgs.coreutils}/bin/rmdir";
 
       v = "nvim";
       emacs = "nvim";
