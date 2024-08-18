@@ -46,15 +46,16 @@
     wget
 
     # System/WM
+    bemoji
     dex
     grim
     hyprpicker
     networkmanagerapplet
     polkit_gnome
     rofi-power-menu
-    rofimoji
     slurp
     wl-clipboard
+    wtype
 
     # Codeing
     cargo
