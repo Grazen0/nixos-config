@@ -135,7 +135,7 @@ window#waybar.hidden {
 
 /* TEMPERATURE */
 #temperature {
-  color: @blue;
+  color: @bright-blue;
 }
 
 #temperature.critical {
