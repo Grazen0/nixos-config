@@ -28,10 +28,11 @@
 
       "size 960 540, ^([Tt]hunar)$" # Thunar is too small by default
 
+      # Workspace-specific programs
       "workspace 3, ^(obsidian)$"
-      "workspace 6, ^(com.rtosta.zapzap)$"
+      "workspace 6, ^(.*)(\.zapzap)$"
       "workspace 7, ^(vesktop)$"
-      "workspace 10, title:Spotify"
+      "workspace 10, title:(Spotify)"
     ];
 
     windowrulev2 = [
@@ -40,6 +41,10 @@
       "opacity 0.8, floating:1, focus:0"
 
       "suppressevent maximize, class:.*"
+    ];
+
+    layerrule = [
+      "dimaround, rofi"
     ];
   };
 }
