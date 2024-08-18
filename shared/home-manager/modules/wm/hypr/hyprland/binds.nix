@@ -13,7 +13,7 @@
         # Programs
         "$mainMod, Return, exec, $terminal"
         "$mainMod SHIFT, Return, exec, [float; size 50% 50%] $terminal"
-        "$mainMod, E, exec, [float; size 960 540] $fileManager"
+        "$mainMod, E, exec, $fileManager"
         "$mainMod, B, exec, $browser"
 
         # yeah

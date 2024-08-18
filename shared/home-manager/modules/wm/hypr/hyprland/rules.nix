@@ -1,8 +1,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     windowrule = [
-      "float, Thunar"
-      "float, thunar"
+      "float, ^([Tt]hunar)$"
       "float, ^(org.pulseaudio.pavucontrol)$"
       "float, blueman-manager"
       "float, ^(org.kde.ark)$"
@@ -26,6 +25,8 @@
       "float, title:^(Save As)(.*)$"
       "float, title:^(Library)(.*)$"
       "float, title:^(File Upload)(.*)$"
+
+      "size 960 540, ^([Tt]hunar)$" # Thunar is too small by default
 
       "workspace 3, ^(obsidian)$"
       "workspace 6, ^(com.rtosta.zapzap)$"
