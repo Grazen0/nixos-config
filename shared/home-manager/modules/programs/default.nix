@@ -6,7 +6,6 @@
     ./git.nix
     ./kitty.nix
     ./librewolf.nix
-    ./peaclock.nix
     ./ranger.nix
     ./tmux.nix
     ./zathura.nix

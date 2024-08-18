@@ -1,6 +1,7 @@
 {config, ...}: {
   home.file = let
     programs = [
+      "peaclock"
       "vesktop"
       "ZapZap"
     ];
