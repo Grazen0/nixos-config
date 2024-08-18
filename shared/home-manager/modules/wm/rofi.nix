@@ -7,8 +7,10 @@
     enable = true;
     package = pkgs.rofi-wayland;
 
-    font = "JetBrainsMonoNL Nerd Font 12";
+    font = "JetBrainsMonoNL Nerd Font 10";
     terminal = "${pkgs.kitty}/bin/kitty";
+
+    location = "center";
 
     extraConfig = {
       show-icons = true;
@@ -20,24 +22,21 @@
 
     theme = let
       lit = config.lib.formats.rasi.mkLiteral;
-
       background = lit "#1f1f28";
+      background-alt = lit "#363646";
+      background-alt-2 = lit "#16161d";
       foreground = lit "#dcd7ba";
-      accent = lit "#7fb4ca";
-      disabled = lit "#727169";
-      alert = lit "#e82424";
+      foreground-alt = lit "#727169";
     in {
       "*" = {
         background-color = lit "transparent";
+        text-color = foreground;
       };
 
       window = {
-        location = lit "center";
-        width = lit "480px";
+        width = lit "720px";
 
-        border = lit "2px";
-        border-radius = lit "24px";
-        border-color = accent;
+        border-radius = lit "10px";
 
         background-color = background;
         padding = lit "20px";
@@ -45,70 +44,49 @@
 
       inputbar = {
         children = map lit ["entry"];
-        background-color = background;
+        background-color = background-alt-2;
 
-        border = lit "2px";
-        border-color = accent;
-        border-radius = lit "16px";
+        border-radius = lit "8px";
 
         padding = lit "8px 16px";
         spacing = lit "8px";
       };
 
-      "entry, element-text, element-icon" = {
-        vertical-align = lit "0.5";
-      };
-
       listview = {
-        lines = 6;
-        columns = 1;
+        lines = 4;
+        columns = 6;
         fixed-height = true;
-        scrollbar = false;
 
         border = lit "none";
         margin = lit "12px 0 0";
-        spacing = lit "15px";
       };
 
       element = {
         padding = lit "8px 16px";
-        border-radius = lit "16px";
-        border = lit "1px";
-        border-color = accent;
+        margin = lit "2px";
+        border-radius = lit "8px";
+        orientation = lit "vertical";
       };
 
-      "element.normal.normal, element.alternate.normal" = {
-        background-color = lit "transparent";
-        text-color = foreground;
-      };
-
-      "element.selected.normal" = {
-        background-color = accent;
-        text-color = background;
+      "element.selected" = {
+        background-color = background-alt;
       };
 
       element-text = {
+        horizontal-align = lit "0.5";
         text-color = lit "inherit";
+        margin = lit "0.2em 0";
       };
 
       element-icon = {
-        size = lit "1.5em";
+        size = lit "2.5em";
+        padding = lit "0 4px 0 0";
       };
 
       entry = {
         placeholder = "Search...";
-        placeholder-color = disabled;
+        placeholder-color = foreground-alt;
         text-color = foreground;
-      };
-
-      message = {
-        margin = lit "15px 0";
-        border-radius = lit "16px";
-        border = lit "none";
-      };
-
-      textbox = {
-        text-color = alert;
       };
     };
   };
