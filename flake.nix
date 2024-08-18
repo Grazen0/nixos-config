@@ -46,6 +46,9 @@
       inherit inputs outputs username;
     };
   in {
+    packages = nixpkgs.legacyPackages.${system};
+    formatter = nixpkgs.legacyPackages.${system}.alejandra;
+
     nixosConfigurations = builtins.foldl' (acc: host:
       acc
       // {
