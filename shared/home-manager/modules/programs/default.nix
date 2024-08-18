@@ -13,6 +13,7 @@
 
   programs = {
     eza.enable = true;
+    nix-index.enable = true;
     mpv.enable = true;
     obs-studio.enable = true;
     vscode.enable = true;

@@ -37,7 +37,6 @@
     btop
     cmatrix
     killall
-    nix-index
     peaclock
     pipes-rs
     playerctl
