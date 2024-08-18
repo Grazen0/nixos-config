@@ -43,7 +43,6 @@
     black
     isort
     prettierd
-    rustfmt
     stylua
   ];
 }
