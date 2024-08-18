@@ -5,7 +5,7 @@
       gaps_out = 12;
       border_size = 3;
 
-      "col.active_border" = "rgb(A3D4D5) rgb(76946A) 45deg";
+      "col.active_border" = "rgb(a3d4d5) rgb(938aa9) 45deg";
       "col.inactive_border" = "rgba(727169aa)";
       no_focus_fallback = true;
 
