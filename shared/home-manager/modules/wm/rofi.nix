@@ -7,15 +7,14 @@
     enable = true;
     package = pkgs.rofi-wayland;
 
-    font = "JetBrainsMonoNL Nerd Font 10";
+    font = "JetBrainsMonoNL Nerd Font Propo 10";
     terminal = "${pkgs.kitty}/bin/kitty";
 
     location = "center";
 
     extraConfig = {
       show-icons = true;
-      display-drun = "";
-      drun-display-format = "{name}";
+      display-drun = "";
       hide-scrollbar = true;
       m = -4;
     };
@@ -40,7 +39,7 @@
       };
 
       inputbar = {
-        children = map lit ["entry"];
+        children = map lit ["prompt" "entry"];
         background-color = background-alt-2;
 
         border-radius = lit "8px";
