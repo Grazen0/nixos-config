@@ -15,11 +15,13 @@
     extraConfig = {
       show-icons = true;
       display-drun = "";
+      display-dmenu = "";
       drun-display-format = "{name}";
       hide-scrollbar = true;
       m = -4;
     };
 
+    # TODO: somehow add list-styled theme for things other than app launching
     theme = let
       lit = config.lib.formats.rasi.mkLiteral;
       background = lit "#1f1f28";
