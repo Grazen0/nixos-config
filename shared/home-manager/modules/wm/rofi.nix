@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -15,7 +11,6 @@
     extraConfig = {
       show-icons = true;
       display-drun = "";
-      display-dmenu = "";
       drun-display-format = "{name}";
       hide-scrollbar = true;
       m = -4;
