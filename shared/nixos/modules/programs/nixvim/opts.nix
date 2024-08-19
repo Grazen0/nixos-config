@@ -11,6 +11,7 @@
       hidden = true;
       updatetime = 100;
 
+      relativenumber = true;
       signcolumn = "yes";
       autoindent = true;
       expandtab = true;
