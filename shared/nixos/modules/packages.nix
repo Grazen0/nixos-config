@@ -34,7 +34,6 @@
 
     # CLI utilities
     brightnessctl
-    btop
     cbonsai
     cmatrix
     killall
