@@ -4,8 +4,6 @@
 
     closeIfLastWindow = true;
 
-    # FIX: when quitting nvim from neo-tree, the last open window doesn't get saved
-
     window = {
       width = 30;
 
@@ -99,6 +97,10 @@
     eventHandlers.neo_tree_buffer_enter = ''
       function()
         vim.opt_local.relativenumber = true;
+
+        -- Refresh filesystem
+        local events = require("neo-tree.events");
+        events.fire_event(events.GIT_EVENT);
       end
     '';
   };
