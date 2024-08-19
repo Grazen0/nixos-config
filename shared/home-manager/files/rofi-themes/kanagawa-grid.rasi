@@ -1,19 +1,12 @@
-* {
-  background-color: transparent;
-  text-color: #dcd7ba;
-}
-
-window {
-  background-color: #1f1f28;
-  border-radius: 10px;
-  padding: 20px;
-}
+@theme "kanagawa"
 
 element {
-  border-radius: 8px;
-  margin: 2px;
   orientation: vertical;
   padding: 8px 16px;
+}
+
+element-text {
+  vertical-align: 0.5;
 }
 
 element-icon {
@@ -22,33 +15,11 @@ element-icon {
 }
 
 element-text {
-  horizontal-align: 0.5;
-  margin: 0.2em 0;
-  text-color: inherit;
-}
-
-element.selected {
-  background-color: #363646;
-}
-
-entry {
-  placeholder: "Search...";
-  placeholder-color: #727169;
-  text-color: #dcd7ba;
-}
-
-inputbar {
-  background-color: #16161d;
-  border-radius: 8px;
-  children: [prompt, entry];
-  padding: 8px 16px;
-  spacing: 8px;
+  font: "JetBrainsMonoNL Nerd Font 10";
 }
 
 listview {
-  border: none;
   columns: 6;
-  fixed-height: true;
   lines: 4;
-  margin: 12px 0 0;
 }
+

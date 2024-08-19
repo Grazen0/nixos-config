@@ -12,7 +12,7 @@ window {
 element {
   border-radius: 8px;
   margin: 2px;
-  padding: 8px 16px;
+  padding: 4px 16px;
 }
 
 element-icon {

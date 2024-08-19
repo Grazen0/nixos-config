@@ -3,7 +3,7 @@
     enable = true;
     package = pkgs.rofi-wayland;
 
-    font = "JetBrainsMonoNL Nerd Font Propo 10";
+    font = "JetBrainsMonoNL Nerd Font Propo 12";
     terminal = "${pkgs.kitty}/bin/kitty";
     location = "center";
     theme = "kanagawa";
