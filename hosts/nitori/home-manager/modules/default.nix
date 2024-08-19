@@ -1,6 +1,6 @@
 {
   imports = [
     ./hypr
-    ./files.nix
+    ./scripts.nix
   ];
 }
