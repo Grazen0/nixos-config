@@ -18,6 +18,11 @@
     };
 
     thorium-browser.url = "git+https://codeberg.org/Tomkoid/thorium-browser-nix";
+
+    nix-matlab = {
+      url = "gitlab:doronbehar/nix-matlab";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -27,6 +32,7 @@
     nixos-hardware,
     home-manager,
     nixvim,
+    nix-matlab,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -45,6 +51,10 @@
 
       inherit inputs outputs username;
     };
+
+    flake-overlays = [
+      nix-matlab.overlay
+    ];
   in {
     packages = nixpkgs.legacyPackages.${system};
     formatter = nixpkgs.legacyPackages.${system}.alejandra;
@@ -55,7 +65,7 @@
         ${host} = nixpkgs.lib.nixosSystem {
           modules = [
             nixvim.nixosModules.nixvim
-            ./shared/nixos/configuration.nix
+            (import ./shared/nixos/configuration.nix flake-overlays)
             ./hosts/${host}/nixos/configuration.nix
           ];
 

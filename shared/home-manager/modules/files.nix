@@ -2,6 +2,7 @@
   home.file = let
     programs = [
       "ZapZap"
+      "matlab"
       "nixpkgs"
       "peaclock"
       "vesktop"

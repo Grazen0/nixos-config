@@ -19,6 +19,7 @@
     vesktop
     gimp
     kitty
+    matlab
     nsxiv
     obsidian
     pavucontrol

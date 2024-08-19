@@ -1,4 +1,4 @@
-{
+flake-overlays: {
   config,
   lib,
   pkgs,
@@ -35,4 +35,6 @@
   };
 
   system.stateVersion = "24.05";
+
+  nixpkgs.overlays = flake-overlays;
 }
