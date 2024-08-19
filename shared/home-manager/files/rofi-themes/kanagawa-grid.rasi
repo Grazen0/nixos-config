@@ -6,7 +6,7 @@ element {
 }
 
 element-text {
-  vertical-align: 0.5;
+  horizontal-align: 0.5;
 }
 
 element-icon {
