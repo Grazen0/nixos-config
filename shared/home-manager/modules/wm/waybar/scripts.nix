@@ -7,7 +7,6 @@
       text=""
       tooltip=""
 
-      # TODO: check this out n fix
       if playerctl status > /dev/null; then
         text=" $(playerctl metadata title)"
         tooltip=$(playerctl status)
