@@ -43,6 +43,7 @@ window#waybar.hidden {
 #language,
 #custom-media,
 #submap,
+#workspaces,
 #pulseaudio,
 #battery,
 #temperature,
@@ -101,9 +102,8 @@ window#waybar.hidden {
 
 /* WORKSPACES */
 #workspaces {
-  background-color: @background;
-  border-radius: 8pt;
   padding: 0 16px;
+  margin: 0 8px;
 }
 
 #workspaces button {
