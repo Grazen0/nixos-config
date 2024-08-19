@@ -14,6 +14,12 @@
         recursive = true;
         target = "${config.xdg.userDirs.pictures}/Wallpapers";
       };
+
+      rofi-themes = {
+        source = ../files/rofi-themes;
+        recursive = true;
+        target = "${config.xdg.dataHome}/rofi/themes";
+      };
     }
     // builtins.listToAttrs (builtins.map (program: {
         name = program;
