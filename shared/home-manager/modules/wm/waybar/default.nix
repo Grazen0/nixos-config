@@ -84,7 +84,7 @@
           interval = 1;
           format-wifi = " {bandwidthTotalBytes}";
           format-ethernet = "{ipaddr}/{cidr} ";
-          tooltip-format = "{essid}";
+          tooltip-format = "{essid} ({signalStrength}%)";
           format-disconnected = " Offline";
           on-click = "nm-connection-editor";
         };
