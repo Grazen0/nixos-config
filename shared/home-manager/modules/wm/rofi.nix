@@ -15,6 +15,7 @@
     extraConfig = {
       show-icons = true;
       display-drun = "";
+      drun-display-format = "{name}";
       hide-scrollbar = true;
       m = -4;
     };
