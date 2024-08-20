@@ -9,6 +9,29 @@ window {
   padding: 20px;
 }
 
+inputbar {
+  background-color: #16161d;
+  border-radius: 8px;
+  children: [prompt, entry];
+  padding: 8px 16px;
+  spacing: 8px;
+}
+
+entry {
+  placeholder: "Search...";
+  placeholder-color: #727169;
+  text-color: #dcd7ba;
+}
+
+
+listview {
+  border: none;
+  columns: 1;
+  lines: 8;
+  fixed-height: true;
+  margin: 12px 0 0;
+}
+
 element {
   border-radius: 8px;
   margin: 2px;
@@ -27,26 +50,3 @@ element-text {
 element.selected {
   background-color: #363646;
 }
-
-entry {
-  placeholder: "Search...";
-  placeholder-color: #727169;
-  text-color: #dcd7ba;
-}
-
-inputbar {
-  background-color: #16161d;
-  border-radius: 8px;
-  children: [prompt, entry];
-  padding: 8px 16px;
-  spacing: 8px;
-}
-
-listview {
-  border: none;
-  columns: 1;
-  lines: 8;
-  fixed-height: true;
-  margin: 12px 0 0;
-}
-
