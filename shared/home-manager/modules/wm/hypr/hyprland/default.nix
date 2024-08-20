@@ -17,7 +17,7 @@
 
     settings = {
       "$terminal" = "kitty";
-      "$browser" = "librewolf";
+      "$browser" = "brave";
       "$fileManager" = "thunar";
     };
 
