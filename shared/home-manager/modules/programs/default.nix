@@ -6,7 +6,6 @@
     ./fastfetch.nix
     ./git.nix
     ./kitty.nix
-    ./librewolf.nix
     ./ranger.nix
     ./tmux.nix
     ./zathura.nix

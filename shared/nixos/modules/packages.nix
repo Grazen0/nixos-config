@@ -15,8 +15,8 @@
     home-manager
 
     # Apps
-    inputs.thorium-browser.defaultPackage.${system}
     ark
+    brave
     vesktop
     gimp
     kitty
