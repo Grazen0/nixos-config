@@ -9,9 +9,9 @@
       enable = true;
 
       defaultApplications = {
-        "x-scheme-handler/webcal" = "librewolf.desktop";
-        "x-scheme-handler/http" = "librewolf.desktop";
-        "x-scheme-handler/https" = "librewolf.desktop";
+        "x-scheme-handler/webcal" = "brave-browser.desktop";
+        "x-scheme-handler/http" = "brave-browser.desktop";
+        "x-scheme-handler/https" = "brave-browser.desktop";
 
         "inode/directory" = "thunar.desktop";
 
