@@ -1,3 +1,3 @@
-{
-  imports = [./modules];
+_: {
+  imports = [./modules ../../../shared/home-manager/home.nix];
 }

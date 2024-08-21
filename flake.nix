@@ -39,7 +39,7 @@
     username = "jdgt";
     hosts = ["nitori" "takane"];
 
-    specialArgs = {
+    specialArgsPre = {
       pkgs-stable = import nixpkgs-stable {
         inherit system;
         config.allowUnfree = true;
@@ -60,29 +60,29 @@
     nixosConfigurations = builtins.foldl' (acc: host:
       acc
       // {
-        ${host} = nixpkgs.lib.nixosSystem {
-          modules = [
-            nixvim.nixosModules.nixvim
-            (import ./shared/nixos/configuration.nix flake-overlays)
-            ./hosts/${host}/nixos/configuration.nix
-          ];
+        ${host} = let
+          specialArgs = specialArgsPre // {inherit host;};
+        in
+          nixpkgs.lib.nixosSystem {
+            modules = [
+              (import ./shared/nixos/configuration.nix flake-overlays)
+              ./hosts/${host}/nixos/configuration.nix
+              home-manager.nixosModules.home-manager
+              nixvim.nixosModules.nixvim
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  users.${username} = args:
+                    (import ./shared/home-manager/home.nix args)
+                    // (import ./hosts/${host}/home-manager/home.nix args);
+                  extraSpecialArgs = specialArgs;
+                };
+              }
+            ];
 
-          specialArgs = specialArgs // {inherit host;};
-        };
-      }) {}
-    hosts;
-
-    homeConfigurations = builtins.foldl' (acc: host:
-      acc
-      // {
-        "${username}@${host}" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
-          extraSpecialArgs = specialArgs // {inherit host;};
-          modules = [
-            ./shared/home-manager/home.nix
-            ./hosts/${host}/home-manager/home.nix
-          ];
-        };
+            specialArgs = specialArgs;
+          };
       }) {}
     hosts;
   };
