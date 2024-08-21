@@ -65,7 +65,10 @@
 
       "2048" = "2048-in-terminal";
 
-      rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
+      rb = "sudo nixos-rebuild --flake ${flakeDir}";
+      rbs = "sudo nixos-rebuild switch --flake ${flakeDir}";
+      rbb = "sudo nixos-rebuild boot --flake ${flakeDir}";
+      rbt = "sudo nixos-rebuild test --flake ${flakeDir}";
       upd = "nix flake update ${flakeDir}";
 
       # I'm kinda clumsy
