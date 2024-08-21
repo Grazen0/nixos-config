@@ -66,9 +66,7 @@
       "2048" = "2048-in-terminal";
 
       rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
-      hms = "home-manager switch --flake ${flakeDir}";
       upd = "nix flake update ${flakeDir}";
-      upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
 
       # I'm kinda clumsy
       ":q" = "exit";
