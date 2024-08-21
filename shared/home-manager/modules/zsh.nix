@@ -12,7 +12,7 @@
     historySubstringSearch.enable = true;
 
     shellAliases = let
-      flakeDir = "~/nixos";
+      flakeDir = "${config.xdg.configHome}/nixos";
     in {
       h = "Hyprland";
 
