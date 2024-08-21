@@ -22,6 +22,7 @@
     nvim-colorizer.enable = true;
     lualine.enable = true;
     todo-comments.enable = true;
+    spectre.enable = true;
     surround.enable = true;
   };
 }

@@ -44,6 +44,11 @@
 
           # multicursors.nvim
           "<leader>m" = "<cmd>MCunderCursor<CR>";
+
+          # nvim-spectre
+          "<leader>S" = "<cmd>lua require('spectre').toggle()<CR>";
+          "<leader>sw" = "<cmd>lua require('spectre').open_visual({select_word=true})<CR>";
+          "<leader>sp" = "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>";
         };
       normal-expr =
         lib.mapAttrsToList
@@ -77,6 +82,16 @@
         {
           "<C-l>" = "<C-g>u<Esc>[s1z=`]a<C-g>u";
         };
-    in (normal ++ normal-expr ++ insert);
+      visual =
+        lib.mapAttrsToList
+        (key: action: {
+          mode = "v";
+          inherit action key;
+          options.silent = true;
+        })
+        {
+          "<leader>sw" = "<esc><cmd>lua require('spectre').open_visual()<CR>";
+        };
+    in (normal ++ normal-expr ++ insert ++ visual);
   };
 }
