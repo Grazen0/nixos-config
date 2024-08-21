@@ -73,9 +73,10 @@
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  users.${username} = args:
-                    (import ./shared/home-manager/home.nix args)
-                    // (import ./hosts/${host}/home-manager/home.nix args);
+                  users.${username}.imports = [
+                    ./shared/home-manager/home.nix
+                    ./hosts/${host}/home-manager/home.nix
+                  ];
                   extraSpecialArgs = specialArgs;
                 };
               }
