@@ -61,6 +61,7 @@
 
     # Codeing
     cargo
+    cmake
     cling
     gcc
     ghc
