@@ -53,7 +53,9 @@
       nix-matlab.overlay
     ];
   in {
-    formatter = nixpkgs.lib.genAttrs ["x86_64-linux"] (system: nixpkgs.legacyPackages.${system}.alejandra);
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     devShells = forAllSystems (
       system: let
