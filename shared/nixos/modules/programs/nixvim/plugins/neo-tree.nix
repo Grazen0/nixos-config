@@ -79,7 +79,6 @@
     };
 
     filesystem = {
-      followCurrentFile.enabled = true;
       hijackNetrwBehavior = "open_current";
       filteredItems = {
         showHiddenCount = false;
