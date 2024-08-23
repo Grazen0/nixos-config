@@ -18,7 +18,7 @@
           # Reduce monitor brightness after 1m 30s
           timeout = 150;
           on-timeout = "${brightnessctl} -s set 15%";
-          on-resume = "${brightnessctl}/bin/brightnessctl -r";
+          on-resume = "${brightnessctl} -r";
         }
         {
           # Lock screen after 5m
@@ -28,8 +28,8 @@
         {
           # Screen off after 5m 30s
           timeout = 350;
-          on-timeout = "${hyprctl}/bin/hyprctl dispatch dpms off";
-          on-resume = "${hyprctl}/bin/hyprctl dispatch dpms on";
+          on-timeout = "${hyprctl} dispatch dpms off";
+          on-resume = "${hyprctl} dispatch dpms on";
         }
         {
           # Suspend after 30m
