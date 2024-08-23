@@ -18,9 +18,9 @@
       rounding = 8;
 
       drop_shadow = true;
-      shadow_range = 6;
+      shadow_range = 12;
       shadow_render_power = 3;
-      "col.shadow" = "rgba(16161d80)";
+      "col.shadow" = "rgba(1a1a1a80)";
 
       blur = {
         enabled = true;
