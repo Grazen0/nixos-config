@@ -55,6 +55,13 @@
   in {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
+    devShells = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        import ./shell.nix {inherit pkgs;}
+    );
+
     nixosConfigurations = builtins.foldl' (acc: host:
       acc
       // {
