@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [./scripts.nix];
 
   programs.waybar = {
@@ -48,15 +48,17 @@
         "hyprland/language" = {
           format = " {short}";
         };
-        "custom/media" = {
+        "custom/media" = let
+          playerctl = "${pkgs.playerctl}/bin/playerctl";
+        in {
           interval = 1;
           format = "{icon}{}";
           format-icons = [""];
           escape = true;
           return-type = "json";
           max-length = 35;
-          on-click = "playerctl play-pause";
-          on-click-right = "playerctl stop";
+          on-click = "${playerctl} play-pause";
+          on-click-right = "${playerctl} stop";
           exec = "media-query";
         };
         "hyprland/submap" = {

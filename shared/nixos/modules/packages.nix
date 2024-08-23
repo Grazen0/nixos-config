@@ -35,13 +35,11 @@
     hunspellDicts.es_PE
 
     # CLI utilities
-    brightnessctl
     cbonsai
     cmatrix
     killall
     peaclock
     pipes-rs
-    playerctl
     rmtrash
     trash-cli
     unzip

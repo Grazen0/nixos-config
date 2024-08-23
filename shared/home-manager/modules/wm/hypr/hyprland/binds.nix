@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   wayland.windowManager.hyprland = {
     settings = {
       "$mainMod" = "SUPER";
@@ -154,13 +154,15 @@
         ", XF86AudioLowerVolume, exec, pactl -- set-sink-volume @DEFAULT_SINK@ -5%"
       ];
 
-      bindl = [
+      bindl = let
+        playerctl = "${pkgs.playerctl}/bin/playerctl";
+      in [
         ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
         # Player control
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
-        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPlay, exec, ${playerctl} play-pause"
+        ", XF86AudioPrev, exec, ${playerctl} previous"
+        ", XF86AudioNext, exec, ${playerctl} next"
       ];
       bindm = [
         # Move and resize windows with mouse
