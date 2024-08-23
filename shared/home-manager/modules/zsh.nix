@@ -25,6 +25,16 @@
       l = "lla -h";
       lsfr = "${pkgs.coreutils}/bin/ls";
 
+      "md" = "mkdir -p";
+      "rd" = "rmdir";
+      "rdfr" = "rmdirfr";
+      "~" = "cd";
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+      "....." = "cd ../../../..";
+      "/" = "cd /";
+
       grep = "grep --color=auto";
       fgrep = "fgrep --color=auto";
       egrep = "egrep --color=auto";
