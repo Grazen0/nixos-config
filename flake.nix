@@ -3,7 +3,6 @@
 
   inputs = {
     nixpgkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
@@ -26,7 +25,6 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-stable,
     nixos-hardware,
     home-manager,
     nixvim,
@@ -34,19 +32,20 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    system = "x86_64-linux";
+
+    forAllSystems = nixpkgs.lib.genAttrs [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
 
     username = "jdgt";
     hosts = ["nitori" "takane"];
 
     specialArgsPre = {
-      pkgs-stable = import nixpkgs-stable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
       hardware = nixos-hardware.nixosModules;
-
       inherit inputs outputs username;
     };
 
@@ -54,8 +53,7 @@
       nix-matlab.overlay
     ];
   in {
-    packages = nixpkgs.legacyPackages.${system};
-    formatter = nixpkgs.legacyPackages.${system}.alejandra;
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     nixosConfigurations = builtins.foldl' (acc: host:
       acc
