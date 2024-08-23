@@ -53,7 +53,7 @@
       nix-matlab.overlay
     ];
   in {
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    formatter = nixpkgs.lib.genAttrs ["x86_64-linux"] (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     devShells = forAllSystems (
       system: let
@@ -62,34 +62,31 @@
         import ./shell.nix {inherit pkgs;}
     );
 
-    nixosConfigurations = builtins.foldl' (acc: host:
-      acc
-      // {
-        ${host} = let
-          specialArgs = specialArgsPre // {inherit host;};
-        in
-          nixpkgs.lib.nixosSystem {
-            modules = [
-              (import ./shared/nixos/configuration.nix flake-overlays)
-              ./hosts/${host}/nixos/configuration.nix
-              home-manager.nixosModules.home-manager
-              nixvim.nixosModules.nixvim
-              {
-                home-manager = {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  users.${username}.imports = [
-                    ./shared/home-manager/home.nix
-                    ./hosts/${host}/home-manager/home.nix
-                  ];
-                  extraSpecialArgs = specialArgs;
-                };
-              }
-            ];
+    nixosConfigurations = nixpkgs.lib.genAttrs hosts (
+      host: let
+        specialArgs = specialArgsPre // {inherit host;};
+      in
+        nixpkgs.lib.nixosSystem {
+          modules = [
+            (import ./shared/nixos/configuration.nix flake-overlays)
+            ./hosts/${host}/nixos/configuration.nix
+            home-manager.nixosModules.home-manager
+            nixvim.nixosModules.nixvim
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${username}.imports = [
+                  ./shared/home-manager/home.nix
+                  ./hosts/${host}/home-manager/home.nix
+                ];
+                extraSpecialArgs = specialArgs;
+              };
+            }
+          ];
 
-            specialArgs = specialArgs;
-          };
-      }) {}
-    hosts;
+          specialArgs = specialArgs;
+        }
+    );
   };
 }
