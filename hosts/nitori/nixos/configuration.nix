@@ -1,6 +1,6 @@
-{hardware, ...}: {
+{inputs, ...}: {
   imports = [
-    hardware.common-gpu-intel
+    inputs.nixos-hardware.nixosModules.common-gpu-intel
     ./hardware-configuration.nix
     ./modules
   ];
