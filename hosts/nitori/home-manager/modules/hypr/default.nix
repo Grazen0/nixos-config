@@ -6,7 +6,7 @@
     ];
 
     exec-once = [
-      "${config.home.homeDirectory}/.local/bin/handle_monitor_connect"
+      "handle-monitor-connect"
     ];
 
     input.kb_layout = "us,latam";
