@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   programs.nixvim.files = let
     indentSpace = w: {
       opts = {
@@ -7,15 +7,29 @@
         tabstop = w;
       };
     };
-  in {
-    "ftplugin/nix.lua" = indentSpace 2;
-    "ftplugin/haskell.lua" = indentSpace 2;
 
-    "ftplugin/tex.lua" = {
-      opts = {
-        conceallevel = 1;
-        spell = true;
+    filetypes = {
+      nix = indentSpace 2;
+      haskell = indentSpace 2;
+      html = indentSpace 2;
+      json = indentSpace 2;
+      css = indentSpace 2;
+      scss = indentSpace 2;
+      javascript = indentSpace 2;
+      typescript = indentSpace 2;
+      typescriptreact = indentSpace 2;
+      javascriptreact = indentSpace 2;
+
+      tex = {
+        opts = {
+          conceallevel = 1;
+          spell = true;
+        };
       };
     };
-  };
+  in
+    builtins.listToAttrs (map (ft: {
+      name = "ftplugin/${ft}.lua";
+      value = filetypes.${ft};
+    }) (builtins.attrNames filetypes));
 }
