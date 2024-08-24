@@ -34,9 +34,8 @@
         "$mainMod, F, fullscreen"
         "$mainMod SHIFT, F, fakefullscreen"
         "$mainMod, M, fullscreen, 1"
-        "$mainMod, T, settiled"
+        "$mainMod, T, togglefloating"
         "$mainMod SHIFT, T, pseudo"
-        "$mainMod, S, setfloating"
         "$mainMod, P, pin"
         "$mainMod SHIFT, S, togglesplit"
 
@@ -104,8 +103,8 @@
         "$mainMod, 0, workspace, 10"
 
         # Travel workspaces
-        "$mainMod, BracketLeft, workspace, r-1"
-        "$mainMod, BracketRight, workspace, r+1"
+        "$mainMod, A, workspace, r-1"
+        "$mainMod, S, workspace, r+1"
 
         # Switch to previous workspace
         "$mainMod, Tab, workspace, previous"
@@ -123,8 +122,8 @@
         "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
         # Special workspace (scratchpad)
-        "$mainMod, A, togglespecialworkspace"
-        "$mainMod SHIFT, A, movetoworkspacesilent, special"
+        "$mainMod, W, togglespecialworkspace"
+        "$mainMod SHIFT, W, movetoworkspacesilent, special"
 
         # Travel workspaces with mouse
         "$mainMod, mouse_down, workspace, r+1"
@@ -176,7 +175,7 @@
 
     extraConfig = ''
       # Window move mode
-      bind = $mainMod, W, submap, Move
+      bind = $mainMod SHIFT, M, submap, Move
       submap = Move
 
       # Move window focus
@@ -200,7 +199,7 @@
       bind = $mainMod SHIFT, C, cyclenext, prev
       bind = $mainMod SHIFT, C, alterzorder, top
 
-      bind = SUPER, W, submap, reset
+      bind = $mainMod SHIFT, M, submap, reset
       bind = , Q, submap, reset
       bind = , Escape, submap, reset
 
