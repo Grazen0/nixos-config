@@ -34,6 +34,12 @@
           "%.webp"
           "%.gif"
         ];
+
+        mappings = {
+          n = {
+            "<S-d>".__raw = "require('telescope.actions').delete_buffer";
+          };
+        };
       };
     };
 
