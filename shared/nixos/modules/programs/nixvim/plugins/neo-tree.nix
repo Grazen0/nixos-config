@@ -2,7 +2,7 @@
   programs.nixvim.plugins.neo-tree = {
     enable = true;
 
-    closeIfLastWindow = true;
+    autoCleanAfterSessionRestore = true;
 
     window = {
       width = 30;
