@@ -20,6 +20,7 @@
     neocord.enable = true;
     nvim-autopairs.enable = true;
     nvim-colorizer.enable = true;
+    lualine.enable = true;
     todo-comments.enable = true;
     spectre.enable = true;
     surround.enable = true;
