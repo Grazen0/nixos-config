@@ -8,10 +8,20 @@
     mimeApps = {
       enable = true;
 
-      defaultApplications = {
-        "x-scheme-handler/webcal" = "brave-browser.desktop";
-        "x-scheme-handler/http" = "brave-browser.desktop";
-        "x-scheme-handler/https" = "brave-browser.desktop";
+      defaultApplications = let
+        browser = "userapp-Zen Browser-I1KWS2.desktop";
+      in {
+        "x-scheme-handler/http" = browser;
+        "x-scheme-handler/https" = browser;
+        "x-scheme-handler/chrome" = browser;
+        "x-scheme-handler/webcal" = browser;
+        "text/html" = browser;
+        "application/x-extension-htm" = browser;
+        "application/x-extension-html" = browser;
+        "application/x-extension-shtml" = browser;
+        "application/xhtml+xml" = browser;
+        "application/x-extension-xhtml" = browser;
+        "application/x-extension-xht" = browser;
 
         "inode/directory" = "thunar.desktop";
 
