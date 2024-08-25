@@ -40,7 +40,7 @@
 
       "bordercolor rgb(e6c384), pinned:1"
       "noborder, fullscreen:1"
-      "opacity 0.8, floating:1, focus:0"
+      "opacity 1 0.8 1, floating:1, focus:0"
 
       "suppressevent maximize, class:.*"
     ];
