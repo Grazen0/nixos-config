@@ -1,2 +1,2 @@
-pkgs: {
+{pkgs ? (import ../nixpkgs.nix) {}}: {
 }
