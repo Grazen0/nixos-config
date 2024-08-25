@@ -2,6 +2,8 @@
   programs.nixvim.userCommands = {
     W.command = "write"; # I'm clumsy
 
+    ClearBuffers.command = "%bd|e#|bd#"; # Close all buffers except urrent
+
     Format = {
       command.__raw = ''
         function(args)
