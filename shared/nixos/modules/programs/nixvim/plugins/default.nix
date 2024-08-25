@@ -2,6 +2,7 @@
   imports = [
     ./cmp.nix
     ./conform.nix
+    ./gitsigns.nix
     ./mini.nix
     ./multicursors.nix
     ./neo-tree.nix
@@ -15,7 +16,6 @@
     comment.enable = true;
     inc-rename.enable = true;
     indent-blankline.enable = true;
-    gitsigns.enable = true;
     markdown-preview.enable = true;
     neocord.enable = true;
     nvim-autopairs.enable = true;
