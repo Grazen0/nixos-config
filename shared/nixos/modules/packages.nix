@@ -27,7 +27,7 @@
     zapzap
     zoom-us
     inputs.thorium-browser.defaultPackage.${system}
-    inputs.zen-browser.packages.x86_64-linux.specific
+    inputs.zen-browser.packages.${system}.specific
 
     # LibreOffice + spellcheck
     libreoffice-qt
