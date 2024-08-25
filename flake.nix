@@ -18,6 +18,7 @@
     };
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
+    thorium-browser.url = "git+https://codeberg.org/Tomkoid/thorium-browser-nix";
 
     nix-matlab = {
       url = "gitlab:doronbehar/nix-matlab";

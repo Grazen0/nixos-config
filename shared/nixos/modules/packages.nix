@@ -16,7 +16,6 @@
 
     # Apps
     ark
-    brave
     vesktop
     gimp
     kitty
@@ -27,6 +26,7 @@
     spotify
     zapzap
     zoom-us
+    inputs.thorium-browser.defaultPackage.${system}
     inputs.zen-browser.packages.x86_64-linux.specific
 
     # LibreOffice + spellcheck
