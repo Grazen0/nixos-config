@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   imports = [
     ./autostart.nix
     ./binds.nix
