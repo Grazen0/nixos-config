@@ -3,10 +3,17 @@
     ./programs
     ./boot.nix
     ./console.nix
+    ./environment.nix
+    ./fonts.nix
     ./hardware.nix
+    ./laptop.nix
+    ./locale.nix
+    ./networking.nix
     ./nix.nix
     ./nixpkgs.nix
     ./packages.nix
+    ./security.nix
     ./services.nix
+    ./users.nix
   ];
 }

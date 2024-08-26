@@ -76,7 +76,7 @@
       in
         nixpkgs.lib.nixosSystem {
           modules = [
-            ./shared/nixos/configuration.nix
+            ./modules/nixos
             ./hosts/${host}/nixos/configuration.nix
             home-manager.nixosModules.home-manager
             nixvim.nixosModules.nixvim

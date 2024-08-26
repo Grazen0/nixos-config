@@ -2,6 +2,7 @@
   services.dunst = {
     enable = true;
 
+    # TODO: add some sort of "no disturb" mode
     settings = {
       global = {
         # Display
