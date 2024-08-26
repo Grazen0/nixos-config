@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   home.file = let
     programs = [
       "ZapZap"
@@ -21,13 +25,9 @@
         target = "${config.xdg.dataHome}/rofi/themes";
       };
     }
-    // builtins.listToAttrs (builtins.map (program: {
-        name = program;
-        value = {
-          source = ../../files/config/${program};
-          recursive = true;
-          target = "${config.xdg.configHome}/${program}";
-        };
-      })
-      programs);
+    // lib.genAttrs programs (program: {
+      source = ../../files/config/${program};
+      recursive = true;
+      target = "${config.xdg.configHome}/${program}";
+    });
 }
