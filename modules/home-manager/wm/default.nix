@@ -3,6 +3,7 @@
     ./hypr
     ./waybar
     ./dunst.nix
+    ./packages.nix
     ./rofi.nix
   ];
 
