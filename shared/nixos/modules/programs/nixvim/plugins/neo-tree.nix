@@ -51,23 +51,6 @@
             end
           '';
 
-          # Switch between filesystem, buffers and git_status
-          e.__raw = ''
-            function()
-              vim.api.nvim_exec('Neotree focus filesystem left', true);
-            end
-          '';
-          b.__raw = ''
-            function()
-              vim.api.nvim_exec('Neotree focus buffers left', true)
-            end
-          '';
-          g.__raw = ''
-            function()
-              vim.api.nvim_exec('Neotree focus git_status left', true)
-            end
-          '';
-
           # Open file with system viewer
           o.__raw = ''
             function(state)
