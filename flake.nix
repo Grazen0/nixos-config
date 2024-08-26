@@ -1,5 +1,5 @@
 {
-  description = "Configuration for my NixOS system";
+  description = "My ";
 
   inputs = {
     nixpgkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -36,7 +36,6 @@
   outputs = {
     self,
     nixpkgs,
-    nixos-hardware,
     home-manager,
     nixvim,
     ...
