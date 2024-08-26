@@ -9,6 +9,10 @@
         width = 30;
 
         mappings = {
+          # Telescope-like split aliases
+          "<C-v>" = "open_vsplit";
+          "<C-x>" = "open_split";
+
           # Navigation with HJKL
           h.__raw = ''
             function(state)
