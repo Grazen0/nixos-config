@@ -1,6 +1,4 @@
 {username, ...}: {
-  imports = [./modules];
-
   home = {
     inherit username;
     homeDirectory = "/home/${username}";

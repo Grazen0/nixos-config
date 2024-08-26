@@ -85,7 +85,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.${username}.imports = [
-                  ./shared/home-manager/home.nix
+                  ./modules/home-manager
                   ./hosts/${host}/home-manager/home.nix
                 ];
                 extraSpecialArgs = specialArgs;
