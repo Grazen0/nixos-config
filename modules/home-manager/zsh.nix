@@ -132,8 +132,6 @@
     '';
 
     initExtra = ''
-      export PATH="$PATH:$HOME/.local/bin"
-
       # Accept autosuggestions with Ctrl+Space
       bindkey '^ ' autosuggest-accept
 
@@ -152,15 +150,17 @@
       zle -N edit-command-line
       bindkey -M viins '^v' edit-command-line
       bindkey -M vicmd '^v' edit-command-line
+    '';
 
+    sessionVariables = {
       # Highlight colors for zsh-vi-mode
-      export ZVM_VI_HIGHLIGHT_BACKGROUND="#223249"
-      export ZVM_VI_HIGHLIGHT_FOREGROUND="#dcd7ba"
+      ZVM_VI_HIGHLIGHT_BACKGROUND = "#223249";
+      ZVM_VI_HIGHLIGHT_FOREGROUND = "#dcd7ba";
 
       # Options for zsh-history-substring-search
-      export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="underline"
-      export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="default"
-      export HISTORY_SUBSTRING_SEARCH_PREFIXED="yeah"
-    '';
+      HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND = "underline";
+      HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND = "default";
+      HISTORY_SUBSTRING_SEARCH_PREFIXED = "yeah";
+    };
   };
 }
