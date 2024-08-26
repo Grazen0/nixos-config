@@ -1,0 +1,13 @@
+snippet modtests "Tests module" b
+#[cfg(test)]
+mod tests {
+    $0
+}
+endsnippet
+
+snippet test "Unit test" b
+#[test]
+fn $1() {
+    $0
+}
+endsnippet
