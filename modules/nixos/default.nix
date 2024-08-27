@@ -5,6 +5,7 @@
     ./boot.nix
     ./console.nix
     ./hardware.nix
+    ./home-manager.nix
     ./laptop.nix
     ./locale.nix
     ./networking.nix

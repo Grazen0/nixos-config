@@ -78,19 +78,7 @@
           modules = [
             ./modules/nixos
             ./hosts/${host}/nixos/configuration.nix
-            home-manager.nixosModules.home-manager
             nixvim.nixosModules.nixvim
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.${username}.imports = [
-                  ./modules/home-manager
-                  ./hosts/${host}/home-manager/home.nix
-                ];
-                extraSpecialArgs = specialArgs;
-              };
-            }
           ];
 
           specialArgs = specialArgs;
