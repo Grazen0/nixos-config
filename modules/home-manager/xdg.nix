@@ -9,7 +9,7 @@
       enable = true;
 
       defaultApplications = let
-        browser = "userapp-Zen Browser-I1KWS2.desktop";
+        browser = "zen.desktop";
       in {
         "x-scheme-handler/http" = browser;
         "x-scheme-handler/https" = browser;
