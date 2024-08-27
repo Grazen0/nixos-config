@@ -4,6 +4,11 @@
     homeDirectory = "/home/${username}";
   };
 
+  programs = {
+    home-manager.enable = true;
+    git.enable = true;
+  };
+
   # Reload system units on switch
   systemd.user.startServices = "sd-switch";
 
