@@ -78,7 +78,6 @@
           modules = [
             ./modules/nixos
             ./hosts/${host}/nixos/configuration.nix
-            nixvim.nixosModules.nixvim
           ];
 
           specialArgs = specialArgs;
