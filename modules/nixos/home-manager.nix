@@ -1,5 +1,4 @@
 {
-  username,
   host,
   inputs,
   outputs,
@@ -13,8 +12,8 @@
     useGlobalPkgs = true;
     useUserPackages = true;
 
-    users.${username} = import ../../hosts/${host}/home-manager/home.nix;
+    users.jdgt = import ../../hosts/${host}/home-manager/home.nix;
 
-    extraSpecialArgs = {inherit username host inputs outputs;};
+    extraSpecialArgs = {inherit host inputs outputs;};
   };
 }

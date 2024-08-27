@@ -50,11 +50,10 @@
       "x86_64-darwin"
     ];
 
-    username = "jdgt";
     hosts = ["nitori" "takane"];
 
     specialArgsPre = {
-      inherit inputs outputs username;
+      inherit inputs outputs;
     };
   in {
     packages = forAllSystems (system: import ./pkgs {pkgs = nixpkgs.legacyPackages.${system};});
