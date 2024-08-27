@@ -1,3 +1,6 @@
-{
-  imports = [./modules];
+{outputs, ...}: {
+  imports = [
+    outputs.homeManagerModules
+    ./modules
+  ];
 }

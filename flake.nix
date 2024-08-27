@@ -70,15 +70,15 @@
         import ./shell.nix {inherit pkgs;}
     );
 
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
+
     nixosConfigurations = nixpkgs.lib.genAttrs hosts (
       host: let
         specialArgs = specialArgsPre // {inherit host;};
       in
         nixpkgs.lib.nixosSystem {
-          modules = [
-            ./modules/nixos
-            ./hosts/${host}/nixos/configuration.nix
-          ];
+          modules = [./hosts/${host}/nixos/configuration.nix];
 
           specialArgs = specialArgs;
         }

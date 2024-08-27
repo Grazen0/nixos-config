@@ -1,5 +1,6 @@
-{
+{outputs, ...}: {
   imports = [
+    outputs.nixosModules
     ./hardware-configuration.nix
     ./modules
   ];

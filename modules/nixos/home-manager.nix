@@ -13,10 +13,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
 
-    users.${username}.imports = [
-      ../../modules/home-manager
-      ../../hosts/${host}/home-manager/home.nix
-    ];
+    users.${username} = import ../../hosts/${host}/home-manager/home.nix;
 
     extraSpecialArgs = {inherit username host inputs outputs;};
   };
