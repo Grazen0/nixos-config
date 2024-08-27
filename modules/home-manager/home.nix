@@ -4,8 +4,6 @@
     homeDirectory = "/home/${username}";
   };
 
-  nixpkg.config.allowUnfree = true;
-
   # Reload system units on switch
   systemd.user.startServices = "sd-switch";
 
