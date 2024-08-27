@@ -4,10 +4,10 @@
   ...
 }: {
   nixpkgs = {
-    overlays = with outputs.overlays; [
-      additions
-      modifications
-      stable-packages
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.stable-packages
       inputs.nix-matlab.overlay
     ];
 
