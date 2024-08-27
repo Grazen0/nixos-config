@@ -1,5 +1,6 @@
 {
   imports = [
+    ./packages
     ./programs
     ./wm
     ./files.nix

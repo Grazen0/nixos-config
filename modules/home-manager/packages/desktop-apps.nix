@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     # Apps
     ark
     vesktop

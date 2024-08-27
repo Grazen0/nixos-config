@@ -1,8 +1,7 @@
 {
   imports = [
     ./cli.nix
-    ./dev.nix
-    ./fonts.nix
+    ./desktop-apps.nix
     ./misc.nix
   ];
 }
