@@ -51,10 +51,6 @@
     ];
 
     hosts = ["nitori" "takane"];
-
-    specialArgsPre = {
-      inherit inputs outputs;
-    };
   in {
     packages = forAllSystems (system: import ./pkgs {pkgs = nixpkgs.legacyPackages.${system};});
 
@@ -62,24 +58,16 @@
 
     overlays = import ./overlays {inherit inputs outputs;};
 
-    devShells = forAllSystems (
-      system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-        import ./shell.nix {inherit pkgs;}
-    );
+    devShells = forAllSystems (system: import ./shell.nix {pkgs = nixpkgs.legacyPackages.${system};});
 
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = nixpkgs.lib.genAttrs hosts (
-      host: let
-        specialArgs = specialArgsPre // {inherit host;};
-      in
+      host:
         nixpkgs.lib.nixosSystem {
           modules = [./hosts/${host}/nixos/configuration.nix];
-
-          specialArgs = specialArgs;
+          specialArgs = {inherit inputs outputs host;};
         }
     );
   };
