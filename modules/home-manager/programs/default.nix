@@ -6,6 +6,7 @@
     ./fastfetch.nix
     ./git.nix
     ./kitty.nix
+    ./obs-studio.nix
     ./ranger.nix
     ./tmux.nix
     ./zathura.nix
@@ -15,7 +16,6 @@
     eza.enable = true;
     nix-index.enable = true;
     mpv.enable = true;
-    obs-studio.enable = true;
     vscode.enable = true;
   };
 }
