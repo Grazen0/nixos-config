@@ -1,10 +1,10 @@
 {
   imports = [
+    ./hardware
     ./packages
     ./programs
     ./boot.nix
     ./console.nix
-    ./hardware.nix
     ./home-manager.nix
     ./laptop.nix
     ./locale.nix

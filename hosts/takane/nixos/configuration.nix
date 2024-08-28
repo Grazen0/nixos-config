@@ -5,5 +5,7 @@
     ./modules
   ];
 
+  programs.steam.enabled = false;
+
   system.stateVersion = "24.05";
 }
