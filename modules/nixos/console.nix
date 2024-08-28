@@ -1,6 +1,14 @@
 {
+  pkgs,
+  lib,
+  ...
+}: {
   console = {
     earlySetup = true;
+
+    font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v16b.psf.gz";
+    keyMap = lib.mkDefault "us";
+
     colors = [
       "16161d"
       "c34043"
