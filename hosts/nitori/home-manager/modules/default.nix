@@ -1,6 +1,0 @@
-{
-  imports = [
-    ./hypr
-    ./scripts.nix
-  ];
-}

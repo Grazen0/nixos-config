@@ -1,6 +1,5 @@
 {outputs, ...}: {
-  imports = [
-    outputs.homeManagerModules
-    ./modules
-  ];
+  imports = [outputs.homeManagerModules];
+
+  wayland.windowManager.hyprland.settings.input.kb_layout = "latam,us";
 }

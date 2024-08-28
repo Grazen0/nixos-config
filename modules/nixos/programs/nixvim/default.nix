@@ -4,20 +4,11 @@
     ./lsp
     ./plugins
     ./autocmds.nix
+    ./base.nix
     ./colorscheme.nix
     ./ftplugin.nix
     ./keymaps.nix
     ./opts.nix
     ./user-commands.nix
   ];
-
-  programs.nixvim = {
-    enable = true;
-
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-
-    wrapRc = true;
-  };
 }
