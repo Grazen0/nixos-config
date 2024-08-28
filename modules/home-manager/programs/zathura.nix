@@ -1,8 +1,4 @@
 {
-  config,
-  inputs,
-  ...
-}: {
   programs.zathura = {
     enable = true;
 
@@ -31,15 +27,29 @@
 
       selection-clipboard = "clipboard";
 
+      default-fg = "#dcd7ba";
+      default-bg = "#16161d";
+      inputbar-bg = "#16161d";
+      completion-bg = "#16161d";
+      statusbar-bg = "#16161d";
+      statusbar-fg = "#dcd7ba";
+      inputbar-fg = "#dcd7ba";
+      completion-group-bg = "#16161d";
+      completion-highlight-bg = "#7fb4ca";
+      notification-warning-bg = "#c0a36e";
+      notification-warning-fg = "#16161d";
+      notification-error-bg = "#c34043";
+      notification-error-fg = "#dcd7ba";
+
       recolor = true;
       recolor-keephue = true;
       recolor-reverse-video = true;
+      recolor-lightcolor = "#1f1f28";
+      recolor-darkcolor = "#dcd7ba";
 
       font = "JetBrainsMonoNL Nerd Font 10";
 
       database = "sqlite";
     };
-
-    extraConfig = builtins.readFile (config.scheme inputs.base16-zathura);
   };
 }
