@@ -3,6 +3,7 @@
     ./hardware
     ./packages
     ./programs
+    ./base16.nix
     ./boot.nix
     ./console.nix
     ./home-manager.nix

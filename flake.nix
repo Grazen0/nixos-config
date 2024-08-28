@@ -7,10 +7,21 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     nixvim.url = "github:nix-community/nixvim";
+    base16.url = "github:SenchoPens/base16.nix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    base16-zathura = {
+      url = "github:haozeke/base16-zathura";
+      flake = false;
+    };
+
+    tt-schemes = {
+      url = "github:tinted-theming/schemes";
+      flake = false;
     };
 
     zen-browser = {

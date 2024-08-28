@@ -13,6 +13,7 @@
 
       relativenumber = true;
       signcolumn = "yes";
+      fillchars = "eob: ";
       autoindent = true;
       expandtab = true;
       tabstop = 4;
