@@ -11,6 +11,4 @@
 
   # Reload system units on switch
   systemd.user.startServices = "sd-switch";
-
-  home.stateVersion = "24.05";
 }

@@ -24,4 +24,6 @@
       "${pkgs.handle-monitor-connect}/bin/handle-monitor-connect"
     ];
   };
+
+  home.stateVersion = "24.05";
 }
