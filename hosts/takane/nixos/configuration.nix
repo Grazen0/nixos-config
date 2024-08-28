@@ -6,7 +6,7 @@
 
   console.keyMap = "la-latin1";
 
-  programs.steam.enabled = false;
+  programs.steam.enable = false;
 
   system.stateVersion = "24.05";
 }
