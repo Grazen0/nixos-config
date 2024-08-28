@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  ...
 }: {
   programs.zathura = {
     enable = true;
@@ -38,6 +39,7 @@
 
       database = "sqlite";
     };
+
     extraConfig = builtins.readFile (config.scheme inputs.base16-zathura);
   };
 }
