@@ -7,7 +7,6 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     nixvim.url = "github:nix-community/nixvim";
-    base16.url = "github:SenchoPens/base16.nix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
