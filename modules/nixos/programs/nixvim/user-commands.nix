@@ -1,6 +1,8 @@
 {
   programs.nixvim.userCommands = {
-    W.command = "write"; # I'm clumsy
+    # I'm clumsy
+    W.command = "write";
+    Wa.command = "wall";
 
     ClearBuffers.command = "%bd|e#|bd#"; # Close all buffers except urrent
 
