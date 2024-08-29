@@ -2,6 +2,7 @@
   wayland.windowManager.hyprland.settings.exec-once = [
     "hyprctl setcursor Bibata-Modern-Ice 24"
     "waybar"
+    "eww daemon"
 
     # "dunst"
     "wl-paste --watch cliphist store"

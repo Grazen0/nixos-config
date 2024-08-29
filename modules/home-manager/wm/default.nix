@@ -1,5 +1,6 @@
 {
   imports = [
+    ./eww
     ./hypr
     ./waybar
     ./cliphist.nix
