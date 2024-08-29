@@ -1,0 +1,40 @@
+$background: #16161d;
+$accent: #1f1f28;
+
+* {
+  all: unset;
+}
+
+.box-root,
+button {
+  border-radius: 8px;
+}
+
+button {
+  border: solid 3px $accent;
+  padding: 0.2em;
+
+  &:focus {
+    border-color: green;
+  }
+
+  &:active {
+    border-color: red;
+  }
+}
+
+.box-root {
+  font-family: "JetBrainsMonoNL Nerd Font Propo";
+  background-color: $background;
+  padding: 1.5em;
+}
+
+.btn-close {
+  font-size: 2em;
+}
+
+.btns-row {
+  button {
+    font-size: 6em;
+  }
+}

@@ -1,12 +1,34 @@
-(defwindow example
-           :monitor 0
-           :geometry (geometry :x "0%"
-                               :y "20px"
-                               :width "90%"
-                               :height "30px"
-                               :anchor "top center")
-           :stacking "fg"
-           :reserve (struts :distance "40px" :side "top")
-           :windowtype "dock"
-           :wm-ignore false
-  "example content")
+(defwindow powermenu
+  :monitor -0
+  :stacking "fg"
+  :windowtype "normal"
+  :wm-ignore true
+  :focusable true
+  :geometry (geometry
+                :width "75%"
+                :height "75%"
+                :anchor "center center")
+  (powermenu_layout))
+
+(defwidget powermenu_layout []
+  (box :class "box-root" :orientation "vertical"
+    (button :class "btn-close"
+      :halign "end" :valign "center"
+      :onclick "eww close powermenu"
+      "")
+    (_buttons)))
+
+(defwidget square_button [onclick tooltip]
+  (button :width "100px" :onclick onclick :tooltip tooltip (children)))
+
+(defwidget _buttons []
+  (box :class "btns-row" :spacing 5
+      :valign "center" :halign "center"
+      :space-evenly true
+    (button :onclick "systemctl poweroff" :tooltip "Shut down" "")
+    (button :onclick "systemctl reboot" :tooltip "Reboot" "");
+    (button :onclick "loginctl terminate-session" :tooltip "Log out" "");
+    (button :onclick "loginctl lock-session" :tooltip "Lock screen" "")
+    (button :onclick "systemctl suspend" :tooltip "Suspend" "")
+    (button :onclick "systemctl hibernate" :tooltip "Hibernate" "")))
+
