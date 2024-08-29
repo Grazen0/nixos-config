@@ -1,4 +1,4 @@
-{lib, ...}: {
+{
   programs.nixvim.files = let
     indentSpace = w: {
       opts = {
@@ -11,6 +11,7 @@
     filetypes = {
       nix = indentSpace 2;
       haskell = indentSpace 2;
+      yuck = indentSpace 2;
       html = indentSpace 2;
       json = indentSpace 2;
       css = indentSpace 2;
