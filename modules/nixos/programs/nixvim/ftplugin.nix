@@ -1,7 +1,7 @@
 {
   programs.nixvim.files = let
     indentSpace = w: {
-      opts = {
+      localOpts = {
         expandtab = true;
         shiftwidth = w;
         tabstop = w;
@@ -22,7 +22,7 @@
       javascriptreact = indentSpace 2;
 
       tex = {
-        opts = {
+        localOpts = {
           conceallevel = 1;
           spell = true;
         };
