@@ -1,7 +1,7 @@
 {
   programs.git = {
     enable = true;
-    userName = "ElCholoGamer";
+    userName = "Grazen0";
     userEmail = "josedanielgrayson@proton.me";
 
     aliases = {
