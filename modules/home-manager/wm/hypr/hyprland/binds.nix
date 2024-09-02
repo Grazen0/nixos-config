@@ -120,14 +120,16 @@
         "$mainMod SHIFT, 8, movetoworkspacesilent, 8"
         "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
         "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
+        "$mainMod SHIFT, A, movetoworkspacesilent, r-1"
+        "$mainMod SHIFT, S, movetoworkspacesilent, r+1"
 
         # Special workspace (scratchpad)
         "$mainMod, W, togglespecialworkspace"
         "$mainMod SHIFT, W, movetoworkspacesilent, special"
 
         # Travel workspaces with mouse
-        "$mainMod, mouse_down, workspace, r+1"
-        "$mainMod, mouse_up, workspace, r-1"
+        "$mainMod, mouse_up, workspace, r+1"
+        "$mainMod, mouse_down, workspace, r-1"
 
         # Brightness control
         ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%+"
@@ -163,11 +165,17 @@
         ", XF86AudioPrev, exec, ${playerctl} previous"
         ", XF86AudioNext, exec, ${playerctl} next"
       ];
+
       bindm = [
         # Move and resize windows with mouse
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
       ];
+
+      bindn = [
+        ", Escape, exec, eww close-all"
+      ];
+
       binds = {
         allow_workspace_cycles = true;
       };

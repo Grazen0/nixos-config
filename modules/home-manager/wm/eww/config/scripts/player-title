@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+title=$(playerctl -p spotify metadata -f '{{ title }}')
+count=$(echo -n "$title" | wc -c)
+
+if [ -z "$title" ]; then
+    echo "Nothing playing";
+else
+    if [ "$count" -le 20 ]; then
+        echo $title
+    else
+        echo $(head -c 20 <<< "$title" | xargs)...
+    fi
+fi

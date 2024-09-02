@@ -1,40 +1,82 @@
-$background: #16161d;
-$accent: #1f1f28;
+$black: #16161d;
+$bright-black: #727169;
+$red: #c34043;
+$green: #76946a;
+$yellow: #c0a36e;
+$blue: #7e9cd8;
+$magenta: #957fb8;
+$cyan: #6a9589;
+$white: #c8c093;
+$bright-white: #dcd7ba;
+
+$background: $black;
+$background-alt: #1f1f28;
 
 * {
   all: unset;
-}
-
-.box-root,
-button {
-  border-radius: 8px;
-}
-
-button {
-  border: solid 3px $accent;
-  padding: 0.2em;
-
-  &:focus {
-    border-color: green;
-  }
-
-  &:active {
-    border-color: red;
-  }
-}
-
-.box-root {
   font-family: "JetBrainsMonoNL Nerd Font Propo";
+}
+
+.music-player {
   background-color: $background;
   padding: 1.5em;
-}
+  border-radius: 0.5em;
 
-.btn-close {
-  font-size: 2em;
-}
-
-.btns-row {
-  button {
-    font-size: 6em;
+  .art {
+    border-radius: 8px;
+    background-color: $background-alt;
+    background-size: cover;
   }
+
+  .info-panel {
+    min-width: 20em;
+
+    .title {
+      color: $magenta;
+      margin: 0.5em 0;
+      font-size: 1.25em;
+      font-weight: bold;
+    }
+
+    .artist {
+      color: $white;
+      margin: 0.25em 0;
+    }
+
+    .controls {
+      margin: 1.25em 0;
+
+      button {
+        color: $yellow;
+        font-size: 2em;
+        transition: color ease-out 100ms;
+
+        &:active {
+          color: $bright-white;
+        }
+      }
+
+      .btn-play-pause {
+        margin: 0 1em;
+      }
+    }
+
+    .slider {
+      margin: 0 1em;
+
+      trough {
+        background-color: $background-alt;
+        min-height: 1em;
+        border-radius: 0.5em;
+
+        highlight {
+          background-color: $blue;
+          border-radius: 0.5em;
+          min-width: 1em;
+        }
+      }
+    }
+  }
+
+
 }
