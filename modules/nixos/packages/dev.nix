@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    # Codeing
     cargo
     cmake
     cling
@@ -10,7 +9,11 @@
     gnumake
     nodejs
     pnpm
-    python3
+    (python3.withPackages
+      (ps:
+        with ps; [
+          (ps.callPackage ../../../pkgs/inkscape-figures {})
+        ]))
     rustc
     yarn
   ];
