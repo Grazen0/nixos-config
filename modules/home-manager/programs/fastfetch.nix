@@ -1,88 +1,44 @@
 {
   programs.fastfetch = {
     enable = true;
+
     settings = {
+      logo = "nix_small";
+
       modules = [
         {
-          "type" = "custom";
-          "format" = "{#36}┌{$1} Hardware Information {$1}┐{#}";
+          type = "os";
+          key = "  ";
         }
         {
-          "type" = "host";
-          "key" = "  󰌢";
+          type = "kernel";
+          key = "  ";
+          format = "{1} {2}";
         }
         {
-          "type" = "cpu";
-          "key" = "  󰻠";
-          "format" = "{name}";
+          type = "wm";
+          key = "  ";
         }
         {
-          "type" = "gpu";
-          "key" = "  󰍛";
-          "format" = "{vendor} {name}";
+          type = "shell";
+          key = "  ";
         }
         {
-          "type" = "disk";
-          "key" = "  ";
+          type = "terminal";
+          key = "  ";
         }
         {
-          "type" = "memory";
-          "key" = "  󰑭";
+          type = "uptime";
+          key = "  󰅐";
         }
         {
-          "type" = "custom";
-          "format" = "{#36}├{$1} Software Information {$1}┤{#}";
-        }
-        {
-          "type" = "title";
-          "key" = "  ";
-          "format" = "{1}@{2}";
-        }
-        {
-          "type" = "os";
-          "key" = "  󰣇";
-        }
-        {
-          "type" = "kernel";
-          "key" = "  ";
-          "format" = "{1} {2}";
-        }
-        {
-          "type" = "wm";
-          "key" = "  ";
-        }
-        {
-          "type" = "shell";
-          "key" = "  ";
-        }
-        {
-          "type" = "terminal";
-          "key" = "  ";
-        }
-        {
-          "type" = "packages";
-          "key" = "  󰏖";
-        }
-        {
-          "type" = "uptime";
-          "key" = "  󰅐";
-        }
-        {
-          "type" = "custom";
-          "format" = "{#36}└{$1}──────────────────────{$1}┘{#}";
-        }
-        {
-          "type" = "colors";
-          "paddingLeft" = 2;
-          "symbol" = "circle";
+          type = "colors";
+          paddingLeft = 2;
+          symbol = "circle";
         }
       ];
-      "display" = {
-        "separator" = "    ";
-        "constants" = [
-          "──────────────"
-        ];
-      };
+
+      display.separator = "    ";
     };
   };
 }
