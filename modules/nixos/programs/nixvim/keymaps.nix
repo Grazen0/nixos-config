@@ -53,6 +53,8 @@
           "<leader>S" = "<cmd>lua require('spectre').toggle()<CR>";
           "<leader>sw" = "<cmd>lua require('spectre').open_visual({select_word=true})<CR>";
           "<leader>sp" = "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>";
+
+          "<C-f>" = '': silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>'';
         };
       normal-expr =
         lib.mapAttrsToList
@@ -85,6 +87,7 @@
         })
         {
           "<C-l>" = "<C-g>u<Esc>[s1z=`]a<C-g>u";
+          "<C-f>" = ''<Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>'';
         };
       visual =
         lib.mapAttrsToList
