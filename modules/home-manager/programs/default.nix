@@ -7,6 +7,7 @@
     ./git.nix
     ./kitty.nix
     ./ranger.nix
+    ./spicetify.nix
     ./tmux.nix
     ./zathura.nix
   ];
