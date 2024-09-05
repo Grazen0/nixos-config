@@ -13,7 +13,6 @@
     nsxiv
     obsidian
     pavucontrol
-    spotify
     vesktop
     zapzap
     zoom-us

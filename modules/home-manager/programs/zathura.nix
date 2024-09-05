@@ -14,9 +14,10 @@
       "p" = "print";
       "c" = "set \"first-page-column 1:1\"";
       "C" = "set \"first-page-column 1:2\"";
+      "b" = "set \"guioptions s\"";
+      "B" = "set \"guioptions none\"";
     };
     options = {
-      guioptions = "sv";
       window-height = 1024;
       window-width = 1000;
       adjust-open = "best-fit";
