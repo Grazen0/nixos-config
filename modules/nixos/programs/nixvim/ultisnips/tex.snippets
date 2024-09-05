@@ -28,8 +28,8 @@ snippet template "Basic template" b
 \pdfminorversion=7
 \usepackage{pdfpages}
 \usepackage{transparent}
-\newcommand{\incfig}[1]{%
-	\def\svgwidth{\columnwidth}
+\newcommand{\incfig}[2][1]{%
+	\def\svgwidth{#2\columnwidth}
 	\import{./figures/}{#1.pdf_tex}
 }
 
