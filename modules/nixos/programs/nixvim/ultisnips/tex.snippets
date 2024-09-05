@@ -117,8 +117,8 @@ endsnippet
 
 snippet dm "Math" wA
 \[
-${1:${VISUAL}}
-.\] $0
+    ${1:${VISUAL}}
+.\]$0
 endsnippet
 
 snippet ali "Align" bA
@@ -219,44 +219,44 @@ snippet floor "floor" iA
 endsnippet
 
 snippet pmat "pmat" iA
-\begin{pmatrix} $1 \end{pmatrix} $0
+\begin{pmatrix} $1 \end{pmatrix}$0
 endsnippet
 
 snippet bmat "bmat" iA
-\begin{bmatrix} $1 \end{bmatrix} $0
+\begin{bmatrix} $1 \end{bmatrix}$0
 endsnippet
 
 context "math()"
 snippet () "left( right)" iA
-\left( ${1:${VISUAL}} \right) $0
+\left( ${1:${VISUAL}} \right)$0
 endsnippet
 
 snippet lr "left( right)" i
-\left( ${1:${VISUAL}} \right) $0
+\left( ${1:${VISUAL}} \right)$0
 endsnippet
 
-snippet lr( "left( right)" i
-\left( ${1:${VISUAL}} \right) $0
+snippet lr( "left( right)" iA
+\left( ${1:${VISUAL}} \right)$0
 endsnippet
 
-snippet lr| "left| right|" i
-\left| ${1:${VISUAL}} \right| $0
+snippet lr| "left| right|" iA
+\left| ${1:${VISUAL}} \right|$0
 endsnippet
 
-snippet lr{ "left\{ right\}" i
-\left\\{ ${1:${VISUAL}} \right\\} $0
+snippet lr{ "left\{ right\}" iA
+\left\\{ ${1:${VISUAL}} \right\\}$0
 endsnippet
 
-snippet lrb "left\{ right\}" i
-\left\\{ ${1:${VISUAL}} \right\\} $0
+snippet lrb "left\{ right\}" iA
+\left\\{ ${1:${VISUAL}} \right\\}$0
 endsnippet
 
-snippet lr[ "left[ right]" i
-\left[ ${1:${VISUAL}} \right] $0
+snippet lr[ "left[ right]" iA
+\left[ ${1:${VISUAL}} \right]$0
 endsnippet
 
 snippet lra "leftangle rightangle" iA
-\left<${1:${VISUAL}} \right>$0
+\left\langle ${1:${VISUAL}} \right\rangle$0
 endsnippet
 
 context "math()"
@@ -285,12 +285,12 @@ snippet prod "product" w
 endsnippet
 
 snippet part "d/dx" w
-\frac{\partial ${1:V}}{\partial ${2:x}} $0
+\frac{\partial ${1:V}}{\partial ${2:x}}$0
 endsnippet
 
 context "math()"
 snippet sq "\sqrt{}" iA
-\sqrt{${1:${VISUAL}}} $0
+\sqrt{${1:${VISUAL}}}$0
 endsnippet
 
 context "math()"
@@ -436,7 +436,7 @@ endsnippet
 
 context "math()"
 snippet norm "norm" iA
-\|$1\|$0
+\left\| $1 \right\|$0
 endsnippet
 
 priority 100
@@ -505,7 +505,7 @@ endsnippet
 
 context "math()"
 snippet set "set" wA
-\\{$1\\} $0
+\\{$1\\}$0
 endsnippet
 
 snippet || "mid" iA
@@ -574,7 +574,7 @@ endsnippet
 
 context "math()"
 snippet '(?<!i)sts' "text subscript" irA
-_\text{$1} $0
+_\text{$1}$0
 endsnippet
 
 context "math()"
@@ -639,6 +639,46 @@ endsnippet
 
 snippet DD "D" iA
 \mathbb{D}
+endsnippet
+
+
+# ===============================
+# My own snippets
+# ===============================
+
+priority 10
+context "math()"
+snippet "vec" "vec" riA
+\vec{$1}$0
+endsnippet
+
+priority 100
+context "math()"
+snippet "([a-zA-Z])vec" "vec" riA
+\vec{`!p snip.rv=match.group(1)`}
+endsnippet
+
+snippet vmat "vmat" iA
+\begin{vmatrix} $1 \end{vmatrix}$0
+endsnippet
+
+snippet bf "textbf" iA
+\textbf{$1}$0
+endsnippet
+
+context "math()"
+snippet +- "pm" iA
+\pm
+endsnippet
+
+context "math()"
+snippet -+ "mp" iA
+\mp
+endsnippet
+
+context "math()"
+snippet Norm "Norm" iA
+\left\lVert $1 \right\rVert$0
 endsnippet
 
 # vim:ft=snippets
