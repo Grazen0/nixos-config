@@ -164,6 +164,9 @@
     '';
 
     sessionVariables = {
+      # Show the time in prompt
+      APHRODITE_THEME_SHOW_TIME = "ye";
+
       # Highlight colors for zsh-vi-mode
       ZVM_VI_HIGHLIGHT_BACKGROUND = "#223249";
       ZVM_VI_HIGHLIGHT_FOREGROUND = "#dcd7ba";
