@@ -246,11 +246,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1725634902,
-        "narHash": "sha256-HiUrpIgdU/NyIOBL3D4kCuz6ALJvOc19viL/p/wh4+0=",
+        "lastModified": 1725745730,
+        "narHash": "sha256-WQ8Rg7EPJSyoqSB5tNW7+/1kCuPRIe12BEdkKAe68cQ=",
         "owner": "doronbehar",
         "repo": "nix-matlab",
-        "rev": "5a51d526a3e4fde5f06f1b90828c2281d6b30cf4",
+        "rev": "c7644d7e6c486ec9bf5aaf8ef78968ad7617e32e",
         "type": "gitlab"
       },
       "original": {
@@ -261,11 +261,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1725715413,
-        "narHash": "sha256-3NCphgxptwMtxH39+PzBTOvijIhCAhXfPyU+xY17NI0=",
+        "lastModified": 1725716377,
+        "narHash": "sha256-7NzW9O/cAw7iWzRfh7Oo/SuSudL4a1YTKS6yoh3tMck=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "502e0aed3102124d7034a2ed2ed245e35c9b9a4e",
+        "rev": "04a1cda0c1725094a4db703cccbb956b7558f5a6",
         "type": "github"
       },
       "original": {
@@ -348,11 +348,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1725669404,
-        "narHash": "sha256-Bbp1GVgKVLz9mSfzgwBdQ96Pxm+RgPEdYjS4kKSFrAI=",
+        "lastModified": 1725744583,
+        "narHash": "sha256-bzJ5iUPaEjSt24fIoQihBGN+Q7mye73hd/jbubHhyZA=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "86a4021597c860a6cd1953305a9995f44e60d4d5",
+        "rev": "810eacf5163b16b666ca70b6617c6a85ce412e0a",
         "type": "github"
       },
       "original": {
