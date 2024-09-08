@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "base16-zathura": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1643130739,
-        "narHash": "sha256-nVJoygnytYN40VHXpAFwO7ruVbaSydeR547MU45VSuY=",
-        "owner": "haozeke",
-        "repo": "base16-zathura",
-        "rev": "9f148b4001dc67d399e645919225943d47e50125",
-        "type": "github"
-      },
-      "original": {
-        "owner": "haozeke",
-        "repo": "base16-zathura",
-        "type": "github"
-      }
-    },
     "devshell": {
       "inputs": {
         "nixpkgs": [
@@ -401,7 +385,6 @@
     },
     "root": {
       "inputs": {
-        "base16-zathura": "base16-zathura",
         "home-manager": "home-manager",
         "nix-matlab": "nix-matlab",
         "nixos-hardware": "nixos-hardware",
@@ -411,7 +394,6 @@
         "nixvim": "nixvim",
         "spicetify-nix": "spicetify-nix",
         "thorium-browser": "thorium-browser",
-        "tt-schemes": "tt-schemes",
         "zen-browser": "zen-browser"
       }
     },
@@ -505,22 +487,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "tt-schemes": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1725273692,
-        "narHash": "sha256-XOxESrzdIpcYMLS+s4D16M4c8gAk3sLyAQUvsb+lQLk=",
-        "owner": "tinted-theming",
-        "repo": "schemes",
-        "rev": "992b6c372a00e284a7dc26b19a0d11b7afcba1f1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tinted-theming",
-        "repo": "schemes",
         "type": "github"
       }
     },

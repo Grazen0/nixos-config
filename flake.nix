@@ -13,16 +13,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    base16-zathura = {
-      url = "github:haozeke/base16-zathura";
-      flake = false;
-    };
-
-    tt-schemes = {
-      url = "github:tinted-theming/schemes";
-      flake = false;
-    };
-
     zen-browser = {
       url = "github:MarceColl/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
