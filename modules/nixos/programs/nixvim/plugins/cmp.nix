@@ -4,15 +4,23 @@
       enable = true;
 
       settings = {
-        mapping = {
-          "<C-Space>" = "cmp.mapping.complete()";
-          "<C-e>" = "cmp.mapping.close()";
-          "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-          "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-        };
+        mapping.__raw = ''
+          cmp.mapping.preset.insert({
+            ["<C-Space>"] = cmp.mapping.complete(),
+            ["<C-e>"] = cmp.mapping.close(),
+            ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+            ["<C-f>"] = cmp.mapping.scroll_docs(4),
+            ["<CR>"] = cmp.mapping.confirm({ select = true }),
+            ["<Tab>"] = cmp.mapping(
+              require("cmp_nvim_ultisnips.mappings")
+                .compose({ "select_next_item", "jump_forwards" }),
+              { "i", "s" }),
+            ["<S-Tab>"] = cmp.mapping(
+              require("cmp_nvim_ultisnips.mappings")
+                .compose({ "select_prev_item", "jump_backwards" }),
+              { "i", "s" }),
+          })
+        '';
 
         sources = [
           {name = "async_path";}
