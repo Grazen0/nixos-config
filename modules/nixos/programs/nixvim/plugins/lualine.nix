@@ -3,12 +3,12 @@
     enable = true;
 
     settings.options = {
-      componentSeparators = {
+      component_separators = {
         left = "";
         right = "";
       };
 
-      sectionSeparators = {
+      section_separators = {
         left = "";
         right = "";
       };
