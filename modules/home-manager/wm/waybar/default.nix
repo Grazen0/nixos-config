@@ -36,7 +36,7 @@
         "custom/sysmenu" = {
           format = "";
           tooltip-format = "App launcher";
-          on-click = "rofi -show drun -theme kanagawa-grid";
+          on-click = "rofi -show drun -show-icons";
         };
         tray = {
           spacing = 10;

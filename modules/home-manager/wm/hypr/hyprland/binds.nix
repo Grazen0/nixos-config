@@ -20,7 +20,7 @@
         "$mainMod CTRL ALT SHIFT, L, exec, $browser \"https://linkedin.com\""
 
         # Menus
-        "$mainMod, Space, exec, pkill rofi || rofi -show drun -theme kanagawa-grid"
+        "$mainMod, Space, exec, pkill rofi || rofi -show drun -show-icons"
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mainMod, Period, exec, bemoji -tcn"
         "$mainMod, X, exec, rofi -show menu -modi \"menu:rofi-power-menu\""
