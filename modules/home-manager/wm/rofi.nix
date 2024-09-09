@@ -90,6 +90,7 @@
       element = {
         padding = lit "6px 16px";
         spacing = 10;
+        highlight = lit "none";
       };
 
       "element.selected" = {
