@@ -22,7 +22,7 @@
         # Menus
         "$mainMod, Space, exec, pkill rofi || rofi -show drun -theme kanagawa-grid"
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-        "$mainMod, Period, exec, bemoji -tcn"
+        "$mainMod, Period, exec, rofi -modi emoji -show emoji"
         "$mainMod, X, exec, rofi -show menu -modi \"menu:rofi-power-menu\""
         "$mainMod, Slash, exec, rofi -show calc -modi calc -no-show-match -no-sort"
 

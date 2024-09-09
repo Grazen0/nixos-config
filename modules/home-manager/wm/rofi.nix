@@ -10,6 +10,7 @@
 
     plugins = with pkgs; [
       rofi-calc
+      rofi-emoji
     ];
 
     extraConfig = {
