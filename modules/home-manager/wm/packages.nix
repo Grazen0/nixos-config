@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    bemoji
     dex
     grim
     hyprpicker

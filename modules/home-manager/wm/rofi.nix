@@ -11,6 +11,11 @@
     terminal = "${pkgs.kitty}/bin/kitty";
     location = "center";
 
+    plugins = with pkgs; [
+      rofi-calc
+      rofi-emoji
+    ];
+
     extraConfig = {
       display-drun = "";
       drun-display-format = "{name}";
