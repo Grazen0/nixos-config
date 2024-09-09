@@ -428,7 +428,7 @@ endsnippet
 
 context "math()"
 snippet norm "norm" iA
-\left\| $1 \right\|$0
+\left| $1 \right|$0
 endsnippet
 
 priority 100
@@ -654,8 +654,15 @@ snippet vmat "vmat" iA
 \begin{vmatrix} $1 \end{vmatrix}$0
 endsnippet
 
+priority 10
 snippet bf "textbf" iA
 \textbf{$1}$0
+endsnippet
+
+priority 100
+context "math()"
+snippet bf "mathbf" iA
+\mathbf{$1}$0
 endsnippet
 
 context "math()"
