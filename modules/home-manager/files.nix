@@ -13,10 +13,9 @@
     ];
   in
     {
-      wallpapers = {
-        source = ../../files/wallpapers;
-        recursive = true;
-        target = "${config.xdg.userDirs.pictures}/Wallpapers";
+      wallpaper = {
+        source = ../../files/wallpaper.png;
+        target = "${config.xdg.userDirs.pictures}/wallpaper.png";
       };
     }
     // lib.genAttrs programs (program: {
