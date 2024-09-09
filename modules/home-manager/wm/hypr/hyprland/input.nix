@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland.settings = {
     input = {
       kb_layout = lib.mkDefault "us,latam";
-      kb_options = ["grp:alt_shift_toggle" "caps:swapescape"];
+      kb_options = "grp:alt_shift_toggle,caps:swapescape";
 
       numlock_by_default = true;
       follow_mouse = 2;
