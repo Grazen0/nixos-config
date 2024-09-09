@@ -8,6 +8,10 @@
     location = "center";
     theme = "kanagawa";
 
+    plugins = with pkgs; [
+      rofi-calc
+    ];
+
     extraConfig = {
       show-icons = true;
       display-drun = "";
