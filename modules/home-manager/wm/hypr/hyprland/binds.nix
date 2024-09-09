@@ -35,9 +35,8 @@
         "$mainMod SHIFT, F, fakefullscreen"
         "$mainMod, M, fullscreen, 1"
         "$mainMod, T, togglefloating"
-        "$mainMod SHIFT, T, pseudo"
-        "$mainMod, P, pin"
-        "$mainMod SHIFT, S, togglesplit"
+        "$mainMod, P, pseudo"
+        "$mainMod SHIFT, T, togglesplit"
 
         # Move window focus
         "$mainMod, H, movefocus, l"
