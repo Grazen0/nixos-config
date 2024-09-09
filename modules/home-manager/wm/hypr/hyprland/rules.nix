@@ -45,7 +45,6 @@
     ];
 
     layerrule = [
-      "dimaround, rofi"
       "noanim, eww-bg"
     ];
   };
