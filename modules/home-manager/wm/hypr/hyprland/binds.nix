@@ -24,7 +24,7 @@
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mainMod, Period, exec, rofi -modi emoji -show emoji"
         "$mainMod, X, exec, rofi -show menu -modi \"menu:rofi-power-menu\""
-        "$mainMod, Slash, exec, rofi -show calc -modi calc -no-show-match -no-sort"
+        "$mainMod, Slash, exec, rofi -show calc -modi calc -no-show-match -no-sort -terse -hint-result \"\" -calc-command \"echo -n '{result}' | wl-copy\""
 
         # Screen capture
         ", Print, exec, slurp | grim -g - - | wl-copy"
