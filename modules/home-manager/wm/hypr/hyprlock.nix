@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -10,7 +10,7 @@
 
       background = [
         {
-          path = "~/Pictures/Wallpapers/primary.png";
+          path = "${config.xdg.userDirs.pictures}/wallpaper.png";
         }
       ];
 
