@@ -25,13 +25,14 @@
     monospace;
   font-size: 10pt;
   color: inherit;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
 }
 
 window#waybar {
-  background-color: transparent;
+  background-color: @background;
   color: @foreground;
-  transition-property: background-color;
-  transition-duration: 0.5s;
 }
 
 window#waybar.hidden {
@@ -50,10 +51,7 @@ window#waybar.hidden {
 #network,
 #clock,
 #custom-power {
-  margin: 0 2px;
-  padding: 0 14px;
-  background-color: @background;
-  border-radius: 8pt;
+  padding: 0 10px;
 }
 
 /* SYSMENU */
@@ -90,8 +88,6 @@ window#waybar.hidden {
   background-color: transparent;
   color: transparent;
   font-size: 0;
-  margin: 0;
-  padding: 0;
 }
 
 /* SUBMAP */
@@ -102,13 +98,11 @@ window#waybar.hidden {
 
 /* WORKSPACES */
 #workspaces {
-  padding: 0 16px;
-  margin: 0 8px;
+  padding: 0 24px;
 }
 
 #workspaces button {
   padding: 0 8px;
-  border-radius: 0; /* Needed for some reason */
 }
 
 #workspaces button.empty:not(.active) {
@@ -142,44 +136,12 @@ window#waybar.hidden {
   background-color: @red;
   color: @foreground;
 }
-
 /* BATTERY */
 #battery.critical:not(.charging) {
   background-color: @red;
 }
 
-/* #custom-media { */
-/* 	background-color: #66cc99; */
-/* 	color: #2a5c45; */
-/* 	min-width: 100px; */
-/* } */
-/**/
-/* #custom-media.custom-spotify { */
-/* 	background-color: #66cc99; */
-/* } */
-/**/
-/* #custom-media.custom-vlc { */
-/* 	background-color: #ffa000; */
-/* } */
-
 /* CLOCK */
 #clock {
   color: @bright-yellow;
 }
-
-/* #mpd { */
-/* 	background-color: #66cc99; */
-/* 	color: #2a5c45; */
-/* } */
-/**/
-/* #mpd.disconnected { */
-/* 	background-color: #f53c3c; */
-/* } */
-/**/
-/* #mpd.stopped { */
-/* 	background-color: #90b1b1; */
-/* } */
-/**/
-/* #mpd.paused { */
-/* 	background-color: #51a37a; */
-/* } */

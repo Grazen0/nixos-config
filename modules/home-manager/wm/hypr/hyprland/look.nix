@@ -1,12 +1,12 @@
 {
   wayland.windowManager.hyprland.settings = {
-    general = {
-      gaps_in = 6;
-      gaps_out = 12;
+    general = rec {
+      gaps_in = 4;
+      gaps_out = 2 * gaps_in;
       border_size = 3;
 
       "col.active_border" = "rgb(a3d4d5)";
-      "col.inactive_border" = "rgba(727169aa)";
+      "col.inactive_border" = "rgb(727169)";
       no_focus_fallback = true;
 
       allow_tearing = true;
@@ -15,12 +15,7 @@
     };
 
     decoration = {
-      rounding = 8;
-
-      drop_shadow = true;
-      shadow_range = 12;
-      shadow_render_power = 3;
-      "col.shadow" = "rgba(1a1a1a80)";
+      drop_shadow = false;
 
       blur = {
         enabled = true;
@@ -51,8 +46,6 @@
       default_split_ratio = 1.04;
     };
 
-    xwayland = {
-      force_zero_scaling = true;
-    };
+    xwayland.force_zero_scaling = true;
   };
 }

@@ -16,7 +16,6 @@
     };
 
     settings = {
-      background_opacity = "0.9";
       enable_audio_bell = "no";
       tab_bar_style = "separator";
       tab_separator = " | ";

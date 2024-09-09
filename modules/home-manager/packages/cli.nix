@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     cbonsai
     cmatrix
+    fortune
     peaclock
     pipes-rs
     rmtrash

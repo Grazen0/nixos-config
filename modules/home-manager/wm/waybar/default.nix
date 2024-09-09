@@ -11,12 +11,8 @@
 
         layer = "top";
         position = "top";
-        height = 32;
-        spacing = 4;
-        margin-top = 8;
-        margin-right = 8;
-        margin-left = 8;
-        margin-bottom = 0;
+        height = 36;
+        spacing = 0;
 
         modules-left = [
           "custom/sysmenu"
@@ -113,7 +109,7 @@
         };
         clock = {
           interval = 1;
-          format = " {:%H:%M}";
+          format = " {:%I:%M %p}";
           format-alt = " {:%d/%m/%y}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
