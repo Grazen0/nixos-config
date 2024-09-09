@@ -39,17 +39,22 @@
     in {
       "*" = {
         background-color = lit "transparent";
-        text-color = colors.foreground;
         margin = 0;
         padding = 0;
         spacing = 0;
         border = lit "none";
+        text-color = lit "inherit";
       };
 
       window = {
+        text-color = colors.foreground;
         background-color = colors.background;
         border = lit "3px";
         border-color = colors.border;
+      };
+
+      mainbox = {
+        children = map lit ["inputbar" "message" "listview"];
       };
 
       inputbar = {
@@ -70,6 +75,12 @@
         placeholder-color = colors.dimmed;
       };
 
+      message = {
+        padding = lit "6px 16px";
+        border = lit "0 0 3px 0";
+        border-color = colors.border;
+      };
+
       listview = {
         columns = 1;
         lines = 10;
@@ -81,16 +92,16 @@
         spacing = 10;
       };
 
+      "element.selected" = {
+        background-color = colors.highlight;
+      };
+
       element-icon = {
         size = lit "1.25em";
       };
 
       element-text = {
         vertical-align = lit "0.5";
-      };
-
-      "element.selected" = {
-        background-color = colors.highlight;
       };
     };
   };
