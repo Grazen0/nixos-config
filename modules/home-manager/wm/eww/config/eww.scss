@@ -15,68 +15,48 @@ $background-alt: #1f1f28;
 * {
   all: unset;
   font-family: "JetBrainsMonoNL Nerd Font Propo";
+  color: $bright-white;
 }
 
-.music-player {
-  background-color: $background;
-  padding: 1.5em;
-  border-radius: 0.5em;
+.desktop-time {
+  .time {
+    font-weight: bold;
+    font-size: 5em;
+  }
+
+  .date {
+    font-size: 1.5em;
+  }
+}
+
+.desktop-fortune {
+  font-size: 1.05em;
+}
+
+.desktop-player {
 
   .art {
-    border-radius: 8px;
-    background-color: $background-alt;
     background-size: cover;
   }
+}
 
-  .info-panel {
-    min-width: 20em;
+.volume-bar {
+  background-color: $background;
+  padding: 1.5em;
 
-    .title {
-      color: $magenta;
-      margin: 0.5em 0;
-      font-size: 1.25em;
-      font-weight: bold;
-    }
+  .slider {
+    margin-bottom: 1em;
 
-    .artist {
-      color: $white;
-      margin: 0.25em 0;
-    }
+    trough {
+      background-color: $background-alt;
+      min-height: 10em;
+      min-width: 1em;
 
-    .controls {
-      margin: 1.25em 0;
-
-      button {
-        color: $yellow;
-        font-size: 2em;
-        transition: color ease-out 100ms;
-
-        &:active {
-          color: $bright-white;
-        }
-      }
-
-      .btn-play-pause {
-        margin: 0 1em;
-      }
-    }
-
-    .slider {
-      margin: 0 1em;
-
-      trough {
-        background-color: $background-alt;
+      highlight {
+        opacity: 0;
+        background-color: $blue;
         min-height: 1em;
-        border-radius: 0.5em;
-
-        highlight {
-          background-color: $blue;
-          border-radius: 0.5em;
-          min-width: 1em;
-        }
       }
     }
   }
-
-
 }

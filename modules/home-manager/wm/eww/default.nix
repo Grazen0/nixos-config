@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   programs.eww = {
-    enable = false;
+    enable = true;
     configDir = ./config;
   };
 
   home.packages = with pkgs; [
-    playerctl
+    fortune
   ];
 }

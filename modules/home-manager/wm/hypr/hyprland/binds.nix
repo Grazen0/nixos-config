@@ -172,10 +172,6 @@
         "$mainMod, mouse:273, resizewindow"
       ];
 
-      bindn = [
-        ", Escape, exec, eww close-all"
-      ];
-
       binds = {
         allow_workspace_cycles = true;
       };

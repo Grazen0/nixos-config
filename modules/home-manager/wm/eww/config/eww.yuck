@@ -1,38 +1,30 @@
-(defpoll player-status :interval "1s" :initial "No players found"
-  `playerctl -p spotify status`)
+(defpoll time :interval "1s"
+  `date +'%I:%M %p'`)
 
-(defpoll player-title :interval "0.5s"
-  `./scripts/player-title`)
+(defpoll date :interval "30s"
+  `date +'%A, %B %-d'`)
 
-(defpoll player :interval "0.5s"
-  `playerctl -p spotify metadata -f '{"artist":"{{artist}}","art":"{{mpris:artUrl}}","status":"{{status}}","position":{{position}},"duration":{{mpris:length}}}'`)
+(defpoll fortune :interval "15m"
+  `fortune -s | fold -s -w 45`)
 
-(defwindow music-player
-  :monitor -0
-  :geometry (geometry :anchor "center")
-  :stacking "fg"
-  :focusable true
-  (music-player))
+(defwindow desktop-time
+  :monitor 0
+  :geometry (geometry :anchor "center right" :x 100)
+  :stacking "bg"
+  :namespace "eww-bg"
+  (desktop-time))
 
-(defwidget music-player []
-  (box :class "music-player" :spacing 16 :space-evenly false
-    (box :class "art" :width 160 :height 160 :style "background-image: url('${player.art}')")
-    (music-player-info)))
+(defwidget desktop-time []
+  (box :class "desktop-time" :orientation "v" :space-evenly false
+    (label :class "time" :text {time})
+    (label :class "date" :text {date})))
 
-(defwidget music-player-info []
-  (box :class "info-panel" :orientation "v" :width 250 :space-evenly false
-    (label :class "title" :text {player-title})
-    (label :class "artist" :text {player.artist})
-    (music-player-controls)
-    (scale :class "slider" 
-      :hexpand true
-      :min 0 :max {player.duration / 1000000}
-      :value {player.position / 1000000}
-      :onchange "playerctl -p spotify position {}")))
+(defwindow desktop-fortune
+  :monitor 0
+  :geometry (geometry :anchor "center left" :x 75)
+  :stacking "bg"
+  :namespace "eww-bg"
+  (desktop-fortune))
 
-(defwidget music-player-controls []
-  (box :orientation "h" :class "controls" :space-evenly false :halign "center"
-    (button :onclick "playerctl -p spotify previous" "")
-    (button :class "btn-play-pause"
-      :onclick "playerctl -p spotify play-pause" {player?.status == "Playing" ? "" : ""})
-    (button :onclick "playerctl -p spotify previous" "")))
+(defwidget desktop-fortune []
+  (label :width 20 :text {fortune}))
