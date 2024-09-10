@@ -45,7 +45,7 @@
     ];
 
     layerrule = [
-      "noanim, eww-bg"
+      "noanim, eww-desktop"
     ];
   };
 }

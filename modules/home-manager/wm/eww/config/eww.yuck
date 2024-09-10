@@ -11,7 +11,7 @@
   :monitor 0
   :geometry (geometry :anchor "center right" :x 100)
   :stacking "bg"
-  :namespace "eww-bg"
+  :namespace "eww-desktop"
   (desktop-time))
 
 (defwidget desktop-time []
@@ -23,7 +23,7 @@
   :monitor 0
   :geometry (geometry :anchor "center left" :x 75)
   :stacking "bg"
-  :namespace "eww-bg"
+  :namespace "eww-desktop"
   (desktop-fortune))
 
 (defwidget desktop-fortune []
