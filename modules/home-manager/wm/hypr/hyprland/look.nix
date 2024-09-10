@@ -1,8 +1,8 @@
 {
   wayland.windowManager.hyprland.settings = {
-    general = rec {
+    general = {
       gaps_in = 4;
-      gaps_out = 2 * gaps_in;
+      gaps_out = 0;
       border_size = 3;
 
       "col.active_border" = "rgb(7e9cd8)";
@@ -16,13 +16,7 @@
 
     decoration = {
       drop_shadow = false;
-
-      blur = {
-        enabled = true;
-        size = 3;
-        passes = 1;
-        vibrancy = 0.1696;
-      };
+      blur.enabled = false;
     };
 
     animations = {
