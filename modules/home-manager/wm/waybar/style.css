@@ -1,17 +1,11 @@
 @define-color black #16161d;
 @define-color bright-black #727169;
 @define-color red #c34043;
-@define-color bright-red #e82424;
 @define-color green #76946a;
-@define-color bright-green #98bb6c;
 @define-color yellow #c0a36e;
-@define-color bright-yellow #e6c384;
 @define-color blue #7e9cd8;
-@define-color bright-blue #7fb4ca;
 @define-color magenta #957fb8;
-@define-color bright-magenta #938aa9;
 @define-color cyan #6a9589;
-@define-color bright-cyan #7aa89f;
 @define-color white #c8c093;
 @define-color bright-white #dcd7ba;
 
@@ -56,8 +50,7 @@ window#waybar.hidden {
 
 /* SYSMENU */
 #custom-sysmenu {
-  padding: 0 10px;
-  color: @bright-cyan;
+  color: @cyan;
   font-size: 1.3em;
 }
 
@@ -77,7 +70,7 @@ window#waybar.hidden {
 
 /* MEDIA */
 #custom-media {
-  color: @bright-magenta;
+  color: @magenta;
 }
 
 #custom-media.paused {
@@ -110,7 +103,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.urgent {
-  color: @bright-yellow;
+  color: @yellow;
 }
 
 /* PULSEAUDIO */
@@ -120,7 +113,7 @@ window#waybar.hidden {
 
 /* NETWORK */
 #network {
-  color: @bright-green;
+  color: @green;
 }
 
 #network.disconnected {
@@ -129,7 +122,7 @@ window#waybar.hidden {
 
 /* TEMPERATURE */
 #temperature {
-  color: @bright-blue;
+  color: @blue;
 }
 
 #temperature.critical {
@@ -143,5 +136,5 @@ window#waybar.hidden {
 
 /* CLOCK */
 #clock {
-  color: @bright-yellow;
+  color: @yellow;
 }

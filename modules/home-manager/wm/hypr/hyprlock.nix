@@ -1,6 +1,7 @@
 {config, ...}: {
   programs.hyprlock = {
     enable = true;
+
     settings = {
       general = {
         disable_loading_bar = true;
@@ -30,12 +31,9 @@
 
           font_color = "rgb(dcd7ba)";
           inner_color = "rgb(16161d)";
-          outer_color = "rgb(a3d4d5)";
-          check_color = "rgb(ffa066)";
-          fail_color = "rgb(e82424)";
-
-          shadow_passes = 1;
-          shadow_color = "rgb(16161d)";
+          outer_color = "rgb(7e9cd8)";
+          check_color = "rgb(c0a36e)";
+          fail_color = "rgb(c34043)";
         }
       ];
     };
