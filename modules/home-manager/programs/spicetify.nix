@@ -12,7 +12,8 @@ in {
 
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.blossom;
+    theme = spicePkgs.themes.text;
+    colorScheme = "kanagawa";
 
     enabledExtensions = with spicePkgs.extensions; [
       adblock
