@@ -2,8 +2,6 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
-  fetchPypi,
-  pythonOlder,
   setuptools,
   wheel,
   pyperclip,
