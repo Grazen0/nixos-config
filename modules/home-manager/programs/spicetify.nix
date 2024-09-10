@@ -17,6 +17,7 @@ in {
         additionalCss = ''
           :root {
             --font-family: "JetBrainsMonoNL Nerd Font Propo", monospace !important;
+            --border-width: 2px !important;
             letter-spacing: -0.075ch !important;
           }
         '';
