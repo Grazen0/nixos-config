@@ -16,7 +16,7 @@
 /* customize things here */
 :root {
   --font: "JetBrainsMonoNL Nerd Font Propo"; /* UI font name. it must be installed on your system. */
-  letter-spacing: -0.1ch; /* decreases letter spacing for better readability. */
+  letter-spacing: -0.075ch; /* decreases letter spacing for better readability. */
   font-weight: 300; /* UI font weight. */
   --label-font-weight: 500; /* font weight for panel labels. */
   --corner-text: "system24"; /* custom text to display in the corner. only works on windows. */
