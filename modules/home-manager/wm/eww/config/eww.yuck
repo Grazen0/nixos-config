@@ -9,7 +9,7 @@
 
 (defwindow desktop-time
   :monitor 0
-  :geometry (geometry :anchor "center right" :x 100)
+  :geometry (geometry :anchor "center right" :x "5%")
   :stacking "bg"
   :namespace "eww-desktop"
   (desktop-time))
