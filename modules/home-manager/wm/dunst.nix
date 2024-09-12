@@ -13,7 +13,7 @@
         width = 300;
         height = 300;
         origin = "bottom-right";
-        offset = "12x12";
+        offset = "0x0";
         scale = 0; # Auto-detect
         notification_limit = 20;
 
@@ -25,16 +25,16 @@
         progress_bar_max_width = 300;
         progress_bar_corner_radius = 0;
         progress_bar_corners = "all";
-        icon_corner_radius = 15;
+        icon_corner_radius = 0;
         icon_corners = "all";
         indicate_hidden = "yes";
         transparency = 0;
         separator_height = 2;
-        padding = 8;
+        padding = 6;
         horizontal_padding = 8;
         text_icon_padding = 0;
         frame_width = 3;
-        frame_color = "#7fb4ca";
+        frame_color = "#957fb8";
         gap_size = 6;
         separator_color = "frame";
         sort = "yes";
@@ -68,7 +68,7 @@
         always_run_script = true;
         title = "Dunst";
         class = "Dunst";
-        corner_radius = 14;
+        corner_radius = 0;
         corners = "all";
         ignore_dbusclose = false;
 
@@ -85,22 +85,22 @@
       };
 
       urgency_low = {
-        background = "#16161d";
+        background = "#1f1f28";
         foreground = "#dcd7ba";
         timeout = 10;
       };
 
       urgency_normal = {
-        background = "#16161d";
+        background = "#1f1f28";
         foreground = "#dcd7ba";
         timeout = 10;
         override_pause_level = 30;
       };
 
       urgency_critical = {
-        background = "#16161d";
+        background = "#1f1f28";
         foreground = "#dcd7ba";
-        frame_color = "#e82424";
+        frame_color = "#c34043";
         timeout = 0;
         override_pause_level = 60;
       };
