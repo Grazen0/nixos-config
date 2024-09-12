@@ -6,6 +6,7 @@
     ./fastfetch.nix
     ./git.nix
     ./kitty.nix
+    ./mpv.nix
     ./ranger.nix
     ./spicetify.nix
     ./tmux.nix
@@ -14,7 +15,6 @@
 
   programs = {
     eza.enable = true;
-    mpv.enable = true;
     nix-index.enable = true;
     obs-studio.enable = true;
     vscode.enable = true;
