@@ -1,1 +1,0 @@
-INSTALL_DIR="$HOME/.local/MATLAB/R2024a"
