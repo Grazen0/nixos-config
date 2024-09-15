@@ -11,7 +11,10 @@
       touchpad.natural_scroll = true;
     };
 
-    cursor.no_hardware_cursors = true;
+    cursor = {
+      no_hardware_cursors = true; # Nvidia thing
+      no_warps = true;
+    };
 
     gestures = {
       workspace_swipe = true;
