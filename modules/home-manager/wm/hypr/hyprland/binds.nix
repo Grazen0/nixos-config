@@ -105,6 +105,8 @@
         # Travel workspaces
         "$mainMod, A, workspace, r-1"
         "$mainMod, S, workspace, r+1"
+        "$mainMod CTRL, A, focusmonitor, l"
+        "$mainMod CTRL, S, focusmonitor, r"
 
         # Switch to previous workspace
         "$mainMod, Tab, workspace, previous"
