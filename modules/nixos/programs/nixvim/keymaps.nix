@@ -35,14 +35,6 @@
           "-" = "<C-w>-";
           "+" = "<C-w>+";
 
-          # Buffer navigation
-          "<C-Tab>" = "<cmd>bnext<CR>";
-          "<C-S-Tab>" = "<cmd>bprevious<CR>";
-
-          # Tab navigation
-          "<C-[>" = "<cmd>tabnext<CR>";
-          "<C-]>" = "<cmd>tabprevious<CR>";
-
           # neo-tree
           "<leader>e" = "<cmd>Neotree<CR>";
 
