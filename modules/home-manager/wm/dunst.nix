@@ -26,7 +26,7 @@
         progress_bar_corner_radius = 0;
         progress_bar_corners = "all";
         icon_corner_radius = 0;
-        icon_corners = "all";
+        icon_corners = "none";
         indicate_hidden = "yes";
         transparency = 0;
         separator_height = 2;

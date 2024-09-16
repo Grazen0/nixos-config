@@ -7,7 +7,15 @@
 (defpoll fortune :interval "15m"
   `fortune -s | fold -s -w 45`)
 
+
 (defwindow desktop-time
+  :monitor 0
+  :geometry (geometry :anchor "center right" :x "10%")
+  :stacking "bg"
+  :namespace "eww-desktop"
+  (desktop-time))
+
+(defwindow desktop-time-alt
   :monitor 0
   :geometry (geometry :anchor "center right" :x "5%")
   :stacking "bg"
@@ -18,6 +26,7 @@
   (box :class "desktop-time" :orientation "v" :space-evenly false
     (label :class "time" :text {time})
     (label :class "date" :text {date})))
+
 
 (defwindow desktop-fortune
   :monitor 0
