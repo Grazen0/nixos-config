@@ -22,6 +22,5 @@
     eza.enable = true;
     nix-index.enable = true;
     obs-studio.enable = true;
-    vscode.enable = true;
   };
 }
