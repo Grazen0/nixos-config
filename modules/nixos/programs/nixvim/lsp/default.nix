@@ -38,7 +38,7 @@
         };
       };
 
-      # hmts.enable = true; # Causes crash on peaclock.nix
+      hmts.enable = true; # Causes crash on peaclock.nix
       schemastore.enable = true;
     };
 
