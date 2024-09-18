@@ -26,6 +26,27 @@
           conceallevel = 1;
           spell = true;
         };
+
+        keymaps = [
+          {
+            mode = "n";
+            key = "<C-f>";
+            action = '': silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>'';
+            options = {
+              buffer = true;
+              silent = true;
+            };
+          }
+          {
+            mode = "i";
+            key = "<C-f>";
+            action = ''<Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>'';
+            options = {
+              buffer = true;
+              silent = true;
+            };
+          }
+        ];
       };
     };
   in
