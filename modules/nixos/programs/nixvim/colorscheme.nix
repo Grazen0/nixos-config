@@ -3,10 +3,6 @@
     enable = true;
 
     settings = {
-      colors.theme.all.ui.bg_gutter = "none";
-
-      transparent = true;
-
       keywordStyle.italic = false;
       functionStyle.italic = false;
 
