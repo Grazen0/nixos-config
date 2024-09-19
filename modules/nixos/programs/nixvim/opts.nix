@@ -11,7 +11,6 @@
       hidden = true;
       updatetime = 100;
 
-      relativenumber = true;
       signcolumn = "yes";
       fillchars = "eob: ";
       autoindent = true;
