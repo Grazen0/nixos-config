@@ -26,7 +26,6 @@
       incsearch = true;
       number = true;
       wildmode = "longest,list";
-      colorcolumn = "80";
       mouse = "a";
       cursorline = true;
       ttyfast = true;
