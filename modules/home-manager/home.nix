@@ -1,7 +1,22 @@
 {
+  inputs,
+  outputs,
+  ...
+}: {
   home = {
     username = "jdgt";
     homeDirectory = "/home/jdgt";
+  };
+
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.stable-packages
+      inputs.nix-matlab.overlay
+    ];
+
+    config = import ./nixpkgs-config.nix;
   };
 
   programs = {
@@ -9,7 +24,6 @@
     git.enable = true;
   };
 
-  nixpkgs.config = import ./nixpkgs-config.nix;
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs-config.nix;
 
   # Reload system units on switch

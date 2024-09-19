@@ -37,6 +37,7 @@
   outputs = {
     self,
     nixpkgs,
+    home-manager,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -69,5 +70,15 @@
           specialArgs = {inherit inputs outputs host;};
         }
     );
+
+    homeConfigurations = builtins.listToAttrs (builtins.map (host: {
+        name = "jdgt@${host}";
+        value = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {inherit inputs outputs host;};
+          modules = [./hosts/${host}/home-manager/home.nix];
+        };
+      })
+      hosts);
   };
 }

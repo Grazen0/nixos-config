@@ -86,10 +86,10 @@
       "2048" = "2048-in-terminal";
       "pipes.sh" = "pipes-rs";
 
-      rb = "sudo nixos-rebuild --flake ${flakeDir}";
       rbs = "sudo nixos-rebuild switch --flake ${flakeDir}";
       rbb = "sudo nixos-rebuild boot --flake ${flakeDir}";
       rbt = "sudo nixos-rebuild test --flake ${flakeDir}";
+      hms = "home-manager switch --flake ${flakeDir}";
       upd = "nix flake update ${flakeDir}";
 
       # I'm kinda clumsy
