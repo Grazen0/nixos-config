@@ -21,6 +21,7 @@
     nvim-autopairs.enable = true;
     nvim-colorizer.enable = true;
     lualine.enable = true;
+    oil.enable = true;
     todo-comments.enable = true;
     spectre.enable = true;
     surround.enable = true;
