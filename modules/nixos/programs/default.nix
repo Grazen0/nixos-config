@@ -1,6 +1,5 @@
 {lib, ...}: {
   imports = [
-    ./nixvim
     ./thunar.nix
     ./zsh.nix
   ];
