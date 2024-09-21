@@ -15,7 +15,7 @@
           hls.enable = true; # Haskell
           pyright.enable = true; # Python
 
-          tsserver.enable = true; # TypeScript/JavaScript
+          ts-ls.enable = true; # TypeScript/JavaScript
           html.enable = true; # HTML
           emmet-ls.enable = true; # HTML emmet snippets
           cssls.enable = true; # CSS

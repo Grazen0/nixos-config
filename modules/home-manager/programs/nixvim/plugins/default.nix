@@ -23,6 +23,6 @@
     lualine.enable = true;
     todo-comments.enable = true;
     spectre.enable = true;
-    surround.enable = true;
+    vim-surround.enable = true;
   };
 }
