@@ -3,7 +3,7 @@
     enable = true;
 
     shellIntegration.enableZshIntegration = true;
-    theme = "Kanagawa";
+    themeFile = "kanagawa";
 
     font = {
       name = "JetBrainsMonoNL Nerd Font";
