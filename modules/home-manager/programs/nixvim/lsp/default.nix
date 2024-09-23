@@ -41,7 +41,5 @@
       hmts.enable = true; # Causes crash on peaclock.nix
       schemastore.enable = true;
     };
-
-    diagnostics.virtual_text = false;
   };
 }
