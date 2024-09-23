@@ -3,9 +3,6 @@
     enable = true;
 
     settings = {
-      keywordStyle.italic = false;
-      functionStyle.italic = false;
-
       overrides = ''
         function(colors)
             local theme = colors.theme
