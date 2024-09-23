@@ -24,5 +24,6 @@
     todo-comments.enable = true;
     spectre.enable = true;
     vim-surround.enable = true;
+    web-devicons.enable = true;
   };
 }

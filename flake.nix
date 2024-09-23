@@ -2,11 +2,15 @@
   description = "My NixOS configurations";
 
   inputs = {
-    nixpgkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
-    nixvim.url = "github:nix-community/nixvim";
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";

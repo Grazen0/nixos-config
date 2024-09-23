@@ -1,14 +1,10 @@
 {inputs, ...}: {
   additions = final: _prev: import ../pkgs {inherit (final) pkgs;};
 
-  modifications = final: prev: let
-    overrideRofiUnwrapped = pkg:
-      pkg.override {
-        rofi-unwrapped = prev.rofi-wayland-unwrapped;
-      };
-  in {
-    rofi-calc = overrideRofiUnwrapped prev.rofi-calc;
-    rofi-emoji = overrideRofiUnwrapped prev.rofi-emoji;
+  modifications = final: prev: {
+    rofi-calc = prev.rofi-calc.override {
+      rofi-unwrapped = prev.rofi-wayland-unwrapped;
+    };
   };
 
   stable-packages = final: _prev: {
