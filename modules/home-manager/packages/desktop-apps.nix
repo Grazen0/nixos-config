@@ -8,7 +8,6 @@
     ark
     gimp
     inkscape
-    kitty
     nsxiv
     obsidian
     pavucontrol

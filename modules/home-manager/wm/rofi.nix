@@ -8,7 +8,7 @@
     package = pkgs.rofi-wayland;
 
     font = "JetBrainsMonoNL Nerd Font Propo 12";
-    terminal = "${pkgs.kitty}/bin/kitty";
+    terminal = "${pkgs.foot}/bin/foot";
     location = "center";
 
     plugins = with pkgs; [

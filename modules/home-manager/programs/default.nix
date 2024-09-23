@@ -6,8 +6,8 @@
     ./btop.nix
     ./cava.nix
     ./fastfetch.nix
+    ./foot.nix
     ./git.nix
-    ./kitty.nix
     ./matlab.nix
     ./mpv.nix
     ./peaclock.nix

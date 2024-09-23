@@ -9,7 +9,7 @@
     systemd.enable = true;
 
     settings = {
-      "$terminal" = "${pkgs.kitty}/bin/kitty";
+      "$terminal" = "${pkgs.foot}/bin/foot";
       "$browser" = "zen";
       "$fileManager" = "thunar";
 

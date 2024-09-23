@@ -21,7 +21,7 @@
       vcs_backend_git = "enabled";
 
       preview_images = true;
-      preview_images_method = "kitty";
+      preview_images_method = "sixel";
 
       status_bar_on_top = true;
       draw_progress_bar_in_status_bar = true;
