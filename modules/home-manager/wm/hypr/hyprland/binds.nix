@@ -33,7 +33,6 @@
         # Window controls
         "$mainMod, Q, killactive"
         "$mainMod, F, fullscreen"
-        "$mainMod SHIFT, F, fakefullscreen"
         "$mainMod, M, fullscreen, 1"
         "$mainMod, T, togglefloating"
         "$mainMod, P, pseudo"
