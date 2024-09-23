@@ -18,10 +18,10 @@
         group = "float_diagnostic_cursor";
         callback.__raw = ''
           function()
-          	vim.diagnostic.open_float(
-          		nil,
-          		{ focus = false, scope = "cursor" }
-          	)
+            vim.diagnostic.open_float(
+              nil,
+              { focus = false, scope = "cursor" }
+            )
           end
         '';
       }

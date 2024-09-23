@@ -1,6 +1,6 @@
 global !p
 def math():
-	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 endglobal
 
 
@@ -23,20 +23,20 @@ snippet template "Basic template" b
 \usepackage{xcolor}
 \usepackage{float}
 \newcommand{\incfig}[2][1]{%
-	\def\svgwidth{\columnwidth}
-	\import{./figures/}{#1.pdf_tex}
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
 }
 
 \pdfsuppresswarningpagegroup=1
 
 \begin{document}
-	$0
+    $0
 \end{document}
 endsnippet
 
 snippet beg "begin{} / end{}" bA
 \\begin{$1}
-	$0
+    $0
 \\end{$1}
 endsnippet
 
@@ -47,39 +47,39 @@ endsnippet
 
 snippet table "Table environment" b
 \begin{table}[${1:htpb}]
-	\centering
-	\caption{${2:caption}}
-	\label{tab:${3:label}}
-	\begin{tabular}{${5:c}}
-	$0${5/((?<=.)c|l|r)|./(?1: & )/g}
-	\end{tabular}
+    \centering
+    \caption{${2:caption}}
+    \label{tab:${3:label}}
+    \begin{tabular}{${5:c}}
+    $0${5/((?<=.)c|l|r)|./(?1: & )/g}
+    \end{tabular}
 \end{table}
 endsnippet
 
 snippet fig "Figure environment" b
 \begin{figure}[${1:htpb}]
-	\centering
-	${2:\includegraphics[width=0.8\textwidth]{$3}}
-	\caption{${4:$3}}
-	\label{fig:${5:${3/\W+/-/g}}}
+    \centering
+    ${2:\includegraphics[width=0.8\textwidth]{$3}}
+    \caption{${4:$3}}
+    \label{fig:${5:${3/\W+/-/g}}}
 \end{figure}
 endsnippet
 
 snippet enum "Enumerate" bA
 \begin{enumerate}
-	\item $0
+    \item $0
 \end{enumerate}
 endsnippet
 
 snippet item "Itemize" bA
 \begin{itemize}
-	\item $0
+    \item $0
 \end{itemize}
 endsnippet
 
 snippet desc "Description" b
 \begin{description}
-	\item[$1] $0
+    \item[$1] $0
 \end{description}
 endsnippet
 
@@ -103,9 +103,9 @@ endsnippet
 snippet mk "Math" wA
 \(${1}\)`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-	snip.rv = ' '
+    snip.rv = ' '
 else:
-	snip.rv = ''
+    snip.rv = ''
 `$2
 endsnippet
 
@@ -117,7 +117,7 @@ endsnippet
 
 snippet ali "Align" bA
 \begin{align*}
-	${1:${VISUAL}}
+    ${1:${VISUAL}}
 .\end{align*}
 endsnippet
 
@@ -144,10 +144,10 @@ stripped = match.string[:-1]
 depth = 0
 i = len(stripped) - 1
 while True:
-	if stripped[i] == ')': depth += 1
-	if stripped[i] == '(': depth -= 1
-	if depth == 0: break;
-	i-=1
+    if stripped[i] == ')': depth += 1
+    if stripped[i] == '(': depth -= 1
+    if depth == 0: break;
+    i-=1
 snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
 `{$1}$0
 endsnippet
@@ -384,18 +384,18 @@ endsnippet
 
 snippet plot "Plot" w
 \begin{figure}[$1]
-	\centering
-	\begin{tikzpicture}
-		\begin{axis}[
-			xmin= ${2:-10}, xmax= ${3:10},
-			ymin= ${4:-10}, ymax = ${5:10},
-			axis lines = middle,
-		]
-			\addplot[domain=$2:$3, samples=${6:100}]{$7};
-		\end{axis}
-	\end{tikzpicture}
-	\caption{$8}
-	\label{${9:$8}}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin= ${2:-10}, xmax= ${3:10},
+            ymin= ${4:-10}, ymax = ${5:10},
+            axis lines = middle,
+        ]
+            \addplot[domain=$2:$3, samples=${6:100}]{$7};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{$8}
+    \label{${9:$8}}
 \end{figure}
 endsnippet
 
@@ -579,7 +579,7 @@ endsnippet
 context "math()"
 snippet case "cases" wA
 \begin{cases}
-	$1
+    $1
 \end{cases}
 endsnippet
 
@@ -589,8 +589,8 @@ endsnippet
 
 snippet bigfun "Big function" iA
 \begin{align*}
-	$1: $2 &\longrightarrow $3 \\\\
-	$4 &\longmapsto $1($4) = $0
+    $1: $2 &\longrightarrow $3 \\\\
+    $4 &\longmapsto $1($4) = $0
 .\end{align*}
 endsnippet
 
