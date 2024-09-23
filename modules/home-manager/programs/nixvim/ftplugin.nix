@@ -23,7 +23,7 @@
 
       tex = {
         localOpts = {
-          conceallevel = 1;
+          conceallevel = 2;
           spell = true;
         };
 
