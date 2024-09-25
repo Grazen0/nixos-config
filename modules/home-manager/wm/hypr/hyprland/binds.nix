@@ -31,7 +31,7 @@
         "SHIFT, Print, exec, slurp | grim -g - $XDG_SCREENSHOTS_DIR/$(date \"+%Y-%m-%d %H-%S\").png"
 
         # Window controls
-        "$mainMod SHIFT, Q, killactive"
+        "$mainMod, Q, killactive"
         "$mainMod, F, fullscreen"
         "$mainMod, M, fullscreen, 1"
         "$mainMod, T, togglefloating"
