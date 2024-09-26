@@ -14,6 +14,7 @@
         include = "${kanagawa}";
       };
 
+      mouse.hide-when-typing = "yes";
       cursor.color = "1f1f28 c8c093";
 
       scrollback.lines = 10000;
