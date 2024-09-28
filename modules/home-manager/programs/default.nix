@@ -1,6 +1,6 @@
 {
   imports = [
-    ./nixvim
+    ./nvf
     ./vesktop
     ./bat.nix
     ./btop.nix
