@@ -586,6 +586,7 @@
         "plugin-obsidian-nvim": "plugin-obsidian-nvim",
         "plugin-onedark": "plugin-onedark",
         "plugin-orgmode-nvim": "plugin-orgmode-nvim",
+        "plugin-otter-nvim": "plugin-otter-nvim",
         "plugin-oxocarbon": "plugin-oxocarbon",
         "plugin-plenary-nvim": "plugin-plenary-nvim",
         "plugin-project-nvim": "plugin-project-nvim",
@@ -614,16 +615,15 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1727542043,
-        "narHash": "sha256-DsQXKZsUhJHs6PEUHeFUEGIPWxBVS46DmXYMA4pGXUc=",
+        "lastModified": 1727556262,
+        "narHash": "sha256-TnpujaInZh5Giy8aW/VyYivw+DgtJ1vis62ndDuLWM8=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "dfff6e6f3e54dc2dbcb0c94eed2a3683fe92cfad",
+        "rev": "c727528b6fb001f04d311de7b6d7f1be0b08b5cd",
         "type": "github"
       },
       "original": {
         "owner": "notashelf",
-        "ref": "vim-opts",
         "repo": "nvf",
         "type": "github"
       }
@@ -1842,6 +1842,22 @@
       "original": {
         "owner": "nvim-orgmode",
         "repo": "orgmode",
+        "type": "github"
+      }
+    },
+    "plugin-otter-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724585935,
+        "narHash": "sha256-euHwoK2WHLF/hrjLY2P4yGrIbYyBN38FL3q4CKNZmLY=",
+        "owner": "jmbuhr",
+        "repo": "otter.nvim",
+        "rev": "ca9ce67d0399380b659923381b58d174344c9ee7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jmbuhr",
+        "repo": "otter.nvim",
         "type": "github"
       }
     },

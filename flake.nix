@@ -13,7 +13,7 @@
     };
 
     nvf = {
-      url = "github:notashelf/nvf/vim-opts";
+      url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
