@@ -10,7 +10,7 @@
       };
     in {
       main = {
-        font = "JetBrainsMonoNL Nerd Font:size=10:weight=semibold";
+        font = "JetBrainsMonoNL Nerd Font:size=9.5:weight=semibold";
         include = "${kanagawa}";
       };
 
