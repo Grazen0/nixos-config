@@ -5,16 +5,13 @@
     cling
     gcc
     ghc
-    go
     gnumake
     nodejs
     pnpm
     (python3.withPackages
-      (ps:
-        with ps; [
-          (ps.callPackage ../../../pkgs/inkscape-figures {})
-        ]))
+      (ps: [
+        (ps.callPackage ../../../pkgs/inkscape-figures {})
+      ]))
     rustc
-    yarn
   ];
 }
