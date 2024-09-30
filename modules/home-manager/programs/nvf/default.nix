@@ -49,6 +49,11 @@
 
       leaderKey = " ";
 
+      globals = {
+        vimtex_view_method = "zathura";
+        vimtex_compiler_latexmk.out_dir = "dist";
+      };
+
       options = {
         cursorline = true;
         spelllang = "en_us,es_es";
@@ -134,7 +139,16 @@
       lsp = {
         enable = true;
         lspkind.enable = true;
+        lspSignature.enable = true;
         formatOnSave = true;
+
+        lspconfig.sources.texlab = ''
+          lspconfig.texlab.setup({
+            capabilities = capabilities,
+            on_attach = default_on_attach,
+            cmd = { '${pkgs.texlab}/bin/texlab' },
+          })
+        '';
       };
 
       statusline.lualine.enable = true;
@@ -244,23 +258,22 @@
 
       languages = {
         enableLSP = true;
-        # enableFormat = true;
         enableTreesitter = true;
 
         bash.enable = true;
-
         nix.enable = true;
         lua = {
           enable = true;
           lsp.neodev.enable = true;
         };
         markdown.enable = true;
-
-        rust.enable = true;
+        rust = {
+          enable = true;
+          crates.enable = true;
+        };
         clang.enable = true;
-
+        java.enable = true;
         python.enable = true;
-
         ts.enable = true;
         html.enable = true;
         css.enable = true;
@@ -270,13 +283,15 @@
 
       visuals = {
         enable = true;
-        nvimWebDevicons.enable = true;
         indentBlankline.enable = true;
+        highlight-undo.enable = true;
+        nvimWebDevicons.enable = true;
       };
 
       autocomplete = {
         enable = true;
-        type = "nvim-cmp";
+        mappings.scrollDocsUp = "<C-b>";
+        mappings.next = "<Tab>";
       };
 
       git = {
@@ -406,13 +421,9 @@
           '';
         };
 
-        vimtex = {
-          package = vimPlugins.vimtex;
-        };
+        spectre.package = vimPlugins.nvim-spectre;
 
-        ultisnips = {
-          package = vimPlugins.ultisnips;
-        };
+        vimtex.package = vimPlugins.vimtex;
 
         inc-rename = {
           package = vimPlugins.inc-rename-nvim;
@@ -426,6 +437,7 @@
 
         multicursors = {
           package = vimPlugins.multicursors-nvim;
+          setup = "require('multicursors').setup({})";
         };
 
         mini-starter = {

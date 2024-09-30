@@ -37,3 +37,11 @@ create_autocmd("FileType", {
         vim.opt_local.spell = true
     end,
 })
+
+-- Enable conceal for markdown and LaTeX files
+create_autocmd("FileType", {
+    pattern = { "markdown", "tex", "plaintex" },
+    callback = function()
+        vim.opt_local.conceallevel = 2
+    end,
+})
