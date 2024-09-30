@@ -48,6 +48,7 @@
       gco = "git checkout";
       gcb = "git checkout -b";
       gcB = "git checkout -B";
+      gcm = "git checkout main";
       gcl = "git clone --recurse-submodules";
       gcmsg = "git commit --message";
       gc = "git commit --verbose";
