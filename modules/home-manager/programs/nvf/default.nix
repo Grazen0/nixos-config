@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   inputs,
   ...
@@ -13,11 +14,31 @@
     defaultEditor = true;
     enableManpages = true;
 
-    settings.vim = {
-      extraPackages = with pkgs; [ripgrep fd];
+    settings.vim = let
+      inherit (lib.generators) mkLuaInline;
+    in {
+      extraPackages = with pkgs; [
+        # Telescope
+        ripgrep
+        fd
+
+        # Vimtex
+        texlive.combined.scheme-full
+
+        # Conform
+        alejandra
+        beautysh
+        bibtex-tidy
+        black
+        isort
+        prettierd
+        rustfmt
+        stylua
+      ];
 
       extraLuaFiles = [
         ./lua/autocmds.lua
+        ./lua/user-commands.lua
       ];
 
       viAlias = true;
@@ -34,18 +55,10 @@
       };
 
       cursorlineOpt = "both";
-      syntaxHighlighting = true;
-      updateTime = 200;
-      tabWidth = 4;
-      mouseSupport = "a";
       undoFile.enable = true;
-      autoIndent = true;
       searchCase = "smart";
-      showSignColumn = true;
       lineNumberMode = "number";
       useSystemClipboard = true;
-      colourTerm = true;
-      splitRight = true;
 
       maps = let
         mkSilent = action: {
@@ -128,26 +141,119 @@
 
       autopairs.enable = true;
 
-      notes.todo-comments.enable = true;
+      notes.todo-comments = {
+        enable = true;
+        mappings.telescope = "<leader>ft";
+      };
 
       filetree.neo-tree = {
         enable = true;
+
         setupOpts = {
-          enable_cursor_hijack = true;
           auto_clean_after_session_restore = true;
-          window.width = 30;
+          popup_border_style = "solid";
+          close_if_last_window = true;
+          hijack_netrw_behavior = "open_current";
+
+          window = {
+            width = 30;
+
+            mappings = {
+              # Telescope-like split aliases
+              "<C-v>" = "open_vsplit";
+              "<C-x>" = "open_split";
+
+              # Navigation with HJKL
+              h = mkLuaInline ''
+                function(state)
+                  local node = state.tree:get_node();
+                  if node.type == "directory" and node:is_expanded() then
+                    require("neo-tree.sources.filesystem").toggle_directory(state, node);
+                  else
+                    require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id());
+                  end
+                end
+              '';
+              l = mkLuaInline ''
+                function(state)
+                  local node = state.tree:get_node()
+                  if node.type == "directory" then
+                    if not node:is_expanded() then
+                      require("neo-tree.sources.filesystem").toggle_directory(state, node);
+                    elseif node:has_children() then
+                      require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1]);
+                    end
+                  else
+                    state.commands.open(state);
+                  end
+                end
+              '';
+
+              # Trash instead of delete
+              d = mkLuaInline ''
+                function(state)
+                  local inputs = require("neo-tree.ui.inputs");
+                  local node = state.tree:get_node();
+                  local msg = "Delete " .. node.name .. "?";
+
+                  inputs.confirm(msg, function(confirmed)
+                    if not confirmed then return; end
+
+                    vim.fn.system({ "trash", vim.fn.fnameescape(node.path) });
+                    require("neo-tree.sources.manager").refresh(state.name);
+                  end);
+                end
+              '';
+
+              # Open file with system viewer
+              o = mkLuaInline ''
+                function(state)
+                  local node = state.tree:get_node();
+                  local path = node:get_id();
+                  vim.fn.jobstart({ "xdg-open", path }, { detach = true });
+                end
+              '';
+            };
+          };
+
+          filesystem = {
+            follow_current_file.enabled = true;
+            use_libuv_file_watcher = true;
+
+            filtered_items = {
+              show_hidden_count = false;
+              hide_dotfiles = false;
+              hide_gitignored = false;
+              hide_by_name = [
+                ".git"
+                "__pycache__"
+                ".DS_Store"
+                "thumbs.db"
+              ];
+            };
+          };
+
+          event_handlers = [
+            {
+              event = "file_opened";
+              handler = mkLuaInline "function() vim.cmd('Neotree close') end";
+            }
+          ];
         };
       };
 
       languages = {
         enableLSP = true;
-        enableFormat = true;
+        # enableFormat = true;
         enableTreesitter = true;
 
         bash.enable = true;
 
         nix.enable = true;
-        lua.enable = true;
+        lua = {
+          enable = true;
+          lsp.neodev.enable = true;
+        };
         markdown.enable = true;
 
         rust.enable = true;
@@ -179,7 +285,52 @@
         gitsigns.codeActions.enable = false;
       };
 
-      telescope.enable = true;
+      telescope = {
+        enable = true;
+
+        mappings = {
+          open = null;
+          resume = null;
+          lspDefinitions = "<leader>fd";
+          lspImplementations = "<leader>fi";
+          lspReferences = "<leader>fr";
+        };
+
+        setupOpts = {
+          defaults = {
+            layout_config.horizontal.prompt_position = "bottom";
+            sorting_strategy = "descending";
+
+            file_ignore_patterns = [
+              "^.git/"
+              "^.mypy_cache/"
+              "^__pycache__/"
+              "^output/"
+              "^data/"
+              "dist/"
+              "build/"
+              "target/"
+              "result/"
+
+              "%.o"
+              "%.a"
+              "%.out"
+              "%.ipynb"
+              "%.class"
+              "%.pdf"
+              "%.mkv"
+              "%.mp4"
+              "%.png"
+              "%.jpg"
+              "%.jpeg"
+              "%.webp"
+              "%.gif"
+            ];
+
+            mappings.n."<S-d>" = mkLuaInline "require('telescope.actions').delete_buffer";
+          };
+        };
+      };
 
       utility = {
         surround.enable = true;
@@ -189,9 +340,9 @@
 
       presence.neocord.enable = true;
 
-      extraPlugins = with pkgs.vimPlugins; {
+      extraPlugins = with pkgs; {
         kanagawa = {
-          package = kanagawa-nvim;
+          package = vimPlugins.kanagawa-nvim;
           setup = ''
             require('kanagawa').setup({
               overrides = function(colors)
@@ -217,17 +368,104 @@
           '';
         };
 
+        conform = {
+          package = vimPlugins.conform-nvim;
+          setup = ''
+            require('conform').setup({
+              formatters_by_ft = {
+                html = { "prettierd" };
+                javascriptreact = { "prettierd" };
+                typescriptreact = { "prettierd" };
+                javascript = { "prettierd" };
+                typescript = { "prettierd" };
+                graphql = { "prettierd" };
+                json = { "prettierd" };
+                css = { "prettierd" };
+                python = { "isort", "black" };
+                lua = { "stylua" };
+                rust = { "rustfmt" };
+                tex = { "bibtex-tidy" };
+                plaintex = { "bibtex-tidy" };
+                c = { "clang-format" };
+                cpp = { "clang-format" };
+                yaml = { "prettierd" };
+                sh = { "beautysh" };
+                bash = { "beautysh" };
+                zsh = { "beautysh" };
+                nix = { "alejandra" };
+              },
+
+              format_on_save = function(bufnr)
+                -- Disable with a global or buffer-local variable
+                if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+                  return;
+                end
+                return { timeout_ms = 1000, lsp_format = "fallback" };
+              end,
+            })
+          '';
+        };
+
         vimtex = {
-          package = vimtex;
+          package = vimPlugins.vimtex;
         };
 
         ultisnips = {
-          package = ultisnips;
+          package = vimPlugins.ultisnips;
         };
 
         inc-rename = {
-          package = inc-rename-nvim;
+          package = vimPlugins.inc-rename-nvim;
           setup = "require('inc_rename').setup()";
+        };
+
+        nvim-window-picker = {
+          package = vimPlugins.nvim-window-picker;
+          setup = "require('window-picker').setup()";
+        };
+
+        multicursors = {
+          package = vimPlugins.multicursors-nvim;
+        };
+
+        mini-starter = {
+          package = vimPlugins.mini-starter;
+          setup = ''
+            require('mini.starter').setup({
+              header = [[
+                                        Welcome back to
+
+                 ██████   █████                                ███
+                ░░██████ ░░███                                ░░░
+                 ░███░███ ░███   ██████   ██████  █████ █████ ████  █████████████
+                 ░███░░███░███  ███░░███ ███░░███░░███ ░░███ ░░███ ░░███░░███░░███
+                 ░███ ░░██████ ░███████ ░███ ░███ ░███  ░███  ░███  ░███ ░███ ░███
+                 ░███  ░░█████ ░███░░░  ░███ ░███ ░░███ ███   ░███  ░███ ░███ ░███
+                 █████  ░░█████░░██████ ░░██████   ░░█████    █████ █████░███ █████
+                ░░░░░    ░░░░░  ░░░░░░   ░░░░░░     ░░░░░    ░░░░░ ░░░░░ ░░░ ░░░░░
+              ]],
+
+              footer = ''',
+
+              content_hooks = {
+                require('mini.starter').gen_hook.adding_bullet('» '),
+                require('mini.starter').gen_hook.aligning('center', 'center'),
+              },
+            })
+          '';
+        };
+
+        mini-sessions = {
+          package = vimPlugins.mini-sessions;
+          setup = ''
+            require('mini.sessions').setup({
+              hooks = {
+                pre = {
+                  write = function() vim.cmd('Neotree close'); end
+                },
+              },
+            })
+          '';
         };
       };
 
