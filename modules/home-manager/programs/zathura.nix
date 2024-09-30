@@ -18,13 +18,10 @@
       "B" = "set \"guioptions none\"";
     };
     options = {
-      window-height = 1024;
-      window-width = 1000;
       adjust-open = "best-fit";
       render-loading = false;
 
       scroll-step = 50;
-      # scroll-full-overlap = 0.01;
 
       selection-clipboard = "clipboard";
 

@@ -10,7 +10,11 @@
       };
     in {
       main = {
-        font = "JetBrainsMonoNL Nerd Font:size=10:weight=semibold";
+<<<<<<< Updated upstream
+        font = "JetBrainsMonoNL Nerd Font:size=9.5:weight=semibold";
+=======
+        font = "JetBrainsMonoNL Nerd Font Mono:size=10:weight=semibold";
+>>>>>>> Stashed changes
         include = "${kanagawa}";
       };
 
