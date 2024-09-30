@@ -8,9 +8,9 @@
         text=""
         tooltip=""
 
-        if playerctl status > /dev/null; then
-          text=" $(playerctl metadata title)"
-          tooltip=$(playerctl status)
+        if playerctl -p spotify status > /dev/null; then
+          text=" $(playerctl -p spotify metadata title)"
+          tooltip=$(playerctl -p spotify status)
 
           if [ "$tooltip" != "Playing" ]; then
             class="paused"
