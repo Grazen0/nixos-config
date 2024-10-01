@@ -15,19 +15,19 @@
 
       listener = [
         {
-          # Reduce monitor brightness after 1m 30s
-          timeout = 150;
+          # Reduce monitor brightness after 5m
+          timeout = 300;
           on-timeout = "${brightnessctl} -s set 15%";
           on-resume = "${brightnessctl} -r";
         }
         {
-          # Lock screen after 5m
-          timeout = 300;
+          # Lock screen after 10m
+          timeout = 600;
           on-timeout = "loginctl lock-session";
         }
         {
-          # Screen off after 5m 30s
-          timeout = 350;
+          # Screen off after 10m 30s
+          timeout = 630;
           on-timeout = "${hyprctl} dispatch dpms off";
           on-resume = "${hyprctl} dispatch dpms on";
         }
