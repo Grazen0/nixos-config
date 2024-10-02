@@ -43,7 +43,6 @@
       git.enable = true;
       utility = {
         surround.enable = true;
-        images.image-nvim.enable = true;
         diffview-nvim.enable = true;
       };
       comments.comment-nvim.enable = true;

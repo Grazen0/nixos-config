@@ -10,6 +10,9 @@
       # neo-tree
       "<leader>e" = mkSilent "<cmd>Neotree<CR>";
 
+      # nvim-navbuddy
+      "<leader>n" = mkSilent "<cmd>Navbuddy<CR>";
+
       # Clear highlights with escape
       "<Esc>" = mkSilent "<cmd>noh<CR>";
 
