@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.foot = {
     enable = true;
     server.enable = false;
@@ -10,7 +14,7 @@
       };
     in {
       main = {
-        font = "JetBrainsMonoNL Nerd Font:size=9.5:weight=semibold";
+        font = lib.mkDefault "JetBrainsMonoNL Nerd Font:size=9.5:weight=semibold";
         include = "${kanagawa}";
       };
 
