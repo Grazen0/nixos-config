@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   ...
@@ -14,12 +15,12 @@
       };
     in {
       main = {
-        font = lib.mkDefault "JetBrainsMonoNL Nerd Font:size=9.5:weight=semibold";
+        font = lib.mkDefault "${config.theme.font.regular}:size=9.5:weight=semibold";
         include = "${kanagawa}";
       };
 
       mouse.hide-when-typing = "yes";
-      cursor.color = "1f1f28 c8c093";
+      cursor.color = with config.theme.colors.hexNh; "${background} ${white}";
 
       scrollback.lines = 10000;
     };

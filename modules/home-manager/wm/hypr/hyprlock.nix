@@ -2,7 +2,7 @@
   programs.hyprlock = {
     enable = true;
 
-    settings = {
+    settings = with config.theme.colors.hexNh; {
       general = {
         disable_loading_bar = true;
         hide_cursor = true;
@@ -29,11 +29,11 @@
           dots_center = true;
           fade_on_empty = true;
 
-          font_color = "rgb(dcd7ba)";
-          inner_color = "rgb(16161d)";
-          outer_color = "rgb(7e9cd8)";
-          check_color = "rgb(c0a36e)";
-          fail_color = "rgb(c34043)";
+          font_color = "rgb(${brightWhite})";
+          inner_color = "rgb(${black})";
+          outer_color = "rgb(${blue})";
+          check_color = "rgb(${yellow})";
+          fail_color = "rgb(${red})";
         }
       ];
     };

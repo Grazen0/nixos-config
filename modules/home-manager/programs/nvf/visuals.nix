@@ -9,7 +9,10 @@
 
     ui = {
       illuminate.enable = true;
-      colorizer.enable = true;
+      colorizer = {
+        enable = true;
+        setupOpts.filetypes."*" = {};
+      };
 
       breadcrumbs = {
         enable = true;
