@@ -7,11 +7,6 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
