@@ -16,7 +16,7 @@
     in {
       main = {
         font = lib.mkDefault "${config.theme.font.regular}:size=9.5:weight=semibold";
-        include = "${kanagawa}";
+        include = "${kanagawa}"; # TODO: set colors with theme module
       };
 
       mouse.hide-when-typing = "yes";
