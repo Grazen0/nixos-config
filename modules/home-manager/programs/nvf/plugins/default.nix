@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bufferline.nix
     ./conform.nix
     ./gitsigns.nix
     ./kanagawa.nix
