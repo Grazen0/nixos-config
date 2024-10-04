@@ -9,6 +9,7 @@
     ./mini.nix
     ./neo-tree.nix
     ./telescope.nix
+    ./ultisnips.nix
     ./vimtex.nix
   ];
 }
