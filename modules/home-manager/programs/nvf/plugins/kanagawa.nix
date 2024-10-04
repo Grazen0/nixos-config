@@ -49,8 +49,8 @@
       '';
     };
 
+    # No idea why it has to be 2 times, but it doesn't work properly otherwise
     luaConfigRC.kanagawa = ''
-      # No idea why it has to be 2 times, but it doesn't work properly otherwise
       vim.cmd('colorscheme kanagawa-wave')
       vim.cmd('colorscheme kanagawa-wave')
     '';
