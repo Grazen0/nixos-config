@@ -2,7 +2,8 @@
   imports = [
     ./bufferline.nix
     ./conform.nix
-    ./gitsigns.nix
+    ./extra.nix
+    ./git.nix
     ./kanagawa.nix
     ./lualine.nix
     ./mini.nix
