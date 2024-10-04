@@ -48,6 +48,7 @@
       gco = "git checkout";
       gcb = "git checkout -b";
       gcB = "git checkout -B";
+      gcm = "git checkout main";
       gcl = "git clone --recurse-submodules";
       gcmsg = "git commit --message";
       gc = "git commit --verbose";
@@ -169,8 +170,8 @@
       APHRODITE_THEME_SHOW_TIME = "ye";
 
       # Highlight colors for zsh-vi-mode
-      ZVM_VI_HIGHLIGHT_BACKGROUND = "#223249";
-      ZVM_VI_HIGHLIGHT_FOREGROUND = "#dcd7ba";
+      ZVM_VI_HIGHLIGHT_BACKGROUND = config.theme.colors.hex.highlight;
+      ZVM_VI_HIGHLIGHT_FOREGROUND = config.theme.colors.hex.brightWhite;
 
       # Options for zsh-history-substring-search
       HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND = "underline";

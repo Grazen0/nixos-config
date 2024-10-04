@@ -9,6 +9,7 @@
     font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v16b.psf.gz";
     keyMap = lib.mkDefault "us";
 
+    # TODO: set these with theme module
     colors = [
       "16161d"
       "c34043"

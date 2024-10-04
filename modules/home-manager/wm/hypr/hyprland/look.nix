@@ -1,12 +1,12 @@
-{
+{config, ...}: {
   wayland.windowManager.hyprland.settings = {
-    general = {
+    general = with config.theme.colors.hexNh; {
       gaps_in = 4;
       gaps_out = 0;
       border_size = 3;
 
-      "col.active_border" = "rgb(7e9cd8)";
-      "col.inactive_border" = "rgb(727169)";
+      "col.active_border" = "rgb(${blue})";
+      "col.inactive_border" = "rgb(${brightBlack})";
       no_focus_fallback = true;
 
       allow_tearing = true;

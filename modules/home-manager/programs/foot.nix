@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   programs.foot = {
     enable = true;
     server.enable = false;
@@ -10,12 +15,12 @@
       };
     in {
       main = {
-        font = "JetBrainsMonoNL Nerd Font:size=10:weight=semibold";
-        include = "${kanagawa}";
+        font = lib.mkDefault "${config.theme.font.regular}:size=9.5:weight=semibold";
+        include = "${kanagawa}"; # TODO: set colors with theme module
       };
 
       mouse.hide-when-typing = "yes";
-      cursor.color = "1f1f28 c8c093";
+      cursor.color = with config.theme.colors.hexNh; "${background} ${white}";
 
       scrollback.lines = 10000;
     };

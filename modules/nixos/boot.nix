@@ -9,6 +9,8 @@
       efi.canTouchEfiVariables = true;
     };
 
+    supportedFilesystems = ["ntfs"];
+
     # v4l2loopback module required for OBS Virtual Camera
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
     extraModprobeConfig = ''

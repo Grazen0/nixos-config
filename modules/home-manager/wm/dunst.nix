@@ -1,9 +1,9 @@
-{
+{config, ...}: {
   services.dunst = {
     enable = true;
 
     # TODO: add some sort of "no disturb" mode
-    settings = {
+    settings = with config.theme.colors.hex; {
       global = {
         # Display
         monitor = 1;
@@ -34,14 +34,14 @@
         horizontal_padding = 8;
         text_icon_padding = 0;
         frame_width = 3;
-        frame_color = "#957fb8";
+        frame_color = blue;
         gap_size = 6;
         separator_color = "frame";
         sort = "yes";
         idle_threshold = 120;
 
         # Text
-        font = "JetBrainsMonoNL Nerd Font 10";
+        font = "${config.theme.font.regular} 10";
         line_height = 0;
         markup = "full";
         format = "<b>%s</b>\n%b";
@@ -85,22 +85,22 @@
       };
 
       urgency_low = {
-        background = "#1f1f28";
-        foreground = "#dcd7ba";
+        inherit background;
+        foreground = brightWhite;
         timeout = 10;
       };
 
       urgency_normal = {
-        background = "#1f1f28";
-        foreground = "#dcd7ba";
+        inherit background;
+        foreground = brightWhite;
         timeout = 10;
         override_pause_level = 30;
       };
 
       urgency_critical = {
-        background = "#1f1f28";
-        foreground = "#dcd7ba";
-        frame_color = "#c34043";
+        inherit background;
+        foreground = brightWhite;
+        frame_color = red;
         timeout = 0;
         override_pause_level = 60;
       };
