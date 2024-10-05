@@ -35,14 +35,6 @@
               TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
               TelescopePreviewNormal = { bg = theme.ui.bg_dim },
               TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-
-              -- Transparent floating windows
-              NormalFloat = { bg = "none" },
-              FloatBorder = { bg = "none" },
-              FloatTitle = { bg = "none" },
-              NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
-              LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-              MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
             };
           end
         });
