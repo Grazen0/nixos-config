@@ -5,6 +5,7 @@
     setupOpts.options = {
       numbers = "none";
       separator_style = "thick";
+      style_preset = "no_italic";
     };
 
     mappings.closeCurrent = "<leader>bd";
