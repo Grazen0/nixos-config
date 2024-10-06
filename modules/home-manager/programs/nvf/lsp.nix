@@ -39,7 +39,11 @@
       };
       clang.enable = true;
       java.enable = true;
-      python.enable = true;
+      python = {
+        enable = true;
+        format.type = "black-and-isort";
+        lsp.server = "pyright";
+      };
       ts.enable = true;
       html.enable = true;
       css.enable = true;
