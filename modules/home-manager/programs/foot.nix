@@ -15,7 +15,7 @@
       };
     in {
       main = {
-        font = lib.mkDefault "${config.theme.font.regular}:size=9.5:weight=semibold";
+        font = lib.mkDefault "${config.theme.font.regular}:size=9.5";
         include = "${kanagawa}"; # TODO: set colors with theme module
       };
 
