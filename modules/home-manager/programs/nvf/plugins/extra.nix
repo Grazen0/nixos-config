@@ -35,6 +35,10 @@
       spectre.package = vimPlugins.nvim-spectre;
       inc-rename = withSetup vimPlugins.inc-rename-nvim "inc_rename";
       multicursors = withSetup vimPlugins.multicursors-nvim "multicursors";
+      markview = withSetup vimPlugins.markview-nvim "markview";
+      markdown-preview.package = vimPlugins.markdown-preview-nvim;
     };
+
+    globals.mkdp_filetypes = ["markdown"];
   };
 }
