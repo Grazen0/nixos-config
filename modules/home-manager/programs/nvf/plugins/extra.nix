@@ -11,12 +11,6 @@
       enable = true;
       type = "nvim-cmp";
       mappings.scrollDocsUp = "<C-b>";
-      formatting.format = ''
-        function(entry, vim_item)
-          return vim_item
-        end
-      '';
-      sources.ultisnips = "[UltiSnips]";
     };
 
     notes.todo-comments = {

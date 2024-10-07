@@ -9,6 +9,8 @@
       };
     };
 
+    autocomplete.sources.ultisnips = "[UltiSnips]";
+
     globals = {
       UltiSnipsSnippetDirectories = [../snippets];
       UltiSnipsExpandTrigger = "<Nop>";

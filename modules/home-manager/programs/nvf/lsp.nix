@@ -1,18 +1,29 @@
 {pkgs, ...}: {
   programs.nvf.settings.vim = {
+    extraPackages = with pkgs; [
+      haskell-language-server
+    ];
+
     lsp = {
       enable = true;
-      lspkind.enable = true;
+      lspkind = {
+        enable = true;
+        mode = "symbol";
+      };
       lspSignature.enable = true;
       formatOnSave = true;
 
-      lspconfig.sources.texlab = ''
-        lspconfig.texlab.setup({
-          capabilities = capabilities,
-          on_attach = default_on_attach,
-          cmd = { '${pkgs.texlab}/bin/texlab' },
-        })
-      '';
+      lspconfig.sources = let
+        mkDefaultSetup = name: ''
+          lspconfig.${name}.setup({
+            capabilities = capabilities,
+            on_attach = default_on_attach,
+          })
+        '';
+      in {
+        texlab = mkDefaultSetup "texlab";
+        hls = mkDefaultSetup "hls";
+      };
     };
 
     treesitter = {
