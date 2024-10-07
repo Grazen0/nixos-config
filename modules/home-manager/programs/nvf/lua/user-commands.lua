@@ -1,8 +1,10 @@
 local create_user_command = vim.api.nvim_create_user_command
 
 -- I'm kinda clumsy
-create_user_command("W", "write", {})
-create_user_command("Wa", "wall", {})
+create_user_command("W", "w", {})
+create_user_command("Wa", "wa", {})
+create_user_command("Q", "q", {})
+create_user_command("Qa", "qa", {})
 
 -- Format bufffer
 create_user_command("Format", function(args)

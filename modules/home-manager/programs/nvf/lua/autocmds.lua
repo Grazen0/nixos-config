@@ -46,3 +46,24 @@ create_autocmd("FileType", {
         vim.opt_local.conceallevel = 2
     end,
 })
+
+-- Tab width 2 for some filetypes
+create_autocmd("FileType", {
+    pattern = {
+        "nix",
+        "haskell",
+        "yuck",
+        "html",
+        "css",
+        "scss",
+        "json",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+    },
+    callback = function()
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.tabstop = 2
+    end,
+})
