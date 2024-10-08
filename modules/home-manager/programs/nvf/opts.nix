@@ -5,6 +5,7 @@
     options = {
       cursorline = true;
       spelllang = "en_us,es_es";
+      linebreak = true;
     };
 
     cursorlineOpt = "both";
