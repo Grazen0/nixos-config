@@ -1,10 +1,10 @@
 {inputs, ...}: {
   imports = [
     inputs.nvf.homeManagerModules.default
+    ./lsp
     ./plugins
     ./debugger.nix
     ./keymaps.nix
-    ./lsp.nix
     ./opts.nix
     ./visuals.nix
   ];
