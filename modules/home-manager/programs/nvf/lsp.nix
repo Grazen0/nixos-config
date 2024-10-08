@@ -2,6 +2,8 @@
   programs.nvf.settings.vim = {
     extraPackages = with pkgs; [
       haskell-language-server
+      yaml-language-server
+      vscode-langservers-extracted
     ];
 
     lsp = {
@@ -15,7 +17,7 @@
 
       lspconfig.sources = let
         mkDefaultSetup = name: ''
-          lspconfig.${name}.setup({
+          lspconfig['${name}'].setup({
             capabilities = capabilities,
             on_attach = default_on_attach,
           })
@@ -23,6 +25,33 @@
       in {
         texlab = mkDefaultSetup "texlab";
         hls = mkDefaultSetup "hls";
+        json = ''
+          lspconfig.jsonls.setup({
+            capabilities = capabilities,
+            on_attach = default_on_attach,
+            settings = {
+              json = {
+                schemas = require('schemastore').json.schemas(),
+                validate = { enable = true },
+              },
+            },
+          })
+        '';
+        yaml = ''
+          lspconfig.yamlls.setup({
+            capabilities = capabilities,
+            on_attach = default_on_attach,
+            settings = {
+              yaml = {
+                schemaStore = {
+                  enable = false,
+                  url = ''',
+                },
+                schemas = require('schemastore').yaml.schemas(),
+              },
+            },
+          })
+        '';
       };
     };
 
@@ -31,6 +60,9 @@
       fold = true;
       autotagHtml = true;
       indent.enable = true;
+      grammars = with pkgs.tree-sitter-grammars; [
+        tree-sitter-haskell
+      ];
     };
 
     languages = {
@@ -62,24 +94,28 @@
       tailwind.enable = true;
     };
 
-    extraPlugins.treesitter-refactor = {
-      package = pkgs.vimPlugins.nvim-treesitter-refactor;
-      setup = ''
-        require('nvim-treesitter.configs').setup({
-          refactor = {
-            navigation = {
-              enable = true,
-              keymaps = {
-                goto_definition_lsp_fallback = "gd";
-                list_definitions = "gD";
-                list_definitions_toc = "gO";
-                goto_next_usage = "<A-*>";
-                goto_previous_usage = "<A-#>";
+    extraPlugins = with pkgs; {
+      schemastore.package = vimPlugins.SchemaStore-nvim;
+
+      treesitter-refactor = {
+        package = vimPlugins.nvim-treesitter-refactor;
+        setup = ''
+          require('nvim-treesitter.configs').setup({
+            refactor = {
+              navigation = {
+                enable = true,
+                keymaps = {
+                  goto_definition_lsp_fallback = "gd";
+                  list_definitions = "gD";
+                  list_definitions_toc = "gO";
+                  goto_next_usage = "<A-*>";
+                  goto_previous_usage = "<A-#>";
+                },
               },
             },
-          },
-        })
-      '';
+          })
+        '';
+      };
     };
   };
 }
