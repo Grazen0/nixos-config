@@ -15,12 +15,13 @@
         hex = {
           background = mkStrOption {};
           backgroundAlt = mkStrOption {};
+          foreground = mkStrOption {};
           highlight = mkStrOption {};
 
           black = mkStrOption {};
           brightBlack = mkStrOption {};
           red = mkStrOption {};
-          brighRed = mkStrOption {};
+          brightRed = mkStrOption {};
           green = mkStrOption {};
           brightGreen = mkStrOption {};
           yellow = mkStrOption {};
@@ -49,15 +50,16 @@
       };
 
       colors = rec {
-        hexNh = {
+        hexNh = rec {
           background = "1f1f28";
           backgroundAlt = "363646";
+          foreground = brightWhite;
           highlight = "223249";
 
           black = "16161d";
           brightBlack = "727169";
           red = "c34043";
-          brighRed = "e82424";
+          brightRed = "e82424";
           green = "76946a";
           brightGreen = "98bb6c";
           yellow = "c0a36e";
