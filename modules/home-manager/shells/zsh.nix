@@ -107,13 +107,8 @@
     plugins = [
       {
         name = "aphrodite";
-        file = "aphrodite.zsh-theme";
-        src = pkgs.fetchFromGitHub {
-          owner = "win0err";
-          repo = "aphrodite-terminal-theme";
-          rev = "2c9e4c95ec34fbe32500f39c3f99cedb530a52f7";
-          sha256 = "14zckxarajhqzcps7hq05gcmmqcy3c0f0xpfa2vadjb6hl66mvks";
-        };
+        src = pkgs.aphrodite-terminal-theme;
+        file = "share/zsh/themes/aphrodite.zsh-theme";
       }
       {
         name = "autopair";
