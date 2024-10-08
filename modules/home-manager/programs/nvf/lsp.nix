@@ -60,9 +60,12 @@
       fold = true;
       autotagHtml = true;
       indent.enable = true;
+
       grammars = with pkgs.tree-sitter-grammars; [
         tree-sitter-haskell
       ];
+
+      highlight.disable = ["latex"];
     };
 
     languages = {
@@ -96,6 +99,8 @@
 
     extraPlugins = with pkgs; {
       schemastore.package = vimPlugins.SchemaStore-nvim;
+
+      treesitter-latex-parser.package = vimPlugins.nvim-treesitter-parsers.latex;
 
       treesitter-refactor = {
         package = vimPlugins.nvim-treesitter-refactor;
