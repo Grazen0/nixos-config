@@ -57,6 +57,7 @@ create_autocmd("FileType", {
         "css",
         "scss",
         "json",
+        "jsonc",
         "javascript",
         "javascriptreact",
         "typescript",
