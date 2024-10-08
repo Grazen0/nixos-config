@@ -16,6 +16,9 @@
       # Clear highlights with escape
       "<Esc>" = mkSilent "<cmd>noh<CR>";
 
+      # Better redo
+      "<S-u>" = mkSilent "<C-r>";
+
       # Window navigation
       "<C-h>" = mkSilent "<C-w>h";
       "<C-j>" = mkSilent "<C-w>j";
