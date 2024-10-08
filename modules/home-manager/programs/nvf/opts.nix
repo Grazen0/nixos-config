@@ -11,7 +11,6 @@
     cursorlineOpt = "both";
     undoFile.enable = true;
     searchCase = "smart";
-    lineNumberMode = "number";
     useSystemClipboard = true;
     scrollOffset = 4;
   };

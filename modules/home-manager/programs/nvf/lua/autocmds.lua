@@ -21,6 +21,22 @@ create_autocmd("FileType", {
     command = "wincmd L",
 })
 
+-- Use relative numbers only on focused buffer
+create_autocmd({ "WinEnter", "FocusGained" }, {
+    pattern = "*",
+    callback = function()
+        vim.opt_local.number = true
+        vim.opt_local.relativenumber = true
+    end,
+})
+create_autocmd({ "WinLeave", "FocusLost" }, {
+    pattern = "*",
+    callback = function()
+        vim.opt_local.number = true
+        vim.opt_local.relativenumber = false
+    end,
+})
+
 -- Show diagnostic window when cursor is over warning/error
 create_augroup("FloatDiagnosticCursor", { clear = true })
 create_autocmd({ "CursorHold", "CursorHoldI" }, {
