@@ -8,10 +8,11 @@
     languages.enableLSP = true;
 
     extraPackages = with pkgs; [
-      texlab
+      emmet-language-server
       haskell-language-server
-      yaml-language-server
+      texlab
       vscode-langservers-extracted
+      yaml-language-server
     ];
 
     extraPlugins = with pkgs; {
@@ -66,6 +67,13 @@
                 schemas = require('schemastore').yaml.schemas(),
               },
             },
+          })
+        '';
+
+        emmet = ''
+          lspconfig.emmet_language_server.setup({
+            capabilities = capabilities,
+            on_attach = default_on_attach,
           })
         '';
       };
