@@ -40,7 +40,6 @@
       egrep = "egrep --color=auto";
 
       g = "git";
-      gs = "git status";
       ga = "git add";
       gaa = "git add --all";
       gb = "git branch";
@@ -60,6 +59,7 @@
       ghh = "git help";
       gl = "git pull";
       gp = "git push";
+      gpsup = "git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)";
       grh = "git reset";
       grhu = "git reset HEAD~"; # Undo last commit
       grm = "git rm";
@@ -67,6 +67,14 @@
       grs = "git restore";
       grst = "git restore --staged";
       grv = "git revert";
+      gstaa = "git stash apply";
+      gstc = "git stash clear";
+      gstd = "git stash drop";
+      gstl = "git stash list";
+      gstp = "git stash pop";
+      gsta = "git stash push";
+      gst = "git status";
+      gss = "git status --short";
 
       cat = "bat";
       catfr = "${pkgs.coreutils}/bin/cat";

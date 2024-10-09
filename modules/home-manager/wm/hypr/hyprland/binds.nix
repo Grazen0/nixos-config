@@ -162,9 +162,9 @@
         ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
         # Player control
-        ", XF86AudioPlay, exec, ${playerctl} play-pause"
-        ", XF86AudioPrev, exec, ${playerctl} previous"
-        ", XF86AudioNext, exec, ${playerctl} next"
+        ", XF86AudioPlay, exec, ${playerctl} -p spotify play-pause"
+        ", XF86AudioPrev, exec, ${playerctl} -p spotify previous"
+        ", XF86AudioNext, exec, ${playerctl} -p spotify next"
       ];
 
       bindm = [
