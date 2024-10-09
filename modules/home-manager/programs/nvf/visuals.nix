@@ -5,6 +5,8 @@
       indentBlankline.enable = true;
       highlight-undo.enable = true;
       nvimWebDevicons.enable = true;
+
+      fidget-nvim.enable = true;
     };
 
     ui = {
@@ -17,6 +19,7 @@
       breadcrumbs = {
         enable = true;
         navbuddy.enable = true;
+        lualine.winbar.enable = false;
       };
 
       borders = {

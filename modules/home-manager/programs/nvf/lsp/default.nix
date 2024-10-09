@@ -26,6 +26,8 @@
         mode = "symbol";
       };
 
+      trouble.enable = true;
+
       lspSignature.enable = true;
       formatOnSave = true;
 

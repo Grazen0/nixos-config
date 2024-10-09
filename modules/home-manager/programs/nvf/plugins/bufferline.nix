@@ -1,13 +1,19 @@
 {
-  programs.nvf.settings.vim.tabline.nvimBufferline = {
-    enable = true;
+  programs.nvf.settings.vim = {
+    tabline.nvimBufferline = {
+      enable = true;
 
-    setupOpts.options = {
-      numbers = "none";
-      separator_style = "thick";
-      style_preset = "no_italic";
+      setupOpts.options = {
+        numbers = "none";
+        separator_style = "thick";
+        style_preset = "no_italic";
+      };
+
+      mappings = {
+        cycleNext = "<S-l>";
+        cyclePrevious = "<S-h>";
+        closeCurrent = "<leader>bd";
+      };
     };
-
-    mappings.closeCurrent = "<leader>bd";
   };
 }
