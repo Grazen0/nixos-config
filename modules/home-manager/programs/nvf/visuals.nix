@@ -5,8 +5,9 @@
       indentBlankline.enable = true;
       highlight-undo.enable = true;
       nvimWebDevicons.enable = true;
-
       fidget-nvim.enable = true;
+      scrollBar.enable = true;
+      cellularAutomaton.enable = true; # Yes
     };
 
     ui = {
