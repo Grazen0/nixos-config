@@ -8,6 +8,7 @@
     languages.enableLSP = true;
 
     extraPackages = with pkgs; [
+      texlab
       haskell-language-server
       yaml-language-server
       vscode-langservers-extracted

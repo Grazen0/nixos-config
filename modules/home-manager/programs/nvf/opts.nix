@@ -2,9 +2,10 @@
   programs.nvf.settings.vim = {
     leaderKey = " ";
 
+    spellcheck.languages = ["en" "es"];
+
     options = {
       cursorline = true;
-      spelllang = "en_us,es_es";
       linebreak = true;
     };
 
