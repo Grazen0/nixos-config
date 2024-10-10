@@ -67,7 +67,7 @@
 
         # Append/insert for each line of visual selections.
         "I" = mkLuaAction "require('multicursor-nvim').insertVisual";
-        "A" = mkLuaAction "require('multicursor-nvim').appendVisual";
+        # "A" = mkLuaAction "require('multicursor-nvim').appendVisual"; # Has a weird bug
 
         # match new cursors within visual selections by regex.
         "M" = mkLuaAction "require('multicursor-nvim').matchCursors";
