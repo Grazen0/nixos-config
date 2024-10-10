@@ -48,11 +48,10 @@ create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
     end,
 })
 
--- Enable spellcheck for LaTeX files
+-- Disable formatter for LaTeX files
 create_autocmd('FileType', {
     pattern = { 'tex', 'plaintex' },
     callback = function()
-        vim.opt_local.spell = true
         vim.b.disable_autoformat = true
     end,
 })

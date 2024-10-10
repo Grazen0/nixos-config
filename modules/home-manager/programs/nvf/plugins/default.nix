@@ -7,6 +7,7 @@
     ./kanagawa.nix
     ./lualine.nix
     ./mini.nix
+    ./multicursor.nix
     ./neo-tree.nix
     ./telescope.nix
     ./ultisnips.nix

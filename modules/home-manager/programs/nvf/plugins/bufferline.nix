@@ -10,8 +10,8 @@
       };
 
       mappings = {
-        cycleNext = "<S-l>";
-        cyclePrevious = "<S-h>";
+        cycleNext = "L";
+        cyclePrevious = "H";
         closeCurrent = "<leader>bd";
       };
     };

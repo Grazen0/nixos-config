@@ -28,12 +28,16 @@
     in {
       spectre.package = vimPlugins.nvim-spectre;
       inc-rename = withSetup vimPlugins.inc-rename-nvim "inc_rename";
-      multicursors = withSetup vimPlugins.multicursors-nvim "multicursors";
       markview = withSetup vimPlugins.markview-nvim "markview";
       tailwindcss-colors = withSetup vimPlugins.tailwindcss-colors-nvim "tailwindcss-colors";
       markdown-preview.package = vimPlugins.markdown-preview-nvim;
+      hex = withSetup vimPlugins.hex-nvim "hex";
     };
 
     globals.mkdp_filetypes = ["markdown"];
+
+    extraPackages = with pkgs; [
+      xxd
+    ];
   };
 }

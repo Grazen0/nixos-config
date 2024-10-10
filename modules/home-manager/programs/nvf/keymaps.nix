@@ -5,6 +5,19 @@
       inherit action;
       silent = true;
     };
+
+    mkLuaAction = action: {
+      inherit action;
+      silent = true;
+      lua = true;
+    };
+
+    mkLuaFunction = code:
+      mkLuaAction ''
+        function()
+          ${code}
+        end
+      '';
   in {
     normal = {
       # neo-tree
@@ -13,8 +26,8 @@
       # nvim-navbuddy
       "<leader>n" = mkSilent "<cmd>Navbuddy<CR>";
 
-      # Clear highlights with escape
-      "<Esc>" = mkSilent "<cmd>noh<CR>";
+      # trouble.nvim
+      "<leader>t" = mkSilent "<cmd>Trouble<CR>";
 
       # Better redo
       "<S-u>" = mkSilent "<C-r>";
@@ -37,13 +50,10 @@
       "-" = mkSilent "<C-w>-";
       "+" = mkSilent "<C-w>+";
 
-      # multicursors.nvim
-      "<leader>m" = mkSilent "<cmd>MCunderCursor<CR>";
-
       # nvim-spectre
-      "<leader>S" = mkSilent "<cmd>lua require('spectre').toggle()<CR>";
-      "<leader>sw" = mkSilent "<cmd>lua require('spectre').open_visual({select_word=true})<CR>";
-      "<leader>sp" = mkSilent "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>";
+      "<leader>S" = mkLuaAction "require('spectre').toggle";
+      "<leader>sw" = mkLuaFunction "require('spectre').open_visual({ select_word = true })";
+      "<leader>sp" = mkLuaFunction "require('spectre').open_file_search({ select_word = true })";
 
       # Soft line wrap movement
       "j" = (mkSilent "v:count == 0 ? 'gj' : 'j'") // {expr = true;};
@@ -68,7 +78,7 @@
 
     visual = {
       # Spectre search
-      "<leader>sw" = mkSilent "<esc><cmd>lua require('spectre').open_visual()<CR>";
+      "<leader>sw" = mkSilent "<Esc><cmd>lua require('spectre').open_visual()<CR>";
     };
   };
 }
