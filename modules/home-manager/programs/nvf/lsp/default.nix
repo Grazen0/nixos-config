@@ -29,7 +29,6 @@
       trouble.enable = true;
 
       lspSignature.enable = true;
-      formatOnSave = true;
 
       lspconfig.sources = let
         mkDefaultSetup = name: ''
