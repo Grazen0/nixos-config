@@ -13,7 +13,7 @@
 
     globals = {
       UltiSnipsSnippetDirectories = [../snippets];
-      UltiSnipsExpandTrigger = "<Nop>";
+      UltiSnipsExpandTrigger = "<C-j>";
       UltiSnipsJumpForwardTrigger = "<C-b>";
       UltiSnipsJumpBackwardTrigger = "<C-z>";
     };
