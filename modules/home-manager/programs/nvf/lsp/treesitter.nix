@@ -1,18 +1,24 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.nvf.settings.vim = {
     languages.enableTreesitter = true;
 
-    treesitter = {
+    treesitter = let
+      disabledGrammars = with pkgs.tree-sitter-grammars; [
+        tree-sitter-latex
+      ];
+    in {
       enable = true;
       fold = true;
       autotagHtml = true;
       indent.enable = true;
-
-      grammars = with pkgs.tree-sitter-grammars; [
-        tree-sitter-haskell
-      ];
-
       highlight.disable = ["latex"];
+
+      # All grammars except for disabledGrammars
+      grammars = lib.attrValues (lib.filterAttrs (key: pkg: (lib.hasPrefix "tree-sitter-" key) && !(lib.elem pkg disabledGrammars)) pkgs.tree-sitter-grammars);
     };
 
     extraPlugins = with pkgs; {
