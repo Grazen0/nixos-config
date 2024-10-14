@@ -14,7 +14,7 @@
     shellAliases = let
       flakeDir = "${config.xdg.configHome}/nixos";
     in {
-      h = "Hyprland";
+      h = "pidof -q Hyprland || Hyprland";
 
       ls = "eza --group-directories-first";
       la = "ls -a";
