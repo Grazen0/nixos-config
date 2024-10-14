@@ -12,6 +12,7 @@
       cmake-language-server
       emmet-language-server
       haskell-language-server
+      taplo
       texlab
       vscode-langservers-extracted
       yaml-language-server
@@ -44,6 +45,8 @@
         hls = mkDefaultSetup "hls";
         cmake = mkDefaultSetup "cmake";
         autotools = mkDefaultSetup "autotools_ls";
+        taplo = mkDefaultSetup "taplo";
+        eslint = mkDefaultSetup "eslint";
 
         json = ''
           lspconfig.jsonls.setup({
