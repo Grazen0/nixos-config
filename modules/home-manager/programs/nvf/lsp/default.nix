@@ -8,6 +8,8 @@
     languages.enableLSP = true;
 
     extraPackages = with pkgs; [
+      autotools-language-server
+      cmake-language-server
       emmet-language-server
       haskell-language-server
       texlab
@@ -39,8 +41,9 @@
         '';
       in {
         texlab = mkDefaultSetup "texlab";
-
         hls = mkDefaultSetup "hls";
+        cmake = mkDefaultSetup "cmake";
+        autotools = mkDefaultSetup "autotools_ls";
 
         json = ''
           lspconfig.jsonls.setup({
