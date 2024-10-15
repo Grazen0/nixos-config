@@ -25,7 +25,7 @@ create_autocmd('FileType', {
 create_autocmd({ 'WinEnter', 'FocusGained' }, {
     pattern = '*',
     callback = function()
-        if vim.opt_local.number then
+        if vim.api.nvim_win_get_option(0, 'number') then
             vim.opt_local.relativenumber = true
         end
     end,
@@ -33,7 +33,7 @@ create_autocmd({ 'WinEnter', 'FocusGained' }, {
 create_autocmd({ 'WinLeave', 'FocusLost' }, {
     pattern = '*',
     callback = function()
-        if vim.opt_local.number then
+        if vim.api.nvim_win_get_option(0, 'number') then
             vim.opt_local.relativenumber = false
         end
     end,
