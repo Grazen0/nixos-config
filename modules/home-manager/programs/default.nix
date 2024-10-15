@@ -5,6 +5,7 @@
     ./bat.nix
     ./btop.nix
     ./cava.nix
+    ./direnv.nix
     ./fastfetch.nix
     ./foot.nix
     ./git.nix
