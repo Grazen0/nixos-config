@@ -14,7 +14,7 @@
     zoom-us
     inputs.thorium-browser.defaultPackage.${system}
     (inputs.zen-browser.packages.${system}.specific.overrideAttrs (prev: let
-      version = "1.0.1-a.8";
+      version = "1.0.1-a.9";
     in {
       inherit version;
       src = builtins.fetchTarball {
