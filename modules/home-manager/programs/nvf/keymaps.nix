@@ -26,9 +26,6 @@
       # nvim-navbuddy
       "<leader>n" = mkSilent "<cmd>Navbuddy<CR>";
 
-      # trouble.nvim
-      "<leader>t" = mkSilent "<cmd>Trouble<CR>";
-
       # Better redo
       "<S-u>" = mkSilent "<C-r>";
 

@@ -30,7 +30,7 @@
       };
 
       trouble.enable = true;
-
+      otter-nvim.enable = true;
       lspSignature.enable = true;
 
       lspconfig.sources = let
