@@ -3,6 +3,7 @@
     cargo
     cmake
     cling
+    clippy
     gcc
     ghc
     gnumake
