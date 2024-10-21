@@ -1,7 +1,6 @@
 {lib, ...}: {
   imports = [
     ./thunar.nix
-    ./zsh.nix
   ];
 
   programs = {
