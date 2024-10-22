@@ -14,6 +14,7 @@
       haskell-language-server
       taplo
       texlab
+      vim-language-server
       vscode-langservers-extracted
       yaml-language-server
     ];
@@ -47,6 +48,7 @@
         autotools = mkDefaultSetup "autotools_ls";
         taplo = mkDefaultSetup "taplo";
         eslint = mkDefaultSetup "eslint";
+        vim = mkDefaultSetup "vimls";
 
         json = ''
           lspconfig.jsonls.setup({
