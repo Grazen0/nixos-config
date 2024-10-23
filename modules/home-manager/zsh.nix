@@ -98,7 +98,7 @@
       rbt = "sudo nixos-rebuild test --flake ${flakeDir}";
       hms = "home-manager switch --flake ${flakeDir}";
       hmn = "home-manager news --flake ${flakeDir}";
-      upd = "nix flake update ${flakeDir}";
+      upd = "nix flake update --flake ${flakeDir}";
       nsh = "nix-shell";
 
       # I'm kinda clumsy
