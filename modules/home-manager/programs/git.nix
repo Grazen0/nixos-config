@@ -16,7 +16,7 @@
 
     extraConfig = {
       init.defaultBranch = "main";
-      pull.rebase = false;
+      pull.rebase = true;
       credential.helper = "store";
       core.editor = "nvim -f";
     };
