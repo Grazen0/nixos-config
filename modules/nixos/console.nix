@@ -4,8 +4,6 @@
   ...
 }: {
   console = {
-    earlySetup = true;
-
     font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v16b.psf.gz";
     keyMap = lib.mkDefault "us";
 
