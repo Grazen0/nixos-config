@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     cargo
-    cmake
     cling
     clippy
     gcc
