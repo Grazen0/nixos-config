@@ -8,6 +8,7 @@
     ark
     gimp
     inkscape
+    jetbrains.idea-ultimate
     nsxiv
     obsidian
     pavucontrol
