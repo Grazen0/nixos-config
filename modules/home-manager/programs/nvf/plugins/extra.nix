@@ -32,6 +32,7 @@
       tailwindcss-colors = withSetup vimPlugins.tailwindcss-colors-nvim "tailwindcss-colors";
       markdown-preview.package = vimPlugins.markdown-preview-nvim;
       hex = withSetup vimPlugins.hex-nvim "hex";
+      hmts = withSetup vimPlugins.hmts-nvim "hmts";
     };
 
     globals.mkdp_filetypes = ["markdown"];
