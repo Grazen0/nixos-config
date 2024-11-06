@@ -18,9 +18,6 @@
     set smartcase
     set hlsearch
 
-    " Use system clipboard
-    set clipboard+=unnamedplus
-
     " Mapings =======================
     let mapleader=" "
 
