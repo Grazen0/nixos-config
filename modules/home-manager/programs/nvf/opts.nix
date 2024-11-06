@@ -10,7 +10,7 @@
     cursorlineOpt = "both";
     undoFile.enable = true;
     searchCase = "smart";
-    useSystemClipboard = true;
+    useSystemClipboard = false;
     scrollOffset = 4;
   };
 }
