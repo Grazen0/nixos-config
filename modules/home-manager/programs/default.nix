@@ -1,6 +1,6 @@
 {
   imports = [
-    ./nvf
+    ./neovim
     ./vesktop
     ./bat.nix
     ./btop.nix

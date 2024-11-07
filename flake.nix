@@ -7,11 +7,6 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,6 +30,11 @@
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    plugin-multicursor-nvim = {
+      url = "github:jake-stewart/multicursor.nvim";
+      flake = false;
     };
   };
 

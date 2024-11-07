@@ -5,6 +5,15 @@
     rofi-calc = prev.rofi-calc.override {
       rofi-unwrapped = prev.rofi-wayland-unwrapped;
     };
+
+    vimPlugins =
+      prev.vimPlugins
+      // {
+        multicursor-nvim = prev.vimUtils.buildVimPlugin {
+          name = "multicursor-nvim";
+          src = inputs.plugin-multicursor-nvim;
+        };
+      };
   };
 
   stable-packages = final: _prev: {
