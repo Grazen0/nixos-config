@@ -1,45 +1,45 @@
 {pkgs, ...}: {
   programs.neovim.plugins = let
-    luaPlugin = plugin: config: {
+    withLuaConfig = plugin: config: {
       inherit plugin config;
       type = "lua";
     };
 
-    luaPluginWithSetup = plugin: name: (luaPlugin plugin "require('${name}').setup({})");
+    withSetup = plugin: name: (withLuaConfig plugin "require('${name}').setup({})");
 
-    luaConfigPlugin = plugin: file: (luaPlugin plugin (builtins.readFile ./lua/plugins/${file}.lua));
+    withFile = plugin: file: (withLuaConfig plugin (builtins.readFile ./lua/plugins/${file}.lua));
   in
     with pkgs.vimPlugins; [
-      (luaConfigPlugin kanagawa-nvim "kanagawa")
-      (luaConfigPlugin neo-tree-nvim "neo-tree")
-      (luaConfigPlugin lualine-nvim "lualine")
-      (luaConfigPlugin bufferline-nvim "bufferline")
-      (luaConfigPlugin mini-starter "mini-starter")
-      (luaConfigPlugin mini-sessions "mini-sessions")
+      (withFile kanagawa-nvim "kanagawa")
+      (withFile neo-tree-nvim "neo-tree")
+      (withFile lualine-nvim "lualine")
+      (withFile bufferline-nvim "bufferline")
+      (withFile mini-starter "mini-starter")
+      (withFile mini-sessions "mini-sessions")
 
-      (luaPluginWithSetup nvim-surround "nvim-surround")
-      (luaPluginWithSetup nvim-autopairs "nvim-autopairs")
-      (luaConfigPlugin multicursor-nvim "multicursor")
-      (luaPluginWithSetup comment-nvim "Comment")
-      (luaPlugin indent-blankline-nvim "require('ibl').setup({ indent = { char = '│' } })")
-      (luaPluginWithSetup nvim-colorizer-lua "colorizer")
+      (withSetup nvim-surround "nvim-surround")
+      (withSetup nvim-autopairs "nvim-autopairs")
+      (withFile multicursor-nvim "multicursor")
+      (withSetup comment-nvim "Comment")
+      (withLuaConfig indent-blankline-nvim "require('ibl').setup({ indent = { char = '│' } })")
+      (withSetup nvim-colorizer-lua "colorizer")
       vim-illuminate
-      (luaPluginWithSetup fidget-nvim "fidget")
-      (luaPluginWithSetup highlight-undo-nvim "highlight-undo")
+      (withSetup fidget-nvim "fidget")
+      (withSetup highlight-undo-nvim "highlight-undo")
 
-      (luaConfigPlugin telescope-nvim "telescope")
-      (luaConfigPlugin nvim-spectre "spectre")
-      (luaConfigPlugin conform-nvim "conform")
-      (luaConfigPlugin inc-rename-nvim "inc-rename")
-      (luaPlugin lsp_signature-nvim "require('lsp_signature').setup({ handler_opts = { border = 'none' } })")
-      (luaConfigPlugin nvim-navbuddy "navbuddy")
+      (withFile telescope-nvim "telescope")
+      (withFile nvim-spectre "spectre")
+      (withFile conform-nvim "conform")
+      (withFile inc-rename-nvim "inc-rename")
+      (withLuaConfig lsp_signature-nvim "require('lsp_signature').setup({ handler_opts = { border = 'none' } })")
+      (withFile nvim-navbuddy "navbuddy")
       vim-fugitive
-      (luaConfigPlugin gitsigns-nvim "gitsigns")
+      (withFile gitsigns-nvim "gitsigns")
 
       nvim-lspconfig
       SchemaStore-nvim
 
-      (luaConfigPlugin nvim-cmp "cmp")
+      (withFile nvim-cmp "cmp")
       cmp-nvim-lsp
       cmp-buffer
       cmp-async-path
@@ -49,26 +49,27 @@
       lspkind-nvim
 
       neodev-nvim
-      (luaConfigPlugin ultisnips "ultisnips")
-      (luaConfigPlugin vimtex "vimtex")
+      (withFile ultisnips "ultisnips")
+      (withFile vimtex "vimtex")
 
-      (luaConfigPlugin nvim-treesitter.withAllGrammars "treesitter/init")
-      (luaConfigPlugin nvim-treesitter-refactor "treesitter/refactor")
-      (luaConfigPlugin nvim-treesitter-textobjects "treesitter/textobjects")
+      (withFile nvim-treesitter.withAllGrammars "treesitter/init")
+      (withFile nvim-treesitter-refactor "treesitter/refactor")
+      (withFile nvim-treesitter-textobjects "treesitter/textobjects")
+      (withSetup nvim-ts-autotag "nvim-ts-autotag")
 
-      (luaPluginWithSetup nvim-window-picker "window-picker")
-      (luaPluginWithSetup crates-nvim "crates")
+      (withSetup nvim-window-picker "window-picker")
+      (withSetup crates-nvim "crates")
 
       hmts-nvim
       nvim-web-devicons
 
-      (luaConfigPlugin todo-comments-nvim "todo-comments")
-      (luaPluginWithSetup markview-nvim "markview")
-      (luaPlugin markdown-preview-nvim "vim.g.mkdp_filetypes = { 'markdown' }")
-      (luaPluginWithSetup tailwindcss-colors-nvim "tailwindcss-colors")
-      (luaPluginWithSetup hex-nvim "hex")
-      (luaPluginWithSetup hmts-nvim "hmts")
-      neocord
+      (withFile todo-comments-nvim "todo-comments")
+      (withSetup markview-nvim "markview")
+      (withLuaConfig markdown-preview-nvim "vim.g.mkdp_filetypes = { 'markdown' }")
+      (withSetup tailwindcss-colors-nvim "tailwindcss-colors")
+      (withSetup hex-nvim "hex")
+      (withSetup hmts-nvim "hmts")
+      (withSetup neocord "neocord")
       cellular-automaton-nvim # Very important
     ];
 }
