@@ -81,7 +81,7 @@
         network = {
           interval = 1;
           format-wifi = " {bandwidthTotalBytes}";
-          format-ethernet = "{ipaddr}/{cidr} ";
+          format-ethernet = " {bandwidthTotalBytes}";
           tooltip-format = "{essid} ({signalStrength}%)";
           format-disconnected = " Offline";
           on-click = "nm-connection-editor";
