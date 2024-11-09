@@ -68,7 +68,7 @@ keyset('n', '<leader>gv', mc.restoreCursors)
 keyset('n', '<leader>a', mc.alignCursors)
 
 -- Split visual selections by regex.
-keyset('v', 'S', mc.splitCursors)
+-- keyset('v', 'S', mc.splitCursors)
 
 -- Append/insert for each line of visual selections.
 keyset('v', 'I', mc.insertVisual)
