@@ -10,6 +10,12 @@ require('kanagawa').setup({
   },
   overrides = function(colors)
     local theme = colors.theme
+
+    local makeDiagnosticColor = function(color)
+      local c = require('kanagawa.lib.color')
+      return { fg = color, bg = c(color):blend(theme.ui.bg, 0.96):to_hex() }
+    end
+
     return {
       -- Dark completion background
       Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
@@ -34,6 +40,12 @@ require('kanagawa').setup({
         bg = theme.ui.bg_dim,
         fg = theme.ui.bg_dim,
       },
+
+      -- Tint background of diagnostic messages with their foreground color
+      DiagnosticVirtualTextHint = makeDiagnosticColor(theme.diag.hint),
+      DiagnosticVirtualTextInfo = makeDiagnosticColor(theme.diag.info),
+      DiagnosticVirtualTextWarn = makeDiagnosticColor(theme.diag.warning),
+      DiagnosticVirtualTextError = makeDiagnosticColor(theme.diag.error),
     }
   end,
 })
