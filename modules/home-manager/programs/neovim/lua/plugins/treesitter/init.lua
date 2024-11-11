@@ -3,7 +3,6 @@ require('nvim-treesitter.configs').setup({
     enable = true,
     disable = { 'latex' },
   },
-  indent = { enable = true },
 })
 
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
