@@ -22,7 +22,7 @@
       (withFile multicursor-nvim "multicursor")
       (withSetup comment-nvim "Comment")
       (withLuaConfig indent-blankline-nvim "require('ibl').setup({ indent = { char = '│' } })")
-      (withSetup nvim-colorizer-lua "colorizer")
+      (withFile nvim-colorizer-lua "colorizer")
       vim-illuminate
       (withSetup fidget-nvim "fidget")
       (withSetup highlight-undo-nvim "highlight-undo")
