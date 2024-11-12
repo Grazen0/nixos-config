@@ -13,6 +13,7 @@ local function with_fallback(fn, ...)
 end
 
 cmp.setup({
+  preselect = cmp.PreselectMode.None,
   snippet = {
     expand = function(args)
       vim.fn['UltiSnips#Anon'](args.body)
@@ -23,7 +24,7 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = with_fallback(cmp.confirm, { select = false }),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
     ['<Tab>'] = with_fallback(cmp.select_next_item),
     ['<S-Tab>'] = with_fallback(cmp.select_prev_item),
   }),
