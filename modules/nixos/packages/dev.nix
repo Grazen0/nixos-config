@@ -6,9 +6,9 @@
     gcc
     ghc
     gnumake
-    nodejs
+    nodejs_22
     pnpm
-    (python3.withPackages
+    (python313.withPackages
       (ps: [
         (ps.callPackage ../../../pkgs/inkscape-figures {})
       ]))
