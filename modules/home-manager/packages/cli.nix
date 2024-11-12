@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    cbonsai
     cmatrix
-    pipes-rs
     rmtrash
     trash-cli
 
