@@ -49,7 +49,10 @@
       lspkind-nvim
 
       neodev-nvim
-      (withFile ultisnips "ultisnips")
+      (withLuaConfig ultisnips ''
+        vim.g.UltiSnipsSnippetDirectories = { '${./snippets}' }
+        ${builtins.readFile ./lua/plugins/ultisnips.lua}
+      '')
       (withFile vimtex "vimtex")
 
       (withFile nvim-treesitter.withAllGrammars "treesitter/init")
