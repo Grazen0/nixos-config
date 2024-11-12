@@ -56,6 +56,7 @@
       (withFile nvim-treesitter-refactor "treesitter/refactor")
       (withFile nvim-treesitter-textobjects "treesitter/textobjects")
       (withSetup nvim-ts-autotag "nvim-ts-autotag")
+      (withSetup nvim-treesitter-context "treesitter-context")
 
       (withSetup nvim-window-picker "window-picker")
       (withSetup crates-nvim "crates")
