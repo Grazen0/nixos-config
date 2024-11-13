@@ -5,14 +5,17 @@ o.encoding = 'utf-8'
 o.compatible = false
 o.termguicolors = true
 
--- Numbering and
+-- Numbering and stuff
 o.number = true
 o.relativenumber = true
 o.signcolumn = 'yes'
 o.scrolloff = 4
-o.linebreak = true
 o.cursorline = true
 o.cursorlineopt = 'both'
+
+-- Wrapping
+o.showbreak = '↪ '
+o.breakindent = true
 
 -- Searching
 o.ignorecase = true
