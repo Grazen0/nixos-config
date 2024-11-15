@@ -16,6 +16,7 @@ o.cursorlineopt = 'both'
 -- Wrapping
 o.showbreak = '↪ '
 o.breakindent = true
+o.linebreak = true
 
 -- Searching
 o.ignorecase = true
