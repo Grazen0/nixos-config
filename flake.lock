@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "aphrodite-terminal-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710846440,
+        "narHash": "sha256-eu5qDIVmyaa2UO524AAbnuFa2SsAw6Mv+xhKlVWf7JM=",
+        "owner": "win0err",
+        "repo": "aphrodite-terminal-theme",
+        "rev": "2c9e4c95ec34fbe32500f39c3f99cedb530a52f7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "win0err",
+        "repo": "aphrodite-terminal-theme",
+        "type": "github"
+      }
+    },
     "aquamarine": {
       "inputs": {
         "hyprutils": [
@@ -474,6 +490,7 @@
     },
     "root": {
       "inputs": {
+        "aphrodite-terminal-theme": "aphrodite-terminal-theme",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",

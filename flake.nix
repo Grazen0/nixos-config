@@ -39,6 +39,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    aphrodite-terminal-theme = {
+      url = "github:win0err/aphrodite-terminal-theme";
+      flake = false;
+    };
+
     plugin-multicursor-nvim = {
       url = "github:jake-stewart/multicursor.nvim";
       flake = false;

@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   programs.zsh = {
@@ -114,8 +115,8 @@
     plugins = [
       {
         name = "aphrodite";
-        src = pkgs.aphrodite-terminal-theme;
-        file = "share/zsh/themes/aphrodite.zsh-theme";
+        src = inputs.aphrodite-terminal-theme;
+        file = "aphrodite.zsh-theme";
       }
       {
         name = "autopair";
