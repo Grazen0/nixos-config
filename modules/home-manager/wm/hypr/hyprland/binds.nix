@@ -35,8 +35,6 @@
         "$mainMod, F, fullscreen"
         "$mainMod, M, fullscreen, 1"
         "$mainMod, T, togglefloating"
-        "$mainMod, P, pseudo"
-        "$mainMod SHIFT, T, togglesplit"
 
         # Move window focus
         "$mainMod, H, movefocus, l"
@@ -66,17 +64,6 @@
         "$mainMod, C, alterzorder, top"
         "$mainMod SHIFT, C, cyclenext, prev"
         "$mainMod SHIFT, C, alterzorder, top"
-
-        # Preselect
-        "$mainMod CTRL, H, layoutmsg, preselect l"
-        "$mainMod CTRL, J, layoutmsg, preselect d"
-        "$mainMod CTRL, K, layoutmsg, preselect u"
-        "$mainMod CTRL, L, layoutmsg, preselect r"
-
-        "$mainMod CTRL, Left, layoutmsg, preselect l"
-        "$mainMod CTRL, Down, layoutmsg, preselect d"
-        "$mainMod CTRL, Up, layoutmsg, preselect u"
-        "$mainMod CTRL, Right, layoutmsg, preselect r"
 
         # Swap windows
         "$mainMod SHIFT, H, swapwindow, l"

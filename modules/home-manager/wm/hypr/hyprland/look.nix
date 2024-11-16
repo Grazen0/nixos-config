@@ -11,7 +11,7 @@
 
       allow_tearing = true;
 
-      layout = "dwindle";
+      layout = "master";
     };
 
     decoration = {
@@ -30,14 +30,6 @@
         "fade, 1, 7, default"
         "workspaces, 1, 4, default"
       ];
-    };
-
-    dwindle = {
-      pseudotile = true;
-      preserve_split = true;
-
-      force_split = 2;
-      default_split_ratio = 1.04;
     };
 
     xwayland.force_zero_scaling = true;
