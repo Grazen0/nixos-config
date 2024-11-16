@@ -8,10 +8,7 @@
   home.packages = with pkgs; [
     prismlauncher # Minecraft
     osu-lazer
-
     polychromatic
-
-    handle-monitor-connect
   ];
 
   wayland.windowManager.hyprland.settings = {
@@ -21,7 +18,7 @@
     ];
 
     exec-once = [
-      "${pkgs.handle-monitor-connect}/bin/handle-monitor-connect"
+      "${pkgs.customScripts.handle-monitor-connect}/bin/handle-monitor-connect"
     ];
   };
 

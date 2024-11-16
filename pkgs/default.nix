@@ -1,5 +1,5 @@
 {pkgs ? import <nixpkgs> {}, ...}: {
-  handle-monitor-connect = pkgs.callPackage ./handle-monitor-connect {};
+  customScripts = pkgs.callPackage ./custom-scripts {};
   aphrodite-terminal-theme = pkgs.callPackage ./aphrodite-terminal-theme {};
   multicursor-nvim = pkgs.callPackage ./multicursor-nvim {};
 }

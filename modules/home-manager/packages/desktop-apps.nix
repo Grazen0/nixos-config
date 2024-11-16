@@ -11,7 +11,6 @@
     nsxiv
     obsidian
     pavucontrol
-    zoom-us
     inputs.thorium-browser.defaultPackage.${system}
     (inputs.zen-browser.packages.${system}.specific.overrideAttrs (prev: let
       version = "1.0.1-a.19";
@@ -22,6 +21,8 @@
         sha256 = "sha256:1g7nq1yfaya97m43vnkjj1nd9g570viy8hj45c523hcyr1z92rjq";
       };
     }))
+    wdisplays
+    stable.zoom-us
 
     # LibreOffice + spellcheck
     libreoffice-qt

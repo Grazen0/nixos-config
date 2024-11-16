@@ -4,7 +4,7 @@
     ./programs
     ./wm
     ./files.nix
-    ./gtk-qt.nix
+    ./looks.nix
     ./home.nix
     ./theme.nix
     ./xdg.nix

@@ -31,7 +31,7 @@
         "SHIFT, Print, exec, slurp | grim -g - $XDG_SCREENSHOTS_DIR/$(date \"+%Y-%m-%d %H-%S\").png"
 
         # Window controls
-        "$mainMod, Q, killactive"
+        "$mainMod, Q, exec, ${pkgs.customScripts.close-window}/bin/close-window"
         "$mainMod, F, fullscreen"
         "$mainMod, M, fullscreen, 1"
         "$mainMod, T, togglefloating"
