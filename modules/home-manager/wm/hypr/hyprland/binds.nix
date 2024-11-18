@@ -29,8 +29,8 @@
         "$mainMod, Slash, exec, rofi -show calc -modi calc -no-show-match -no-sort -terse -hint-result \"\" -calc-command \"echo -n '{result}' | wl-copy\""
 
         # Screen capture
-        ", Print, exec, ${hyprshot} --clipboard-only -s -m output -m active"
-        "SHIFT, Print, exec, ${hyprshot} --clipboard-only -s -m region"
+        ", Print, exec, ${hyprshot} --clipboard-only -s -m region"
+        "SHIFT, Print, exec, ${hyprshot} --clipboard-only -s -m output -m active"
 
         # Window controls
         "$mainMod, Q, exec, ${pkgs.customScripts.close-window}/bin/close-window"
