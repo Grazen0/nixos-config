@@ -14,7 +14,6 @@ o.cursorline = true
 o.cursorlineopt = 'both'
 
 -- Wrapping
-o.showbreak = '↪ '
 o.breakindent = true
 o.linebreak = true
 
