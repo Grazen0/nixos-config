@@ -5,7 +5,9 @@
       "$moveStep" = 40;
       "$resizeStep" = 20;
 
-      bind = [
+      bind = let
+        hyprshot = "${pkgs.hyprshot}/bin/hyprshot";
+      in [
         # Hyprland control
         "$mainMod ALT, Q, exit"
         "$mainMod ALT, R, exec, hyprctl reload"
@@ -27,8 +29,8 @@
         "$mainMod, Slash, exec, rofi -show calc -modi calc -no-show-match -no-sort -terse -hint-result \"\" -calc-command \"echo -n '{result}' | wl-copy\""
 
         # Screen capture
-        ", Print, exec, slurp | grim -g - - | wl-copy"
-        "SHIFT, Print, exec, slurp | grim -g - $XDG_SCREENSHOTS_DIR/$(date \"+%Y-%m-%d %H-%S\").png"
+        ", Print, exec, ${hyprshot} --clipboard-only -s -m output -m active"
+        "SHIFT, Print, exec, ${hyprshot} --clipboard-only -s -m region"
 
         # Window controls
         "$mainMod, Q, exec, ${pkgs.customScripts.close-window}/bin/close-window"
