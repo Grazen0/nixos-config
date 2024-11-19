@@ -36,8 +36,6 @@
     ];
 
     windowrulev2 = [
-      "tile, initialTitle:^(MATLAB), class:^(MATLAB)"
-
       "bordercolor rgb(e6c384), pinned:1"
       "bordercolor rgb(c8c093), fullscreen:1"
 

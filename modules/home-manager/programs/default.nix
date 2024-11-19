@@ -10,7 +10,6 @@
     ./foot.nix
     ./git.nix
     ./idea.nix
-    ./matlab.nix
     ./mpv.nix
     ./peaclock.nix
     ./ranger.nix

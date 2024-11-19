@@ -1,8 +1,4 @@
-{
-  inputs,
-  outputs,
-  ...
-}: {
+{outputs, ...}: {
   home = {
     username = "jdgt";
     homeDirectory = "/home/jdgt";
@@ -13,7 +9,6 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.stable-packages
-      inputs.nix-matlab.overlay
     ];
 
     config = import ./nixpkgs-config.nix;
