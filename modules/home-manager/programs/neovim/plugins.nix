@@ -35,6 +35,7 @@
       (withFile nvim-navbuddy "navbuddy")
       vim-fugitive
       (withFile gitsigns-nvim "gitsigns")
+      (withLuaConfig lazygit-nvim "vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<CR>')")
 
       nvim-lspconfig
       SchemaStore-nvim

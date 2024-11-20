@@ -86,13 +86,8 @@
       v = "nvim";
       emacs = "nvim";
 
-      ve = "python -m venv ./.venv";
-      va = "source ./.venv/bin/activate";
-
       peaclock = "peaclock --config-dir ${config.xdg.configHome}/peaclock";
-
-      "2048" = "2048-in-terminal";
-      "pipes.sh" = "pipes-rs";
+      lg = "lazygit";
 
       rbs = "sudo nixos-rebuild switch --flake ${flakeDir}";
       rbb = "sudo nixos-rebuild boot --flake ${flakeDir}";

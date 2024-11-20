@@ -23,5 +23,6 @@
     broot.enable = true;
     eza.enable = true;
     obs-studio.enable = true;
+    lazygit.enable = true;
   };
 }
