@@ -6,7 +6,8 @@
       "$resizeStep" = 20;
 
       bind = let
-        hyprshot = "${pkgs.hyprshot}/bin/hyprshot";
+        grim = "${pkgs.grim}/bin/grim";
+        slurp = "${pkgs.slurp}/bin/slurp";
       in [
         # Hyprland control
         "$mainMod ALT, Q, exit"
@@ -29,8 +30,8 @@
         "$mainMod, Slash, exec, rofi -show calc -modi calc -no-show-match -no-sort -terse -hint-result \"\" -calc-command \"echo -n '{result}' | wl-copy\""
 
         # Screen capture
-        ", Print, exec, ${hyprshot} --clipboard-only -s -m region"
-        "SHIFT, Print, exec, ${hyprshot} --clipboard-only -s -m output -m active"
+        ", Print, exec, ${slurp} -w 0 -b 00000088 | ${grim} -g - - | wl-copy"
+        "SHIFT, Print, exec, ${slurp} -ro -w 0 -b 00000088 -B 00000088 | ${grim} -g - - | wl-copy"
 
         # Window controls
         "$mainMod, Q, exec, ${pkgs.customScripts.close-window}/bin/close-window"
