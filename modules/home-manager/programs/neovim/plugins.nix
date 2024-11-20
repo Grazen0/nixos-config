@@ -16,6 +16,8 @@
       (withFile bufferline-nvim "bufferline")
       (withFile mini-starter "mini-starter")
       (withFile mini-sessions "mini-sessions")
+      (withLuaConfig instant-nvim "vim.g.instant_username = 'Grazen'")
+      (withSetup live-share-nvim "live-share")
 
       (withSetup nvim-surround "nvim-surround")
       (withSetup nvim-autopairs "nvim-autopairs")
@@ -26,6 +28,7 @@
       vim-illuminate
       (withSetup fidget-nvim "fidget")
       (withSetup highlight-undo-nvim "highlight-undo")
+      (withLuaConfig undotree "vim.keymap.set('n', '<leader>u', '<cmd>UndotreeShow<CR>')")
 
       (withFile telescope-nvim "telescope")
       (withFile nvim-spectre "spectre")

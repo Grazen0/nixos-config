@@ -43,6 +43,11 @@
       url = "github:jake-stewart/multicursor.nvim";
       flake = false;
     };
+
+    plugin-live-share-nvim = {
+      url = "github:azratul/live-share.nvim";
+      flake = false;
+    };
   };
 
   outputs = {

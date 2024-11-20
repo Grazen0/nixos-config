@@ -411,6 +411,22 @@
         "type": "github"
       }
     },
+    "plugin-live-share-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729253766,
+        "narHash": "sha256-fUYFdeP+T+KwGpvm0eh5GcAS35ZU5f0N9A/JsqBgHGA=",
+        "owner": "azratul",
+        "repo": "live-share.nvim",
+        "rev": "bf5e8e087c368aae0325a09d1ea43f2a08f5e9aa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "azratul",
+        "repo": "live-share.nvim",
+        "type": "github"
+      }
+    },
     "plugin-multicursor-nvim": {
       "flake": false,
       "locked": {
@@ -460,6 +476,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable_2",
+        "plugin-live-share-nvim": "plugin-live-share-nvim",
         "plugin-multicursor-nvim": "plugin-multicursor-nvim",
         "spicetify-nix": "spicetify-nix",
         "thorium-browser": "thorium-browser",
