@@ -7,7 +7,6 @@
     };
     printing.enable = false;
     libinput.enable = true;
-    blueman.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
 
