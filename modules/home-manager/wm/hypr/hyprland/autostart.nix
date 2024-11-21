@@ -22,8 +22,6 @@
       "[workspace 2 silent] $browser"
       "vesktop --start-minimized"
       "[workspace 6 silent] zapzap"
-
-      "foot -a hyprwinwrap-bg -o colors.alpha=0 cava"
     ];
   };
 }
