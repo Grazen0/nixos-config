@@ -2,7 +2,6 @@
   wayland.windowManager.hyprland = {
     settings = {
       "$mainMod" = "SUPER";
-      "$moveStep" = 40;
       "$resizeStep" = 20;
 
       bind = let
@@ -167,40 +166,5 @@
         allow_workspace_cycles = true;
       };
     };
-
-    extraConfig = ''
-      # Window move mode
-      bind = $mainMod SHIFT, M, submap, Move
-      submap = Move
-
-      # Move window focus
-      binde = , L, moveactive, $moveStep 0
-      binde = , H, moveactive, -$moveStep 0
-      binde = , K, moveactive, 0 -$moveStep
-      binde = , J, moveactive, 0 $moveStep
-
-      binde = , Left, moveactive, $moveStep 0
-      binde = , Down, moveactive, -$moveStep 0
-      binde = , Up, moveactive, 0 -$moveStep
-      binde = , Right, moveactive, 0 $moveStep
-
-      # Focus last window
-      bind = $mainMod, Grave, focuscurrentorlast
-      bind = $mainMod, Grave, alterzorder, top
-
-      # Cycle window focus
-      bind = $mainMod, C, cyclenext
-      bind = $mainMod, C, alterzorder, top
-      bind = $mainMod SHIFT, C, cyclenext, prev
-      bind = $mainMod SHIFT, C, alterzorder, top
-
-      bind = $mainMod SHIFT, M, submap, reset
-      bind = , Q, submap, reset
-      bind = , Escape, submap, reset
-
-      bindi = , catchall, exec
-
-      submap = reset
-    '';
   };
 }
