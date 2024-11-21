@@ -30,8 +30,8 @@
         "$mainMod, Slash, exec, rofi -show calc -modi calc -no-show-match -no-sort -terse -hint-result \"\" -calc-command \"echo -n '{result}' | wl-copy\""
 
         # Screen capture
-        ", Print, exec, ${slurp} -w 0 -b 00000088 | ${grim} -g - - | wl-copy"
-        "SHIFT, Print, exec, ${slurp} -ro -w 0 -b 00000088 -B 00000088 | ${grim} -g - - | wl-copy"
+        ", Print, exec, pidof -q slurp || ${slurp} -w 0 -b 00000088 | ${grim} -g - - | wl-copy"
+        "SHIFT, Print, exec, pidof -q slurp || ${slurp} -ro -w 0 -b 00000088 -B 00000088 | ${grim} -g - - | wl-copy"
 
         # Window controls
         "$mainMod, Q, exec, ${pkgs.customScripts.close-window}/bin/close-window"
