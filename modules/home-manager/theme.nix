@@ -37,6 +37,7 @@
         };
 
         hexNh = hex;
+        hexNum = hex;
       };
     };
   };
@@ -75,6 +76,8 @@
         };
 
         hex = builtins.mapAttrs (_: color: "#" + color) hexNh;
+
+        hexNum = builtins.mapAttrs (_: color: "0x" + color) hexNh;
       };
     };
   };
