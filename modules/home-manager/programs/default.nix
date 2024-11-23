@@ -12,9 +12,9 @@
     ./idea.nix
     ./mpv.nix
     ./peaclock.nix
-    ./ranger.nix
     ./spicetify.nix
     ./tmux.nix
+    ./yazi.nix
     ./zapzap.nix
     ./zathura.nix
   ];
