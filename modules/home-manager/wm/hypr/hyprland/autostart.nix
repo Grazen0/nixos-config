@@ -4,7 +4,7 @@
   ...
 }: {
   options = {
-    myOwnConfig.hyprland.ewwAutoStart = lib.mkOption {
+    grazen.hyprland.ewwAutoStart = lib.mkOption {
       description = "eww widgets to autostart with exec-once";
       default = ["desktop-time" "desktop-fortune"];
     };
@@ -14,7 +14,7 @@
     wayland.windowManager.hyprland.settings.exec-once = [
       "hyprctl setcursor Bibata-Modern-Ice 24"
       "waybar"
-      "eww open-many ${lib.strings.concatStringsSep " " config.myOwnConfig.hyprland.ewwAutoStart}"
+      "eww open-many ${lib.strings.concatStringsSep " " config.grazen.hyprland.ewwAutoStart}"
 
       "wl-paste --watch cliphist store"
 
