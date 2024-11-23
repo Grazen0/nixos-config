@@ -29,5 +29,8 @@
     hunspell
     hunspellDicts.en_US
     hunspellDicts.es_PE
+
+    # Need this sometimes
+    wine
   ];
 }
