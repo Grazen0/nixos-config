@@ -16,6 +16,7 @@
         "$mainMod, Return, exec, $terminal"
         "$mainMod SHIFT, Return, exec, [float; size 50% 50%] $terminal"
         "$mainMod, E, exec, $fileManager"
+        "$mainMod SHIFT, E, exec, [float; size 50% 50%] $terminal $fileManagerAlt"
         "$mainMod, B, exec, $browser"
 
         # yeah
