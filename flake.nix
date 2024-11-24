@@ -34,6 +34,16 @@
       flake = false;
     };
 
+    yazi-flavor-kanagawa = {
+      url = "github:dangooddd/kanagawa.yazi";
+      flake = false;
+    };
+
+    yazi-plugins = {
+      url = "github:yazi-rs/plugins";
+      flake = false;
+    };
+
     plugin-multicursor-nvim = {
       url = "github:jake-stewart/multicursor.nvim";
       flake = false;

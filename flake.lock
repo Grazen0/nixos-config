@@ -449,6 +449,8 @@
         "plugin-multicursor-nvim": "plugin-multicursor-nvim",
         "spicetify-nix": "spicetify-nix",
         "thorium-browser": "thorium-browser",
+        "yazi-flavor-kanagawa": "yazi-flavor-kanagawa",
+        "yazi-plugins": "yazi-plugins",
         "zen-browser": "zen-browser"
       }
     },
@@ -562,6 +564,38 @@
       "original": {
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
+        "type": "github"
+      }
+    },
+    "yazi-flavor-kanagawa": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723283899,
+        "narHash": "sha256-hi3RXCle+KTHlhnQwKDJiHTOro0At9QJMwY2hwWU8Ic=",
+        "owner": "dangooddd",
+        "repo": "kanagawa.yazi",
+        "rev": "b32f205c52ba0615c276d3dab22448adf65f7351",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dangooddd",
+        "repo": "kanagawa.yazi",
+        "type": "github"
+      }
+    },
+    "yazi-plugins": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1732364716,
+        "narHash": "sha256-OdRs3MLtP/HaPwlO4ygbmmCmLKPPi6TnfQD8umWY+Mw=",
+        "owner": "yazi-rs",
+        "repo": "plugins",
+        "rev": "f1fb6cc1df9d829173b21dbc1e45ea6606a46f98",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yazi-rs",
+        "repo": "plugins",
         "type": "github"
       }
     },

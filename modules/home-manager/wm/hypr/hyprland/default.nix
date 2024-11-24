@@ -26,6 +26,7 @@
       "$terminal" = "${pkgs.foot}/bin/foot";
       "$browser" = "zen";
       "$fileManager" = "thunar";
+      "$fileManagerAlt" = "yazi";
 
       monitor = lib.mkDefault [", preferred, auto, 1"];
     };
