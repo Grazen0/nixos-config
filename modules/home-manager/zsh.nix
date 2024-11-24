@@ -17,9 +17,9 @@
     in {
       ls = "eza --group-directories-first";
       la = "ls -a";
-      ll = "ls -l --icons";
+      ll = "ls -l --icons=auto";
       lla = "ll -a";
-      lt = "ls --tree --icons";
+      lt = "ls --tree --icons=auto";
       lta = "lt -a";
       l = "lla -h";
       lsfr = "${pkgs.coreutils}/bin/ls";
