@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   xdg = {
     userDirs = {
       enable = true;
@@ -14,6 +19,52 @@
       ];
       config.common.default = "*";
     };
+
+    dataFile = let
+      mkTouhou = {
+        game,
+        fullName,
+        path ? "${config.home.homeDirectory}/Games/Touhou ${game}",
+        exec ? null,
+      }: let
+        paddedGame = lib.strings.fixedWidthString 2 "0" game;
+        actualExec =
+          if isNull exec
+          then "th${paddedGame} (thpatch-en).exe"
+          else exec;
+      in {
+        "applications/th${paddedGame}.desktop".text = ''
+          [Desktop Entry]
+          Type=Application
+          Name=Touhou ${game} - ${fullName}
+          GenericName=Touhou ${game}
+          Path=${path}
+          Exec='${actualExec}'
+          Icon=${path}/th${paddedGame}.png
+        '';
+      };
+    in
+      mkTouhou {
+        game = "6";
+        fullName = "The Embodiment of Scarlet Devil";
+      }
+      // mkTouhou {
+        game = "7";
+        fullName = "Perfect Cherry Blossom";
+      }
+      // mkTouhou {
+        game = "8";
+        fullName = "Imperishable Night";
+      }
+      // mkTouhou
+      {
+        game = "10";
+        fullName = "Mountain of Faith";
+      }
+      // mkTouhou {
+        game = "11";
+        fullName = "Subterranean Animism";
+      };
 
     mimeApps = {
       enable = true;
