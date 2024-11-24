@@ -12,8 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
     zen-browser = {
       url = "github:MarceColl/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,12 +47,12 @@
       flake = false;
     };
 
-    plugin-multicursor-nvim = {
+    nvim-plugin-multicursor = {
       url = "github:jake-stewart/multicursor.nvim";
       flake = false;
     };
 
-    plugin-live-share-nvim = {
+    nvim-plugin-live-share = {
       url = "github:azratul/live-share.nvim";
       flake = false;
     };
