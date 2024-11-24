@@ -8,6 +8,7 @@
     ark
     gimp
     inkscape
+    kdenlive
     nsxiv
     obsidian
     pavucontrol
