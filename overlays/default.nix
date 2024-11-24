@@ -11,12 +11,12 @@
       // {
         multicursor-nvim = prev.vimUtils.buildVimPlugin {
           name = "multicursor-nvim";
-          src = inputs.plugin-multicursor-nvim;
+          src = inputs.nvim-plugin-multicursor;
         };
 
         live-share-nvim = prev.vimUtils.buildVimPlugin {
           name = "live-share-nvim";
-          src = inputs.plugin-live-share-nvim;
+          src = inputs.nvim-plugin-live-share;
         };
       };
   };
