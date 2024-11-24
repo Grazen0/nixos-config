@@ -450,6 +450,7 @@
         "spicetify-nix": "spicetify-nix",
         "thorium-browser": "thorium-browser",
         "yazi-flavor-kanagawa": "yazi-flavor-kanagawa",
+        "yazi-plugin-relative-motions": "yazi-plugin-relative-motions",
         "yazi-plugins": "yazi-plugins",
         "zen-browser": "zen-browser"
       }
@@ -580,6 +581,23 @@
       "original": {
         "owner": "dangooddd",
         "repo": "kanagawa.yazi",
+        "type": "github"
+      }
+    },
+    "yazi-plugin-relative-motions": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1732042800,
+        "narHash": "sha256-83cTNxGbPzzWEGTwkpf/WweHuKJSAPIGLf4DzY9vqog=",
+        "owner": "dedukun",
+        "repo": "relative-motions.yazi",
+        "rev": "4244639d480e797a43d6514ddee021a0cb6d1cd6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dedukun",
+        "ref": "0.3.3",
+        "repo": "relative-motions.yazi",
         "type": "github"
       }
     },

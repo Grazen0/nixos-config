@@ -44,6 +44,11 @@
       flake = false;
     };
 
+    yazi-plugin-relative-motions = {
+      url = "github:dedukun/relative-motions.yazi/0.3.3";
+      flake = false;
+    };
+
     plugin-multicursor-nvim = {
       url = "github:jake-stewart/multicursor.nvim";
       flake = false;

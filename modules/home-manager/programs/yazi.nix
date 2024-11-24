@@ -6,13 +6,22 @@
 }: {
   programs.yazi = {
     enable = true;
+    shellWrapperName = "y";
 
     flavors.kanagawa = inputs.yazi-flavor-kanagawa;
     theme.flavor.use = "kanagawa";
 
-    plugins = lib.genAttrs ["full-border" "smart-enter" "max-preview" "git" "jump-to-char"] (plugin: "${inputs.yazi-plugins}/${plugin}.yazi");
-
-    shellWrapperName = "y";
+    plugins =
+      (lib.genAttrs [
+        "full-border"
+        "smart-enter"
+        "max-preview"
+        "git"
+        "jump-to-char"
+      ] (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
+      // {
+        relative-motions = inputs.yazi-plugin-relative-motions;
+      };
 
     settings = {
       manager = {
@@ -34,35 +43,44 @@
       ];
     };
 
-    keymap.manager.prepend_keymap = [
-      {
-        on = "!";
-        run = ''shell "$SHELL" --block --confirm'';
-        desc = "Open shell here";
-      }
-      {
-        on = "l";
-        run = "plugin --sync smart-enter";
-        desc = "Enter the child directory, or open the file";
-      }
-      {
-        on = "T";
-        run = "plugin --sync max-preview";
-        desc = "Maximize or restore preview";
-      }
-      {
-        on = "f";
-        run = "plugin jump-to-char";
-        desc = "Jump to char";
-      }
-      {
-        on = "<C-n>";
-        run = ''
-          shell '${pkgs.xdragon}/bin/dragon -x -i -T "$@"' --confirm
-        '';
-        desc = "Dragon drop";
-      }
-    ];
+    keymap.manager.prepend_keymap =
+      [
+        {
+          on = "!";
+          run = ''shell "$SHELL" --block --confirm'';
+          desc = "Open shell here";
+        }
+        {
+          on = "l";
+          run = "plugin --sync smart-enter";
+          desc = "Enter the child directory, or open the file";
+        }
+        {
+          on = "T";
+          run = "plugin --sync max-preview";
+          desc = "Maximize or restore preview";
+        }
+        {
+          on = "f";
+          run = "plugin jump-to-char";
+          desc = "Jump to char";
+        }
+        {
+          on = "<C-n>";
+          run = ''
+            shell '${pkgs.xdragon}/bin/dragon -x -i -T "$@"' --confirm
+          '';
+          desc = "Dragon drop";
+        }
+      ]
+      ++ (
+        builtins.genList (i: {
+          on = toString (i + 1);
+          run = "plugin relative-motions --args=${toString (i + 1)}";
+          desc = "Move in relative steps";
+        })
+        10
+      );
 
     initLua = ''
       -- Show user/group of files in status bar
