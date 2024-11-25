@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{lib, ...}: {
   imports = [
     ./autostart.nix
     ./binds.nix
@@ -21,7 +17,7 @@
     systemd.enable = true;
 
     settings = {
-      "$terminal" = "${pkgs.foot}/bin/foot";
+      "$terminal" = "foot";
       "$browser" = "zen";
       "$fileManager" = "thunar";
       "$fileManagerAlt" = "yazi";

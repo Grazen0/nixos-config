@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options = {
@@ -18,7 +19,7 @@
 
       "wl-paste --watch cliphist store"
 
-      "dex -a"
+      "${pkgs.dex}/bin/dex -a"
       "[workspace 2 silent] $browser"
       "vesktop --start-minimized"
       "[workspace 6 silent] zapzap"
