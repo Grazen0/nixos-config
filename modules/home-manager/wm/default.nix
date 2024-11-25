@@ -7,5 +7,6 @@
     ./dunst.nix
     ./packages.nix
     ./rofi.nix
+    ./wob.nix
   ];
 }

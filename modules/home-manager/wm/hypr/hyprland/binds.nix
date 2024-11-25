@@ -1,13 +1,16 @@
 {pkgs, ...}: {
   wayland.windowManager.hyprland = {
-    settings = {
+    settings = let
+      pamixer = "${pkgs.pamixer}/bin/pamixer";
+      grim = "${pkgs.grim}/bin/grim";
+      slurp = "${pkgs.slurp}/bin/slurp";
+      playerctl = "${pkgs.playerctl}/bin/playerctl";
+      volume-update = "${pkgs.customScripts.volume-update}/bin/volume-update";
+    in {
       "$mainMod" = "SUPER";
       "$resizeStep" = 20;
 
-      bind = let
-        grim = "${pkgs.grim}/bin/grim";
-        slurp = "${pkgs.slurp}/bin/slurp";
-      in [
+      bind = [
         # Hyprland control
         "$mainMod ALT, Q, exit"
         "$mainMod ALT, R, exec, hyprctl reload"
@@ -142,14 +145,12 @@
 
       bindel = [
         # Audio control
-        ", XF86AudioRaiseVolume, exec, pactl -- set-sink-volume @DEFAULT_SINK@ +5%"
-        ", XF86AudioLowerVolume, exec, pactl -- set-sink-volume @DEFAULT_SINK@ -5%"
+        ", XF86AudioRaiseVolume, exec, ${pamixer} -i 5 && ${volume-update}"
+        ", XF86AudioLowerVolume, exec, ${pamixer} -d 5 && ${volume-update}"
       ];
 
-      bindl = let
-        playerctl = "${pkgs.playerctl}/bin/playerctl";
-      in [
-        ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
+      bindl = [
+        ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle && ${volume-update}"
 
         # Player control
         ", XF86AudioPlay, exec, ${playerctl} -p spotify play-pause"
