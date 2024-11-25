@@ -8,5 +8,6 @@
     ./packages.nix
     ./river.nix
     ./rofi.nix
+    ./wob.nix
   ];
 }
