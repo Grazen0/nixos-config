@@ -1,18 +1,29 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [zapzap];
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.programs.zapzap;
+  settingsFormat = pkgs.formats.ini {};
+  configFile = settingsFormat.generate "config" cfg.settings;
+in {
+  options.programs.zapzap = {
+    enable = lib.mkEnableOption "zapzap";
+    package = lib.mkPackageOption pkgs "zapzap" {};
 
-  xdg.configFile."ZapZap/ZapZap.conf".text = ''
-    [notification]
-    app=true
+    settings = lib.mkOption {
+      type = settingsFormat.type;
+      default = {};
+      description = ''
+        Configuration written to {file}`$XDG_CONFIG_HOME/ZapZap/ZapZap.conf`.
+      '';
+    };
+  };
 
-    [storage-whats]
-    notification=true
+  config = lib.mkIf cfg.enable {
+    home.packages = [cfg.package];
 
-    [system]
-    background_message=true
-    donation_message=false
-    folderDownloads=true
-    hide_bar_users=true
-    theme=dark
-  '';
+    xdg.configFile."ZapZap/ZapZap.conf" = lib.mkIf (cfg.settings != {}) {source = configFile;};
+  };
 }
