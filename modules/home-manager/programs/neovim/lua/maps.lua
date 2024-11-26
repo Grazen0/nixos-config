@@ -38,3 +38,15 @@ keyset('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
 -- Spell quick fix
 keyset('i', '<C-l>', '<C-g>u<Esc>[s1z=`]a<C-g>u')
+
+-- Inkscape figures
+keyset(
+  'i',
+  '<C-f>',
+  "<Esc>: silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR><CR>:w<CR>"
+)
+keyset(
+  'n',
+  '<C-f>',
+  ": silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>"
+)

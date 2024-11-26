@@ -38,6 +38,6 @@
     yaml-language-server
 
     xxd # hex-nvim
-    texlive.combined.scheme-medium # vimtex
+    texlive.combined.scheme-full # vimtex
   ];
 }
