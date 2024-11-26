@@ -74,7 +74,7 @@
         }
       ]
       ++ (
-        builtins.genList (i: {
+        lib.genList (i: {
           on = toString (i + 1);
           run = "plugin relative-motions --args=${toString (i + 1)}";
           desc = "Move in relative steps";

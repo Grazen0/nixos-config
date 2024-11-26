@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   imports = [
     ./plugins.nix
     ./packages.nix
@@ -16,12 +16,12 @@
     withRuby = true;
 
     extraLuaConfig = ''
-      ${builtins.readFile ./lua/init.lua}
-      ${builtins.readFile ./lua/opts.lua}
-      ${builtins.readFile ./lua/maps.lua}
-      ${builtins.readFile ./lua/autocmds.lua}
-      ${builtins.readFile ./lua/user-commands.lua}
-      ${builtins.readFile ./lua/lsp.lua}
+      ${lib.readFile ./lua/init.lua}
+      ${lib.readFile ./lua/opts.lua}
+      ${lib.readFile ./lua/maps.lua}
+      ${lib.readFile ./lua/autocmds.lua}
+      ${lib.readFile ./lua/user-commands.lua}
+      ${lib.readFile ./lua/lsp.lua}
     '';
   };
 }

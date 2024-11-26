@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.neovim.plugins = let
     withLuaConfig = plugin: config: {
       inherit plugin config;
@@ -7,7 +11,7 @@
 
     withSetup = plugin: name: (withLuaConfig plugin "require('${name}').setup({})");
 
-    withFile = plugin: file: (withLuaConfig plugin (builtins.readFile ./lua/plugins/${file}.lua));
+    withFile = plugin: file: (withLuaConfig plugin (lib.readFile ./lua/plugins/${file}.lua));
   in
     with pkgs.vimPlugins; [
       (withFile kanagawa-nvim "kanagawa")
@@ -55,7 +59,7 @@
       neodev-nvim
       (withLuaConfig ultisnips ''
         vim.g.UltiSnipsSnippetDirectories = { '${./snippets}' }
-        ${builtins.readFile ./lua/plugins/ultisnips.lua}
+        ${lib.readFile ./lua/plugins/ultisnips.lua}
       '')
       (withFile vimtex "vimtex")
 

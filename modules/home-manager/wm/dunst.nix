@@ -1,9 +1,9 @@
-{config, ...}: {
+{theme, ...}: {
   services.dunst = {
     enable = true;
 
     # TODO: add some sort of "no disturb" mode
-    settings = with config.theme.colors.hex; {
+    settings = with theme.colors.hex; {
       global = {
         # Display
         monitor = 1;
@@ -41,7 +41,7 @@
         idle_threshold = 120;
 
         # Text
-        font = "${config.theme.font.regular} 10";
+        font = "${theme.font.regular} 10";
         line_height = 0;
         markup = "full";
         format = "<b>%s</b>\n%b";

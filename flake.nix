@@ -65,6 +65,7 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    inherit (nixpkgs) lib;
 
     forAllSystems = nixpkgs.lib.genAttrs [
       "aarch64-linux"
@@ -75,6 +76,8 @@
     ];
 
     hosts = ["nitori" "takane"];
+
+    themeFor = import ./theme.nix;
   in {
     packages = forAllSystems (system: import ./pkgs {pkgs = nixpkgs.legacyPackages.${system};});
 
@@ -91,15 +94,21 @@
       host:
         nixpkgs.lib.nixosSystem {
           modules = [./hosts/${host}/nixos/configuration.nix];
-          specialArgs = {inherit inputs outputs host;};
+          specialArgs = {
+            inherit inputs outputs host;
+            theme = themeFor {inherit lib;};
+          };
         }
     );
 
-    homeConfigurations = builtins.listToAttrs (builtins.map (host: {
+    homeConfigurations = lib.listToAttrs (lib.map (host: {
         name = "jdgt@${host}";
         value = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {inherit inputs outputs host;};
+          extraSpecialArgs = {
+            inherit inputs outputs host;
+            theme = themeFor {inherit lib;};
+          };
           modules = [./hosts/${host}/home-manager/home.nix];
         };
       })

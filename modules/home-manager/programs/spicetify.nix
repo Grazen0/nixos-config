@@ -1,8 +1,8 @@
 {
-  config,
   lib,
   pkgs,
   inputs,
+  theme,
   ...
 }: let
   inherit (inputs) spicetify-nix;
@@ -18,7 +18,7 @@ in {
       // {
         additionalCss = ''
           :root {
-            --font-family: "${config.theme.font.propo}", monospace !important;
+            --font-family: "${theme.font.propo}", monospace !important;
             --border-width: 2px !important;
             letter-spacing: -0.075ch !important;
           }

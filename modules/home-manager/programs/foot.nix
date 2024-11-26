@@ -1,6 +1,6 @@
 {
-  config,
   lib,
+  theme,
   ...
 }: {
   programs.foot = {
@@ -9,10 +9,10 @@
 
     settings = {
       main = {
-        font = lib.mkDefault "${config.theme.font.regular}:size=9.5";
+        font = lib.mkDefault "${theme.font.regular}:size=9.5";
       };
 
-      colors = with config.theme.colors.hexNh; {
+      colors = with theme.colors.hexNh; {
         inherit background foreground;
 
         selection-foreground = white;
@@ -41,7 +41,7 @@
         hide-when-typing = "yes";
       };
       cursor = {
-        color = with config.theme.colors.hexNh; "${background} ${white}";
+        color = with theme.colors.hexNh; "${background} ${white}";
       };
 
       scrollback.lines = 10000;

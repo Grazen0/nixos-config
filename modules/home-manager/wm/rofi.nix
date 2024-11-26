@@ -1,13 +1,14 @@
 {
   config,
   pkgs,
+  theme,
   ...
 }: {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
 
-    font = "${config.theme.font.propo} 12";
+    font = "${theme.font.propo} 12";
     terminal = "${pkgs.foot}/bin/foot";
     location = "center";
 
@@ -26,7 +27,7 @@
     theme = let
       lit = config.lib.formats.rasi.mkLiteral;
     in
-      with config.theme.colors.hex; {
+      with theme.colors.hex; {
         "*" = {
           background-color = lit "transparent";
           margin = 0;

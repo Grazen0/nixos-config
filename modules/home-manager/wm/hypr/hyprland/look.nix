@@ -1,6 +1,6 @@
-{config, ...}: {
+{theme, ...}: {
   wayland.windowManager.hyprland.settings = {
-    general = with config.theme.colors.hexNh; {
+    general = with theme.colors.hexNh; {
       gaps_in = 4;
       gaps_out = 0;
       border_size = 3;

@@ -1,24 +1,24 @@
-{config, ...}: {
+{theme, ...}: {
   programs.zathura = {
     enable = true;
 
     mappings = {
-      "u" = "scroll half-up";
-      "d" = "scroll half-down";
-      "D" = "toggle_page_mode";
-      "r" = "reload";
-      "R" = "rotate";
-      "K" = "zoom in";
-      "J" = "zoom out";
-      "i" = "recolor";
-      "p" = "print";
-      "c" = "set \"first-page-column 1:1\"";
-      "C" = "set \"first-page-column 1:2\"";
-      "b" = "set \"guioptions s\"";
-      "B" = "set \"guioptions none\"";
+      u = "scroll half-up";
+      d = "scroll half-down";
+      D = "toggle_page_mode";
+      r = "reload";
+      R = "rotate";
+      K = "zoom in";
+      J = "zoom out";
+      i = "recolor";
+      p = "print";
+      c = "set \"first-page-column 1:1\"";
+      C = "set \"first-page-column 1:2\"";
+      b = "set \"guioptions s\"";
+      B = "set \"guioptions none\"";
     };
 
-    options = with config.theme.colors.hex; {
+    options = with theme.colors.hex; {
       adjust-open = "best-fit";
       render-loading = false;
 
@@ -46,7 +46,7 @@
       recolor-lightcolor = background;
       recolor-darkcolor = brightWhite;
 
-      font = "${config.theme.font.regular} 10";
+      font = "${theme.font.regular} 10";
 
       database = "sqlite";
     };

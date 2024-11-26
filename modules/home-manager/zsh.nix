@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  theme,
   ...
 }: {
   programs.zsh = {
@@ -168,8 +169,8 @@
       APHRODITE_THEME_SHOW_TIME = "ye";
 
       # Highlight colors for zsh-vi-mode
-      ZVM_VI_HIGHLIGHT_BACKGROUND = config.theme.colors.hex.highlight;
-      ZVM_VI_HIGHLIGHT_FOREGROUND = config.theme.colors.hex.brightWhite;
+      ZVM_VI_HIGHLIGHT_BACKGROUND = theme.colors.hex.highlight;
+      ZVM_VI_HIGHLIGHT_FOREGROUND = theme.colors.hex.brightWhite;
 
       # Options for zsh-history-substring-search
       HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND = "underline";
