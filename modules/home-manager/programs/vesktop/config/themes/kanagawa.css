@@ -25,6 +25,7 @@
   --panel-roundness: 0px; /* corner roundness of panels. ONLY WORKS IF unrounding.css IS REMOVED (see above). */
 
   /* background colors */
+  /* TODO: use theme module */
   --bg-0: #1f1f28; /* main background color. */
   --bg-1: #16161d; /* background color for secondary elements like code blocks, embeds, etc. */
   --bg-2: #2a2a37; /* color of neutral buttons. */

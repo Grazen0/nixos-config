@@ -1,9 +1,30 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  theme,
+  ...
+}: {
   imports = [./scripts.nix];
 
   programs.waybar = {
     enable = true;
-    style = ./style.css;
+    style = with theme.colors.hex; ''
+      @define-color black ${black};
+      @define-color bright-black ${brightBlack};
+      @define-color red ${red};
+      @define-color green ${green};
+      @define-color yellow ${yellow};
+      @define-color blue ${blue};
+      @define-color magenta ${magenta};
+      @define-color cyan ${cyan};
+      @define-color white ${white};
+      @define-color bright-white ${brightWhite};
+
+      @define-color background ${background};
+      @define-color foreground ${foreground};
+
+      ${lib.readFile ./style.css}
+    '';
 
     settings = {
       mainBar = {

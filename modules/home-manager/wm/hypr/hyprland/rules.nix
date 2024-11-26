@@ -1,5 +1,7 @@
-{
-  wayland.windowManager.hyprland.settings = {
+{theme, ...}: {
+  wayland.windowManager.hyprland.settings = let
+    colors = theme.colors.hexNh;
+  in {
     windowrule = [
       "float, ^([Tt]hunar)$"
       "float, ^(org.pulseaudio.pavucontrol)$"
@@ -36,8 +38,8 @@
     ];
 
     windowrulev2 = [
-      "bordercolor rgb(e6c384), pinned:1"
-      "bordercolor rgb(c8c093), fullscreen:1"
+      "bordercolor rgb(${colors.brightYellow}), pinned:1"
+      "bordercolor rgb(${colors.white}), fullscreen:1"
 
       "suppressevent maximize, class:.*"
     ];
