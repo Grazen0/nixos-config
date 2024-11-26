@@ -91,9 +91,9 @@
 
         "application/pdf" = "org.pwmt.zathura.desktop";
 
-        "image/png" = "nsxiv.desktop";
-        "image/jpeg" = "nsxiv.desktop";
-        "image/gif" = "nsxiv.desktop";
+        "image/png" = "swayimg.desktop";
+        "image/jpeg" = "swayimg.desktop";
+        "image/gif" = "swayimg.desktop";
       };
     };
   };

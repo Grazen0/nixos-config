@@ -9,7 +9,6 @@
     gimp
     inkscape
     kdenlive
-    nsxiv
     obsidian
     pavucontrol
     inputs.thorium-browser.defaultPackage.${system}
