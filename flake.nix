@@ -74,7 +74,7 @@
       "x86_64-darwin"
     ];
 
-    hosts = ["nitori" "takane"];
+    hosts = lib.attrNames (lib.filterAttrs (_: type: type == "directory") (builtins.readDir ./hosts));
 
     themeFor = import ./theme.nix;
   in {
@@ -94,7 +94,7 @@
         nixpkgs.lib.nixosSystem {
           modules = [./hosts/${host}/nixos/configuration.nix];
           specialArgs = {
-            inherit inputs host;
+            inherit inputs;
             theme = themeFor {inherit lib;};
           };
         }
@@ -105,7 +105,7 @@
         value = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
-            inherit inputs host;
+            inherit inputs;
             theme = themeFor {inherit lib;};
           };
           modules = [./hosts/${host}/home-manager/home.nix];

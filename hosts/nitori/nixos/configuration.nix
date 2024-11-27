@@ -9,6 +9,8 @@
     ./hardware-configuration.nix
   ];
 
+  networking.hostName = "nitori";
+
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-v20b.psf.gz";
 
   # Multi-monitor TTY fix
