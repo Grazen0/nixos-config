@@ -8,6 +8,15 @@
     userDirs = {
       enable = true;
       createDirectories = true;
+
+      publicShare = "${config.home.homeDirectory}/.local/share/public";
+      templates = "${config.home.homeDirectory}/.local/share/templates";
+
+      extraConfig = {
+        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
+        XDG_CODE_DIR = "${config.home.homeDirectory}/Code";
+        XDG_GAMES_DIR = "${config.home.homeDirectory}/Games";
+      };
     };
 
     portal = {
@@ -70,13 +79,22 @@
       enable = true;
 
       defaultApplications = let
-        browser = "zen.desktop";
+        browser = ["zen.desktop"];
+        documentViewer = ["org.pwmt.zathura.desktop"];
+        fileManager = ["thunar.desktop"];
+        archiver = ["org.kde.ark.desktop"];
+        editor = ["nvim.desktop"];
+        imageViewer = ["swayimg.desktop"];
+        mediaPlayer = ["mpv.desktop"];
       in {
+        "text/html" = browser;
         "x-scheme-handler/http" = browser;
         "x-scheme-handler/https" = browser;
         "x-scheme-handler/chrome" = browser;
         "x-scheme-handler/webcal" = browser;
-        "text/html" = browser;
+        "x-scheme-handler/ftp" = browser;
+        "x-scheme-handler/about" = browser;
+        "x-scheme-handler/unknown" = browser;
         "application/x-extension-htm" = browser;
         "application/x-extension-html" = browser;
         "application/x-extension-shtml" = browser;
@@ -84,16 +102,17 @@
         "application/x-extension-xhtml" = browser;
         "application/x-extension-xht" = browser;
 
-        "inode/directory" = "thunar.desktop";
+        "inode/directory" = fileManager;
 
-        "application/x-zerosize" = "nvim.desktop";
-        "text/plain" = "nvim.desktop";
+        "application/zip" = archiver;
+        "application/json" = browser;
+        "application/pdf" = documentViewer;
+        "application/x-zerosize" = editor;
 
-        "application/pdf" = "org.pwmt.zathura.desktop";
-
-        "image/png" = "swayimg.desktop";
-        "image/jpeg" = "swayimg.desktop";
-        "image/gif" = "swayimg.desktop";
+        "audio/*" = mediaPlayer;
+        "video/*" = mediaPlayer;
+        "image/*" = imageViewer;
+        "text/*" = editor;
       };
     };
   };
