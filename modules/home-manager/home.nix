@@ -1,4 +1,4 @@
-{outputs, ...}: {
+{inputs, ...}: {
   home = {
     username = "jdgt";
     homeDirectory = "/home/jdgt";
@@ -6,9 +6,9 @@
 
   nixpkgs = {
     overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.stable-packages
+      inputs.self.overlays.additions
+      inputs.self.overlays.modifications
+      inputs.self.overlays.stable-packages
     ];
 
     config = import ./nixpkgs-config.nix;

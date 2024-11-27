@@ -1,11 +1,10 @@
 {
   pkgs,
   inputs,
-  outputs,
   ...
 }: {
   imports = [
-    outputs.nixosModules
+    inputs.self.nixosModules
     inputs.nixos-hardware.nixosModules.common-gpu-intel
     ./hardware-configuration.nix
   ];

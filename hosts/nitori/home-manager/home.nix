@@ -1,9 +1,9 @@
 {
   pkgs,
-  outputs,
+  inputs,
   ...
 }: {
-  imports = [outputs.homeManagerModules];
+  imports = [inputs.self.homeManagerModules];
 
   home.packages = with pkgs; [
     prismlauncher # Minecraft
