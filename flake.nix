@@ -5,6 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
     home-manager = {
@@ -59,58 +64,47 @@
   };
 
   outputs = {
-    self,
+    flake-parts,
     nixpkgs,
     home-manager,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
+  in
+    flake-parts.lib.mkFlake {inherit inputs;} (let
+      hosts = lib.attrNames (lib.filterAttrs (_: type: type == "directory") (builtins.readDir ./hosts));
+      theme = import ./theme.nix {inherit lib;};
+    in {
+      systems = ["x86_64-linux"];
 
-    forAllSystems = nixpkgs.lib.genAttrs [
-      "aarch64-linux"
-      "i686-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
+      perSystem = {pkgs, ...}: {
+        devShells = import ./shell.nix {inherit pkgs;};
+      };
 
-    hosts = lib.attrNames (lib.filterAttrs (_: type: type == "directory") (builtins.readDir ./hosts));
+      flake = {
+        overlays = import ./overlays {inherit inputs;};
 
-    themeFor = import ./theme.nix;
-  in {
-    packages = forAllSystems (system: import ./pkgs {pkgs = nixpkgs.legacyPackages.${system};});
+        nixosConfigurations = lib.genAttrs hosts (host:
+          lib.nixosSystem {
+            modules = [
+              ./modules/nixos
+              ./hosts/${host}/nixos/configuration.nix
+            ];
+            specialArgs = {inherit inputs lib;};
+          });
 
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
-    overlays = import ./overlays {inherit inputs;};
-
-    devShells = forAllSystems (system: import ./shell.nix {pkgs = nixpkgs.legacyPackages.${system};});
-
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
-
-    nixosConfigurations = nixpkgs.lib.genAttrs hosts (
-      host:
-        nixpkgs.lib.nixosSystem {
-          modules = [./hosts/${host}/nixos/configuration.nix];
-          specialArgs = {
-            inherit inputs;
-            theme = themeFor {inherit lib;};
-          };
-        }
-    );
-
-    homeConfigurations = lib.listToAttrs (lib.map (host: {
-        name = "jdgt@${host}";
-        value = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {
-            inherit inputs;
-            theme = themeFor {inherit lib;};
-          };
-          modules = [./hosts/${host}/home-manager/home.nix];
-        };
-      })
-      hosts);
-  };
+        homeConfigurations = lib.listToAttrs (lib.map (host: {
+            name = "jdgt@${host}";
+            value = home-manager.lib.homeManagerConfiguration {
+              pkgs = nixpkgs.legacyPackages.x86_64-linux;
+              modules = [
+                ./hosts/${host}/home-manager/home.nix
+                ./modules/home-manager
+              ];
+              extraSpecialArgs = {inherit inputs theme;};
+            };
+          })
+          hosts);
+      };
+    });
 }

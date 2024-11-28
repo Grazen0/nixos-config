@@ -1,7 +1,11 @@
-{inputs, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
   home = {
     username = "jdgt";
-    homeDirectory = "/home/jdgt";
+    homeDirectory = "/home/${config.home.username}";
   };
 
   nixpkgs = {

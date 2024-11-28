@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    inputs.self.nixosModules
     inputs.nixos-hardware.nixosModules.common-gpu-intel
     ./hardware-configuration.nix
   ];

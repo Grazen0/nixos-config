@@ -1,10 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
-  imports = [inputs.self.homeManagerModules];
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
     prismlauncher # Minecraft
     osu-lazer

@@ -1,10 +1,4 @@
-{
-  inputs,
-  theme,
-  ...
-}: {
-  imports = [inputs.self.homeManagerModules];
-
+{theme, ...}: {
   wayland.windowManager.hyprland.settings.input.kb_layout = "latam,us";
 
   custom.hyprland.ewwAutoStart = ["desktop-time-alt" "desktop-fortune"];
