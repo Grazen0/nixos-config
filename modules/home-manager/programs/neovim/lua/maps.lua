@@ -36,6 +36,9 @@ keyset('n', '+', '<C-w>+')
 keyset('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 keyset('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
+-- Floating diagnostic window
+keyset('n', '<leader>d', vim.diagnostic.open_float)
+
 -- Spell quick fix
 keyset('i', '<C-l>', '<C-g>u<Esc>[s1z=`]a<C-g>u')
 

@@ -36,6 +36,7 @@
 
       (withFile telescope-nvim "telescope")
       (withFile nvim-spectre "spectre")
+      (withFile trouble-nvim "trouble")
       (withFile conform-nvim "conform")
       (withFile inc-rename-nvim "inc-rename")
       (withLuaConfig lsp_signature-nvim "require('lsp_signature').setup({ handler_opts = { border = 'none' } })")
@@ -43,6 +44,7 @@
       vim-fugitive
       (withFile gitsigns-nvim "gitsigns")
       (withLuaConfig lazygit-nvim "vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<CR>')")
+      (withFile tiny-inline-diagnostic-nvim "tiny-inline-diagnostic")
 
       nvim-lspconfig
       SchemaStore-nvim
@@ -76,12 +78,10 @@
       nvim-web-devicons
 
       (withFile todo-comments-nvim "todo-comments")
-      (withSetup markview-nvim "markview")
       (withLuaConfig markdown-preview-nvim "vim.g.mkdp_filetypes = { 'markdown' }")
       (withSetup tailwindcss-colors-nvim "tailwindcss-colors")
       (withSetup hex-nvim "hex")
       (withSetup hmts-nvim "hmts")
       (withSetup neocord "neocord")
-      cellular-automaton-nvim # Very important
     ];
 }

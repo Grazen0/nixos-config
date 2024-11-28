@@ -39,15 +39,6 @@ create_autocmd({ 'WinLeave', 'FocusLost' }, {
   end,
 })
 
--- Show diagnostic window when cursor is over warning/error
-create_augroup('FloatDiagnosticCursor', { clear = true })
-create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-  group = 'FloatDiagnosticCursor',
-  callback = function()
-    vim.diagnostic.open_float(nil, { focus = false, scope = 'cursor' })
-  end,
-})
-
 -- Disable formatter for LaTeX files
 create_autocmd('FileType', {
   pattern = { 'tex', 'plaintex' },
