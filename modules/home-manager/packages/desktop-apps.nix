@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     # Apps
-    ark
+    file-roller
     gimp
     inkscape
     kdenlive

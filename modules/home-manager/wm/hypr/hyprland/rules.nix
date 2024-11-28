@@ -6,7 +6,7 @@
       "float, ^([Tt]hunar)$"
       "float, ^(org.pulseaudio.pavucontrol)$"
       "float, blueman-manager"
-      "float, ^(org.kde.ark)$"
+      "float, ^(org.gnome.FileRoller)$"
       "float, ^(nm-connection-editor)$"
       "float, ^(steam)$"
 

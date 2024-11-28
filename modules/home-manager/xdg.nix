@@ -82,38 +82,49 @@
         browser = ["zen.desktop"];
         documentViewer = ["org.pwmt.zathura.desktop"];
         fileManager = ["thunar.desktop"];
-        archiver = ["org.kde.ark.desktop"];
+        archiver = ["org.gnome.FileRoller.desktop"];
         editor = ["nvim.desktop"];
         imageViewer = ["swayimg.desktop"];
         mediaPlayer = ["mpv.desktop"];
-      in {
-        "text/html" = browser;
-        "x-scheme-handler/http" = browser;
-        "x-scheme-handler/https" = browser;
-        "x-scheme-handler/chrome" = browser;
-        "x-scheme-handler/webcal" = browser;
-        "x-scheme-handler/ftp" = browser;
-        "x-scheme-handler/about" = browser;
-        "x-scheme-handler/unknown" = browser;
-        "application/x-extension-htm" = browser;
-        "application/x-extension-html" = browser;
-        "application/x-extension-shtml" = browser;
-        "application/xhtml+xml" = browser;
-        "application/x-extension-xhtml" = browser;
-        "application/x-extension-xht" = browser;
 
-        "inode/directory" = fileManager;
+        inherit (lib.attrsets) mapAttrsToList genAttrs;
+        inherit (lib.strings) splitString hasPrefix removeSuffix;
+        inherit (lib) mergeAttrsList;
 
-        "application/zip" = archiver;
-        "application/json" = browser;
-        "application/pdf" = documentViewer;
-        "application/x-zerosize" = editor;
+        globAssociations = {
+          "audio/*" = mediaPlayer;
+          "video/*" = mediaPlayer;
+          "image/*" = imageViewer;
+          "text/*" = editor;
+        };
 
-        "audio/*" = mediaPlayer;
-        "video/*" = mediaPlayer;
-        "image/*" = imageViewer;
-        "text/*" = editor;
-      };
+        commonTypes = splitString "\n" (builtins.readFile "${pkgs.shared-mime-info}/share/mime/types");
+        expandedAssociations = mergeAttrsList (mapAttrsToList (name: value: genAttrs (builtins.filter (type: hasPrefix (removeSuffix "*" name) type) commonTypes) (_: value)) globAssociations);
+      in
+        {
+          "text/html" = browser;
+          "x-scheme-handler/http" = browser;
+          "x-scheme-handler/https" = browser;
+          "x-scheme-handler/chrome" = browser;
+          "x-scheme-handler/webcal" = browser;
+          "x-scheme-handler/ftp" = browser;
+          "x-scheme-handler/about" = browser;
+          "x-scheme-handler/unknown" = browser;
+          "application/x-extension-htm" = browser;
+          "application/x-extension-html" = browser;
+          "application/x-extension-shtml" = browser;
+          "application/xhtml+xml" = browser;
+          "application/x-extension-xhtml" = browser;
+          "application/x-extension-xht" = browser;
+
+          "inode/directory" = fileManager;
+
+          "application/zip" = archiver;
+          "application/json" = browser;
+          "application/pdf" = documentViewer;
+          "application/x-zerosize" = editor;
+        }
+        // expandedAssociations;
     };
   };
 }
