@@ -90,7 +90,7 @@
               ./modules/nixos
               ./hosts/${host}/nixos/configuration.nix
             ];
-            specialArgs = {inherit inputs lib;};
+            specialArgs = {inherit inputs theme;};
           });
 
         homeConfigurations = lib.listToAttrs (lib.map (host: {
