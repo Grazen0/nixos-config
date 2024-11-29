@@ -9,6 +9,9 @@
       float_switch_override_focus = 0;
 
       touchpad.natural_scroll = true;
+
+      repeat_rate = 50;
+      repeat_delay = 300;
     };
 
     cursor = {
