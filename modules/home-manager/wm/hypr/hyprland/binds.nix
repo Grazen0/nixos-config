@@ -21,6 +21,7 @@
         "$mainMod, E, exec, $fileManager"
         "$mainMod SHIFT, E, exec, [float; size 50% 50%] $terminal $fileManagerAlt"
         "$mainMod, B, exec, $browser"
+        "$mainMod, O, exec, obsidian"
 
         # yeah
         "$mainMod CTRL ALT SHIFT, L, exec, $browser \"https://linkedin.com\""
