@@ -7,11 +7,16 @@
 }: {
   programs.zsh = {
     enable = true;
+    dotDir = ".config/zsh";
     enableCompletion = true;
-
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
+
+    history = {
+      size = 10000;
+      path = "${config.xdg.dataHome}/zsh/history";
+    };
 
     shellAliases = let
       flakeDir = "${config.xdg.configHome}/nixos";
@@ -101,11 +106,6 @@
       # I'm kinda clumsy
       ":q" = "exit";
       ":x" = "exit";
-    };
-
-    history = {
-      size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
     };
 
     plugins = [
