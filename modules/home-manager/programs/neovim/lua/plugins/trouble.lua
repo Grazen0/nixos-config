@@ -1,6 +1,6 @@
 require('trouble').setup({
   modes = {
-    test = {
+    diagnostics = {
       mode = 'diagnostics',
       preview = {
         type = 'split',
