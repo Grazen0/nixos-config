@@ -7,7 +7,7 @@
       gaps_out = 8;
       border_size = 3;
 
-      "col.active_border" = "rgb(${colors.blue})";
+      "col.active_border" = "rgb(${colors.blue}) rgb(${colors.magenta}) 45deg";
       "col.inactive_border" = "rgb(${colors.brightBlack})";
       no_focus_fallback = true;
 
