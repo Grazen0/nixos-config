@@ -7,12 +7,16 @@
     enable = true;
     server.enable = false;
 
-    settings = {
+    settings = let
+      colors = theme.colors.hexNh;
+    in {
       main = {
         font = lib.mkDefault "${theme.font.regular}:size=9.5";
+        pad = "4x1 center";
+        underline-thickness = 1;
       };
 
-      colors = with theme.colors.hexNh; {
+      colors = with colors; {
         inherit background foreground;
 
         selection-foreground = white;
@@ -35,14 +39,13 @@
         bright5 = brightMagenta;
         bright6 = brightCyan;
         bright7 = brightWhite;
+
+        alpha = 0.85;
       };
 
-      mouse = {
-        hide-when-typing = "yes";
-      };
-      cursor = {
-        color = with theme.colors.hexNh; "${background} ${white}";
-      };
+      mouse.hide-when-typing = "yes";
+
+      cursor.color = with colors; "${background} ${white}";
 
       scrollback.lines = 10000;
     };

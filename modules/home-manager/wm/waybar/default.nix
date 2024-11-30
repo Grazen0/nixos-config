@@ -23,6 +23,10 @@
       @define-color background ${background};
       @define-color foreground ${foreground};
 
+      * {
+        font-family: ${theme.font.propo}, monospace;
+      }
+
       ${lib.readFile ./style.css}
     '';
 

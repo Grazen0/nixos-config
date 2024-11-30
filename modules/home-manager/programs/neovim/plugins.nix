@@ -30,7 +30,7 @@
       (withLuaConfig indent-blankline-nvim "require('ibl').setup({ indent = { char = '│' } })")
       (withFile nvim-colorizer-lua "colorizer")
       vim-illuminate
-      (withSetup fidget-nvim "fidget")
+      (withLuaConfig fidget-nvim "require('fidget').setup({ notification = { window = { winblend = 0 } } })")
       (withSetup highlight-undo-nvim "highlight-undo")
       (withLuaConfig undotree "vim.keymap.set('n', '<leader>u', '<cmd>UndotreeShow<CR>')")
 

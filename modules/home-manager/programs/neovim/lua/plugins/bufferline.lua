@@ -2,9 +2,10 @@ local bufferline = require('bufferline')
 
 bufferline.setup({
   options = {
+    themable = true,
     numbers = 'none',
-    separator_style = 'thick',
-    style_preset = bufferline.style_preset.no_italic,
+    separator_style = 'thin',
+    style_preset = {},
   },
 })
 
