@@ -8,10 +8,12 @@
       border_size = 3;
 
       "col.active_border" = "rgb(${colors.blue}) rgb(${colors.magenta}) 45deg";
-      "col.inactive_border" = "rgb(${colors.brightBlack})";
+      "col.inactive_border" = "rgba(${colors.brightBlack}ee)";
       no_focus_fallback = true;
 
       layout = "master";
+
+      allow_tearing = true;
     };
 
     decoration = {
@@ -36,7 +38,7 @@
       animation = [
         "windows, 1, 3, expo"
         "windowsOut, 1, 3, expo, popin 80%"
-        "border, 1, 6, expo"
+        "border, 1, 4, expo"
         "borderangle, 1, 3, expo"
         "fade, 1, 3, expo"
         "workspaces, 1, 3, expo"

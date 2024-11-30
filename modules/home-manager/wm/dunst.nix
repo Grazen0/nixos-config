@@ -38,7 +38,7 @@
         horizontal_padding = 8;
         text_icon_padding = 0;
         frame_width = 3;
-        frame_color = colors.magenta;
+        frame_color = colors.brightBlue;
         gap_size = 8;
         separator_color = "frame";
         sort = "yes";
