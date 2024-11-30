@@ -10,24 +10,6 @@
       "float, ^(nm-connection-editor)$"
       "float, ^(steam)$"
 
-      "float, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
-      "center, title:^(Open File)(.*)$"
-      "center, title:^(Select a File)(.*)$"
-      "center, title:^(Choose wallpaper)(.*)$"
-      "center, title:^(Open Folder)(.*)$"
-      "center, title:^(Save As)(.*)$"
-      "center, title:^(Library)(.*)$"
-      "center, title:^(File Upload)(.*)$"
-
-      # Dialogs
-      "float, title:^(Open File)(.*)$"
-      "float, title:^(Select a File)(.*)$"
-      "float, title:^(Choose wallpaper)(.*)$"
-      "float, title:^(Open Folder)(.*)$"
-      "float, title:^(Save As)(.*)$"
-      "float, title:^(Library)(.*)$"
-      "float, title:^(File Upload)(.*)$"
-
       "size 960 540, ^([Tt]hunar)$" # Thunar is too small by default
 
       # Workspace-specific programs
@@ -46,6 +28,10 @@
 
     layerrule = [
       "noanim, eww-desktop"
+
+      "blur, notifications"
+      "ignorezero, notifications"
+      "animation slide, notifications"
     ];
   };
 }

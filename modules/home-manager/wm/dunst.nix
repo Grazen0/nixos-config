@@ -3,17 +3,20 @@
     enable = true;
 
     # TODO: add some sort of "no disturb" mode
-    settings = with theme.colors.hex; {
+    settings = let
+      colors = theme.colors.hex;
+      background = "${colors.background}ee";
+    in {
       global = {
         # Display
-        monitor = 1;
-        follow = "none";
+        # monitor = 0; # Ignored because of `follow`
+        follow = "keyboard";
 
         # Geometry
         width = 300;
         height = 300;
         origin = "bottom-right";
-        offset = "0x0";
+        offset = "8x8";
         scale = 0; # Auto-detect
         notification_limit = 20;
 
@@ -25,17 +28,18 @@
         progress_bar_max_width = 300;
         progress_bar_corner_radius = 0;
         progress_bar_corners = "all";
-        icon_corner_radius = 0;
-        icon_corners = "none";
+
+        icon_corner_radius = 8;
+        icon_corners = "all";
         indicate_hidden = "yes";
-        transparency = 0;
+        # transparency = 0; # X11 only
         separator_height = 2;
         padding = 6;
         horizontal_padding = 8;
         text_icon_padding = 0;
         frame_width = 3;
-        frame_color = blue;
-        gap_size = 6;
+        frame_color = colors.magenta;
+        gap_size = 8;
         separator_color = "frame";
         sort = "yes";
         idle_threshold = 120;
@@ -68,7 +72,7 @@
         always_run_script = true;
         title = "Dunst";
         class = "Dunst";
-        corner_radius = 0;
+        corner_radius = 8;
         corners = "all";
         ignore_dbusclose = false;
 
@@ -86,22 +90,22 @@
 
       urgency_low = {
         inherit background;
-        foreground = brightWhite;
+        inherit (colors) foreground;
         timeout = 10;
       };
 
       urgency_normal = {
         inherit background;
-        foreground = brightWhite;
+        inherit (colors) foreground;
         timeout = 10;
         override_pause_level = 30;
       };
 
       urgency_critical = {
         inherit background;
-        foreground = brightWhite;
-        frame_color = red;
-        timeout = 0;
+        inherit (colors) foreground;
+        frame_color = colors.red;
+        timeout = 30;
         override_pause_level = 60;
       };
     };

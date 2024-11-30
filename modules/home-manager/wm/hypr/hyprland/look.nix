@@ -40,6 +40,7 @@
         "borderangle, 1, 3, expo"
         "fade, 1, 3, expo"
         "workspaces, 1, 3, expo"
+        "layersIn, 1, 4, expo"
       ];
     };
 
