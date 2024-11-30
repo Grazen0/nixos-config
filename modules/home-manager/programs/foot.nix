@@ -12,7 +12,7 @@
     in {
       main = {
         font = lib.mkDefault "${theme.font.regular}:size=9.5";
-        pad = "4x1 center";
+        pad = "4x0";
       };
 
       colors = with colors; {
