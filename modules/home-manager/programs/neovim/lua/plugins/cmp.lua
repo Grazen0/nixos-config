@@ -33,7 +33,12 @@ cmp.setup({
     { name = 'ultisnips' },
     { name = 'async_path' },
   }, {
-    { name = 'buffer' },
+    {
+      name = 'buffer',
+      option = {
+        get_bufnrs = vim.api.nvim_list_bufs,
+      },
+    },
   }),
   formatting = {
     format = require('lspkind').cmp_format({
