@@ -13,7 +13,6 @@
       main = {
         font = lib.mkDefault "${theme.font.regular}:size=9.5";
         pad = "4x1 center";
-        underline-thickness = 1;
       };
 
       colors = with colors; {
