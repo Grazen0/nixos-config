@@ -51,6 +51,12 @@ cmp.setup({
       show_labelDetails = true,
     }),
   },
+  window = {
+    completion = cmp.config.window.bordered({
+      winhighlight = 'Nomal:Pmenu,CursorLine:PmenuSel,Search:None',
+    }),
+    documentation = cmp.config.window.bordered(),
+  },
 })
 
 cmp.setup.cmdline({ '/', '?' }, {

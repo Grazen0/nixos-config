@@ -1,6 +1,6 @@
 require('neo-tree').setup({
   auto_clean_after_session_restore = true,
-  popup_border_style = 'solid',
+  popup_border_style = 'rounded',
   close_if_last_window = true,
   hijack_netrw_behavior = 'open_current',
 
