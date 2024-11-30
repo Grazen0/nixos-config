@@ -32,6 +32,11 @@
       "blur, notifications"
       "ignorezero, notifications"
       "animation slide, notifications"
+
+      "blur, launcher"
+      "ignorezero, launcher"
+      "animation popin 80%, launcher"
+      "dimaround, launcher"
     ];
   };
 }

@@ -61,7 +61,7 @@
         "custom/sysmenu" = {
           format = "";
           tooltip-format = "App launcher";
-          on-click = "rofi -show drun -show-icons";
+          on-click = "${pkgs.fuzzel}/bin/fuzzel";
         };
         tray = {
           spacing = 10;
@@ -141,7 +141,7 @@
         "custom/power" = {
           format = "";
           tooltip-format = "Power menu";
-          on-click = "rofi -show menu -modi \"menu:rofi-power-menu\"";
+          on-click = "${pkgs.customScripts.fuzzel-power-menu}/bin/fuzzel-power-menu";
         };
       };
     };

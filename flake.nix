@@ -61,6 +61,11 @@
       url = "github:azratul/live-share.nvim";
       flake = false;
     };
+
+    menu-qalc = {
+      url = "github:ClemaX/menu-qalc-wayland";
+      flake = false;
+    };
   };
 
   outputs = {

@@ -90,6 +90,22 @@
         "type": "github"
       }
     },
+    "menu-qalc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1717348246,
+        "narHash": "sha256-YsdnPyjJ7trgg8qmpWHuyYZKzB0fhWGRm0nnvlvwYeY=",
+        "owner": "ClemaX",
+        "repo": "menu-qalc-wayland",
+        "rev": "43c0874ef0167822b00564b69e39a9128a1c2d2f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ClemaX",
+        "repo": "menu-qalc-wayland",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1732483221,
@@ -175,6 +191,7 @@
         "aphrodite-terminal-theme": "aphrodite-terminal-theme",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
+        "menu-qalc": "menu-qalc",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",

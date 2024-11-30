@@ -1,10 +1,19 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  home.packages = with pkgs; [
+    libqalculate # Required for menu-qalc
+  ];
+
   wayland.windowManager.hyprland = {
     settings = let
-      pamixer = "${pkgs.pamixer}/bin/pamixer";
+      fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
       grim = "${pkgs.grim}/bin/grim";
       slurp = "${pkgs.slurp}/bin/slurp";
       playerctl = "${pkgs.playerctl}/bin/playerctl";
+      pamixer = "${pkgs.pamixer}/bin/pamixer";
       volume-update = "${pkgs.customScripts.volume-update}/bin/volume-update";
     in {
       "$mainMod" = "SUPER";
@@ -24,14 +33,14 @@
         "$mainMod, O, exec, obsidian"
 
         # yeah
-        "$mainMod CTRL ALT SHIFT, L, exec, $browser \"https://linkedin.com\""
+        ''$mainMod CTRL ALT SHIFT, L, exec, $browser "https://linkedin.com"''
 
         # Menus
-        "$mainMod, Space, exec, pkill rofi || rofi -show drun -show-icons"
-        "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-        "$mainMod, Period, exec, rofi -modi emoji -show emoji"
-        "$mainMod SHIFT, X, exec, rofi -show menu -modi \"menu:rofi-power-menu\""
-        "$mainMod, Slash, exec, rofi -show calc -modi calc -no-show-match -no-sort -terse -hint-result \"\" -calc-command \"echo -n '{result}' | wl-copy\""
+        "$mainMod, Space, exec, ${fuzzel}"
+        "$mainMod, V, exec, cliphist list | ${fuzzel} -d | cliphist decode | wl-copy"
+        "$mainMod, Period, exec, BEMOJI_PICKER_CMD='${fuzzel} -d' ${pkgs.bemoji}/bin/bemoji -n -t"
+        "$mainMod SHIFT, X, exec, ${pkgs.customScripts.fuzzel-power-menu}/bin/fuzzel-power-menu"
+        "$mainMod, Slash, exec, ${inputs.menu-qalc}/="
 
         # Screen capture
         ", Print, exec, pidof -q slurp || ${slurp} -w 0 -b 00000088 | ${grim} -g - - | wl-copy"

@@ -5,8 +5,8 @@
     ./waybar
     ./cliphist.nix
     ./dunst.nix
+    ./fuzzel.nix
     ./packages.nix
-    ./rofi.nix
     ./wob.nix
   ];
 }
