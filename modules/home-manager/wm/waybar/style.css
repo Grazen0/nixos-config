@@ -27,6 +27,7 @@ window#waybar.hidden {
 #temperature,
 #network,
 #clock,
+#custom-notifications,
 #custom-power {
   padding: 0 10px;
 }
@@ -112,6 +113,7 @@ window#waybar.hidden {
   background-color: @red;
   color: @foreground;
 }
+
 /* BATTERY */
 #battery.critical:not(.charging) {
   background-color: @red;
@@ -120,4 +122,8 @@ window#waybar.hidden {
 /* CLOCK */
 #clock {
   color: @yellow;
+}
+
+#custom-notifications.paused {
+  color: @bright-black;
 }

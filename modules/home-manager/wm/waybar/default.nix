@@ -4,10 +4,9 @@
   theme,
   ...
 }: {
-  imports = [./scripts.nix];
-
   programs.waybar = {
     enable = true;
+
     style = with theme.colors.hex; ''
       @define-color black ${black};
       @define-color bright-black ${brightBlack};
@@ -31,7 +30,9 @@
     '';
 
     settings = {
-      mainBar = {
+      mainBar = let
+        waybarScripts = pkgs.customScripts.waybar;
+      in {
         reload_style_on_change = true;
 
         layer = "top";
@@ -44,17 +45,17 @@
           "tray"
           "hyprland/language"
           "custom/media"
-          "hyprland/submap"
         ];
-        modules-center = [
-          "hyprland/workspaces"
-        ];
+
+        modules-center = ["hyprland/workspaces"];
+
         modules-right = [
           "pulseaudio"
           "network"
           "temperature"
           "battery"
           "clock"
+          "custom/notifications"
           "custom/power"
         ];
 
@@ -63,12 +64,15 @@
           tooltip-format = "App launcher";
           on-click = "${pkgs.fuzzel}/bin/fuzzel";
         };
+
         tray = {
           spacing = 10;
         };
+
         "hyprland/language" = {
           format = " {short}";
         };
+
         "custom/media" = let
           playerctl = "${pkgs.playerctl}/bin/playerctl";
         in {
@@ -80,11 +84,7 @@
           max-length = 35;
           on-click = "${playerctl} play-pause";
           on-click-right = "${playerctl} stop";
-          exec = "media-query";
-        };
-        "hyprland/submap" = {
-          format = " {}";
-          on-click = "hyprctl dispatch submap reset";
+          exec = "${waybarScripts.media-query}/bin/media-query";
         };
 
         "hyprland/workspaces" = {
@@ -103,6 +103,7 @@
           format-icons.default = ["" ""];
           on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
         };
+
         network = {
           interval = 1;
           format-wifi = " {bandwidthTotalBytes}";
@@ -111,6 +112,7 @@
           format-disconnected = " Offline";
           on-click = "nm-connection-editor";
         };
+
         temperature = {
           interval = 2;
           # thermal-zone = 2;
@@ -119,25 +121,43 @@
           format = "{icon} {temperatureC}°C";
           format-icons = ["" "" "" "" ""];
         };
+
         battery = {
           interval = 5;
           full-at = 97;
+
           states = {
             warning = 30;
             critical = 15;
           };
+
           format = "{icon} {capacity}%";
           format-full = " {capacity}%";
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
           format-icons = ["" "" "" "" ""];
         };
+
         clock = {
           interval = 1;
           format = " {:%I:%M %p}";
           format-alt = " {:%d/%m/%y}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
+
+        "custom/notifications" = let
+          dunstctl = "${pkgs.dunst}/bin/dunstctl";
+          signal = 3; # Workaround since exec-on-event isn't guaranteed
+        in {
+          exec = "${waybarScripts.dunst-state}/bin/dunst-state";
+          escape = true;
+          return-type = "json";
+          exec-on-event = false;
+          on-click = "${dunstctl} set-paused toggle && pkill -SIGRTMIN+${toString signal} waybar";
+          tooltip-format = "Toggle notifications";
+          inherit signal;
+        };
+
         "custom/power" = {
           format = "";
           tooltip-format = "Power menu";
