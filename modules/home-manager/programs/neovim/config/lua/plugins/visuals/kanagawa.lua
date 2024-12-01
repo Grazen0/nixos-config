@@ -37,7 +37,6 @@ require('kanagawa').setup({
       BufferLineSeparator = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
       BufferLineSeparatorSelected = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
       BufferLineSeparatorVisible = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-      BufferLineIndicatorSelected = { fg = theme.syn.constant },
     }
   end,
 })

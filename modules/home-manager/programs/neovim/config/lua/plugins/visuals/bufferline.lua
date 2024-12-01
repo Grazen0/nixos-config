@@ -5,7 +5,6 @@ bufferline.setup({
     themable = true,
     numbers = 'none',
     separator_style = 'thin',
-    style_preset = {},
   },
 })
 

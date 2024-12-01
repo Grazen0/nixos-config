@@ -1,6 +1,6 @@
 require('nvim-navbuddy').setup({
   window = {
-    border = 'none',
+    border = 'rounded',
   },
   lsp = {
     auto_attach = true,

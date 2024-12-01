@@ -39,19 +39,22 @@ create_autocmd({ 'WinLeave', 'FocusLost' }, {
   end,
 })
 
--- Disable formatter for LaTeX files
+-- Workaround for a rust-analyzer bug
 create_autocmd('FileType', {
-  pattern = { 'tex', 'plaintex' },
+  pattern = 'rust',
   callback = function()
-    vim.b.disable_autoformat = true
-  end,
-})
-
--- Conceal level for markdown and LaTeX files
-create_autocmd('FileType', {
-  pattern = { 'markdown', 'tex', 'plaintex' },
-  callback = function()
-    vim.opt_local.conceallevel = 2
+    for _, method in ipairs({
+      'textDocument/diagnostic',
+      'workspace/diagnostic',
+    }) do
+      local default_diagnostic_handler = vim.lsp.handlers[method]
+      vim.lsp.handlers[method] = function(err, result, context, config)
+        if err ~= nil and err.code == -32802 then
+          return
+        end
+        return default_diagnostic_handler(err, result, context, config)
+      end
+    end
   end,
 })
 
@@ -79,21 +82,18 @@ create_autocmd('FileType', {
   end,
 })
 
--- Workaround for a rust-analyzer bug
+-- Disable formatter for LaTeX files
 create_autocmd('FileType', {
-  pattern = 'rust',
+  pattern = { 'tex', 'plaintex' },
   callback = function()
-    for _, method in ipairs({
-      'textDocument/diagnostic',
-      'workspace/diagnostic',
-    }) do
-      local default_diagnostic_handler = vim.lsp.handlers[method]
-      vim.lsp.handlers[method] = function(err, result, context, config)
-        if err ~= nil and err.code == -32802 then
-          return
-        end
-        return default_diagnostic_handler(err, result, context, config)
-      end
-    end
+    vim.b.disable_autoformat = true
+  end,
+})
+
+-- Conceal level for markdown and LaTeX files
+create_autocmd('FileType', {
+  pattern = { 'markdown', 'tex', 'plaintex' },
+  callback = function()
+    vim.opt_local.conceallevel = 2
   end,
 })

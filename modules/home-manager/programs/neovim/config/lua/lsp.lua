@@ -1,5 +1,3 @@
-require('neodev').setup()
-
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local function setup_lsp(server, opts)
