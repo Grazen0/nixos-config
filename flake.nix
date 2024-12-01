@@ -78,7 +78,6 @@
   in
     flake-parts.lib.mkFlake {inherit inputs;} (let
       hosts = lib.attrNames (lib.filterAttrs (_: type: type == "directory") (builtins.readDir ./hosts));
-      theme = import ./theme.nix {inherit lib;};
     in {
       systems = ["x86_64-linux"];
 
@@ -93,9 +92,10 @@
           lib.nixosSystem {
             modules = [
               ./modules/nixos
+              ./modules/common
               ./hosts/${host}/nixos/configuration.nix
             ];
-            specialArgs = {inherit inputs theme;};
+            specialArgs = {inherit inputs;};
           });
 
         homeConfigurations = lib.listToAttrs (lib.map (host: {
@@ -103,10 +103,11 @@
             value = home-manager.lib.homeManagerConfiguration {
               pkgs = nixpkgs.legacyPackages.x86_64-linux;
               modules = [
-                ./hosts/${host}/home-manager/home.nix
                 ./modules/home-manager
+                ./modules/common
+                ./hosts/${host}/home-manager/home.nix
               ];
-              extraSpecialArgs = {inherit inputs theme;};
+              extraSpecialArgs = {inherit inputs;};
             };
           })
           hosts);

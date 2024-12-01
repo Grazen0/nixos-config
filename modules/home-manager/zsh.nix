@@ -2,7 +2,6 @@
   config,
   pkgs,
   inputs,
-  theme,
   ...
 }: {
   programs.zsh = {
@@ -164,18 +163,22 @@
       bindkey -M vicmd '^v' edit-command-line
     '';
 
-    sessionVariables = {
-      # Show the time in prompt
-      APHRODITE_THEME_SHOW_TIME = "ye";
+    sessionVariables =
+      {
+        # Show the time in prompt
+        APHRODITE_THEME_SHOW_TIME = "yes";
 
-      # Highlight colors for zsh-vi-mode
-      ZVM_VI_HIGHLIGHT_BACKGROUND = theme.colors.hex.highlight;
-      ZVM_VI_HIGHLIGHT_FOREGROUND = theme.colors.hex.brightWhite;
-
-      # Options for zsh-history-substring-search
-      HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND = "underline";
-      HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND = "default";
-      HISTORY_SUBSTRING_SEARCH_PREFIXED = "yeah";
-    };
+        # Options for zsh-history-substring-search
+        HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND = "underline";
+        HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND = "default";
+        HISTORY_SUBSTRING_SEARCH_PREFIXED = "yeah";
+      }
+      // (let
+        colors = config.theme.colors.hexWithHashtag;
+      in {
+        # Highlight colors for zsh-vi-mode
+        ZVM_VI_HIGHLIGHT_BACKGROUND = colors.highlight;
+        ZVM_VI_HIGHLIGHT_FOREGROUND = colors.brightWhite;
+      });
   };
 }

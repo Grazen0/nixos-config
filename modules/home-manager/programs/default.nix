@@ -1,4 +1,4 @@
-{theme, ...}: {
+{config, ...}: {
   imports = [
     ./neovim
     ./vesktop
@@ -179,7 +179,8 @@
       enable = true;
 
       settings = let
-        colors = theme.colors.hex;
+        inherit (config) theme;
+        colors = theme.colors.hexWithHashtag;
       in {
         viewer = {
           window = colors.background;

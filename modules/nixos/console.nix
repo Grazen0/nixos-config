@@ -1,14 +1,14 @@
 {
+  config,
   pkgs,
   lib,
-  theme,
   ...
 }: {
   console = {
     font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v16b.psf.gz";
     keyMap = lib.mkDefault "us";
 
-    colors = with theme.colors.hexNh; [
+    colors = with config.theme.colors.hex; [
       black
       red
       green

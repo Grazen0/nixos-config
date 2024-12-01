@@ -1,8 +1,9 @@
-{theme, ...}: {
-  wayland.windowManager.hyprland.settings = {
-    general = let
-      colors = theme.colors.hexNh;
-    in {
+{config, ...}: {
+  wayland.windowManager.hyprland.settings = let
+    inherit (config) theme;
+    colors = theme.colors.hex;
+  in {
+    general = {
       gaps_in = 4;
       gaps_out = 8;
       border_size = 3;
@@ -21,7 +22,7 @@
 
       shadow = {
         enabled = true;
-        color = "0xcc${theme.colors.hexNh.black}";
+        color = "0xcc${colors.black}";
         range = 32;
       };
 

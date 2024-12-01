@@ -1,6 +1,6 @@
-{theme, ...}: {
+{config, ...}: {
   wayland.windowManager.hyprland.settings = let
-    colors = theme.colors.hexNh;
+    colors = config.theme.colors.hex;
   in {
     windowrule = [
       "float, ^([Tt]hunar)$"

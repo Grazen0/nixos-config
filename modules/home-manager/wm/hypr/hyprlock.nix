@@ -1,12 +1,8 @@
-{
-  config,
-  theme,
-  ...
-}: {
+{config, ...}: {
   programs.hyprlock = {
     enable = true;
 
-    settings = with theme.colors.hexNh; {
+    settings = with config.theme.colors.hex; {
       general = {
         disable_loading_bar = true;
         hide_cursor = true;

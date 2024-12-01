@@ -1,4 +1,4 @@
-{theme, ...}: {
+{config, ...}: {
   programs.cava = {
     enable = false;
 
@@ -7,7 +7,7 @@
 
       input.method = "pulse";
 
-      color.foreground = "'${theme.colors.hex.brightWhite}'";
+      color.foreground = "'${config.theme.colors.hexWithHashtag.brightWhite}'";
 
       smoothing.noise_reduction = 64;
     };

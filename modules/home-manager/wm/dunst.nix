@@ -1,9 +1,10 @@
-{theme, ...}: {
+{config, ...}: {
   services.dunst = {
     enable = true;
 
     settings = let
-      colors = theme.colors.hex;
+      inherit (config) theme;
+      colors = theme.colors.hexWithHashtag;
       background = "${colors.background}ee";
     in {
       global = {

@@ -1,6 +1,6 @@
 {
+  config,
   lib,
-  theme,
   ...
 }: {
   programs.foot = {
@@ -8,7 +8,8 @@
     server.enable = false;
 
     settings = let
-      colors = theme.colors.hexNh;
+      inherit (config) theme;
+      colors = theme.colors.hex;
     in {
       main = {
         font = lib.mkDefault "${theme.font.regular}:size=9.5";

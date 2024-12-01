@@ -1,9 +1,9 @@
-{theme, ...}: {
+{config, ...}: {
   services.wob = {
     enable = true;
 
     settings = let
-      colors = theme.colors.hexNh;
+      colors = config.theme.colors.hex;
     in {
       "" = {
         timeout = 750;

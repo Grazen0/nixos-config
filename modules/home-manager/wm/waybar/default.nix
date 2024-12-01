@@ -1,33 +1,36 @@
 {
+  config,
   lib,
   pkgs,
-  theme,
   ...
 }: {
   programs.waybar = {
     enable = true;
 
-    style = with theme.colors.hex; ''
-      @define-color black ${black};
-      @define-color bright-black ${brightBlack};
-      @define-color red ${red};
-      @define-color green ${green};
-      @define-color yellow ${yellow};
-      @define-color blue ${blue};
-      @define-color magenta ${magenta};
-      @define-color cyan ${cyan};
-      @define-color white ${white};
-      @define-color bright-white ${brightWhite};
+    style = let
+      inherit (config) theme;
+    in
+      with theme.colors.hexWithHashtag; ''
+        @define-color black ${black};
+        @define-color bright-black ${brightBlack};
+        @define-color red ${red};
+        @define-color green ${green};
+        @define-color yellow ${yellow};
+        @define-color blue ${blue};
+        @define-color magenta ${magenta};
+        @define-color cyan ${cyan};
+        @define-color white ${white};
+        @define-color bright-white ${brightWhite};
 
-      @define-color background ${background};
-      @define-color foreground ${foreground};
+        @define-color background ${background};
+        @define-color foreground ${foreground};
 
-      * {
-        font-family: ${theme.font.propo}, monospace;
-      }
+        * {
+          font-family: ${theme.font.propo}, monospace;
+        }
 
-      ${lib.readFile ./style.css}
-    '';
+        ${lib.readFile ./style.css}
+      '';
 
     settings = {
       mainBar = let

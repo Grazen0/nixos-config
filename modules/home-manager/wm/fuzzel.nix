@@ -1,12 +1,14 @@
 {
+  config,
   pkgs,
-  theme,
   ...
 }: {
   programs.fuzzel = {
     enable = true;
 
-    settings = {
+    settings = let
+      inherit (config) theme;
+    in {
       main = {
         font = "${theme.font.propo}:size=12";
         terminal = "${pkgs.foot}/bin/foot";
@@ -24,7 +26,7 @@
         radius = 10;
       };
 
-      colors = with theme.colors.hexNh; {
+      colors = with theme.colors.hex; {
         background = "${background}cc";
         text = "${foreground}ff";
         prompt = "${blue}ff";
