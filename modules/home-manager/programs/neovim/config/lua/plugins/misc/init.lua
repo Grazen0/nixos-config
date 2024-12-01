@@ -8,7 +8,14 @@ require('crates').setup()
 require('hex').setup()
 require('neocord').setup()
 
-require('fidget').setup({ notification = { window = { winblend = 0 } } })
+require('fidget').setup({
+  notification = {
+    window = {
+      winblend = 0,
+      border = 'rounded',
+    },
+  },
+})
 
 -- markdown-preview.nvim
 vim.g.mkdp_filetypes = { 'markdown' }
