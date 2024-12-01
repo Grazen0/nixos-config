@@ -192,7 +192,7 @@
         };
 
         font = {
-          name = "JetBrainsMonoNL Nerd Font";
+          name = theme.font.propo;
           size = 18;
           color = colors.brightWhite;
           shadow = colors.black;
