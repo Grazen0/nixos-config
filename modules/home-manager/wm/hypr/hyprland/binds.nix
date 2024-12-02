@@ -1,8 +1,6 @@
 {
-  lib,
   pkgs,
   customPkgs,
-  inputs,
   ...
 }: {
   wayland.windowManager.hyprland = {
@@ -13,33 +11,7 @@
       playerctl = "${pkgs.playerctl}/bin/playerctl";
       pamixer = "${pkgs.pamixer}/bin/pamixer";
       volume-update = "${customPkgs.volume-update}/bin/volume-update";
-
       # TODO: move somewhere else
-      # Derivation kinda stolen from https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/hy/hyprshot/package.nix
-      menu-qalc = pkgs.stdenvNoCC.mkDerivation {
-        pname = "menu-qalc";
-        version = "master";
-        src = inputs.menu-qalc;
-
-        nativeBuildInputs = with pkgs; [man makeWrapper];
-
-        installPhase = ''
-          runHook preInstall
-
-          install -Dm755 "=" -t "$out/bin"
-          wrapProgram "$out/bin/=" \
-            --prefix PATH ":" ${lib.makeBinPath (with pkgs; [libqalculate wl-clipboard])}
-
-          runHook postInstall
-        '';
-
-        meta = with lib; {
-          description = "A calculator for Wofi/fuzzel/dmenu(2) using libqalculate";
-          homepage = "https://github.com/ClemaX/menu-qalc-wayland";
-          license = licenses.mit;
-          mainProgram = "=";
-        };
-      };
     in {
       "$mainMod" = "SUPER";
       "$resizeStep" = 20;
@@ -65,7 +37,7 @@
         "$mainMod, V, exec, cliphist list | ${fuzzel} -d | cliphist decode | wl-copy"
         "$mainMod, Period, exec, BEMOJI_PICKER_CMD='${fuzzel} -d' ${pkgs.bemoji}/bin/bemoji -n -t"
         "$mainMod SHIFT, X, exec, ${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu"
-        "$mainMod, Slash, exec, ${menu-qalc}/bin/="
+        "$mainMod, Slash, exec, ${customPkgs.menu-qalc}/bin/="
 
         # Screen capture
         ", Print, exec, pidof -q slurp || ${slurp} -w 0 -b 00000088 | ${grim} -g - - | wl-copy"

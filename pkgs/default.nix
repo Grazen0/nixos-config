@@ -1,6 +1,13 @@
-{pkgs ? import <nixpkgs> {}, ...}: {
-  inkscape-figures = pkgs.python312Packages.callPackage ./inkscape-figures.nix {};
+{
+  pkgs ? import <nixpkgs> {},
+  inputs,
+  ...
+}: {
+  # Existing packages
+  menu-qalc = pkgs.callPackage ./menu-qalc.nix {src = inputs.menu-qalc;};
+  inkscape-figures = pkgs.python312Packages.callPackage ./inkscape-figures.nix {src = inputs.inkscape-figures;};
 
+  # My own stuff
   close-window = pkgs.callPackage ./close-window.nix {};
   exe2png = pkgs.callPackage ./exe2png.nix {};
   fuzzel-power-menu = pkgs.callPackage ./fuzzel-power-menu.nix {};

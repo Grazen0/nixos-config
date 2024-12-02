@@ -90,6 +90,22 @@
         "type": "github"
       }
     },
+    "inkscape-figures": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1637347359,
+        "narHash": "sha256-6znS/zTwEnJT0gmsJTc9Z/gJsReCkA32rzT86GHCaOw=",
+        "owner": "gillescastel",
+        "repo": "inkscape-figures",
+        "rev": "02deea60751102641a7d6d9c6e8b535c0255f2eb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gillescastel",
+        "repo": "inkscape-figures",
+        "type": "github"
+      }
+    },
     "menu-qalc": {
       "flake": false,
       "locked": {
@@ -191,6 +207,7 @@
         "aphrodite-terminal-theme": "aphrodite-terminal-theme",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
+        "inkscape-figures": "inkscape-figures",
         "menu-qalc": "menu-qalc",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

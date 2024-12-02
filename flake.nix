@@ -68,6 +68,11 @@
       url = "github:ClemaX/menu-qalc-wayland";
       flake = false;
     };
+
+    inkscape-figures = {
+      url = "github:gillescastel/inkscape-figures";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -89,12 +94,12 @@
           config.allowUnfree = true;
         };
 
-      customPkgsFor = pkgs: import ./pkgs {inherit pkgs;};
+      customPkgsFor = pkgs: import ./pkgs {inherit pkgs inputs;};
     in {
       systems = import inputs.systems;
 
       perSystem = {pkgs, ...}: {
-        packages = import ./pkgs {inherit pkgs;};
+        packages = customPkgsFor pkgs;
         devShells = import ./shell.nix {inherit pkgs;};
       };
 
