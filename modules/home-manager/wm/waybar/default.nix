@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  customPkgs,
   ...
 }: {
   programs.waybar = {
@@ -33,9 +34,7 @@
       '';
 
     settings = {
-      mainBar = let
-        waybarScripts = pkgs.customScripts.waybar;
-      in {
+      mainBar = {
         reload_style_on_change = true;
 
         layer = "top";
@@ -87,7 +86,7 @@
           max-length = 35;
           on-click = "${playerctl} play-pause";
           on-click-right = "${playerctl} stop";
-          exec = "${waybarScripts.media-query}/bin/media-query";
+          exec = "${customPkgs.waybar-media-query}/bin/media-query";
         };
 
         "hyprland/workspaces" = {
@@ -152,7 +151,7 @@
           dunstctl = "${pkgs.dunst}/bin/dunstctl";
           signal = 3; # Workaround since exec-on-event isn't guaranteed
         in {
-          exec = "${waybarScripts.dunst-state}/bin/dunst-state";
+          exec = "${customPkgs.waybar-dunst-state}/bin/dunst-state";
           escape = true;
           return-type = "json";
           exec-on-event = false;
@@ -164,7 +163,7 @@
         "custom/power" = {
           format = "";
           tooltip-format = "Power menu";
-          on-click = "${pkgs.customScripts.fuzzel-power-menu}/bin/fuzzel-power-menu";
+          on-click = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
         };
       };
     };

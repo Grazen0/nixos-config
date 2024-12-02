@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
+    systems.url = "github:nix-systems/default-linux";
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -69,8 +71,10 @@
   };
 
   outputs = {
+    self,
     flake-parts,
     nixpkgs,
+    nixpkgs-stable,
     home-manager,
     ...
   } @ inputs: let
@@ -78,25 +82,52 @@
   in
     flake-parts.lib.mkFlake {inherit inputs;} (let
       hosts = lib.attrNames (lib.filterAttrs (_: type: type == "directory") (builtins.readDir ./hosts));
+
+      stablePkgsFor = system:
+        import nixpkgs-stable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+
+      customPkgsFor = pkgs: import ./pkgs {inherit pkgs;};
     in {
-      systems = ["x86_64-linux"];
+      systems = import inputs.systems;
 
       perSystem = {pkgs, ...}: {
+        packages = import ./pkgs {inherit pkgs;};
         devShells = import ./shell.nix {inherit pkgs;};
       };
 
       flake = {
-        overlays = import ./overlays {inherit inputs;};
+        nixosConfigurations = let
+          mkSystem = {
+            hostname,
+            system,
+          }:
+            lib.nixosSystem {
+              modules = [
+                ./modules/nixos
+                ./modules/common
+                ./hosts/${hostname}/nixos/configuration.nix
+              ];
 
-        nixosConfigurations = lib.genAttrs hosts (host:
-          lib.nixosSystem {
-            modules = [
-              ./modules/nixos
-              ./modules/common
-              ./hosts/${host}/nixos/configuration.nix
-            ];
-            specialArgs = {inherit inputs;};
-          });
+              specialArgs = {
+                inherit inputs;
+                stablePkgs = stablePkgsFor system;
+                customPkgs = self.packages.${system};
+              };
+            };
+        in {
+          nitori = mkSystem {
+            hostname = "nitori";
+            system = "x86_64-linux";
+          };
+
+          takane = mkSystem {
+            hostname = "takane";
+            system = "x86_64-linux";
+          };
+        };
 
         homeConfigurations = lib.listToAttrs (lib.map (host: {
             name = "jdgt@${host}";
@@ -107,7 +138,11 @@
                 ./modules/common
                 ./hosts/${host}/home-manager/home.nix
               ];
-              extraSpecialArgs = {inherit inputs;};
+              extraSpecialArgs = {
+                inherit inputs;
+                stablePkgs = stablePkgsFor "x86_64-linux";
+                customPkgs = customPkgsFor nixpkgs.legacyPackages.x86_64-linux;
+              };
             };
           })
           hosts);

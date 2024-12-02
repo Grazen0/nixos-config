@@ -1,22 +1,10 @@
-{
-  config,
-  inputs,
-  ...
-}: {
+{config, ...}: {
   home = {
     username = "jdgt";
     homeDirectory = "/home/${config.home.username}";
   };
 
-  nixpkgs = {
-    overlays = [
-      inputs.self.overlays.additions
-      inputs.self.overlays.modifications
-      inputs.self.overlays.stable-packages
-    ];
-
-    config = import ./nixpkgs-config.nix;
-  };
+  nixpkgs.config = import ./nixpkgs-config.nix;
 
   programs = {
     home-manager.enable = true;

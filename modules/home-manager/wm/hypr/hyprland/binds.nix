@@ -1,12 +1,10 @@
 {
+  lib,
   pkgs,
+  customPkgs,
   inputs,
   ...
 }: {
-  home.packages = with pkgs; [
-    libqalculate # Required for menu-qalc
-  ];
-
   wayland.windowManager.hyprland = {
     settings = let
       fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
@@ -14,7 +12,34 @@
       slurp = "${pkgs.slurp}/bin/slurp";
       playerctl = "${pkgs.playerctl}/bin/playerctl";
       pamixer = "${pkgs.pamixer}/bin/pamixer";
-      volume-update = "${pkgs.customScripts.volume-update}/bin/volume-update";
+      volume-update = "${customPkgs.volume-update}/bin/volume-update";
+
+      # TODO: move somewhere else
+      # Derivation kinda stolen from https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/hy/hyprshot/package.nix
+      menu-qalc = pkgs.stdenvNoCC.mkDerivation {
+        pname = "menu-qalc";
+        version = "master";
+        src = inputs.menu-qalc;
+
+        nativeBuildInputs = with pkgs; [man makeWrapper];
+
+        installPhase = ''
+          runHook preInstall
+
+          install -Dm755 "=" -t "$out/bin"
+          wrapProgram "$out/bin/=" \
+            --prefix PATH ":" ${lib.makeBinPath (with pkgs; [libqalculate wl-clipboard])}
+
+          runHook postInstall
+        '';
+
+        meta = with lib; {
+          description = "A calculator for Wofi/fuzzel/dmenu(2) using libqalculate";
+          homepage = "https://github.com/ClemaX/menu-qalc-wayland";
+          license = licenses.mit;
+          mainProgram = "=";
+        };
+      };
     in {
       "$mainMod" = "SUPER";
       "$resizeStep" = 20;
@@ -39,15 +64,15 @@
         "$mainMod, Space, exec, ${fuzzel}"
         "$mainMod, V, exec, cliphist list | ${fuzzel} -d | cliphist decode | wl-copy"
         "$mainMod, Period, exec, BEMOJI_PICKER_CMD='${fuzzel} -d' ${pkgs.bemoji}/bin/bemoji -n -t"
-        "$mainMod SHIFT, X, exec, ${pkgs.customScripts.fuzzel-power-menu}/bin/fuzzel-power-menu"
-        "$mainMod, Slash, exec, ${inputs.menu-qalc}/="
+        "$mainMod SHIFT, X, exec, ${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu"
+        "$mainMod, Slash, exec, ${menu-qalc}/bin/="
 
         # Screen capture
         ", Print, exec, pidof -q slurp || ${slurp} -w 0 -b 00000088 | ${grim} -g - - | wl-copy"
         "SHIFT, Print, exec, pidof -q slurp || ${slurp} -ro -w 0 -b 00000088 -B 00000088 | ${grim} -g - - | wl-copy"
 
         # Window controls
-        "$mainMod, Q, exec, ${pkgs.customScripts.close-window}/bin/close-window"
+        "$mainMod, Q, exec, ${customPkgs.close-window}/bin/close-window"
         "$mainMod, F, fullscreen"
         "$mainMod, M, fullscreen, 1"
         "$mainMod, T, togglefloating"

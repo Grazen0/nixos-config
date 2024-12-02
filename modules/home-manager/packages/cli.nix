@@ -1,7 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  customPkgs,
+  ...
+}: {
   home.packages = with pkgs; [
-    customScripts.exe2png
-    customScripts.make-writable
+    customPkgs.exe2png
+    customPkgs.make-writable
     cmatrix
     nitch
     rmtrash

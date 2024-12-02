@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  customPkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     prismlauncher # Minecraft
     osu-lazer
@@ -12,7 +16,7 @@
     ];
 
     exec-once = [
-      "${pkgs.customScripts.handle-monitor-connect}/bin/handle-monitor-connect"
+      "${customPkgs.handle-monitor-connect}/bin/handle-monitor-connect"
     ];
   };
 
