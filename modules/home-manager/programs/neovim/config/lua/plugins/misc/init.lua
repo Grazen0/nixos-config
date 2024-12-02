@@ -6,7 +6,9 @@ require('plugins.misc.vimtex')
 require('live-share').setup()
 require('crates').setup()
 require('hex').setup()
-require('neocord').setup()
+require('presence').setup({
+  main_image = 'file',
+})
 
 require('fidget').setup({
   notification = {

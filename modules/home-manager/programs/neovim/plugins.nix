@@ -1,6 +1,22 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  stablePkgs,
+  inputs,
+  ...
+}: {
   programs.neovim.plugins = let
-    stablePlugins = pkgs.stable.vimPlugins;
+    stablePlugins = stablePkgs.vimPlugins;
+
+    multicursor-nvim = pkgs.vimUtils.buildVimPlugin {
+      name = "multicursor-nvim";
+      src = inputs.nvim-plugin-multicursor;
+    };
+
+    live-share-nvim = pkgs.vimUtils.buildVimPlugin {
+      name = "live-share-nvim";
+      src = inputs.nvim-plugin-live-share;
+      dependencies = with pkgs.vimPlugins; [instant-nvim];
+    };
   in
     with pkgs.vimPlugins; [
       # Editor
@@ -58,13 +74,12 @@
       mini-starter
       todo-comments-nvim
       vimtex
-      instant-nvim
       live-share-nvim
       crates-nvim
       hex-nvim
-      neocord
+      presence-nvim
       fidget-nvim
       markdown-preview-nvim
-      neodev-nvim
+      lazydev-nvim
     ];
 }

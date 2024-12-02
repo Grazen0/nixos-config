@@ -8,5 +8,5 @@ require('plugins.lsp.treesitter')
 require('plugins.lsp.trouble')
 require('plugins.lsp.inc-rename')
 
-require('neodev').setup()
+require('lazydev').setup()
 require('lsp_signature').setup()
