@@ -13,7 +13,7 @@
         follow = "keyboard";
 
         # Geometry
-        width = 300;
+        width = 360;
         height = 300;
         origin = "bottom-right";
         offset = "8x8";

@@ -1,5 +1,6 @@
 {
   imports = [
+    ./autosuspend.nix
     ./hardware
     ./packages
     ./programs

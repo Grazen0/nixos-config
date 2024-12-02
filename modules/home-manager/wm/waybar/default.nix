@@ -115,6 +115,7 @@
           on-click = "nm-connection-editor";
         };
 
+        # FIXME: doesn't show correct temperature
         temperature = {
           interval = 2;
           # thermal-zone = 2;
