@@ -3,12 +3,28 @@
     colors = config.theme.colors.hex;
   in {
     windowrule = [
-      "float, ^([Tt]hunar)$"
-      "float, ^(org.pulseaudio.pavucontrol)$"
-      "float, blueman-manager"
-      "float, ^(org.gnome.FileRoller)$"
-      "float, ^(nm-connection-editor)$"
-      "float, ^(steam)$"
+      "float, class:^([Tt]hunar)$"
+      "float, class:^(org.pulseaudio.pavucontrol)$"
+      "float, class:^(.blueman-manager-wrapped)$"
+      "float, class:^(org.gnome.FileRoller)$"
+      "float, class:^(nm-connection-editor)$"
+      "float, title:^(Steam Settings)$"
+
+      # Dialogs
+      "center, title:^(Open File)(.*)$"
+      "center, title:^(Select a File)(.*)$"
+      "center, title:^(Choose wallpaper)(.*)$"
+      "center, title:^(Open Folder)(.*)$"
+      "center, title:^(Save As)(.*)$"
+      "center, title:^(Library)(.*)$"
+      "center, title:^(File Upload)(.*)$"
+      "float, title:^(Open File)(.*)$"
+      "float, title:^(Select a File)(.*)$"
+      "float, title:^(Choose wallpaper)(.*)$"
+      "float, title:^(Open Folder)(.*)$"
+      "float, title:^(Save As)(.*)$"
+      "float, title:^(Library)(.*)$"
+      "float, title:^(File Upload)(.*)$"
 
       "size 960 540, ^([Tt]hunar)$" # Thunar is too small by default
 
