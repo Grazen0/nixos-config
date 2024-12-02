@@ -29,7 +29,6 @@ require('lualine').setup({
         sources = {
           'nvim_lsp',
           'nvim_diagnostic',
-          'nvim_diagnostic',
           'vim_lsp',
         },
         symbols = {
