@@ -183,7 +183,7 @@
         colors = theme.colors.hexWithHashtag;
       in {
         viewer = {
-          window = colors.background;
+          window = colors.black;
           antialiasing = "yes";
         };
 
