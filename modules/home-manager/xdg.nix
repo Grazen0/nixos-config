@@ -9,8 +9,8 @@
       enable = true;
       createDirectories = true;
 
-      publicShare = "${config.home.homeDirectory}/.local/share/public";
-      templates = "${config.home.homeDirectory}/.local/share/templates";
+      publicShare = "${config.xdg.dataHome}/public";
+      templates = "${config.xdg.dataHome}/templates";
 
       extraConfig = {
         XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
@@ -88,21 +88,19 @@
         mediaPlayer = ["mpv.desktop"];
 
         inherit (lib.attrsets) mapAttrsToList genAttrs;
-        inherit (lib.strings) splitString hasPrefix removeSuffix;
-        inherit (lib) mergeAttrsList;
+        inherit (lib.strings) splitString hasPrefix;
 
         globAssociations = {
-          "audio/*" = mediaPlayer;
-          "video/*" = mediaPlayer;
-          "image/*" = imageViewer;
-          "text/*" = editor;
+          "audio/" = mediaPlayer;
+          "video/" = mediaPlayer;
+          "image/" = imageViewer;
+          "text/" = editor;
         };
 
-        commonTypes = splitString "\n" (builtins.readFile "${pkgs.shared-mime-info}/share/mime/types");
-        expandedAssociations = mergeAttrsList (mapAttrsToList (name: value: genAttrs (builtins.filter (type: hasPrefix (removeSuffix "*" name) type) commonTypes) (_: value)) globAssociations);
+        commonTypes = splitString "\n" (lib.readFile "${pkgs.shared-mime-info}/share/mime/types");
+        expandedAssociations = lib.mergeAttrsList (mapAttrsToList (name: value: genAttrs (lib.filter (hasPrefix name) commonTypes) (_: value)) globAssociations);
       in
         {
-          "text/html" = browser;
           "x-scheme-handler/http" = browser;
           "x-scheme-handler/https" = browser;
           "x-scheme-handler/chrome" = browser;
@@ -116,12 +114,14 @@
           "application/xhtml+xml" = browser;
           "application/x-extension-xhtml" = browser;
           "application/x-extension-xht" = browser;
+          "application/json" = browser;
+
+          "application/pdf" = documentViewer;
 
           "inode/directory" = fileManager;
 
           "application/zip" = archiver;
-          "application/json" = browser;
-          "application/pdf" = documentViewer;
+
           "application/x-zerosize" = editor;
         }
         // expandedAssociations;
