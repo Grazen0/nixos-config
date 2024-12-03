@@ -5,7 +5,7 @@ pkgs.writeShellApplication {
 
   # Credit: https://github.com/thnikk/fuzzel-scripts/blob/master/fuzzel-powermenu.sh
   text = ''
-    SELECTION="$(printf "󰌾 Lock\n󰒲 Suspend\n󰋊 Hibernate\n Log out\n Reboot\n Shutdown" | fuzzel --dmenu -l 6)"
+    SELECTION="$(printf "󰌾 Lock\n󰒲 Suspend\n󰋊 Hibernate\n Log out\n Reboot\n Shut down" | fuzzel -d -l 6)"
 
     case $SELECTION in
       *"Lock")
@@ -18,7 +18,7 @@ pkgs.writeShellApplication {
         loginctl terminate-session "''${XDG_SESSION_ID-}";;
       *"Reboot")
         systemctl reboot;;
-      *"Shutdown")
+      *"Shut down")
         systemctl poweroff;;
     esac
   '';
