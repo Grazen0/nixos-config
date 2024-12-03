@@ -55,14 +55,25 @@ in {
         inherit (cfg.wallpaper) source target;
       };
     }
-    // lib.mkIf cfg.cursor.enable {
+    // lib.mkIf cfg.cursor.enable (let
+      inherit (cfg.cursor) package name size;
+    in {
       home.pointerCursor = {
         gtk.enable = true;
-        inherit (cfg.cursor) package name size;
+        inherit package name size;
       };
 
-      gtk.cursorTheme = {
-        inherit (cfg.cursor) package name size;
+      gtk.cursorTheme = {inherit package name size;};
+
+      wayland.windowManager.hyprland.settings = {
+        exec-once = [
+          "hyprctl setcursor ${name} ${toString size}"
+        ];
+
+        env = [
+          "XCURSOR_THEME,${name}"
+          "XCURSOR_SIZE,${toString size}"
+        ];
       };
-    };
+    });
 }
