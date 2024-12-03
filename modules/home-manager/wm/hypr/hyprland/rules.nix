@@ -3,11 +3,11 @@
     colors = config.theme.colors.hex;
   in {
     windowrule = [
-      "float, class:^([Tt]hunar)$"
-      "float, class:^(org.pulseaudio.pavucontrol)$"
-      "float, class:^(.blueman-manager-wrapped)$"
-      "float, class:^(org.gnome.FileRoller)$"
-      "float, class:^(nm-connection-editor)$"
+      "float, ^([Tt]hunar)$"
+      "float, ^(org.pulseaudio.pavucontrol)$"
+      "float, ^(.blueman-manager-wrapped)$"
+      "float, ^(org.gnome.FileRoller)$"
+      "float, ^(nm-connection-editor)$"
       "float, title:^(Steam Settings)$"
 
       # Dialogs

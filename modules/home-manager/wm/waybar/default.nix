@@ -54,7 +54,7 @@
         modules-right = [
           "pulseaudio"
           "network"
-          "temperature"
+          # "temperature"
           "battery"
           "clock"
           "custom/notifications"
@@ -103,7 +103,7 @@
           format = "{icon} {volume}%";
           format-muted = " {volume}%";
           format-icons.default = ["" ""];
-          on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+          on-click = "${pkgs.pamixer}/bin/pamixer -t && ${customPkgs.volume-update}/bin/volume-update";
         };
 
         network = {
@@ -115,15 +115,14 @@
           on-click = "nm-connection-editor";
         };
 
-        # FIXME: doesn't show correct temperature
-        temperature = {
-          interval = 2;
-          # thermal-zone = 2;
-          # hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
-          critical-threshold = 80;
-          format = "{icon} {temperatureC}°C";
-          format-icons = ["" "" "" "" ""];
-        };
+        # temperature = {
+        #   interval = 2;
+        #   thermal-zone = 3;
+        #   # hwmon-path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp2_input";
+        #   critical-threshold = 80;
+        #   format = "{icon} {temperatureC}°C";
+        #   format-icons = ["" "" "" "" ""];
+        # };
 
         battery = {
           interval = 5;

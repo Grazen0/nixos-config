@@ -3,7 +3,5 @@
     hyprpicker
     networkmanagerapplet
     polkit_gnome
-    wl-clipboard
-    wtype
   ];
 }
