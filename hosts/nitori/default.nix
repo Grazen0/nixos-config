@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   inputs,
   ...
@@ -8,9 +9,7 @@
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = "nitori";
-
-  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-v20b.psf.gz";
+  console.font = lib.mkForce "${pkgs.terminus_font}/share/consolefonts/ter-v20b.psf.gz";
 
   # Multi-monitor TTY fix
   systemd.services.multihead-fbset = {
@@ -28,6 +27,8 @@
 
     wantedBy = ["multi-user.target"];
   };
+
+  home-manager.users.jdgt.imports = [./home.nix];
 
   system.stateVersion = "24.05";
 }

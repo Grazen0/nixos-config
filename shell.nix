@@ -1,6 +1,6 @@
 {pkgs ? import <nixpkgs> {}, ...}: {
-  default = pkgs.mkShell {
+  default = pkgs.mkShellNoCC {
     NIX_CONFIG = "experimental-features = nix-command flakes";
-    nativeBuildInputs = with pkgs; [nix home-manager git];
+    packages = with pkgs; [git];
   };
 }

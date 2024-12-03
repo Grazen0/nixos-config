@@ -1,5 +1,36 @@
 {
-  description = "My NixOS configurations";
+  description = "My personal NixOS configurations";
+
+  outputs = {
+    flake-parts,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    inherit (nixpkgs) lib;
+    lib' = import ./lib {inherit lib inputs;};
+  in
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = import inputs.systems;
+
+      perSystem = {pkgs, ...}: {
+        packages = import ./pkgs {inherit pkgs inputs;};
+        devShells = import ./shell.nix {inherit pkgs;};
+      };
+
+      flake.nixosConfigurations = let
+        inherit (lib') mkSystem;
+      in {
+        nitori = mkSystem {
+          hostName = "nitori";
+          system = "x86_64-linux";
+        };
+
+        takane = mkSystem {
+          hostName = "takane";
+          system = "x86_64-linux";
+        };
+      };
+    };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -74,83 +105,4 @@
       flake = false;
     };
   };
-
-  outputs = {
-    self,
-    flake-parts,
-    nixpkgs,
-    nixpkgs-stable,
-    home-manager,
-    ...
-  } @ inputs: let
-    inherit (nixpkgs) lib;
-  in
-    flake-parts.lib.mkFlake {inherit inputs;} (let
-      hosts = lib.attrNames (lib.filterAttrs (_: type: type == "directory") (builtins.readDir ./hosts));
-
-      stablePkgsFor = system:
-        import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-
-      customPkgsFor = pkgs: import ./pkgs {inherit pkgs inputs;};
-    in {
-      systems = import inputs.systems;
-
-      perSystem = {pkgs, ...}: {
-        packages = customPkgsFor pkgs;
-        devShells = import ./shell.nix {inherit pkgs;};
-      };
-
-      flake = {
-        nixosConfigurations = let
-          mkSystem = {
-            hostname,
-            system,
-          }:
-            lib.nixosSystem {
-              modules = [
-                ./modules/nixos
-                ./modules/common
-                ./hosts/${hostname}/nixos/configuration.nix
-              ];
-
-              specialArgs = {
-                inherit inputs;
-                stablePkgs = stablePkgsFor system;
-                customPkgs = self.packages.${system};
-              };
-            };
-        in {
-          nitori = mkSystem {
-            hostname = "nitori";
-            system = "x86_64-linux";
-          };
-
-          takane = mkSystem {
-            hostname = "takane";
-            system = "x86_64-linux";
-          };
-        };
-
-        homeConfigurations = lib.listToAttrs (lib.map (host: {
-            name = "jdgt@${host}";
-            value = home-manager.lib.homeManagerConfiguration {
-              pkgs = nixpkgs.legacyPackages.x86_64-linux;
-              modules = [
-                ./modules/home-manager
-                ./modules/common
-                ./hosts/${host}/home-manager/home.nix
-              ];
-              extraSpecialArgs = {
-                inherit inputs;
-                stablePkgs = stablePkgsFor "x86_64-linux";
-                customPkgs = customPkgsFor nixpkgs.legacyPackages.x86_64-linux;
-              };
-            };
-          })
-          hosts);
-      };
-    });
 }

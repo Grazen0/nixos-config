@@ -1,5 +1,5 @@
-# ❄️ My NixOS configuration
+# nixos-config
 
-Feel free to use and/or copy.
+My own personal [NixOS](https://nixos.org/) configurations.
 
 ![Screenshot demo](./files/screenshot.png)

@@ -49,7 +49,7 @@
           GenericName=Touhou ${game}
           Path=${path}
           Exec=${pkgs.wine}/bin/wine '${actualExec}'
-          Icon=${../../files/touhou/th${paddedGame}.png}
+          Icon=${../files/touhou/th${paddedGame}.png}
         '';
       };
     in

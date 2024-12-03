@@ -1,4 +1,4 @@
-{lib, ...}: {
+{
   imports = [
     ./autostart.nix
     ./binds.nix
@@ -22,7 +22,7 @@
       "$fileManager" = "thunar";
       "$fileManagerAlt" = "yazi";
 
-      monitor = lib.mkDefault [", preferred, auto, 1"];
+      monitor = [", preferred, auto, 1"];
     };
 
     systemd.variables = ["--all"];

@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{config, ...}: {
   programs.foot = {
     enable = true;
     server.enable = false;
@@ -12,7 +8,7 @@
       colors = theme.colors.hex;
     in {
       main = {
-        font = lib.mkDefault "${theme.font.regular}:size=9.5";
+        font = "${theme.font.regular}:size=9.5";
         pad = "4x0";
       };
 

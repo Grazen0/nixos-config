@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   inputs,
   ...
@@ -11,7 +10,7 @@ in {
   imports = [spicetify-nix.homeManagerModules.default];
 
   programs.spicetify = {
-    enable = lib.mkDefault true;
+    enable = true;
 
     theme =
       spicePkgs.themes.text

@@ -1,7 +1,7 @@
-{lib, ...}: {
+{
   wayland.windowManager.hyprland.settings = {
     input = {
-      kb_layout = lib.mkDefault "us,latam";
+      kb_layout = "us,latam";
       kb_options = "grp:alt_shift_toggle,caps:swapescape";
 
       numlock_by_default = true;
