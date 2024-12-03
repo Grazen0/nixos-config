@@ -35,6 +35,8 @@
 
     animations = {
       enabled = true;
+      first_launch_animation = false;
+
       bezier = "expo, 0.16, 1, 0.3, 1";
       animation = [
         "windows, 1, 3, expo"

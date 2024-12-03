@@ -13,6 +13,7 @@
 
   config = {
     wayland.windowManager.hyprland.settings.exec-once = [
+      "${pkgs.wbg}/bin/wbg ${config.theme.wallpaper}"
       "hyprctl setcursor Bibata-Modern-Ice 24"
       "waybar"
       "eww open-many ${lib.strings.concatStringsSep " " config.custom.hyprland.ewwAutoStart}"

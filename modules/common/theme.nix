@@ -3,45 +3,57 @@
   lib,
   ...
 }: {
-  config.theme = {
-    font.regular = "JetBrainsMonoNL Nerd Font";
+  # TODO: move this config somewhere else
+  config = {
+    theme = {
+      wallpaper = ../../files/wallpaper.png;
 
-    colors = let
-      mkColors = hex: {
-        inherit hex;
-        hexWithHashtag = lib.mapAttrs (_: color: "#${color}") hex;
-      };
-    in
-      mkColors rec {
-        background = "1f1f28";
-        backgroundAlt = "363646";
-        foreground = brightWhite;
-        highlight = "223249";
+      font.regular = "JetBrainsMonoNL Nerd Font";
 
-        black = "16161d";
-        red = "c34043";
-        green = "76946a";
-        yellow = "c0a36e";
-        blue = "7e9cd8";
-        magenta = "957fb8";
-        cyan = "6a9589";
-        white = "c8c093";
+      colors = let
+        mkColors = hex: {
+          inherit hex;
+          hexWithHashtag = lib.mapAttrs (_: color: "#${color}") hex;
+        };
+      in
+        mkColors rec {
+          background = "1f1f28";
+          backgroundAlt = "363646";
+          foreground = brightWhite;
+          highlight = "223249";
 
-        brightBlack = "727169";
-        brightRed = "e82424";
-        brightGreen = "98bb6c";
-        brightYellow = "e6c384";
-        brightBlue = "7fb4ca";
-        brightMagenta = "938aa9";
-        brightCyan = "7aa89f";
-        brightWhite = "dcd7ba";
-      };
+          black = "16161d";
+          red = "c34043";
+          green = "76946a";
+          yellow = "c0a36e";
+          blue = "7e9cd8";
+          magenta = "957fb8";
+          cyan = "6a9589";
+          white = "c8c093";
+
+          brightBlack = "727169";
+          brightRed = "e82424";
+          brightGreen = "98bb6c";
+          brightYellow = "e6c384";
+          brightBlue = "7fb4ca";
+          brightMagenta = "938aa9";
+          brightCyan = "7aa89f";
+          brightWhite = "dcd7ba";
+        };
+    };
   };
 
   options.theme = let
     inherit (lib) mkOption types;
     inherit (config) theme;
   in {
+    wallpaper = mkOption {
+      type = types.path;
+      description = ''
+        Path to the image  to use as desktop wallpaper.
+      '';
+    };
+
     font = {
       regular = mkOption {type = types.str;};
       mono = mkOption {
