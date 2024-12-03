@@ -9,9 +9,10 @@
     ./locale.nix
     ./networking.nix
     ./nix.nix
-    ./nixpkgs.nix
     ./security.nix
     ./services.nix
     ./users.nix
   ];
+
+  nixpkgs.config.allowUnfree = true;
 }

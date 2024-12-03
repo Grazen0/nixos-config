@@ -1,7 +1,6 @@
-{config, ...}: {
+{
   imports = [
     ./neovim
-    ./vesktop
     ./bat.nix
     ./btop.nix
     ./cava.nix
@@ -9,15 +8,9 @@
     ./fastfetch.nix
     ./foot.nix
     ./git.nix
-    ./idea.nix
-    ./mpv.nix
     ./peaclock.nix
-    ./spicetify.nix
-    ./swayimg.nix
     ./tmux.nix
     ./yazi.nix
-    ./zapzap.nix
-    ./zathura.nix
   ];
 
   programs = {
