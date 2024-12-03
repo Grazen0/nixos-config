@@ -4,12 +4,12 @@
   pkgs,
   ...
 }: let
-  cfg = config.custom.autosuspend;
+  cfg = config.services.lowbatt;
 in {
-  options.custom.autosuspend = let
+  options.services.lowbatt = let
     inherit (lib) mkEnableOption mkOption types;
   in {
-    enable = mkEnableOption "autosuspend";
+    enable = mkEnableOption "lowbatt";
 
     action = mkOption {
       type = types.enum ["suspend" "hibernate"];

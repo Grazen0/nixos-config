@@ -13,12 +13,12 @@
 
   config = {
     wayland.windowManager.hyprland.settings.exec-once = [
-      "${pkgs.wbg}/bin/wbg ${config.theme.wallpaper}"
+      "${pkgs.wbg}/bin/wbg ${config.theme.home.wallpaper.source}"
       "hyprctl setcursor Bibata-Modern-Ice 24"
       "waybar"
       "eww open-many ${lib.strings.concatStringsSep " " config.custom.hyprland.ewwAutoStart}"
 
-      "wl-paste --watch cliphist store"
+      "${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"
 
       "${pkgs.dex}/bin/dex -a"
       "[workspace 2 silent] $browser"

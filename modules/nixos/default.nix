@@ -1,5 +1,5 @@
 {
   imports = [
-    ./autosuspend.nix
+    ./lowbatt.nix
   ];
 }

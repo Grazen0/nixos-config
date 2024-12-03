@@ -6,8 +6,6 @@
   # TODO: move this config somewhere else
   config = {
     theme = {
-      wallpaper = ../../files/wallpaper.png;
-
       font.regular = "JetBrainsMonoNL Nerd Font";
 
       colors = let
@@ -47,13 +45,6 @@
     inherit (lib) mkOption types;
     inherit (config) theme;
   in {
-    wallpaper = mkOption {
-      type = types.path;
-      description = ''
-        Path to the image  to use as desktop wallpaper.
-      '';
-    };
-
     font = {
       regular = mkOption {type = types.str;};
       mono = mkOption {

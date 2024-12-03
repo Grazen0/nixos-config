@@ -1,5 +1,6 @@
 {
   imports = [
     ./programs
+    ./theme.nix
   ];
 }

@@ -11,8 +11,7 @@
 
       background = [
         {
-          # TODO: makea custom module to grab this path from
-          path = "${config.xdg.userDirs.pictures}/wallpaper.png";
+          path = config.theme.home.wallpaper.target;
         }
       ];
 
