@@ -3,6 +3,10 @@
   customPkgs,
   ...
 }: {
+  home.packages = with pkgs; [
+    wtype # Required for bemoji
+  ];
+
   wayland.windowManager.hyprland = {
     settings = let
       fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
