@@ -55,6 +55,7 @@
         "${mainMod}, F, fullscreen"
         "${mainMod}, M, fullscreen, 1"
         "${mainMod}, T, togglefloating"
+        "${mainMod} SHIFT, T, togglesplit"
 
         # Move window focus
         "${mainMod}, H, movefocus, l"

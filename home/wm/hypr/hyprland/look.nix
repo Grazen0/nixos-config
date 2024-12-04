@@ -12,9 +12,15 @@
       "col.inactive_border" = "rgba(${colors.brightBlack}ee)";
       no_focus_fallback = true;
 
-      layout = "master";
+      layout = "dwindle";
 
       allow_tearing = true;
+    };
+
+    dwindle = {
+      force_split = 2; # Split to the bottom right
+      preserve_split = true;
+      default_split_ratio = 1.04;
     };
 
     decoration = {
