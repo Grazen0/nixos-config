@@ -1,5 +1,6 @@
 {
   imports = [
+    ./graphical
     ./neovim
     ./bat.nix
     ./btop.nix
