@@ -20,6 +20,9 @@
     shellAliases = let
       flakeDir = "${config.xdg.configHome}/nixos";
     in {
+      # Required so that sudo can use aliases
+      sudo = "sudo ";
+
       ls = "eza --group-directories-first";
       la = "ls -a";
       ll = "ls -l --icons=auto";
