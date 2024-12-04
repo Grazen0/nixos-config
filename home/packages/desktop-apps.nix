@@ -17,6 +17,11 @@
         sha256 = "sha256:0anr79rdm62h5y37xa47rrrk32r9gnv04df4z7brc0hp4q83pxvi";
       };
     });
+
+    zoomPkgs = import inputs.nixpkgs-zoom {
+      inherit system;
+      config.allowUnfree = true;
+    };
   in
     with pkgs; [
       # Apps
@@ -29,7 +34,7 @@
       thorium-browser
       wdisplays
       zen-browser
-      stablePkgs.zoom-us
+      zoomPkgs.zoom-us
 
       # LibreOffice + spellcheck
       libreoffice-qt
