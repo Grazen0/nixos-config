@@ -22,6 +22,7 @@ in {
         description = ''
           Target path to place the wallpaper in.
         '';
+        default = "${config.xdg.userDirs.pictures}/${baseNameOf cfg.wallpaper.source}";
       };
     };
 
@@ -49,31 +50,31 @@ in {
     };
   };
 
-  config =
-    {
-      home.file.wallpaper = lib.mkIf cfg.wallpaper.enable {
-        inherit (cfg.wallpaper) source target;
-      };
-    }
-    // lib.mkIf cfg.cursor.enable (let
-      inherit (cfg.cursor) package name size;
-    in {
-      home.pointerCursor = {
-        gtk.enable = true;
-        inherit package name size;
-      };
+  config = let
+    inherit (cfg) wallpaper cursor;
+  in {
+    home.file.wallpaper = lib.mkIf wallpaper.enable {
+      inherit (wallpaper) source target;
+    };
 
-      gtk.cursorTheme = {inherit package name size;};
+    home.pointerCursor = lib.mkIf cursor.enable {
+      inherit (cursor) package name size;
+      gtk.enable = true;
+    };
 
-      wayland.windowManager.hyprland.settings = {
-        exec-once = [
-          "hyprctl setcursor ${name} ${toString size}"
-        ];
+    gtk.cursorTheme = lib.mkIf cursor.enable {
+      inherit (cursor) package name size;
+    };
 
-        env = [
-          "XCURSOR_THEME,${name}"
-          "XCURSOR_SIZE,${toString size}"
-        ];
-      };
-    });
+    wayland.windowManager.hyprland.settings = lib.mkIf cursor.enable {
+      exec-once = [
+        "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
+      ];
+
+      env = [
+        "XCURSOR_THEME,${cursor.name}"
+        "XCURSOR_SIZE,${toString cursor.size}"
+      ];
+    };
+  };
 }

@@ -22,7 +22,6 @@
     wallpaper = {
       enable = true;
       source = ../files/wallpaper.png;
-      target = "${config.xdg.userDirs.pictures}/wallpaper.png";
     };
 
     cursor = {
