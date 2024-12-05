@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ./eww
     ./hypr
@@ -6,7 +6,11 @@
     ./cliphist.nix
     ./dunst.nix
     ./fuzzel.nix
-    ./packages.nix
     ./wob.nix
+  ];
+
+  home.packages = with pkgs; [
+    networkmanagerapplet
+    polkit_gnome
   ];
 }
