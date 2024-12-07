@@ -29,6 +29,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = specialArgs;
+                backupFileExtension = "backup";
 
                 users.jdgt.imports = [
                   ../modules/common
