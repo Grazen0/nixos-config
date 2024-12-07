@@ -1,5 +1,6 @@
 {
   imports = [
+    ./fish
     ./graphical
     ./neovim
     ./bat.nix

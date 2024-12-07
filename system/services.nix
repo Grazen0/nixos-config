@@ -20,7 +20,7 @@
             --time \
             --greeting "Hello there" \
             --window-padding 2 \
-            --cmd "zsh -l -c Hyprland"
+            --cmd "Hyprland"
         '';
         user = "greeter";
       };

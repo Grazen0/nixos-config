@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bash.nix
     ./thunar.nix
   ];
 
