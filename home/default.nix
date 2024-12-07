@@ -9,7 +9,6 @@
     ./wm
     ./looks.nix
     ./xdg.nix
-    ./zsh.nix
   ];
 
   home = {
