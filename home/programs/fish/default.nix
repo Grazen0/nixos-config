@@ -19,8 +19,8 @@
         inherit name;
         inherit (pkgs.fishPlugins.${name}) src;
       }) [
-        "fzf-fish"
         "autopair"
+        "fzf-fish"
       ];
 
     functions = {
@@ -33,10 +33,10 @@
     };
 
     interactiveShellInit = ''
+      source ${inputs.aphrodite-terminal-theme}/fish_prompt.fish
+
       # Disable greeting message
       set -U fish_greeting
-
-      source ${inputs.aphrodite-terminal-theme}/fish_prompt.fish
 
       # Vi cursor stuff
       set fish_cursor_default block
