@@ -33,6 +33,9 @@
     };
 
     interactiveShellInit = ''
+      # Environment variables
+      set -x APHRODITE_THEME_SHOW_TIME yes
+
       source ${inputs.aphrodite-terminal-theme}/fish_prompt.fish
 
       # Disable greeting message
