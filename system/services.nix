@@ -20,7 +20,7 @@
             --time \
             --greeting "Hello there" \
             --window-padding 2 \
-            --cmd "Hyprland"
+            --cmd "bash -l -c Hyprland"
         '';
         user = "greeter";
       };
