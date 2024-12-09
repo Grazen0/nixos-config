@@ -11,7 +11,7 @@
     ghc
     gnumake
     nodejs_22
-    pnpm
+    corepack_22
     (python312.withPackages
       (pyPkgs: [
         customPkgs.inkscape-figures
