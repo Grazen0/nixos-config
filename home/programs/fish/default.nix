@@ -30,6 +30,21 @@
         body = "__fish_default_command_not_found_handler $argv[1]";
         onEvent = "fish_command_not_found";
       };
+
+      pythonEnv = {
+        argumentNames = "pythonVersion";
+        body = ''
+          if set -q argv[2]
+            set argv $argv[2..-1]
+          end
+
+          for el in $argv
+            set ppkgs $ppkgs "python"$pythonVersion"Packages.$el"
+          end
+
+          nix-shell -p $ppkgs
+        '';
+      };
     };
 
     interactiveShellInit = ''
