@@ -1,20 +1,20 @@
 {
   pkgs,
-  stablePkgs,
   inputs,
   ...
 }: {
   home.packages = let
     inherit (pkgs) system;
+
     thorium-browser = inputs.thorium-browser.defaultPackage.${system};
 
     zen-browser = inputs.zen-browser.packages.${system}.specific.overrideAttrs (prev: let
-      version = "1.0.1-a.22";
+      version = "1.0.2-b.0";
     in {
       inherit version;
       src = builtins.fetchTarball {
         url = "https://github.com/zen-browser/desktop/releases/download/${version}/zen.linux-specific.tar.bz2";
-        sha256 = "sha256:0anr79rdm62h5y37xa47rrrk32r9gnv04df4z7brc0hp4q83pxvi";
+        sha256 = "sha256:067m7g48nfa366ajn3flphnwkx8msc034r6px8ml66mbj7awjw4x";
       };
     });
 
