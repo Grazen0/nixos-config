@@ -87,7 +87,6 @@
     # hms = "home-manager switch --flake ${flakeDir}";
     # hmn = "home-manager news --flake ${flakeDir}";
     upd = "nix flake update --flake ${flakeDir}";
-    nsh = "nix shell";
 
     # I'm kinda clumsy
     ":q" = "exit";
