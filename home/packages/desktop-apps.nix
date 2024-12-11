@@ -18,6 +18,27 @@
       };
     });
 
+    # Insomnia but with Wayland flags
+    # Thanks to https://github.com/NixOS/nixpkgs/issues/345717
+    insomnia = pkgs.insomnia.override (prev: {
+      appimageTools =
+        prev.appimageTools
+        // {
+          wrapType2 = prevArgs:
+            prev.appimageTools.wrapType2 (prevArgs
+              // {
+                extraInstallCommands =
+                  # bash
+                  ''
+                    ${prevArgs.extraInstallCommands}
+
+                    substituteInPlace $out/share/applications/insomnia.desktop \
+                      --replace-fail 'Exec=insomnia' 'Exec=insomnia --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland'
+                  '';
+              });
+        };
+    });
+
     zoomPkgs = import inputs.nixpkgs-zoom {
       inherit system;
       config.allowUnfree = true;
@@ -28,6 +49,7 @@
       file-roller
       gimp
       inkscape
+      insomnia
       kdenlive
       obsidian
       pavucontrol
