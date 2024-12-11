@@ -17,7 +17,7 @@
       "waybar"
       "eww open-many ${lib.strings.concatStringsSep " " config.custom.hyprland.ewwAutoStart}"
 
-      "${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"
+      "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"
 
       "${pkgs.dex}/bin/dex -a"
       "[workspace 2 silent] $browser"
