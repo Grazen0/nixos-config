@@ -3,6 +3,8 @@ local create_user_command = vim.api.nvim_create_user_command
 -- I'm kinda clumsy
 create_user_command('W', 'w', {})
 create_user_command('Wa', 'wa', {})
+create_user_command('X', 'x', {})
+create_user_command('Xa', 'xa', {})
 create_user_command('Q', 'q', {})
 create_user_command('Qa', 'qa', {})
 
