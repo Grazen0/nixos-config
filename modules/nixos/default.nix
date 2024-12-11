@@ -1,5 +1,2 @@
 {
-  imports = [
-    ./lowbatt.nix
-  ];
 }
