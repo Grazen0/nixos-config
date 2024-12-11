@@ -6,6 +6,29 @@
   inherit (inputs) home-manager nixpkgs-stable self;
 
   lib' = {
+    strings = rec {
+      isUpper = s: (lib.toUpper s) == s;
+      isLower = s: (lib.toLower s) == s;
+
+      mutFirstChar = f: s: let
+        firstChar = f (lib.substring 0 1 s);
+        rest = lib.substring 1 (-1) s;
+      in
+        firstChar + rest;
+
+      kebabToCamel = s:
+        mutFirstChar lib.toLower (
+          lib.concatMapStrings (mutFirstChar lib.toUpper) (
+            lib.splitString "-" s
+          )
+        );
+
+      camelToKebab = lib.stringAsChars (ch:
+        if isUpper ch
+        then "-${lib.toLower ch}"
+        else ch);
+    };
+
     mkSystem = {
       hostName,
       system,

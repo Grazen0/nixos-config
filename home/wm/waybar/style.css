@@ -1,14 +1,15 @@
 /* GENERAL */
 * {
-  font-size: 10pt;
+  font-size: 13px;
   color: inherit;
   border-radius: 0;
   margin: 0;
   padding: 0;
+  min-height: 0;
 }
 
 window#waybar {
-  background-color: @background;
+  background-color: transparent;
   color: @foreground;
 }
 
@@ -20,7 +21,6 @@ window#waybar.hidden {
 #tray,
 #language,
 #custom-media,
-#submap,
 #workspaces,
 #pulseaudio,
 #battery,
@@ -29,7 +29,26 @@ window#waybar.hidden {
 #clock,
 #custom-notifications,
 #custom-power {
-  padding: 0 10px;
+  padding: 0px 14px;
+  background-color: @background;
+  border: 3px solid @bright-black;
+  border-radius: 12pt;
+  transition: border-color 200ms ease-out;
+}
+
+#custom-sysmenu:hover,
+#tray:hover,
+#language:hover,
+#custom-media:hover,
+#workspaces:hover,
+#pulseaudio:hover,
+#battery:hover,
+#temperature:hover,
+#network:hover,
+#clock:hover,
+#custom-notifications:hover,
+#custom-power:hover {
+  border-color: @blue;
 }
 
 /* SYSMENU */
@@ -62,20 +81,12 @@ window#waybar.hidden {
 }
 
 #custom-media.inactive {
-  background-color: transparent;
-  color: transparent;
-  font-size: 0;
-}
-
-/* SUBMAP */
-#submap {
-  background-color: @magenta;
-  color: @black;
+  opacity: 0;
 }
 
 /* WORKSPACES */
 #workspaces {
-  padding: 0 24px;
+  padding: 0 16px;
 }
 
 #workspaces button {
@@ -104,16 +115,6 @@ window#waybar.hidden {
   color: @red;
 }
 
-/* TEMPERATURE */
-#temperature {
-  color: @blue;
-}
-
-#temperature.critical {
-  background-color: @red;
-  color: @foreground;
-}
-
 /* BATTERY */
 #battery.critical:not(.charging) {
   background-color: @red;
@@ -124,6 +125,7 @@ window#waybar.hidden {
   color: @yellow;
 }
 
+/* NOTIFICATIONS */
 #custom-notifications.paused {
   color: @bright-black;
 }

@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  lib',
   customPkgs,
   ...
 }: {
@@ -10,26 +11,18 @@
 
     style = let
       inherit (config) theme;
+
+      colorDefinitions =
+        lib.mapAttrsToList (name: value: "@define-color ${lib'.strings.camelToKebab name} ${value};")
+        theme.colors.hexWithHashtag;
     in
-      with theme.colors.hexWithHashtag; ''
-        @define-color black ${black};
-        @define-color bright-black ${brightBlack};
-        @define-color red ${red};
-        @define-color green ${green};
-        @define-color yellow ${yellow};
-        @define-color blue ${blue};
-        @define-color magenta ${magenta};
-        @define-color cyan ${cyan};
-        @define-color white ${white};
-        @define-color bright-white ${brightWhite};
-
-        @define-color background ${background};
-        @define-color foreground ${foreground};
-
+      # css
+      ''
         * {
           font-family: ${theme.font.propo}, monospace;
         }
 
+        ${lib.concatLines colorDefinitions}
         ${lib.readFile ./style.css}
       '';
 
@@ -39,8 +32,11 @@
 
         layer = "top";
         position = "top";
-        height = 36;
-        spacing = 0;
+        height = 26;
+        spacing = 10;
+        margin-top = 6;
+        margin-left = 8;
+        margin-right = 8;
 
         modules-left = [
           "custom/sysmenu"
@@ -79,13 +75,11 @@
           playerctl = "${pkgs.playerctl}/bin/playerctl";
         in {
           interval = 1;
-          format = "{icon}{}";
-          format-icons = [""];
+          format = "{}";
           escape = true;
           return-type = "json";
           max-length = 35;
-          on-click = "${playerctl} play-pause";
-          on-click-right = "${playerctl} stop";
+          on-click = "${playerctl} -p spotify play-pause";
           exec = "${customPkgs.waybar-media-query}/bin/media-query";
         };
 
