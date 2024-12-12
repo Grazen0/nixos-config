@@ -36,6 +36,9 @@
     ];
 
     windowrulev2 = [
+      # Don't shadow tiled windows
+      "noshadow, floating:0"
+
       "bordercolor rgb(${colors.brightYellow}), pinned:1"
       "bordercolor rgb(${colors.white}), fullscreen:1"
 
