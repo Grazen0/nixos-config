@@ -7,6 +7,8 @@
     prismlauncher # Minecraft
     osu-lazer
     polychromatic
+
+    pgadmin
   ];
 
   wayland.windowManager.hyprland.settings = {
