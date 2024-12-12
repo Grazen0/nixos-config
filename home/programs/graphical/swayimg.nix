@@ -9,6 +9,7 @@
       viewer = {
         window = colors.black;
         antialiasing = "yes";
+        scale = "fit";
       };
 
       gallery = {
