@@ -8,6 +8,7 @@ require('highlight-undo').setup()
 require('window-picker').setup()
 require('tailwindcss-colors').setup()
 require('hmts').setup()
+require('tiny-devicons-auto-colors').setup()
 
 require('ibl').setup({ indent = { char = '│' } })
 require('dressing').setup({ input = { default_prompt = 'Rename' } })

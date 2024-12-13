@@ -10,3 +10,9 @@ require('plugins.lsp.inc-rename')
 
 require('lazydev').setup()
 require('lsp_signature').setup()
+
+require('tiny-code-action').setup()
+
+vim.keymap.set('n', '<leader>ca', function()
+  require('tiny-code-action').code_action({})
+end, { silent = true })

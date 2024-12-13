@@ -5,17 +5,23 @@
   ...
 }: {
   programs.neovim.plugins = let
+    inherit (pkgs.vimUtils) buildVimPlugin;
     stablePlugins = stablePkgs.vimPlugins;
 
-    multicursor-nvim = pkgs.vimUtils.buildVimPlugin {
+    multicursor-nvim = buildVimPlugin {
       name = "multicursor-nvim";
       src = inputs.nvim-plugin-multicursor;
     };
 
-    live-share-nvim = pkgs.vimUtils.buildVimPlugin {
+    live-share-nvim = buildVimPlugin {
       name = "live-share-nvim";
       src = inputs.nvim-plugin-live-share;
       dependencies = with pkgs.vimPlugins; [instant-nvim];
+    };
+
+    tiny-code-action-nvim = buildVimPlugin {
+      name = "tiny-code-action-nvim";
+      src = inputs.nvim-plugin-tiny-code-action;
     };
   in
     with pkgs.vimPlugins; [
@@ -42,6 +48,7 @@
       stablePlugins.inc-rename-nvim
       nvim-navbuddy
       tiny-inline-diagnostic-nvim
+      tiny-code-action-nvim
       nvim-treesitter.withAllGrammars
       nvim-treesitter-refactor
       nvim-treesitter-textobjects
@@ -64,6 +71,7 @@
       highlight-undo-nvim
       nvim-window-picker
       tailwindcss-colors-nvim
+      tiny-devicons-auto-colors-nvim
       hmts-nvim
       indent-blankline-nvim
       vim-illuminate
