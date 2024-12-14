@@ -32,7 +32,7 @@ window#waybar.hidden {
   padding: 0px 14px;
   background-color: @background;
   border: 3px solid @bright-black;
-  border-radius: 12pt;
+  border-radius: 14pt;
   transition: border-color 200ms ease-out;
 }
 

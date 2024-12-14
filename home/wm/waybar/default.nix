@@ -32,7 +32,7 @@
 
         layer = "top";
         position = "top";
-        height = 26;
+        height = 28;
         spacing = 10;
         margin-top = 6;
         margin-left = 8;
