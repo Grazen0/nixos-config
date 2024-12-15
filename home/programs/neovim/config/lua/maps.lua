@@ -53,3 +53,8 @@ keyset(
   '<C-f>',
   ": silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>"
 )
+
+-- Code action
+keyset('n', 'ga', function()
+  vim.lsp.buf.code_action()
+end, { silent = true })
