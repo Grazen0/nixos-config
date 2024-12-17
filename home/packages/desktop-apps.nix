@@ -9,12 +9,12 @@
     thorium-browser = inputs.thorium-browser.defaultPackage.${system};
 
     zen-browser = inputs.zen-browser.packages.${system}.specific.overrideAttrs (prev: let
-      version = "1.0.2-b.1";
+      version = "1.0.2-b.2";
     in {
       inherit version;
       src = builtins.fetchTarball {
         url = "https://github.com/zen-browser/desktop/releases/download/${version}/zen.linux-specific.tar.bz2";
-        sha256 = "sha256:1bnalbpzk6alihjsvl9nmzn7zfy9a3dcil8dbrlbfz68jiz88hl1";
+        sha256 = "sha256:1dv98hg48g3kg2d0hxxg5jyf8yfdn3s7smbwii26vrpbigwp3ch7";
       };
     });
 
