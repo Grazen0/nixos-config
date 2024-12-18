@@ -26,12 +26,7 @@
   in
     with pkgs.vimPlugins; [
       # Editor
-      nvim-cmp
-      cmp-nvim-lsp
-      cmp-buffer
-      cmp-async-path
-      cmp-cmdline
-      cmp-nvim-ultisnips
+      blink-cmp
       multicursor-nvim
       neo-tree-nvim
       nvim-spectre
@@ -58,7 +53,6 @@
       lsp_signature-nvim
       nvim-lspconfig
       SchemaStore-nvim
-      lspkind-nvim
       vim-fugitive
 
       # Visual
@@ -69,6 +63,7 @@
       lualine-nvim
       bufferline-nvim
       highlight-undo-nvim
+      markview-nvim
       nvim-window-picker
       tailwindcss-colors-nvim
       tiny-devicons-auto-colors-nvim
