@@ -10,6 +10,7 @@
     gcc
     ghc
     gnumake
+    jdk
     nodejs_22
     corepack_22
     (python312.withPackages
