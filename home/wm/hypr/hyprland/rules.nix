@@ -9,6 +9,7 @@
       "float, ^(org.gnome.FileRoller)$"
       "float, ^(nm-connection-editor)$"
       "float, title:^(Steam Settings)$"
+      "float, ^(swayimg)$"
 
       # Dialogs
       "center, title:^(Open File)(.*)$"
@@ -26,7 +27,9 @@
       "float, title:^(Library)(.*)$"
       "float, title:^(File Upload)(.*)$"
 
+      # Sizing
       "size 960 540, ^([Tt]hunar)$" # Thunar is too small by default
+      "size 75% 75%, ^(swayimg)$"
 
       # Workspace-specific programs
       "workspace 3, ^(obsidian)$"
