@@ -9,4 +9,8 @@
     ./zapzap.nix
     ./zathura.nix
   ];
+
+  programs = {
+    obs-studio.enable = true;
+  };
 }
