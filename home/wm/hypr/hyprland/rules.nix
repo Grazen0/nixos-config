@@ -28,8 +28,9 @@
       "float, title:^(File Upload)(.*)$"
 
       # Sizing
-      "size 960 540, ^([Tt]hunar)$" # Thunar is too small by default
+      "size 960 540, ^([Tt]hunar)$"
       "size 75% 75%, ^(swayimg)$"
+      "size 75% 75%, ^(org.pulseaudio.pavucontrol)$"
 
       # Workspace-specific programs
       "workspace 3, ^(obsidian)$"
