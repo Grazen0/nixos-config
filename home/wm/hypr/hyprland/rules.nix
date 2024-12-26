@@ -3,6 +3,7 @@
     colors = config.theme.colors.hex;
   in {
     windowrule = [
+      # Floating apps
       "float, ^([Tt]hunar)$"
       "float, ^(org.pulseaudio.pavucontrol)$"
       "float, ^(.blueman-manager-wrapped)$"
@@ -10,6 +11,7 @@
       "float, ^(nm-connection-editor)$"
       "float, title:^(Steam Settings)$"
       "float, ^(swayimg)$"
+      "float, ^(fceux)$"
 
       # Dialogs
       "center, title:^(Open File)(.*)$"
@@ -31,6 +33,7 @@
       "size 960 540, ^([Tt]hunar)$"
       "size 75% 75%, ^(swayimg)$"
       "size 75% 75%, ^(org.pulseaudio.pavucontrol)$"
+      "size 639 612, ^(fceux)$"
 
       # Workspace-specific programs
       "workspace 3, ^(obsidian)$"
