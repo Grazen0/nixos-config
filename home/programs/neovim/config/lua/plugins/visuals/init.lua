@@ -1,4 +1,3 @@
-require('plugins.visuals.web-devicons')
 require('plugins.visuals.kanagawa')
 require('plugins.visuals.colorizer')
 require('plugins.visuals.gitsigns')
@@ -13,3 +12,7 @@ require('tiny-devicons-auto-colors').setup()
 
 require('ibl').setup({ indent = { char = '│' } })
 require('dressing').setup({ input = { default_prompt = 'Rename' } })
+
+-- For some reason this has to be called here
+-- Custom colors appear as white otherwise
+require('plugins.visuals.web-devicons')
