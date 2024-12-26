@@ -38,7 +38,7 @@
       # Workspace-specific programs
       "workspace 3, ^(obsidian)$"
       "workspace 6, ^(.*)(\.zapzap)$"
-      "workspace 7, ^(vesktop)$"
+      "workspace 7, ^(equibop)$"
       "workspace 10, title:(Spotify)"
     ];
 

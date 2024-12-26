@@ -1,6 +1,6 @@
 {
   imports = [
-    ./vesktop
+    ./equibop
     ./idea.nix
     ./mpv.nix
     ./spicetify.nix

@@ -21,7 +21,7 @@
 
       "${pkgs.dex}/bin/dex -a"
       "[workspace 2 silent] $browser"
-      "vesktop --start-minimized"
+      "equibop --start-minimized"
       "[workspace 6 silent] zapzap"
     ];
   };
