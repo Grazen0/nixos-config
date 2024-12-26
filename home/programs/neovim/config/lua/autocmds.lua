@@ -97,3 +97,11 @@ create_autocmd('FileType', {
     vim.opt_local.conceallevel = 2
   end,
 })
+
+-- Proper syntax highlighting for .inc assembly files
+create_autocmd({ 'BufNew', 'BufNewFile', 'BufRead' }, {
+  pattern = { '*.inc' },
+  callback = function()
+    vim.bo.filetype = 'asm'
+  end,
+})
