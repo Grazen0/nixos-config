@@ -18,19 +18,14 @@
       src = inputs.nvim-plugin-live-share;
       dependencies = with pkgs.vimPlugins; [instant-nvim];
     };
-
-    tiny-code-action-nvim = buildVimPlugin {
-      name = "tiny-code-action-nvim";
-      src = inputs.nvim-plugin-tiny-code-action;
-    };
   in
     with pkgs.vimPlugins; [
       # Editor
       blink-cmp
       multicursor-nvim
       neo-tree-nvim
+      fzf-lua
       nvim-spectre
-      telescope-nvim
       ultisnips
       nvim-surround
       nvim-autopairs
@@ -43,7 +38,6 @@
       stablePlugins.inc-rename-nvim
       nvim-navbuddy
       tiny-inline-diagnostic-nvim
-      tiny-code-action-nvim
       nvim-treesitter.withAllGrammars
       nvim-treesitter-refactor
       nvim-treesitter-textobjects

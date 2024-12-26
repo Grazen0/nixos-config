@@ -28,10 +28,6 @@ require('kanagawa').setup({
       PmenuSbar = { bg = theme.ui.bg_m1 },
       PmenuThumb = { bg = theme.ui.bg_p2 },
 
-      -- Transparent telescope borders
-      TelescopeBorder = { bg = 'none' },
-      TelescopeTitle = { bg = 'none' },
-
       -- Bufferline fixes
       BufferLineFill = { bg = theme.ui.bg_m1 },
       BufferLineSeparator = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },

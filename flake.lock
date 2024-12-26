@@ -265,22 +265,6 @@
         "type": "github"
       }
     },
-    "nvim-plugin-tiny-code-action": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1733851566,
-        "narHash": "sha256-F76w/V6G2L1TzjNQJGrge/edWfsBzvp39RvlGzEUVnA=",
-        "owner": "rachartier",
-        "repo": "tiny-code-action.nvim",
-        "rev": "8888f593c04c8acb29b04a71f6187ef6956be0cd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rachartier",
-        "repo": "tiny-code-action.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "aphrodite-terminal-theme": "aphrodite-terminal-theme",
@@ -295,7 +279,6 @@
         "nixpkgs-zoom": "nixpkgs-zoom",
         "nvim-plugin-live-share": "nvim-plugin-live-share",
         "nvim-plugin-multicursor": "nvim-plugin-multicursor",
-        "nvim-plugin-tiny-code-action": "nvim-plugin-tiny-code-action",
         "spicetify-nix": "spicetify-nix",
         "systems": "systems_2",
         "thorium-browser": "thorium-browser",

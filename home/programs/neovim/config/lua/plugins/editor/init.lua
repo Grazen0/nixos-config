@@ -2,7 +2,7 @@ require('plugins.editor.cmp')
 require('plugins.editor.multicursor')
 require('plugins.editor.neo-tree')
 require('plugins.editor.spectre')
-require('plugins.editor.telescope')
+require('plugins.editor.fzf-lua')
 require('plugins.editor.ultisnips')
 
 require('nvim-surround').setup()

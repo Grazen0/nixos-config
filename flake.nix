@@ -101,11 +101,6 @@
       flake = false;
     };
 
-    nvim-plugin-tiny-code-action = {
-      url = "github:rachartier/tiny-code-action.nvim";
-      flake = false;
-    };
-
     menu-qalc = {
       url = "github:ClemaX/menu-qalc-wayland";
       flake = false;
