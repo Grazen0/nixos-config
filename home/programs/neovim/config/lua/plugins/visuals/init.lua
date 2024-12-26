@@ -1,3 +1,4 @@
+require('plugins.visuals.web-devicons')
 require('plugins.visuals.kanagawa')
 require('plugins.visuals.colorizer')
 require('plugins.visuals.gitsigns')
