@@ -4,6 +4,13 @@ require('neo-tree').setup({
   close_if_last_window = true,
   hijack_netrw_behavior = 'open_current',
 
+  default_component_configs = {
+    icon = {
+      default = '',
+      highlight = 'DevIconDefault',
+    },
+  },
+
   window = {
     position = 'left',
     width = 30,
