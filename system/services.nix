@@ -5,7 +5,7 @@
       alsa.enable = false;
       pulse.enable = false;
     };
-    printing.enable = false;
+    printing.enable = true;
     libinput.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
