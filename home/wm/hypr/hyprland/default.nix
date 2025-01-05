@@ -2,7 +2,6 @@
   imports = [
     ./autostart.nix
     ./binds.nix
-    ./env.nix
     ./input.nix
     ./look.nix
     ./misc.nix
@@ -23,13 +22,17 @@
       "$fileManagerAlt" = "yazi";
 
       monitor = [", preferred, auto, 1"];
+
+      env = [
+        "XDG_CURRENT_DESKTOP,Hyprland"
+        "XDG_SESSION_TYPE,wayland"
+        "XDG_SESSION_DESKTOP,Hyprland"
+        "QT_GPA_PLATFORM,wayland"
+        "NIXOS_OZONE_WL,1"
+        "WLR_NO_HARDWARE_CURSORS,1"
+      ];
     };
 
     systemd.variables = ["--all"];
-  };
-
-  home.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
   };
 }

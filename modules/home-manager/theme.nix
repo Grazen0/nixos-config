@@ -66,15 +66,16 @@ in {
       inherit (cursor) package name size;
     };
 
-    wayland.windowManager.hyprland.settings = lib.mkIf cursor.enable {
-      exec-once = [
-        "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
-      ];
-
-      env = [
-        "XCURSOR_THEME,${cursor.name}"
-        "XCURSOR_SIZE,${toString cursor.size}"
-      ];
+    home.sessionVariables = {
+      XCURSOR_THEME = lib.mkIf cursor.enable (cursor.name);
+      XCURSOR_SIZE = lib.mkIf cursor.enable (toString cursor.size);
     };
+
+    wayland.windowManager.hyprland.settings.env = let
+      waylandEnabled = config.wayland.windowManager.hyprland.enable;
+    in [
+      (lib.mkIf waylandEnabled "XCURSOR_THEME,${cursor.name}")
+      (lib.mkIf waylandEnabled "XCURSOR_SIZE,${toString cursor.size}")
+    ];
   };
 }
