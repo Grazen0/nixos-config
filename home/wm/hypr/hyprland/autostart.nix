@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  stablePkgs, # TODO: update when wbg compiles in unstable
   ...
 }: {
   options = {
@@ -13,7 +14,7 @@
 
   config = {
     wayland.windowManager.hyprland.settings.exec-once = [
-      "${pkgs.wbg}/bin/wbg ${config.theme.home.wallpaper.source}"
+      "${stablePkgs.wbg}/bin/wbg ${config.theme.home.wallpaper.source}"
       "waybar"
       "eww open-many ${lib.strings.concatStringsSep " " config.custom.hyprland.ewwAutoStart}"
 

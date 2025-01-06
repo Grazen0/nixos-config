@@ -9,5 +9,10 @@
     libinput.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
+
+    pulseaudio = {
+      enable = true;
+      support32Bit = true;
+    };
   };
 }
