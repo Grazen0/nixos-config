@@ -5,7 +5,6 @@
 }: {
   home.packages = with pkgs; [
     prismlauncher # Minecraft
-    osu-lazer
     polychromatic
 
     pgadmin
