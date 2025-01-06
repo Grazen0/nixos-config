@@ -40,6 +40,7 @@
         editor = ["nvim.desktop"];
         imageViewer = ["swayimg.desktop"];
         mediaPlayer = ["mpv.desktop"];
+        wine = ["wine.desktop"];
 
         inherit (lib.attrsets) mapAttrsToList genAttrs;
         inherit (lib.strings) splitString hasPrefix;
@@ -77,6 +78,8 @@
           "application/zip" = archiver;
 
           "application/x-zerosize" = editor;
+
+          "application/vnd.microsoft.portable-executable" = wine;
         }
         // expandedAssociations;
     };
