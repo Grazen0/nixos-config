@@ -10,6 +10,7 @@
     ./fastfetch.nix
     ./foot.nix
     ./git.nix
+    ./kitty.nix
     ./peaclock.nix
     ./tmux.nix
     ./yazi.nix

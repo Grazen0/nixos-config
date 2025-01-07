@@ -3,15 +3,16 @@
   pkgs,
   ...
 }: {
+  # I really want to use fuzzel, but I need kitty's graphics protocol
   programs.fuzzel = {
-    enable = true;
+    enable = false;
 
     settings = let
       inherit (config) theme;
     in {
       main = {
         font = "${theme.font.propo}:size=12";
-        terminal = "${pkgs.foot}/bin/foot";
+        terminal = "${pkgs.kitty}/bin/kitty";
         use-bold = "yes";
         fields = "filename,name,generic,keywords";
         width = 60;

@@ -16,7 +16,7 @@
     systemd.enable = true;
 
     settings = {
-      "$terminal" = "foot";
+      "$terminal" = "kitty";
       "$browser" = "zen";
       "$fileManager" = "thunar";
       "$fileManagerAlt" = "yazi";
