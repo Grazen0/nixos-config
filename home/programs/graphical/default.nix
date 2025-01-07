@@ -1,7 +1,9 @@
 {
   imports = [
     ./equibop
+    ./foot.nix
     ./idea.nix
+    ./kitty.nix
     ./mpv.nix
     ./spicetify.nix
     ./swayimg.nix
