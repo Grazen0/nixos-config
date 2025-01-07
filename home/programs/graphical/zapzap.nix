@@ -14,6 +14,10 @@
         hide_bar_users = true;
         theme = "dark";
       };
+
+      website = {
+        open_page = false;
+      };
     };
   };
 }
