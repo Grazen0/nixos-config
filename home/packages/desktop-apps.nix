@@ -39,6 +39,14 @@
         };
     });
 
+    rPackages = with pkgs.rPackages; [
+      ggplot2
+      rmarkdown
+    ];
+
+    r = pkgs.rWrapper.override {packages = rPackages;};
+    rstudio = pkgs.rstudioWrapper.override {packages = rPackages;};
+
     zoomPkgs = import inputs.nixpkgs-zoom {
       inherit system;
       config.allowUnfree = true;
@@ -53,6 +61,8 @@
       kdenlive
       obsidian
       pavucontrol
+      r
+      rstudio
       thorium-browser
       wdisplays
       zen-browser
