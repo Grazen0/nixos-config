@@ -39,7 +39,7 @@
       "workspace 3, ^(obsidian)$"
       "workspace 6, ^(.*)(\.zapzap)$"
       "workspace 7, ^(equibop)$"
-      "workspace 10, title:(Spotify)"
+      "workspace 10, ^(spotify)$" # TEST: should work but anyways
     ];
 
     windowrulev2 = [
