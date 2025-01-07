@@ -1,6 +1,7 @@
 {config, ...}: {
+  # I really want to use fuzzel, but I need kitty's graphics protocol
   programs.foot = {
-    enable = true;
+    enable = false;
     server.enable = false;
 
     settings = let

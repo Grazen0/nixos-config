@@ -3,9 +3,8 @@
   pkgs,
   ...
 }: {
-  # I really want to use fuzzel, but I need kitty's graphics protocol
   programs.fuzzel = {
-    enable = false;
+    enable = true;
 
     settings = let
       inherit (config) theme;
