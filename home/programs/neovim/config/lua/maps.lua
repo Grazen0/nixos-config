@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ','
 
 local function keyset(mode, lhs, rhs, opts)
   opts = opts or {}

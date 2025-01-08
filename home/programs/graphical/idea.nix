@@ -20,6 +20,7 @@
 
     " Mapings =======================
     let mapleader=" "
+    let maplocalleader=","
 
     " Clear search highlights with <Esc>
     nmap <Esc> :nohl<CR>
