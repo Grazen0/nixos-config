@@ -20,7 +20,7 @@
 
         bar_padding = 4;
 
-        background_color = colors.black;
+        background_color = colors.background;
         border_color = colors.brightWhite;
         bar_color = colors.brightWhite;
 
