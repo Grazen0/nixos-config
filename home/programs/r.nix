@@ -17,6 +17,27 @@
     rPackages = with pkgs.rPackages; let
       inherit (pkgs.rPackages) buildRPackage;
 
+      grkstyle = buildRPackage {
+        name = "grkstyle";
+        src = inputs.grkstyle;
+        propagatedBuildInputs = with pkgs.rPackages; [
+          magrittr
+          purrr
+          rlang
+          rprojroot
+          styler
+        ];
+      };
+
+      r-nvim = buildRPackage {
+        name = "r-nvim";
+        src = inputs.r-nvim;
+        propagatedBuildInputs = with pkgs.rPackages; [
+          styler
+          grkstyle
+        ];
+      };
+
       colorout = buildRPackage {
         name = "colorout";
         src = inputs.colorout;
@@ -24,7 +45,9 @@
     in [
       ggplot2
       readr
+      quarto
       colorout
+      r-nvim
     ];
 
     rstudio = {
