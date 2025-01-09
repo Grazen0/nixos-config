@@ -103,4 +103,4 @@ require('neo-tree').setup({
 -- Needed so that the cursor gets hidden
 vim.cmd('set guicursor+=a:Cursor/lCursor')
 
-vim.keymap.set('n', '<leader>e', '<cmd>Neotree<CR>')
+vim.keymap.set('n', '<leader>e', '<cmd>Neotree<CR>', { desc = 'Open Neo-tree' })

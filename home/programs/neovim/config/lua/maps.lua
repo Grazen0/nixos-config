@@ -58,4 +58,4 @@ keyset(
 -- Code action
 keyset('n', 'ga', function()
   vim.lsp.buf.code_action()
-end, { silent = true })
+end)

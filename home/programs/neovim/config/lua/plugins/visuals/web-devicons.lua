@@ -20,5 +20,10 @@ require('nvim-web-devicons').setup({
       color = '#c8c093',
       name = 'Envrc',
     },
+    qmd = {
+      icon = '',
+      color = '#7e9cd8',
+      name = 'Quarto',
+    },
   },
 })

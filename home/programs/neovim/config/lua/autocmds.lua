@@ -90,14 +90,6 @@ create_autocmd('FileType', {
   end,
 })
 
--- Conceal level for markdown and LaTeX files
-create_autocmd('FileType', {
-  pattern = { 'markdown', 'tex', 'plaintex' },
-  callback = function()
-    vim.opt_local.conceallevel = 2
-  end,
-})
-
 -- Proper syntax highlighting for .inc assembly files
 create_autocmd({ 'BufNew', 'BufNewFile', 'BufRead' }, {
   pattern = { '*.inc' },

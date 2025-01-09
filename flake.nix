@@ -91,6 +91,21 @@
       flake = false;
     };
 
+    kanagawa-rstudio = {
+      url = "github:camartinezbu/kanagawa-rstudio";
+      flake = false;
+    };
+
+    r-nvim = {
+      url = "github:devOpifex/r.nvim";
+      flake = false;
+    };
+
+    menu-qalc = {
+      url = "github:ClemaX/menu-qalc-wayland";
+      flake = false;
+    };
+
     nvim-plugin-multicursor = {
       url = "github:jake-stewart/multicursor.nvim";
       flake = false;
@@ -101,8 +116,23 @@
       flake = false;
     };
 
-    menu-qalc = {
-      url = "github:ClemaX/menu-qalc-wayland";
+    nvim-plugin-r-nvim = {
+      url = "github:R-nvim/R.nvim";
+      flake = false;
+    };
+
+    nvim-plugin-cmp-r = {
+      url = "github:R-nvim/cmp-r";
+      flake = false;
+    };
+
+    grkstyle = {
+      url = "github:gadenbuie/grkstyle";
+      flake = false;
+    };
+
+    colorout = {
+      url = "github:jalvesaq/colorout";
       flake = false;
     };
 

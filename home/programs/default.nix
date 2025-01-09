@@ -10,6 +10,7 @@
     ./fastfetch.nix
     ./git.nix
     ./peaclock.nix
+    ./r.nix
     ./tmux.nix
     ./yazi.nix
     ./zsh.nix

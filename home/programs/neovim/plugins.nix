@@ -6,6 +6,7 @@
 }: {
   programs.neovim.plugins = let
     inherit (pkgs.vimUtils) buildVimPlugin;
+    inherit (pkgs) vimPlugins;
     stablePlugins = stablePkgs.vimPlugins;
 
     multicursor-nvim = buildVimPlugin {
@@ -16,12 +17,30 @@
     live-share-nvim = buildVimPlugin {
       name = "live-share-nvim";
       src = inputs.nvim-plugin-live-share;
-      dependencies = with pkgs.vimPlugins; [instant-nvim];
+      dependencies = with vimPlugins; [instant-nvim];
+    };
+
+    r-nvim = buildVimPlugin {
+      name = "r-nvim";
+      src = inputs.nvim-plugin-r-nvim;
+      dependencies = with vimPlugins; [nvim-treesitter];
+    };
+
+    cmp-r = buildVimPlugin {
+      name = "cmp-r";
+      src = inputs.nvim-plugin-cmp-r;
+      dependencies = with vimPlugins; [nvim-cmp];
     };
   in
-    with pkgs.vimPlugins; [
+    with vimPlugins; [
       # Editor
-      blink-cmp
+      nvim-cmp
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-async-path
+      cmp-cmdline
+      cmp-nvim-ultisnips
+      cmp-r
       multicursor-nvim
       neo-tree-nvim
       fzf-lua
@@ -47,7 +66,9 @@
       lsp_signature-nvim
       nvim-lspconfig
       SchemaStore-nvim
+      lspkind-nvim
       vim-fugitive
+      otter-nvim
 
       # Visual
       kanagawa-nvim
@@ -78,5 +99,7 @@
       fidget-nvim
       markdown-preview-nvim
       lazydev-nvim
+      image-nvim
+      r-nvim
     ];
 }

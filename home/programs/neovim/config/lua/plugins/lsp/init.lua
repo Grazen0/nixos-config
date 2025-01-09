@@ -10,3 +10,8 @@ require('plugins.lsp.inc-rename')
 
 require('lazydev').setup()
 require('lsp_signature').setup()
+
+-- otter.nvim
+local otter = require('otter')
+vim.keymap.set('n', '<leader>oa', otter.activate)
+vim.keymap.set('n', '<leader>od', otter.deactivate)

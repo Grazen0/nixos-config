@@ -12,12 +12,12 @@ vim.diagnostic.config({
   float = { border = 'rounded' },
 })
 
-local cmp = require('blink.cmp')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 
 local function setup_lsp(server, opts)
   opts = opts or {}
-  opts.capabilities = cmp.get_lsp_capabilities(opts.capabilities)
+  opts.capabilities = opts.capabilities or capabilities
 
   lspconfig[server].setup(opts)
 end

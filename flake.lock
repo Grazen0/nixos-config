@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "colorout": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729293833,
+        "narHash": "sha256-RglnS3QS85598qC87uciW/d64mgeavUDccdXt+GKwFM=",
+        "owner": "jalvesaq",
+        "repo": "colorout",
+        "rev": "2a5f21496162ea30684d2783e3a204f4756db4e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jalvesaq",
+        "repo": "colorout",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -67,6 +83,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "grkstyle": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698073028,
+        "narHash": "sha256-yyI9BnAc7+GPzVWdVdCtE64kCXaHWDJ58+2MyhBBNRk=",
+        "owner": "gadenbuie",
+        "repo": "grkstyle",
+        "rev": "53051cba7772fd087e730848fb172271715b679c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gadenbuie",
+        "repo": "grkstyle",
         "type": "github"
       }
     },
@@ -153,6 +185,22 @@
         "type": "github"
       }
     },
+    "kanagawa-rstudio": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725391011,
+        "narHash": "sha256-0IgGbyLrdNnq9mEI6lnPNbrw99Q1K1dvOvwwExoyUoA=",
+        "owner": "camartinezbu",
+        "repo": "kanagawa-rstudio",
+        "rev": "e59f255e7f2838a8d8e97004561f9ee525c0a434",
+        "type": "github"
+      },
+      "original": {
+        "owner": "camartinezbu",
+        "repo": "kanagawa-rstudio",
+        "type": "github"
+      }
+    },
     "menu-qalc": {
       "flake": false,
       "locked": {
@@ -233,6 +281,22 @@
         "type": "github"
       }
     },
+    "nvim-plugin-cmp-r": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721144305,
+        "narHash": "sha256-3h+7q/x5xST50b9MdjR+9JULTwgn6kAyyrL5qhCtta0=",
+        "owner": "R-nvim",
+        "repo": "cmp-r",
+        "rev": "18b88eeb7e47996623b9aa0a763677ac00a16221",
+        "type": "github"
+      },
+      "original": {
+        "owner": "R-nvim",
+        "repo": "cmp-r",
+        "type": "github"
+      }
+    },
     "nvim-plugin-live-share": {
       "flake": false,
       "locked": {
@@ -265,20 +329,58 @@
         "type": "github"
       }
     },
+    "nvim-plugin-r-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735896199,
+        "narHash": "sha256-3PhDTsIs+6e68Eb16vRI2Ij4nGdgz0bVm0Hodnikf5E=",
+        "owner": "R-nvim",
+        "repo": "R.nvim",
+        "rev": "4d1a1b553b966f62a1f81fdbd720c5ee8d8ff526",
+        "type": "github"
+      },
+      "original": {
+        "owner": "R-nvim",
+        "repo": "R.nvim",
+        "type": "github"
+      }
+    },
+    "r-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699634067,
+        "narHash": "sha256-4xJ1vHhDLEMEZ53nSKDm6i0sp9rjTFv0xT/8fCT+ASI=",
+        "owner": "devOpifex",
+        "repo": "r.nvim",
+        "rev": "bb1c66d0f1498561fbc3e60b429ad96263b730e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "devOpifex",
+        "repo": "r.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "aphrodite-terminal-theme": "aphrodite-terminal-theme",
+        "colorout": "colorout",
         "flake-parts": "flake-parts",
+        "grkstyle": "grkstyle",
         "home-manager": "home-manager",
         "hyprland-qtutils": "hyprland-qtutils",
         "inkscape-figures": "inkscape-figures",
+        "kanagawa-rstudio": "kanagawa-rstudio",
         "menu-qalc": "menu-qalc",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-zoom": "nixpkgs-zoom",
+        "nvim-plugin-cmp-r": "nvim-plugin-cmp-r",
         "nvim-plugin-live-share": "nvim-plugin-live-share",
         "nvim-plugin-multicursor": "nvim-plugin-multicursor",
+        "nvim-plugin-r-nvim": "nvim-plugin-r-nvim",
+        "r-nvim": "r-nvim",
         "spicetify-nix": "spicetify-nix",
         "systems": "systems_2",
         "thorium-browser": "thorium-browser",
