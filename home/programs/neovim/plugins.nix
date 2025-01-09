@@ -101,5 +101,6 @@
       lazydev-nvim
       image-nvim
       r-nvim
+      which-key-nvim
     ];
 }

@@ -1,13 +1,22 @@
 local spectre = require('spectre')
+local keyset = vim.keymap.set
 
-vim.keymap.set('n', '<leader>S', spectre.toggle)
-vim.keymap.set('n', '<leader>sw', function()
+keyset('n', '<leader>S', spectre.toggle, {
+  desc = 'Toggle Spectre',
+})
+keyset('n', '<leader>sw', function()
   spectre.open_visual({ select_word = true })
-end)
-vim.keymap.set('v', '<leader>sw', function()
+end, {
+  desc = 'Search current word',
+})
+keyset('v', '<leader>sw', function()
   vim.api.nvim_feedkeys('', 't', true)
   spectre.open_visual()
-end)
-vim.keymap.set('n', '<leader>sp', function()
+end, {
+  desc = 'Search current word',
+})
+keyset('n', '<leader>sp', function()
   spectre.open_file_search({ select_word = true })
-end)
+end, {
+  desc = 'Search on current file',
+})
