@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  lib',
   ...
 }: {
   # TODO: move this config somewhere else
@@ -9,9 +10,10 @@
       font.regular = "JetBrainsMonoNL Nerd Font";
 
       colors = let
-        mkColors = hex: {
-          inherit hex;
-          hexWithHashtag = lib.mapAttrs (_: color: "#${color}") hex;
+        mkColors = hexColors: {
+          hex = hexColors;
+          hexWithHashtag = lib.mapAttrs (_: hexStr: "#${hexStr}") hexColors;
+          rgb = lib.mapAttrs (_: hexStr: lib'.strings.hexToRGB hexStr) hexColors;
         };
       in
         mkColors rec {
@@ -57,33 +59,38 @@
       };
     };
 
-    colors = rec {
-      hex = rec {
-        background = mkOption {type = types.str;};
-        backgroundAlt = background;
-        foreground = background;
-        highlight = background;
+    colors = let
+      mkColorsOption = colorOption: {
+        background = colorOption;
+        backgroundAlt = colorOption;
+        foreground = colorOption;
+        highlight = colorOption;
 
-        black = background;
-        red = background;
-        green = background;
-        yellow = background;
-        blue = background;
-        magenta = background;
-        cyan = background;
-        white = background;
+        black = colorOption;
+        red = colorOption;
+        green = colorOption;
+        yellow = colorOption;
+        blue = colorOption;
+        magenta = colorOption;
+        cyan = colorOption;
+        white = colorOption;
 
-        brightBlack = background;
-        brightRed = background;
-        brightGreen = background;
-        brightYellow = background;
-        brightBlue = background;
-        brightMagenta = background;
-        brightCyan = background;
-        brightWhite = background;
+        brightBlack = colorOption;
+        brightRed = colorOption;
+        brightGreen = colorOption;
+        brightYellow = colorOption;
+        brightBlue = colorOption;
+        brightMagenta = colorOption;
+        brightCyan = colorOption;
+        brightWhite = colorOption;
       };
-
-      hexWithHashtag = hex;
+    in {
+      hex = mkColorsOption (mkOption {type = types.str;});
+      hexWithHashtag = mkColorsOption (mkOption {type = types.str;});
+      rgb = mkColorsOption (mkOption {
+        type = with types; listOf ints.u8;
+      });
+      # rgbString = mkColorsOption {type = types.str;};
     };
   };
 }

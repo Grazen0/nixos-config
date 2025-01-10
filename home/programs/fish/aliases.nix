@@ -81,11 +81,11 @@
     peaclock = "peaclock --config-dir ${config.xdg.configHome}/peaclock";
     lg = "lazygit";
 
+    R = "R --quiet --no-save";
+
     rbs = "sudo nixos-rebuild switch --flake ${flakeDir}";
     rbb = "sudo nixos-rebuild boot --flake ${flakeDir}";
     rbt = "sudo nixos-rebuild test --flake ${flakeDir}";
-    # hms = "home-manager switch --flake ${flakeDir}";
-    # hmn = "home-manager news --flake ${flakeDir}";
     upd = "nix flake update --flake ${flakeDir}";
 
     # I'm kinda clumsy

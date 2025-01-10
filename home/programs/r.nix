@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   inputs,
@@ -7,11 +8,37 @@
   programs.r = {
     enable = true;
 
-    profile =
+    profile = let
+      colors = lib.mapAttrs (_: rgb:
+        "\\x1b[38;2;"
+        + (lib.concatStringsSep ";" (map toString rgb))
+        + "m")
+      config.theme.colors.rgb;
+    in
       # r
       ''
-        # TODO: follow setup from https://github.com/jalvesaq/colorout
-        library(colorout)
+        if (interactive() || isatty(stdout())) {
+          options(colorout.verbose = 0)
+          if (require("colorout", quietly = TRUE)) {
+            colorout::setOutputColors(
+              index    = "${colors.brightBlack}",
+              normal   = "${colors.foreground}",
+              number   = "${colors.white}",
+              negnum   = "${colors.white}",
+              zero     = "${colors.white}",
+              infinite = "${colors.yellow}",
+              string   = "${colors.green}",
+              date     = "${colors.magenta}",
+              const    = "${colors.yellow}",
+              true     = "${colors.brightCyan}",
+              false    = "${colors.brightCyan}",
+              warn     = "${colors.brightYellow}",
+              stderror = "${colors.red}",
+              error    = "${colors.red}",
+              verbose  = FALSE
+            )
+          }
+        }
       '';
 
     rPackages = with pkgs.rPackages; let
@@ -50,6 +77,7 @@
       corrplot
       scales
       tidyverse
+      modeest
       quarto
       colorout
       r-nvim
