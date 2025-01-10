@@ -87,6 +87,7 @@
       indent-blankline-nvim
       vim-illuminate
       dressing-nvim
+      helpview-nvim
 
       # Misc
       mini-sessions
