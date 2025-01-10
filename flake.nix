@@ -140,5 +140,10 @@
       url = "github:gillescastel/inkscape-figures";
       flake = false;
     };
+
+    mdformat-myst = {
+      url = "github:executablebooks/mdformat-myst";
+      flake = false;
+    };
   };
 }

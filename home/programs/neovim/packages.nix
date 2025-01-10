@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  customPkgs,
+  ...
+}: {
   programs.neovim = {
     extraPackages = with pkgs; [
       # Essentials
@@ -13,11 +17,9 @@
       black
       clang-tools
       isort
-      (mdformat.withPlugins (ps:
-        with ps; [
-          mdformat-frontmatter
-          mdformat-tables
-        ]))
+      (mdformat.withPlugins (_ps: [
+        customPkgs.mdformat-myst
+      ]))
       prettierd
       rustfmt
       stylua

@@ -201,6 +201,22 @@
         "type": "github"
       }
     },
+    "mdformat-myst": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731544945,
+        "narHash": "sha256-Ty9QOsOTCNfhdLVuLfD0x63OFfHhODr14i/dhN+Sqnc=",
+        "owner": "executablebooks",
+        "repo": "mdformat-myst",
+        "rev": "7a40415f5eb2d550a2902f4712b83b7f76906a3d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "executablebooks",
+        "repo": "mdformat-myst",
+        "type": "github"
+      }
+    },
     "menu-qalc": {
       "flake": false,
       "locked": {
@@ -371,6 +387,7 @@
         "hyprland-qtutils": "hyprland-qtutils",
         "inkscape-figures": "inkscape-figures",
         "kanagawa-rstudio": "kanagawa-rstudio",
+        "mdformat-myst": "mdformat-myst",
         "menu-qalc": "menu-qalc",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

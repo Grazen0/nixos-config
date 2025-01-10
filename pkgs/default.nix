@@ -8,6 +8,7 @@
 
   # Python packages
   inkscape-figures = pkgs.python3Packages.callPackage ./inkscape-figures.nix {src = inputs.inkscape-figures;};
+  mdformat-myst = pkgs.python3Packages.callPackage ./mdformat-myst.nix {src = inputs.mdformat-myst;};
 
   # My own stuff
   close-window = pkgs.callPackage ./close-window.nix {};
