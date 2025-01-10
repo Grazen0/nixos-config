@@ -139,10 +139,6 @@
         # Travel workspaces with mouse
         "${mainMod}, mouse_up, workspace, r+1"
         "${mainMod}, mouse_down, workspace, r-1"
-
-        # Brightness control
-        ", XF86MonBrightnessUp, exec, ${brightnessctl} set 5%+"
-        ", XF86MonBrightnessDown, exec, ${brightnessctl} set 5%-"
       ];
 
       binde = [
@@ -165,12 +161,17 @@
       ];
 
       bindl = [
+        # Audio mute
         ", XF86AudioMute, exec, ${pamixer} -t && ${volume-update}"
 
         # Player control
         ", XF86AudioPlay, exec, ${playerctl} -p spotify play-pause"
         ", XF86AudioPrev, exec, ${playerctl} -p spotify previous"
         ", XF86AudioNext, exec, ${playerctl} -p spotify next"
+
+        # Brightness control
+        ", XF86MonBrightnessUp, exec, ${brightnessctl} set 5%+"
+        ", XF86MonBrightnessDown, exec, ${brightnessctl} set 5%-"
       ];
 
       bindm = [
