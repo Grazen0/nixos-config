@@ -28,10 +28,10 @@ keyset('n', '<A-k>', '<C-w>K')
 keyset('n', '<A-l>', '<C-w>L')
 
 -- Window resizing
-keyset('n', '<lt>', '<C-w><lt>')
-keyset('n', '>', '<C-w>>')
-keyset('n', '-', '<C-w>-')
-keyset('n', '+', '<C-w>+')
+keyset('n', '<A-,>', '<C-w><lt>')
+keyset('n', '<A-.>', '<C-w>>')
+keyset('n', '<A=->', '<C-w>-')
+keyset('n', '<A-=>', '<C-w>+')
 
 -- Soft line wrap movement
 keyset('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
@@ -43,19 +43,34 @@ keyset('n', '<leader>d', vim.diagnostic.open_float)
 -- Spell quick fix
 keyset('i', '<C-l>', '<C-g>u<Esc>[s1z=`]a<C-g>u')
 
--- Inkscape figures
-keyset(
-  'i',
-  '<C-f>',
-  "<Esc>: silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR><CR>:w<CR>"
-)
-keyset(
-  'n',
-  '<C-f>',
-  ": silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>"
-)
-
 -- Code action
 keyset('n', 'ga', function()
   vim.lsp.buf.code_action()
 end)
+
+-- Filetype-specific binds
+local function ft_keyset(ft, mode, lhs, rhs, opts)
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = ft,
+    callback = function()
+      opts = opts or {}
+      opts.buffer = true
+
+      keyset(mode, lhs, rhs, opts)
+    end,
+  })
+end
+
+-- Inkscape figures
+ft_keyset(
+  { 'tex', 'plaintex' },
+  'i',
+  '<C-f>',
+  "<Esc>: silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR><CR>:w<CR>"
+)
+ft_keyset(
+  { 'tex', 'plaintex' },
+  'n',
+  '<C-f>',
+  ": silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>"
+)

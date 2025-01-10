@@ -13,6 +13,11 @@
       black
       clang-tools
       isort
+      (mdformat.withPlugins (ps:
+        with ps; [
+          mdformat-frontmatter
+          mdformat-tables
+        ]))
       prettierd
       rustfmt
       stylua

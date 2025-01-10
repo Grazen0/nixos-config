@@ -20,6 +20,8 @@ require('conform').setup({
     bash = { 'beautysh' },
     zsh = { 'beautysh' },
     nix = { 'alejandra' },
+    markdown = { 'mdformat' },
+    quarto = { 'mdformat' },
   },
 
   format_on_save = function(bufnr)

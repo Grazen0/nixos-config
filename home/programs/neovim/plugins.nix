@@ -51,6 +51,7 @@
       comment-nvim
       undotree
       lazygit-nvim
+      bullets-vim
 
       # LSP
       conform-nvim

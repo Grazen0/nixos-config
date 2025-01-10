@@ -1,4 +1,5 @@
 require('plugins.editor.cmp')
+require('plugins.editor.autopairs')
 require('plugins.editor.multicursor')
 require('plugins.editor.neo-tree')
 require('plugins.editor.spectre')
@@ -6,8 +7,16 @@ require('plugins.editor.fzf-lua')
 require('plugins.editor.ultisnips')
 
 require('nvim-surround').setup()
-require('nvim-autopairs').setup()
 require('Comment').setup()
+
+-- bullets.vim
+vim.g.bullets_enabled_file_types = {
+  'markdown',
+  'text',
+  'gitcommit',
+  'scratch',
+  'quarto',
+}
 
 -- undotree
 vim.keymap.set('n', '<leader>u', '<cmd>UndotreeShow<CR>')
