@@ -18,7 +18,7 @@
       clang-tools
       isort
       (mdformat.withPlugins (_ps: [
-        customPkgs.mdformat-myst
+        customPkgs.mdformat-obsidian
       ]))
       prettierd
       rustfmt

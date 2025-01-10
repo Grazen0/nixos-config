@@ -103,5 +103,6 @@
       image-nvim
       r-nvim
       which-key-nvim
+      obsidian-nvim
     ];
 }

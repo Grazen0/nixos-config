@@ -141,8 +141,13 @@
       flake = false;
     };
 
-    mdformat-myst = {
-      url = "github:executablebooks/mdformat-myst";
+    mdformat-wikilink = {
+      url = "github:tmr232/mdformat-wikilink";
+      flake = false;
+    };
+
+    mdformat-obsidian = {
+      url = "github:KyleKing/mdformat-obsidian";
       flake = false;
     };
   };

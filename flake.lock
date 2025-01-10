@@ -201,19 +201,35 @@
         "type": "github"
       }
     },
-    "mdformat-myst": {
+    "mdformat-obsidian": {
       "flake": false,
       "locked": {
-        "lastModified": 1731544945,
-        "narHash": "sha256-Ty9QOsOTCNfhdLVuLfD0x63OFfHhODr14i/dhN+Sqnc=",
-        "owner": "executablebooks",
-        "repo": "mdformat-myst",
-        "rev": "7a40415f5eb2d550a2902f4712b83b7f76906a3d",
+        "lastModified": 1734279691,
+        "narHash": "sha256-ekbfLm8UVqxzxGrxTHDHO5jGPkTkTIkYdqMhCq0+Pdo=",
+        "owner": "KyleKing",
+        "repo": "mdformat-obsidian",
+        "rev": "22b1ae934ea2a33bbbe578e804fe734b266a9b4e",
         "type": "github"
       },
       "original": {
-        "owner": "executablebooks",
-        "repo": "mdformat-myst",
+        "owner": "KyleKing",
+        "repo": "mdformat-obsidian",
+        "type": "github"
+      }
+    },
+    "mdformat-wikilink": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711040795,
+        "narHash": "sha256-KOPh9iZfb3GCvslQeYBgqNaOyqtWi2llkaiWE7nmcJo=",
+        "owner": "tmr232",
+        "repo": "mdformat-wikilink",
+        "rev": "257c712c705fc263cb6afaf1238a4e16f098628b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tmr232",
+        "repo": "mdformat-wikilink",
         "type": "github"
       }
     },
@@ -387,7 +403,8 @@
         "hyprland-qtutils": "hyprland-qtutils",
         "inkscape-figures": "inkscape-figures",
         "kanagawa-rstudio": "kanagawa-rstudio",
-        "mdformat-myst": "mdformat-myst",
+        "mdformat-obsidian": "mdformat-obsidian",
+        "mdformat-wikilink": "mdformat-wikilink",
         "menu-qalc": "menu-qalc",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

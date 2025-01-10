@@ -2,13 +2,17 @@
   pkgs ? import <nixpkgs> {},
   inputs,
   ...
-}: {
+}: rec {
   # Existing packages
   menu-qalc = pkgs.callPackage ./menu-qalc.nix {src = inputs.menu-qalc;};
 
   # Python packages
   inkscape-figures = pkgs.python3Packages.callPackage ./inkscape-figures.nix {src = inputs.inkscape-figures;};
-  mdformat-myst = pkgs.python3Packages.callPackage ./mdformat-myst.nix {src = inputs.mdformat-myst;};
+  mdformat-wikilink = pkgs.python3Packages.callPackage ./mdformat-wikilink.nix {src = inputs.mdformat-wikilink;};
+  mdformat-obsidian = pkgs.python3Packages.callPackage ./mdformat-obsidian.nix {
+    inherit mdformat-wikilink;
+    src = inputs.mdformat-obsidian;
+  };
 
   # My own stuff
   close-window = pkgs.callPackage ./close-window.nix {};
