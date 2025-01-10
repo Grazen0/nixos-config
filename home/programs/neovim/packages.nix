@@ -13,7 +13,6 @@
       # Conform formatters
       alejandra
       beautysh
-      bibtex-tidy
       black
       clang-tools
       isort
