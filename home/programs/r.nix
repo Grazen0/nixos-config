@@ -49,6 +49,7 @@
       psych
       corrplot
       scales
+      tidyverse
       quarto
       colorout
       r-nvim
