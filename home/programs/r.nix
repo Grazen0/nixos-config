@@ -44,7 +44,11 @@
       };
     in [
       ggplot2
+      dplyr
       readr
+      psych
+      corrplot
+      scales
       quarto
       colorout
       r-nvim
