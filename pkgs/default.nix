@@ -5,7 +5,9 @@
 }: {
   # Existing packages
   menu-qalc = pkgs.callPackage ./menu-qalc.nix {src = inputs.menu-qalc;};
-  inkscape-figures = pkgs.python312Packages.callPackage ./inkscape-figures.nix {src = inputs.inkscape-figures;};
+
+  # Python packages
+  inkscape-figures = pkgs.python3Packages.callPackage ./inkscape-figures.nix {src = inputs.inkscape-figures;};
 
   # My own stuff
   close-window = pkgs.callPackage ./close-window.nix {};
