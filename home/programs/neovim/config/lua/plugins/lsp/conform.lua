@@ -11,8 +11,6 @@ require('conform').setup({
     python = { 'isort', 'black' },
     lua = { 'stylua' },
     rust = { 'rustfmt' },
-    tex = { 'bibtex-tidy' },
-    plaintex = { 'bibtex-tidy' },
     c = { 'clang-format' },
     cpp = { 'clang-format' },
     yaml = { 'prettierd' },
@@ -22,13 +20,21 @@ require('conform').setup({
     nix = { 'alejandra' },
     markdown = { 'mdformat' },
     quarto = { 'mdformat' },
+    r = { 'styler' },
   },
-
   format_on_save = function(bufnr)
     -- Disable with a global or buffer-local variable
     if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
       return
     end
-    return { timeout_ms = 1000, lsp_format = 'fallback' }
+
+    return {
+      timeout_ms = 2000,
+      lsp_format = 'fallback',
+    }
   end,
+  formatters = {
+    -- styler doesn't modify in-place
+    styler = { stdin = true },
+  },
 })
