@@ -30,6 +30,8 @@
         "QT_GPA_PLATFORM,wayland"
         "NIXOS_OZONE_WL,1"
         "WLR_NO_HARDWARE_CURSORS,1"
+        # idc, this is for a local server
+        "OBSIDIAN_REST_API_KEY,fcaf7dede9cdedd5bbbb8e1d2889cf88974d7ed5340b1f225a01a50e8faa444e"
       ];
     };
 

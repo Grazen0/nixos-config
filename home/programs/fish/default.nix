@@ -65,8 +65,6 @@
     interactiveShellInit = ''
       # Environment variables
       set -x APHRODITE_THEME_SHOW_TIME yes
-      # idc, this is for a local server
-      set -x OBSIDIAN_REST_API_KEY 'fcaf7dede9cdedd5bbbb8e1d2889cf88974d7ed5340b1f225a01a50e8faa444e'
 
       source ${inputs.aphrodite-terminal-theme}/fish_prompt.fish
 
