@@ -3,6 +3,9 @@
   customPkgs,
   ...
 }: {
+  # Needed for obsidian.nvim, dang it
+  home.packages = with pkgs; [wl-clipboard];
+
   programs.neovim = {
     extraPackages = with pkgs; [
       # Essentials
