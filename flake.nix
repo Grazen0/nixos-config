@@ -126,6 +126,11 @@
       flake = false;
     };
 
+    nvim-plugin-obsidian-bridge = {
+      url = "github:oflisback/obsidian-bridge.nvim";
+      flake = false;
+    };
+
     grkstyle = {
       url = "github:gadenbuie/grkstyle";
       flake = false;

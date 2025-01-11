@@ -16,7 +16,7 @@ obsidian.setup({
       opts = { noremap = false, expr = true, buffer = true },
     },
     -- Toggle check-boxes.
-    ['<leader>ch'] = {
+    ['<localleader>ch'] = {
       action = function()
         return obsidian.util.toggle_checkbox()
       end,
@@ -29,11 +29,19 @@ obsidian.setup({
       end,
       opts = { buffer = true, expr = true },
     },
+    ['<localleader>on'] = { action = '<cmd>ObsidianNew<CR>' },
     ['<localleader>oo'] = { action = '<cmd>ObsidianOpen<CR>' },
     ['<localleader>of'] = { action = '<cmd>ObsidianQuickSwitch<CR>' },
     ['<localleader>og'] = { action = '<cmd>ObsidianSearch<CR>' },
-    ['<localleader>or'] = { action = '<cmd>ObsidianRename<CR>' },
-    ['<localleader>op'] = { action = '<cmd>ObsidianPasteImg<CR>' }, -- TODO: dynamically find nearest resources directory
+    ['<localleader>or'] = {
+      action = '<cmd>ObsidianRename<CR>',
+      opts = { buffer = true },
+    },
+    -- TODO: dynamically find nearest resources directory
+    ['<localleader>op'] = {
+      action = '<cmd>ObsidianPasteImg<CR>',
+      opts = { buffer = true },
+    },
   },
   ui = { enable = false },
   disable_frontmatter = true,
@@ -41,10 +49,12 @@ obsidian.setup({
   attachments = {
     img_folder = '',
   },
-  follow_url_func = function(img)
-    vim.fn.jobstart({ 'xdg-open', img })
+  follow_url_func = function(url)
+    vim.fn.jobstart({ 'xdg-open', url })
   end,
   follow_img_func = function(img)
     vim.fn.jobstart({ 'xdg-open', img })
   end,
 })
+
+require('obsidian-bridge').setup({ scroll_sync = true })

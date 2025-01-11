@@ -31,6 +31,12 @@
       src = inputs.nvim-plugin-cmp-r;
       dependencies = with vimPlugins; [nvim-cmp];
     };
+
+    obsidian-bridge-nvim = buildVimPlugin {
+      name = "obsidian-bridge-nvim";
+      src = inputs.nvim-plugin-obsidian-bridge;
+      dependencies = with vimPlugins; [plenary-nvim telescope-nvim obsidian-nvim];
+    };
   in
     with vimPlugins; [
       # Editor
@@ -105,5 +111,6 @@
       r-nvim
       which-key-nvim
       obsidian-nvim
+      obsidian-bridge-nvim
     ];
 }

@@ -361,6 +361,22 @@
         "type": "github"
       }
     },
+    "nvim-plugin-obsidian-bridge": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733857439,
+        "narHash": "sha256-C5cKjcb3kmwNOU4cC++yCn6ByrUPutOReeqhqwS910E=",
+        "owner": "oflisback",
+        "repo": "obsidian-bridge.nvim",
+        "rev": "a1b97404a7f22c6a5d43a36c52cc33926a903bae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oflisback",
+        "repo": "obsidian-bridge.nvim",
+        "type": "github"
+      }
+    },
     "nvim-plugin-r-nvim": {
       "flake": false,
       "locked": {
@@ -413,6 +429,7 @@
         "nvim-plugin-cmp-r": "nvim-plugin-cmp-r",
         "nvim-plugin-live-share": "nvim-plugin-live-share",
         "nvim-plugin-multicursor": "nvim-plugin-multicursor",
+        "nvim-plugin-obsidian-bridge": "nvim-plugin-obsidian-bridge",
         "nvim-plugin-r-nvim": "nvim-plugin-r-nvim",
         "r-nvim": "r-nvim",
         "spicetify-nix": "spicetify-nix",
