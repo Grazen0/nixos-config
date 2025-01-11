@@ -71,14 +71,14 @@ vim.api.nvim_create_autocmd(
         and vim.fn.getbufvar(buf, '&filetype') == 'markdown'
         and obsidian.get_client():current_note() ~= nil
       then
-        local tmp_autoformat = vim.b.disable_autoformat
-        vim.b.disable_autoformat = true
-
         vim.api.nvim_buf_call(buf, function()
-          vim.cmd('silent write')
-        end)
+          local tmp_autoformat = vim.b.disable_autoformat
+          vim.b[buf].disable_autoformat = true
 
-        vim.b.disable_autoformat = tmp_autoformat
+          vim.cmd('silent write')
+
+          vim.b[buf].disable_autoformat = tmp_autoformat
+        end)
       end
     end,
   }
