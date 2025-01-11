@@ -3,21 +3,25 @@ npairs.setup()
 
 local Rule = require('nvim-autopairs.rule')
 local cond = require('nvim-autopairs.conds')
+-- a**
 
 npairs.add_rules({
   -- Markdown stuff
-  Rule('$', '$', { 'markdown', 'vimwiki', 'quarto' }):with_move(
-    cond.not_before_text('$')
-  ),
-  Rule('*', '*', { 'markdown', 'vimwiki', 'quarto' }):with_move(
-    cond.not_before_text('*')
-  ),
-  Rule('_', '_', { 'markdown', 'vimwiki', 'quarto' }):with_move(
-    cond.not_before_text('_')
-  ),
-  Rule('~', '~', { 'markdown', 'vimwiki', 'quarto' }):with_move(
-    cond.not_before_text('~')
-  ),
+  Rule('$', '$', { 'markdown', 'vimwiki', 'quarto' })
+    :with_move(cond.not_before_text('$'))
+    :with_pair(cond.not_before_regex('%a+:?:?$', 3)),
+  Rule('*', '*', { 'markdown', 'vimwiki', 'quarto' })
+    :with_move(cond.not_before_text('*'))
+    :with_pair(cond.not_before_regex('%a+:?:?$', 3)),
+  Rule('_', '_', { 'markdown', 'vimwiki', 'quarto' })
+    :with_move(cond.not_before_text('_'))
+    :with_pair(cond.not_before_regex('%a+:?:?$', 3)),
+  Rule('~~', '~~', { 'markdown', 'vimwiki', 'quarto' })
+    :with_move(cond.not_before_text('~'))
+    :with_pair(cond.not_before_regex('%a+:?:?$', 3)),
+  Rule('==', '==', { 'markdown', 'vimwiki', 'quarto' })
+    :with_move(cond.not_before_text('~'))
+    :with_pair(cond.not_before_regex('%a+:?:?$', 3)),
 
   -- Generics
   Rule('<', '>', {
