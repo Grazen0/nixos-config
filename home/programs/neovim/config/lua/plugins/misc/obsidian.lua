@@ -58,3 +58,28 @@ obsidian.setup({
 })
 
 require('obsidian-bridge').setup({ scroll_sync = true })
+
+vim.api.nvim_create_autocmd(
+  { 'InsertLeave', 'TextChanged', 'TextChangedI', 'TextChangedP' },
+  {
+    pattern = '*.md',
+    callback = function(args)
+      local buf = args.buf
+
+      if
+        vim.fn.getbufvar(buf, '&modifiable') == 1
+        and vim.fn.getbufvar(buf, '&filetype') == 'markdown'
+        and obsidian.get_client():current_note() ~= nil
+      then
+        local tmp_autoformat = vim.b.disable_autoformat
+        vim.b.disable_autoformat = true
+
+        vim.api.nvim_buf_call(buf, function()
+          vim.cmd('silent write')
+        end)
+
+        vim.b.disable_autoformat = tmp_autoformat
+      end
+    end,
+  }
+)
