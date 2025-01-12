@@ -74,8 +74,6 @@
         name = "nvimcom";
         src = "${inputs.nvim-plugin-r-nvim}/nvimcom";
         propagatedBuildInputs = with pkgs.rPackages; [
-          methods
-          tools
           knitr
           rmarkdown
           quarto
