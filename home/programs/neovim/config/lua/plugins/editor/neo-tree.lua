@@ -52,14 +52,14 @@ require('neo-tree').setup({
       d = function(state)
         local inputs = require('neo-tree.ui.inputs')
         local node = state.tree:get_node()
-        local msg = 'Delete ' .. node.name .. '?'
+        local msg = 'Trash ' .. node.path .. '?'
 
         inputs.confirm(msg, function(confirmed)
           if not confirmed then
             return
           end
 
-          vim.fn.system({ 'trash', vim.fn.fnameescape(node.path) })
+          vim.fn.system({ 'trash', node.path })
           require('neo-tree.sources.manager').refresh(state.name)
         end)
       end,
@@ -99,8 +99,5 @@ require('neo-tree').setup({
     },
   },
 })
-
--- Needed so that the cursor gets hidden
-vim.cmd('set guicursor+=a:Cursor/lCursor')
 
 vim.keymap.set('n', '<leader>e', '<cmd>Neotree<CR>', { desc = 'Open Neo-tree' })
