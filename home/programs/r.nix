@@ -69,6 +69,18 @@
         name = "colorout";
         src = inputs.colorout;
       };
+
+      nvimcom = buildRPackage {
+        name = "nvimcom";
+        src = "${inputs.nvim-plugin-r-nvim}/nvimcom";
+        propagatedBuildInputs = with pkgs.rPackages; [
+          methods
+          tools
+          knitr
+          rmarkdown
+          quarto
+        ];
+      };
     in [
       ggplot2
       dplyr
@@ -81,6 +93,7 @@
       quarto
       colorout
       r-nvim
+      nvimcom
     ];
 
     rstudio = {
