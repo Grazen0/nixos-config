@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   imports = [
     ./hardware
     ./packages
@@ -14,7 +14,7 @@
 
   networking.networkmanager.enable = true;
 
-  time.timeZone = "America/Lima";
+  time.timeZone = lib.mkDefault "America/Lima";
   i18n.defaultLocale = "en_US.UTF-8";
 
   services.xserver.displayManager.gdm = {
