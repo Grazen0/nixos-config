@@ -22,13 +22,6 @@ obsidian.setup({
       end,
       opts = { buffer = true },
     },
-    -- Smart action depending on context, either follow link or toggle checkbox.
-    ['<cr>'] = {
-      action = function()
-        return obsidian.util.smart_action()
-      end,
-      opts = { buffer = true, expr = true },
-    },
     ['<localleader>on'] = { action = '<cmd>ObsidianNew<CR>' },
     ['<localleader>oo'] = { action = '<cmd>ObsidianOpen<CR>' },
     ['<localleader>of'] = { action = '<cmd>ObsidianQuickSwitch<CR>' },
