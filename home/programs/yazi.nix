@@ -17,7 +17,6 @@
         "smart-enter"
         "max-preview"
         "git"
-        "jump-to-char"
       ] (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
       // {
         relative-motions = inputs.yazi-plugin-relative-motions;
@@ -59,11 +58,6 @@
           on = "T";
           run = "plugin max-preview";
           desc = "Maximize or restore preview";
-        }
-        {
-          on = "f";
-          run = "plugin jump-to-char";
-          desc = "Jump to char";
         }
         {
           on = "<C-n>";
