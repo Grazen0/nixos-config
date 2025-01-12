@@ -11,6 +11,7 @@ in {
 
   programs = {
     foot.settings.main.font = mkForce "${config.theme.font.regular}:size=10:weight=semibold";
+    kitty.font.size = mkForce 10;
 
     spicetify.enable = mkForce false;
   };
