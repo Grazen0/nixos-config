@@ -3,6 +3,7 @@ require('r').setup({
   objbr_place = 'console,below',
   objbr_h = 15,
   R_args = { '--quiet', '--no-save' },
+  pipe_keymap = '<A-\\>',
 })
 
 local buf_create_user_command = vim.api.nvim_buf_create_user_command
