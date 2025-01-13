@@ -75,6 +75,10 @@ create_autocmd('FileType', {
     'typescriptreact',
     'lua',
     'svelte',
+    'r',
+    'markdown',
+    'vimwiki',
+    'quarto',
   },
   callback = function()
     vim.opt_local.shiftwidth = 2
@@ -95,5 +99,14 @@ create_autocmd({ 'BufNew', 'BufNewFile', 'BufRead' }, {
   pattern = { '*.inc' },
   callback = function()
     vim.bo.filetype = 'asm'
+  end,
+})
+
+-- Disable line numbers for terminal buffers
+create_autocmd('TermOpen', {
+  pattern = '*',
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
   end,
 })
