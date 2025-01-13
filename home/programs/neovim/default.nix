@@ -4,7 +4,10 @@
     ./packages.nix
   ];
 
-  xdg.configFile.nvim.source = ./config;
+  xdg.configFile.nvim = {
+    source = ./config;
+    recursive = true; # Neovim might try to write stuff here
+  };
 
   programs.neovim = {
     enable = true;

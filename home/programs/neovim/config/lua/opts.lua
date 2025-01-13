@@ -32,3 +32,4 @@ o.mouse = 'a' -- No shame
 o.splitright = true
 o.undofile = true
 o.updatetime = 300
+o.spelllang = 'es,en_us'

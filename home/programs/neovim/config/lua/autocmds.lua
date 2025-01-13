@@ -21,6 +21,14 @@ create_autocmd('FileType', {
   command = 'wincmd L',
 })
 
+-- Enable spellcheck for some filetypes
+create_autocmd('FileType', {
+  pattern = { 'plaintex', 'tex', 'markdown', 'quarto' },
+  callback = function()
+    vim.opt_local.spell = true
+  end,
+})
+
 -- Use relative numbers only on focused buffer
 create_autocmd({ 'WinEnter', 'FocusGained' }, {
   pattern = '*',
