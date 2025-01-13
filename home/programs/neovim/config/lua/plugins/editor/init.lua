@@ -17,6 +17,7 @@ vim.g.bullets_enabled_file_types = {
   'scratch',
   'quarto',
 }
+vim.g.bullets_outline_levels = { 'std-' }
 
 -- undotree
 vim.keymap.set('n', '<leader>u', '<cmd>UndotreeShow<CR>')
