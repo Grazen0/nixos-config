@@ -38,6 +38,8 @@
               verbose  = FALSE
             )
           }
+
+          options(browser = "xdg-open")
         }
       '';
 
