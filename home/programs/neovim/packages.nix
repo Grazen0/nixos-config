@@ -47,10 +47,11 @@
       vscode-langservers-extracted # HTML, CSS, JSON
       yaml-language-server
 
-      # Misc
+      # Plugin-specifics
       xxd # hex-nvim
       texlive.combined.scheme-full # vimtex
       imagemagick # image.nvim
+      quarto # r.nvim
     ];
 
     extraLuaPackages = ps:
