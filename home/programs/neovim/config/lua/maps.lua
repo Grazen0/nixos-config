@@ -30,7 +30,7 @@ keyset('n', '<A-l>', '<C-w>L')
 -- Window resizing
 keyset('n', '<A-,>', '<C-w><lt>')
 keyset('n', '<A-.>', '<C-w>>')
-keyset('n', '<A=->', '<C-w>-')
+keyset('n', '<A-->', '<C-w>-')
 keyset('n', '<A-=>', '<C-w>+')
 
 -- Soft line wrap movement
