@@ -5,9 +5,13 @@ require('plugins.editor.neo-tree')
 require('plugins.editor.spectre')
 require('plugins.editor.fzf-lua')
 require('plugins.editor.ultisnips')
+require('plugins.editor.yazi')
 
 require('nvim-surround').setup()
 require('Comment').setup()
+
+-- yazi.nvim
+vim.keymap.set('n', '<leader>-', '<cmd>Yazi<CR>')
 
 -- bullets.vim
 vim.g.bullets_enabled_file_types = {

@@ -49,6 +49,7 @@
       cmp-r
       multicursor-nvim
       neo-tree-nvim
+      yazi-nvim
       fzf-lua
       nvim-spectre
       ultisnips
@@ -89,7 +90,7 @@
       nvim-window-picker
       tailwindcss-colors-nvim
       tiny-devicons-auto-colors-nvim
-      hmts-nvim
+      # hmts-nvim
       indent-blankline-nvim
       vim-illuminate
       dressing-nvim
