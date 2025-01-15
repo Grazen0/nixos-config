@@ -9,8 +9,11 @@ create_user_command('Q', 'q', {})
 create_user_command('Qa', 'qa', {})
 
 -- Format bufffer
+local conform = require('conform')
+
 create_user_command('Format', function(args)
   local range = nil
+
   if args.count ~= -1 then
     local end_line =
       vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
@@ -19,7 +22,8 @@ create_user_command('Format', function(args)
       ['end'] = { args.line2, end_line:len() },
     }
   end
-  require('conform').format({
+
+  conform.format({
     async = true,
     lsp_format = 'fallback',
     range = range,
@@ -41,13 +45,34 @@ create_user_command('FormatDisable', function(args)
   end
 end, { bang = true })
 
--- Close all buffers except current
-create_user_command('Zen', '%bd|e#|bd#', {})
+-- Save without formatting
+create_user_command('Mfw', function()
+  local prev = vim.b.disable_autoformat
+  vim.b.disable_autoformat = true
+
+  vim.cmd('write')
+
+  vim.b.disable_autoformat = prev
+end, {})
 
 -- Sessions
+local MiniSessions = require('mini.sessions')
+
 create_user_command('SessionWrite', function(opts)
-  MiniSessions.write(opts.args)
-end, { nargs = 1 })
+  local session_name = opts.args
+
+  if session_name == '' then
+    session_name = vim.fn.input('Enter the session name: ')
+    vim.fn.redraw()
+
+    if session_name == '' then
+      vim.print('Session name cannot be empty.')
+      return
+    end
+  end
+
+  MiniSessions.write(session_name)
+end, { nargs = '?' })
 
 create_user_command('SessionDelete', function(opts)
   if opts.args == '' then
