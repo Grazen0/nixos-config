@@ -11,6 +11,7 @@ require('kanagawa').setup({
   },
   overrides = function(colors)
     local theme = colors.theme
+    local palette = colors.palette
 
     return {
       -- Transparent floating windows
@@ -28,7 +29,7 @@ require('kanagawa').setup({
       PmenuSbar = { bg = theme.ui.bg_m1 },
       PmenuThumb = { bg = theme.ui.bg_p2 },
 
-      -- Bufferline fixes
+      -- bufferline.nvim fixes
       BufferLineFill = { bg = theme.ui.bg_m1 },
       BufferLineSeparator = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
       BufferLineSeparatorSelected = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
@@ -36,6 +37,13 @@ require('kanagawa').setup({
 
       -- fzf-lua border
       FzfLuaborder = { link = 'FloatBorder' },
+
+      -- markview.nvim custom callouts
+      MarkviewBlockQuoteDefinition = { fg = palette.carpYellow },
+      MarkviewBlockQuoteTheorem = { fg = palette.oniViolet },
+      MarkviewBlockQuoteProperty = { fg = palette.springGreen },
+      MarkviewBlockQuoteProof = { fg = palette.springBlue },
+      MarkviewBlockQuoteExercise = { fg = palette.surimiOrange },
     }
   end,
 })

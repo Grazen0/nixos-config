@@ -1,5 +1,6 @@
 local utils = require('utils')
 local obsidian = require('obsidian')
+local obsidian_bridge = require('obsidian-bridge')
 
 local function opener(fileOrUrl)
   vim.fn.jobstart({ 'xdg-open', fileOrUrl })
@@ -101,10 +102,20 @@ obsidian.setup({
 
   attachments = { img_folder = 'attachments' },
 
+  templates = {
+    folder = 'vault/templates',
+    substitutions = {
+      date_text = function()
+        return '%B %-d, %Y'
+      end,
+    },
+  },
+
   daily_notes = {
     folder = 'dailies',
     alias_format = '%B %-d, %Y',
     default_tags = { 'daily' },
+    template = 'vault/templates/daily.md',
   },
 
   follow_url_func = opener,
@@ -115,7 +126,7 @@ obsidian.setup({
 
   callbacks = {
     post_setup = function()
-      require('obsidian-bridge').setup({ scroll_sync = true })
+      obsidian_bridge.setup({ scroll_sync = true })
     end,
 
     post_set_workspace = function()
@@ -125,6 +136,7 @@ obsidian.setup({
       keyset('n', '<localleader>of', '<cmd>ObsidianQuickSwitch<CR>')
       keyset('n', '<localleader>og', '<cmd>ObsidianSearch<CR>')
       keyset('n', '<localleader>ot', '<cmd>ObsidianTags<CR>')
+      keyset('n', '<localleader>od', '<cmd>ObsidianDailies<CR>')
     end,
   },
 })
