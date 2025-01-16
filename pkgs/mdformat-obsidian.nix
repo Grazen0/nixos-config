@@ -7,8 +7,10 @@
   mdit-py-plugins,
   mdformat-beautysh,
   mdformat-frontmatter,
+  mdformat-ruff,
   mdformat-simple-breaks,
   mdformat-tables,
+  mdformat-web,
   mdformat-wikilink,
   setuptools,
   pytestCheckHook,
@@ -33,8 +35,10 @@ buildPythonPackage {
     mdit-py-plugins
     mdformat-beautysh
     mdformat-frontmatter
+    mdformat-ruff
     mdformat-simple-breaks
     mdformat-tables
+    mdformat-web
     mdformat-wikilink
     setuptools
   ];

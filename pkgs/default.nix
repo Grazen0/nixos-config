@@ -8,9 +8,11 @@
 
   # Python packages
   inkscape-figures = pkgs.python3Packages.callPackage ./inkscape-figures.nix {src = inputs.inkscape-figures;};
+  mdformat-ruff = pkgs.python3Packages.callPackage ./mdformat-ruff.nix {src = inputs.mdformat-ruff;};
+  mdformat-web = pkgs.python3Packages.callPackage ./mdformat-web.nix {src = inputs.mdformat-web;};
   mdformat-wikilink = pkgs.python3Packages.callPackage ./mdformat-wikilink.nix {src = inputs.mdformat-wikilink;};
   mdformat-obsidian = pkgs.python3Packages.callPackage ./mdformat-obsidian.nix {
-    inherit mdformat-wikilink;
+    inherit mdformat-ruff mdformat-web mdformat-wikilink;
     src = inputs.mdformat-obsidian;
   };
 

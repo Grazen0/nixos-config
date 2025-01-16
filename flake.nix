@@ -146,6 +146,21 @@
       flake = false;
     };
 
+    mdformat-config = {
+      url = "github:hukkin/mdformat-config";
+      flake = false;
+    };
+
+    mdformat-ruff = {
+      url = "github:Freed-Wu/mdformat-ruff";
+      flake = false;
+    };
+
+    mdformat-web = {
+      url = "github:hukkin/mdformat-web";
+      flake = false;
+    };
+
     mdformat-wikilink = {
       url = "github:tmr232/mdformat-wikilink";
       flake = false;

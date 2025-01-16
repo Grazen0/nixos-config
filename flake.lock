@@ -227,6 +227,22 @@
         "type": "github"
       }
     },
+    "mdformat-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729280414,
+        "narHash": "sha256-v6xtU6qZMhUnWFcCJOm9CcmLe6nKxmV9qGDM8o8MPe4=",
+        "owner": "hukkin",
+        "repo": "mdformat-config",
+        "rev": "9c1509c3ee7818de2048a1a6c704cc65de1f05de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hukkin",
+        "repo": "mdformat-config",
+        "type": "github"
+      }
+    },
     "mdformat-obsidian": {
       "flake": false,
       "locked": {
@@ -240,6 +256,38 @@
       "original": {
         "owner": "KyleKing",
         "repo": "mdformat-obsidian",
+        "type": "github"
+      }
+    },
+    "mdformat-ruff": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1707613276,
+        "narHash": "sha256-TvLYw2HHWrRpfdOH7m6vpR/nzTodK/xLCJ5/sOoESj4=",
+        "owner": "Freed-Wu",
+        "repo": "mdformat-ruff",
+        "rev": "6cd00a4d513758d487fa782ab4cac8f1a61e842d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Freed-Wu",
+        "repo": "mdformat-ruff",
+        "type": "github"
+      }
+    },
+    "mdformat-web": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729007967,
+        "narHash": "sha256-BIHXMIx52mW9Ih9FSWUA8H5huaxrWE+S+zFit7nml2E=",
+        "owner": "hukkin",
+        "repo": "mdformat-web",
+        "rev": "e3297644b39ce997e2c6910d9fc7cf6fa0243a86",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hukkin",
+        "repo": "mdformat-web",
         "type": "github"
       }
     },
@@ -445,7 +493,10 @@
         "hyprland-qtutils": "hyprland-qtutils",
         "inkscape-figures": "inkscape-figures",
         "kanagawa-rstudio": "kanagawa-rstudio",
+        "mdformat-config": "mdformat-config",
         "mdformat-obsidian": "mdformat-obsidian",
+        "mdformat-ruff": "mdformat-ruff",
+        "mdformat-web": "mdformat-web",
         "mdformat-wikilink": "mdformat-wikilink",
         "menu-qalc": "menu-qalc",
         "nixos-hardware": "nixos-hardware",
