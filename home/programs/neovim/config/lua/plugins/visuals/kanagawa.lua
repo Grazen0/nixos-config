@@ -1,3 +1,12 @@
+local utils = require('utils')
+
+local function markview_heading(theme, fg_color)
+  return {
+    fg = fg_color,
+    bg = utils.blend_colors(fg_color, theme.ui.bg, 0.7),
+  }
+end
+
 require('kanagawa').setup({
   transparent = true,
   colors = {
@@ -38,7 +47,13 @@ require('kanagawa').setup({
       -- fzf-lua border
       FzfLuaborder = { link = 'FloatBorder' },
 
-      -- markview.nvim custom callouts
+      -- markview.nvim headings and custom callouts
+      MarkviewHeading1 = markview_heading(theme, palette.peachRed),
+      MarkviewHeading2 = markview_heading(theme, palette.surimiOrange),
+      MarkviewHeading3 = markview_heading(theme, palette.carpYellow),
+      MarkviewHeading4 = markview_heading(theme, palette.springGreen),
+      MarkviewHeading5 = markview_heading(theme, palette.springBlue),
+      MarkviewHeading6 = markview_heading(theme, palette.springViolet1),
       MarkviewBlockQuoteDefinition = { fg = palette.carpYellow },
       MarkviewBlockQuoteTheorem = { fg = palette.oniViolet },
       MarkviewBlockQuoteProperty = { fg = palette.springGreen },
