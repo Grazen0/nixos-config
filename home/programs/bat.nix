@@ -7,7 +7,7 @@
     themes = {
       kanagawa = {
         src = pkgs.vimPlugins.kanagawa-nvim;
-        file = "extras/kanagawa.tmTheme";
+        file = "extras/tmTheme/kanagawa.tmTheme";
       };
     };
   };
