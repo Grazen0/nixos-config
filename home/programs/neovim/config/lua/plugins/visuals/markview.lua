@@ -1,43 +1,27 @@
+local function custom_callout(name, icon)
+  local capitalized_name = name:sub(1, 1):upper() .. name:sub(2)
+
+  return {
+    match_string = name:upper(),
+    hl = 'MarkviewBlockQuote' .. capitalized_name,
+    preview = icon .. ' ' .. capitalized_name,
+    icon = icon .. ' ',
+    border = '▋',
+  }
+end
+
 require('markview').setup({
   hybrid_modes = { 'n' },
 
   block_quotes = {
     callouts = {
-      {
-        match_string = 'DEFINITION',
-        hl = 'MarkviewBlockQuoteDefinition',
-        preview = ' Definition',
-        icon = ' ',
-        border = '▋',
-      },
-      {
-        match_string = 'THEOREM',
-        hl = 'MarkviewBlockQuoteTheorem',
-        preview = ' Theorem',
-        icon = ' ',
-        border = '▋',
-      },
-      {
-        match_string = 'PROPERTY',
-        hl = 'MarkviewBlockQuoteProperty',
-        preview = ' Property',
-        icon = ' ',
-        border = '▋',
-      },
-      {
-        match_string = 'PROOF',
-        hl = 'MarkviewBlockQuoteProof',
-        preview = ' Proof',
-        icon = ' ',
-        border = '▋',
-      },
-      {
-        match_string = 'EXERCISE',
-        hl = 'MarkviewBlockQuoteExercise',
-        preview = ' Exercise',
-        icon = ' ',
-        border = '▋',
-      },
+      custom_callout('definition', ''),
+      custom_callout('theorem', ''),
+      custom_callout('lemma', ''),
+      custom_callout('corollary', ''),
+      custom_callout('property', ''),
+      custom_callout('proof', ''),
+      custom_callout('exercise', ''),
     },
   },
 })

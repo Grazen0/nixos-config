@@ -56,6 +56,8 @@ require('kanagawa').setup({
       MarkviewHeading6 = markview_heading(theme, palette.springViolet1),
       MarkviewBlockQuoteDefinition = { fg = palette.carpYellow },
       MarkviewBlockQuoteTheorem = { fg = palette.oniViolet },
+      MarkviewBlockQuoteLemma = { fg = palette.springViolet1 },
+      MarkviewBlockQuoteCorollary = { fg = palette.springViolet1 },
       MarkviewBlockQuoteProperty = { fg = palette.springGreen },
       MarkviewBlockQuoteProof = { fg = palette.springBlue },
       MarkviewBlockQuoteExercise = { fg = palette.surimiOrange },
