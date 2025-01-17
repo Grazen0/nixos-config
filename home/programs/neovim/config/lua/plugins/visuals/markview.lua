@@ -20,6 +20,7 @@ require('markview').setup({
       custom_callout('lemma', ''),
       custom_callout('corollary', ''),
       custom_callout('property', ''),
+      custom_callout('observation', ''),
       custom_callout('proof', ''),
       custom_callout('exercise', ''),
     },

@@ -59,6 +59,7 @@ require('kanagawa').setup({
       MarkviewBlockQuoteLemma = { fg = palette.springViolet1 },
       MarkviewBlockQuoteCorollary = { fg = palette.springViolet1 },
       MarkviewBlockQuoteProperty = { fg = palette.springGreen },
+      MarkviewBlockQuoteObservation = { fg = palette.springGreen },
       MarkviewBlockQuoteProof = { fg = palette.springBlue },
       MarkviewBlockQuoteExercise = { fg = palette.surimiOrange },
     }
