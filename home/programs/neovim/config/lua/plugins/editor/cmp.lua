@@ -25,8 +25,12 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
-    ['<C-n>'] = with_fallback(cmp.select_next_item),
-    ['<C-p>'] = with_fallback(cmp.select_prev_item),
+    ['<C-p>'] = cmp.mapping.select_prev_item({
+      behavior = cmp.SelectBehavior.Select,
+    }),
+    ['<C-n>'] = cmp.mapping.select_next_item({
+      behavior = cmp.SelectBehavior.Select,
+    }),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
