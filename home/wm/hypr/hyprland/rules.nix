@@ -1,55 +1,72 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   wayland.windowManager.hyprland.settings = let
     colors = config.theme.colors.hex;
   in {
     windowrule = [
-      # Floating apps
-      "float, ^([Tt]hunar)$"
-      "float, ^(org.pulseaudio.pavucontrol)$"
-      "float, ^(.blueman-manager-wrapped)$"
-      "float, ^(org.gnome.FileRoller)$"
-      "float, ^(nm-connection-editor)$"
-      "float, title:^(Steam Settings)$"
-      "float, ^(swayimg)$"
-      "float, ^(fceux)$"
-
-      # Dialogs
-      "center, title:^(Open File)(.*)$"
-      "center, title:^(Select a File)(.*)$"
-      "center, title:^(Choose wallpaper)(.*)$"
-      "center, title:^(Open Folder)(.*)$"
-      "center, title:^(Save As)(.*)$"
-      "center, title:^(Library)(.*)$"
-      "center, title:^(File Upload)(.*)$"
-      "float, title:^(Open File)(.*)$"
-      "float, title:^(Select a File)(.*)$"
-      "float, title:^(Choose wallpaper)(.*)$"
-      "float, title:^(Open Folder)(.*)$"
-      "float, title:^(Save As)(.*)$"
-      "float, title:^(Library)(.*)$"
-      "float, title:^(File Upload)(.*)$"
-
-      # Sizing
-      "size 960 540, ^([Tt]hunar)$"
-      "size 75% 75%, ^(swayimg)$"
-      "size 75% 75%, ^(org.pulseaudio.pavucontrol)$"
-      "size 639 612, ^(fceux)$"
-
-      # Workspace-specific programs
-      "workspace 6, ^(.*)(\.zapzap)$"
-      "workspace 7, ^(equibop)$"
-      "workspace 10, ^(spotify)$"
     ];
 
-    windowrulev2 = [
-      # Don't shadow tiled windows
-      "noshadow, floating:0"
+    windowrulev2 = let
+      dialogTitles = [
+        "Open File"
+        "Select a File"
+        "Choose wallpaper"
+        "Open Folder"
+        "Save As"
+        "Library"
+        "File Upload"
+      ];
 
-      "bordercolor rgb(${colors.brightYellow}), pinned:1"
-      "bordercolor rgb(${colors.white}), fullscreen:1"
+      dialogRules =
+        map (title: [
+          "float, title:^(${title})(.*)$"
+          "center, title:^(${title})(.*)$"
+        ])
+        dialogTitles;
+    in
+      [
+        # Gives complete control over fullscreen
+        "suppressevent maximize, class:.*"
+        "suppressevent fullscreen, class:.*"
 
-      "suppressevent maximize, class:.*"
-    ];
+        # Don't shadow tiled windows
+        "noshadow, floating:0"
+
+        # Border colors for pinned and monocle windows
+        "bordercolor rgb(${colors.brightYellow}), pinned:1"
+        "bordercolor rgb(${colors.white}), fullscreen:1"
+
+        # Thunar
+        "float, class:[Tt]hunar"
+        "size 960 540, class:[Tt]hunar"
+
+        # swayimg
+        "size 75% 75%, class:swayimg"
+        "float, class:swayimg"
+
+        # pavucontrol
+        "size 75% 75%, class:pavucontrol"
+        "float, class:pavucontrol"
+
+        # fceux
+        "float, class:fceux"
+        "size 639 612, class:fceux"
+        "center, class:fceux"
+
+        # Workspace-specific programs
+        "workspace 7, class:equibop"
+        "workspace 10, class:spotify"
+
+        # Other misc apps
+        "float, class:blueman-manager"
+        "float, class:FileRoller"
+        "float, class:nm-connection-editor"
+        "float, title:^(Steam Settings)$"
+      ]
+      ++ lib.concatLists dialogRules;
 
     layerrule = [
       "noanim, eww-desktop"
