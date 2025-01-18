@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   imports = [
     ./eww
     ./hypr
@@ -9,8 +9,5 @@
     ./wob.nix
   ];
 
-  home.packages = with pkgs; [
-    networkmanagerapplet
-    polkit_gnome
-  ];
+  services.network-manager-applet.enable = true;
 }

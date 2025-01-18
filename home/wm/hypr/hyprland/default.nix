@@ -13,7 +13,7 @@
     enable = true;
 
     xwayland.enable = true;
-    systemd.enable = true;
+    systemd.enable = false; # Conflicts with UWSM
 
     settings = {
       "$terminal" = "kitty";

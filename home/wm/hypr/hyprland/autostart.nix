@@ -16,10 +16,10 @@
       "${pkgs.wbg}/bin/wbg ${config.theme.home.wallpaper.source}"
       "${config.programs.waybar.package}/bin/waybar"
       "${config.programs.eww.package}/bin/eww open-many ${lib.strings.concatStringsSep " " config.custom.hyprland.ewwAutoStart}"
+      "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
 
       "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"
 
-      "${pkgs.dex}/bin/dex -a"
       "[workspace 2 silent] $browser"
       "[workspace 7 silent] ${pkgs.equibop}/bin/equibop --start-minimized"
     ];

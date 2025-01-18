@@ -12,7 +12,10 @@
     ./users.nix
   ];
 
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.powersave = true;
+  };
 
   time.timeZone = lib.mkDefault "America/Lima";
   i18n.defaultLocale = "en_US.UTF-8";
