@@ -87,6 +87,7 @@
     rbb = "sudo nixos-rebuild boot --flake ${flakeDir}";
     rbt = "sudo nixos-rebuild test --flake ${flakeDir}";
     upd = "nix flake update --flake ${flakeDir}";
+    nss = "nix search nixpkgs";
 
     # I'm kinda clumsy
     ":q" = "exit";
