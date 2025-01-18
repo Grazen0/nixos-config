@@ -1,6 +1,6 @@
 {
   programs.zapzap = {
-    enable = true;
+    enable = false;
 
     settings = {
       notification.app = true;
