@@ -39,6 +39,10 @@
         "bordercolor rgb(${colors.brightYellow}), pinned:1"
         "bordercolor rgb(${colors.white}), fullscreen:1"
 
+        # Workspace-specific programs
+        "workspace 7, class:equibop"
+        "workspace 10, class:spotify"
+
         # Thunar
         "float, class:[Tt]hunar"
         "size 960 540, class:[Tt]hunar"
@@ -48,33 +52,43 @@
         "float, class:swayimg"
 
         # pavucontrol
-        "size 75% 75%, class:pavucontrol"
-        "float, class:pavucontrol"
+        "float, class:org\\.pulseaudio\\.pavucontrol"
+        "size 75% 75%, class:org\\.pulseaudio\\.pavucontrol"
+        "center, class:\\.blueman-manager-wrapped"
+
+        # blueman-manager
+        "float, class:\\.blueman-manager-wrapped"
+        "center, class:\\.blueman-manager-wrapped"
+
+        # File Roller
+        "float, class:org\\.gnome\\.FileRoller"
+        "center, class:org\\.gnome\\.FileRoller"
+
+        # nm-connection-editor
+        "float, class:nm-connection-editor"
+        "center, class:nm-connection-editor"
 
         # fceux
         "float, class:fceux"
         "size 639 612, class:fceux"
         "center, class:fceux"
 
-        # Workspace-specific programs
-        "workspace 7, class:equibop"
-        "workspace 10, class:spotify"
-
-        # Other misc apps
-        "float, class:blueman-manager"
-        "float, class:FileRoller"
-        "float, class:nm-connection-editor"
+        # Steam settings
         "float, title:^(Steam Settings)$"
+        "center, title:^(Steam Settings)$"
       ]
       ++ lib.concatLists dialogRules;
 
     layerrule = [
+      # eww widgets
       "noanim, eww-desktop"
 
+      # dunst
       "blur, notifications"
       "ignorezero, notifications"
       "animation slide, notifications"
 
+      # fuzzel
       "blur, launcher"
       "ignorezero, launcher"
       "animation popin 80%, launcher"
