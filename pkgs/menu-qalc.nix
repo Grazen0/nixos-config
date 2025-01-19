@@ -19,6 +19,8 @@ pkgs.stdenvNoCC.mkDerivation {
     wrapProgram "$out/bin/=" \
       --prefix PATH ":" ${lib.makeBinPath (with pkgs; [libqalculate wl-clipboard])}
 
+    install -Dm644 "menu-qalc.1" "=.1" -t "$out/share/man/man1"
+
     runHook postInstall
   '';
 

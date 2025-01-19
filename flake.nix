@@ -102,7 +102,7 @@
     };
 
     menu-qalc = {
-      url = "github:ClemaX/menu-qalc-wayland";
+      url = "github:Grazen0/menu-qalc-wayland";
       flake = false;
     };
 

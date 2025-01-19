@@ -310,15 +310,15 @@
     "menu-qalc": {
       "flake": false,
       "locked": {
-        "lastModified": 1717348246,
-        "narHash": "sha256-YsdnPyjJ7trgg8qmpWHuyYZKzB0fhWGRm0nnvlvwYeY=",
-        "owner": "ClemaX",
+        "lastModified": 1737323954,
+        "narHash": "sha256-l+IQSgqHtow0j64SN3xu+GD3SlqZQy2/+tOVVdLckHY=",
+        "owner": "Grazen0",
         "repo": "menu-qalc-wayland",
-        "rev": "43c0874ef0167822b00564b69e39a9128a1c2d2f",
+        "rev": "99ca4cbbbb528ff7c6a33dff5c40088397abfba2",
         "type": "github"
       },
       "original": {
-        "owner": "ClemaX",
+        "owner": "Grazen0",
         "repo": "menu-qalc-wayland",
         "type": "github"
       }
