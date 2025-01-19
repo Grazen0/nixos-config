@@ -89,7 +89,7 @@
         bind -M $mode -k nul 'accept-autosuggestion'
         bind -M $mode \cp 'history-prefix-search-backward'
         bind -M $mode \cn 'history-prefix-search-forward'
-        bind -M $mode \cz 'fg &> /dev/null'
+        bind -M $mode \cz 'fg &> /dev/null; commandline -f repaint'
       end
     '';
   };
