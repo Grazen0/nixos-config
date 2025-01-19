@@ -22,6 +22,7 @@
       mainMod = "SUPER";
       volumeStep = 5;
       resizeStep = 20;
+      uwsmApp = "uwsm app --";
     in {
       bind = [
         # Hyprland control
@@ -29,22 +30,22 @@
         "${mainMod} ALT, R, exec, hyprctl reload"
 
         # Programs
-        "${mainMod}, Return, exec, $terminal"
-        "${mainMod} SHIFT, Return, exec, [float; size 50% 50%] $terminal"
-        "${mainMod}, E, exec, $fileManager"
-        "${mainMod} SHIFT, E, exec, [float; size 50% 50%] $terminal $fileManagerAlt"
-        "${mainMod}, B, exec, $browser"
-        "${mainMod}, O, exec, obsidian"
+        "${mainMod}, Return, exec, ${uwsmApp} $terminal"
+        "${mainMod} SHIFT, Return, exec, [float; size 50% 50%] ${uwsmApp} $terminal"
+        "${mainMod}, E, exec, ${uwsmApp} $fileManager"
+        "${mainMod} SHIFT, E, exec, [float; size 50% 50%] ${uwsmApp} $terminal $fileManagerAlt"
+        "${mainMod}, B, exec, ${uwsmApp} $browser"
+        "${mainMod}, O, exec, ${uwsmApp} obsidian"
 
         # yeah
-        ''${mainMod} CTRL ALT SHIFT, L, exec, $browser "https://linkedin.com"''
+        ''${mainMod} CTRL ALT SHIFT, L, exec, ${uwsmApp} $browser "https://linkedin.com"''
 
         # Menus
         "${mainMod}, Space, exec, ${fuzzel}"
         "${mainMod}, V, exec, ${cliphist} list | ${fuzzel} -d | ${cliphist} decode | ${wl-copy}"
         "${mainMod}, Period, exec, BEMOJI_PICKER_CMD='${fuzzel} -d' ${pkgs.bemoji}/bin/bemoji -n -t"
-        "${mainMod}, Comma, exec, ${customPkgs.menu-qalc}/bin/="
-        "${mainMod} SHIFT, X, exec, ${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu"
+        "${mainMod}, Equal, exec, ${uwsmApp} ${customPkgs.menu-qalc}/bin/= --dmenu=fuzzel"
+        "${mainMod} SHIFT, X, exec, ${uwsmApp} ${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu"
 
         # Screen capture
         ", Print, exec, pidof -q slurp || ${slurp} -w 0 -b 00000088 | ${grim} -g - - | ${wl-copy}"
