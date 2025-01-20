@@ -117,7 +117,7 @@
         "${mainMod} CTRL, S, focusmonitor, r"
 
         # Switch to previous workspace
-        "${mainMod}, Tab, workspace, previous"
+        "${mainMod}, Tab, workspace, previous_per_monitor"
 
         # Move window to workspace
         "${mainMod} SHIFT, 1, movetoworkspacesilent, 1"
