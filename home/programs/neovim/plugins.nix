@@ -90,7 +90,6 @@
       nvim-window-picker
       tailwindcss-colors-nvim
       tiny-devicons-auto-colors-nvim
-      # hmts-nvim
       indent-blankline-nvim
       vim-illuminate
       dressing-nvim
