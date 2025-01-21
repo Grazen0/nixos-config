@@ -68,6 +68,10 @@
         "float, class:nm-connection-editor"
         "center, class:nm-connection-editor"
 
+        # R.nvim help selection popup
+        "float, title:^(Choose one)$"
+        "center, title:^(Choose one)$"
+
         # fceux
         "float, class:fceux"
         "size 639 612, class:fceux"
