@@ -6,16 +6,6 @@
   # Needed for obsidian.nvim, dang it
   home.packages = with pkgs; [wl-clipboard];
 
-  # mdformat has a weird default config
-  home.file.mdformat = {
-    text =
-      # toml
-      ''
-        number = true
-      '';
-    target = ".mdformat.toml";
-  };
-
   programs.neovim = {
     extraPackages = with pkgs; [
       # Essentials
