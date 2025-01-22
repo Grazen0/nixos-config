@@ -15,6 +15,9 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
+      settings = {
+        default-cache-ttl = 604800; # 7 days
+      };
     };
   };
 }

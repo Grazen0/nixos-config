@@ -9,6 +9,7 @@
       pull.rebase = true;
       credential.helper = "store";
       core.editor = "nvim -f";
+      commit.gpgsign = true;
     };
   };
 }
