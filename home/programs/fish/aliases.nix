@@ -89,6 +89,7 @@
     rbt = "sudo nixos-rebuild test --flake ${flakeDir}";
     upd = "nix flake update --flake ${flakeDir}";
     nss = "nix search nixpkgs";
+    ngc = "nix-collect-garbage --delete-old && sudo nix-collect-garbage --delete-old";
 
     # I'm kinda clumsy
     ":q" = "exit";
