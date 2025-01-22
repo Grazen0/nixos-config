@@ -7,6 +7,7 @@
     ./mpv.nix
     ./spicetify.nix
     ./swayimg.nix
+    ./thunar.nix
     ./touhou.nix
     ./zapzap.nix
     ./zathura.nix
