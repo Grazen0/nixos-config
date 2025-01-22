@@ -41,6 +41,7 @@
     gcm = "git checkout main";
     gcl = "git clone --recurse-submodules";
     gcmsg = "git commit --message";
+    gcs = "git commit --gpg-sign";
     gc = "git commit --verbose";
     gd = "git diff";
     gdca = "git diff --cached";
