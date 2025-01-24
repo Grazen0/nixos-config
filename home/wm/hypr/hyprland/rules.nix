@@ -28,9 +28,8 @@
         dialogTitles;
     in
       [
-        # Gives complete control over fullscreen
+        # Gives complete control over maximizing
         "suppressevent maximize, class:.*"
-        "suppressevent fullscreen, class:.*"
 
         # Don't shadow tiled windows
         "noshadow, floating:0"
