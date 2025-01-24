@@ -1,10 +1,14 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   services.hypridle = {
     enable = true;
 
     settings = let
-      hyprctl = "${pkgs.hyprland}/bin/hyprctl";
-      hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
+      hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
+      hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
       brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
     in {
       general = {

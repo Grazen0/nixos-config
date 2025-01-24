@@ -11,13 +11,15 @@
     flavors.kanagawa = inputs.yazi-flavor-kanagawa;
     theme.flavor.use = "kanagawa";
 
-    plugins =
-      (lib.genAttrs [
+    plugins = let
+      ya-plugins = [
         "full-border"
         "smart-enter"
         "max-preview"
         "git"
-      ] (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
+      ];
+    in
+      (lib.genAttrs ya-plugins (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
       // {
         relative-motions = inputs.yazi-plugin-relative-motions;
       };
