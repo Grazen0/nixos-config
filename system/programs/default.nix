@@ -16,7 +16,9 @@
       enable = true;
       enableSSHSupport = true;
       settings = {
-        default-cache-ttl = 604800; # 7 days
+        # 7 days
+        default-cache-ttl = 604800;
+        max-cache-ttl = 604800;
       };
     };
   };
