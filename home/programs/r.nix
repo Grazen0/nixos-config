@@ -45,12 +45,13 @@
       '';
 
     rPackages = with pkgs.rPackages; let
-      inherit (pkgs.rPackages) buildRPackage;
+      inherit (pkgs) rPackages;
+      inherit (rPackages) buildRPackage;
 
       grkstyle = buildRPackage {
         name = "grkstyle";
         src = inputs.grkstyle;
-        propagatedBuildInputs = with pkgs.rPackages; [
+        propagatedBuildInputs = with rPackages; [
           magrittr
           purrr
           rlang
@@ -62,7 +63,7 @@
       r-nvim = buildRPackage {
         name = "r-nvim";
         src = inputs.r-nvim;
-        propagatedBuildInputs = with pkgs.rPackages; [
+        propagatedBuildInputs = with rPackages; [
           styler
           grkstyle
         ];
@@ -76,7 +77,7 @@
       nvimcom = buildRPackage {
         name = "nvimcom";
         src = "${inputs.nvim-plugin-r-nvim}/nvimcom";
-        propagatedBuildInputs = with pkgs.rPackages; [
+        propagatedBuildInputs = with rPackages; [
           knitr
           rmarkdown
           quarto
@@ -92,6 +93,9 @@
       tidyverse
       modeest
       quarto
+      (IRkernel.overrideAttrs (oldAttrs: {
+        patches = [./patches/irkernel.patch] ++ oldAttrs.patches or [];
+      }))
       colorout
       r-nvim
       nvimcom

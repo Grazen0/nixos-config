@@ -112,5 +112,7 @@
       which-key-nvim
       obsidian-nvim
       obsidian-bridge-nvim
+      molten-nvim
+      quarto-nvim
     ];
 }

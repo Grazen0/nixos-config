@@ -5,6 +5,7 @@ require('r').setup({
   R_args = { '--quiet', '--no-save' },
   pipe_keymap = '<C-S-m>',
   pipe_version = 'magrittr',
+  disable_cmds = { 'RSendMotion' }, -- Free <localleader>m
 })
 
 local buf_create_user_command = vim.api.nvim_buf_create_user_command

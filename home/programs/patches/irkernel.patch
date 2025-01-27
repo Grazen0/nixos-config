@@ -1,0 +1,28 @@
+From e2153ffc086611ca17f14238ee9781ce7a699169 Mon Sep 17 00:00:00 2001
+From: Grazen0 <josedanielgrayson@proton.me>
+Date: Sun, 26 Jan 2025 23:49:59 -0500
+Subject: [PATCH] NixOS-specific patches
+
+---
+ R/installspec.r | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/R/installspec.r b/R/installspec.r
+index f852b58..5a0f196 100644
+--- a/R/installspec.r
++++ b/R/installspec.r
+@@ -33,9 +33,10 @@ installspec <- function(
+     tmp_name <- tempfile()
+     dir.create(tmp_name)
+     file.copy(srcdir, tmp_name, recursive = TRUE)
++    Sys.chmod(list.files(tmp_name, recursive = TRUE, full.names = TRUE), mode = "1777") # make files writable
+     spec_path <- file.path(tmp_name, 'kernelspec', 'kernel.json')
+     spec <- fromJSON(spec_path)
+-    spec$argv[[1]] <- file.path(R.home('bin'), 'R')
++    # do not modify the R binary path
+     spec$display_name <- displayname
+ 
+     spec$env <- if (!is.null(env)) env else namedlist()
+-- 
+2.47.1
+

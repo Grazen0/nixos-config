@@ -58,5 +58,14 @@
       with ps; [
         magick # image.nvim
       ];
+
+    extraPython3Packages = ps:
+      with ps; [
+        pynvim
+        cairosvg
+        pyperclip
+        jupyter-client
+        ipykernel
+      ];
   };
 }
