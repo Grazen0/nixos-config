@@ -22,7 +22,6 @@
       border-color-unfocused = "0x${colors.brightBlack}";
       border-color-urgent = "0x${colors.brightMagenta}";
 
-      set-cursor-warp = "on-output-change"; # what is this anyways?
       set-repeat = "50 300";
 
       xcursor-theme = let
