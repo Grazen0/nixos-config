@@ -1,7 +1,8 @@
 {pkgs, ...}: {
   imports = [
     ./cli.nix
-    ./desktop-apps.nix
+    ./graphical.nix
+    ./dev.nix
   ];
 
   home.packages = with pkgs; [

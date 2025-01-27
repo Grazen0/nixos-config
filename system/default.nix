@@ -1,7 +1,6 @@
 {lib, ...}: {
   imports = [
     ./hardware
-    ./packages
     ./programs
     ./services
     ./boot.nix
@@ -9,6 +8,7 @@
     ./laptop.nix
     ./network.nix
     ./nix.nix
+    ./packages.nix
     ./security.nix
     ./users.nix
   ];
