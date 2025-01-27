@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   customPkgs,
   ...
@@ -9,19 +10,20 @@
 
   wayland.windowManager.hyprland = {
     settings = let
+      inherit (config.mainPrograms) terminal browser fileManager fileManagerCli appLauncher dmenu;
       fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
       grim = "${pkgs.grim}/bin/grim";
       slurp = "${pkgs.slurp}/bin/slurp";
       playerctl = "${pkgs.playerctl}/bin/playerctl";
       pamixer = "${pkgs.pamixer}/bin/pamixer";
       wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
-      cliphist = "${pkgs.cliphist}/bin/cliphist";
+      cliphist = "${config.services.cliphist.package}/bin/cliphist";
       brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
       volume-update = "${customPkgs.volume-update}/bin/volume-update";
 
       mainMod = "SUPER";
-      volumeStep = 5;
-      resizeStep = 20;
+      volumeStep = "5";
+      resizeStep = "20";
       uwsmApp = "uwsm app --";
     in {
       bind = [
@@ -30,19 +32,19 @@
         "${mainMod} ALT, R, exec, hyprctl reload"
 
         # Programs
-        "${mainMod}, Return, exec, ${uwsmApp} $terminal"
-        "${mainMod} SHIFT, Return, exec, [float; size 50% 50%] ${uwsmApp} $terminal"
-        "${mainMod}, E, exec, ${uwsmApp} $fileManager"
-        "${mainMod} SHIFT, E, exec, [float; size 50% 50%] ${uwsmApp} $terminal $fileManagerAlt"
-        "${mainMod}, B, exec, ${uwsmApp} $browser"
-        "${mainMod}, O, exec, ${uwsmApp} obsidian"
+        "${mainMod}, Return, exec, ${uwsmApp} ${terminal}"
+        "${mainMod} SHIFT, Return, exec, [float; size 50% 50%] ${uwsmApp} ${terminal}"
+        "${mainMod}, E, exec, ${uwsmApp} ${fileManager}"
+        "${mainMod} SHIFT, E, exec, [float; size 50% 50%] ${uwsmApp} ${terminal} ${fileManagerCli}"
+        "${mainMod}, B, exec, ${uwsmApp} ${browser}"
+        "${mainMod}, O, exec, ${uwsmApp} ${pkgs.obsidian}/bin/obsidian"
 
         # yeah
-        ''${mainMod} CTRL ALT SHIFT, L, exec, ${uwsmApp} $browser "https://linkedin.com"''
+        ''${mainMod} CTRL ALT SHIFT, L, exec, ${uwsmApp} ${browser} "https://linkedin.com"''
 
         # Menus
-        "${mainMod}, Space, exec, ${fuzzel}"
-        "${mainMod}, V, exec, ${cliphist} list | ${fuzzel} -d | ${cliphist} decode | ${wl-copy}"
+        "${mainMod}, Space, exec, ${appLauncher}"
+        "${mainMod}, V, exec, ${cliphist} list | ${dmenu} | ${cliphist} decode | ${wl-copy}"
         "${mainMod}, Period, exec, BEMOJI_PICKER_CMD='${fuzzel} -d' ${pkgs.bemoji}/bin/bemoji -n -t"
         "${mainMod}, Equal, exec, ${uwsmApp} ${customPkgs.menu-qalc}/bin/= --dmenu=fuzzel"
         "${mainMod} SHIFT, X, exec, ${uwsmApp} ${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu"
@@ -144,21 +146,21 @@
 
       binde = [
         # Resize window
-        "${mainMod} ALT, H, resizeactive, -${toString resizeStep} 0"
-        "${mainMod} ALT, J, resizeactive, 0 ${toString resizeStep}"
-        "${mainMod} ALT, K, resizeactive, 0 -${toString resizeStep}"
-        "${mainMod} ALT, L, resizeactive, ${toString resizeStep} 0"
+        "${mainMod} ALT, H, resizeactive, -${resizeStep} 0"
+        "${mainMod} ALT, J, resizeactive, 0 ${resizeStep}"
+        "${mainMod} ALT, K, resizeactive, 0 -${resizeStep}"
+        "${mainMod} ALT, L, resizeactive, ${resizeStep} 0"
 
-        "${mainMod} ALT, Left, resizeactive, -${toString resizeStep} 0"
-        "${mainMod} ALT, Down, resizeactive, 0 ${toString resizeStep}"
-        "${mainMod} ALT, Up, resizeactive, 0 -${toString resizeStep}"
-        "${mainMod} ALT, Right, resizeactive, ${toString resizeStep} 0"
+        "${mainMod} ALT, Left, resizeactive, -${resizeStep} 0"
+        "${mainMod} ALT, Down, resizeactive, 0 ${resizeStep}"
+        "${mainMod} ALT, Up, resizeactive, 0 -${resizeStep}"
+        "${mainMod} ALT, Right, resizeactive, ${resizeStep} 0"
       ];
 
       bindel = [
         # Audio control
-        ", XF86AudioRaiseVolume, exec, ${pamixer} -i ${toString volumeStep} && ${volume-update}"
-        ", XF86AudioLowerVolume, exec, ${pamixer} -d ${toString volumeStep} && ${volume-update}"
+        ", XF86AudioRaiseVolume, exec, ${pamixer} -i ${volumeStep} && ${volume-update}"
+        ", XF86AudioLowerVolume, exec, ${pamixer} -d ${volumeStep} && ${volume-update}"
       ];
 
       bindl = [
@@ -166,9 +168,9 @@
         ", XF86AudioMute, exec, ${pamixer} -t && ${volume-update}"
 
         # Player control
-        ", XF86AudioPlay, exec, ${playerctl} -p spotify play-pause"
-        ", XF86AudioPrev, exec, ${playerctl} -p spotify previous"
-        ", XF86AudioNext, exec, ${playerctl} -p spotify next"
+        ", XF86AudioPlay, exec, ${playerctl} play-pause"
+        ", XF86AudioPrev, exec, ${playerctl} previous"
+        ", XF86AudioNext, exec, ${playerctl} next"
 
         # Brightness control
         ", XF86MonBrightnessUp, exec, ${brightnessctl} set 5%+"

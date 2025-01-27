@@ -10,17 +10,12 @@
   ];
 
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = false;
 
     xwayland.enable = true;
     systemd.enable = false; # Conflicts with UWSM
 
     settings = {
-      "$terminal" = "kitty";
-      "$browser" = "zen";
-      "$fileManager" = "thunar";
-      "$fileManagerAlt" = "yazi";
-
       monitor = [", preferred, auto, 1"];
 
       env = [

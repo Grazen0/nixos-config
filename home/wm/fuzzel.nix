@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   programs.fuzzel = {
     enable = true;
 
@@ -11,7 +7,7 @@
     in {
       main = {
         font = "${theme.font.propo}:size=12";
-        terminal = "${pkgs.kitty}/bin/kitty";
+        terminal = "${config.programs.kitty.package}/bin/kitty";
         use-bold = "yes";
         fields = "filename,name,generic,keywords";
         width = 60;
@@ -22,12 +18,12 @@
       };
 
       border = {
-        width = 4;
-        radius = 10;
+        width = 3;
+        radius = 0;
       };
 
       colors = with theme.colors.hex; {
-        background = "${background}cc";
+        background = "${background}ff";
         text = "${foreground}ff";
         prompt = "${blue}ff";
         placeholder = "${brightBlack}ff";

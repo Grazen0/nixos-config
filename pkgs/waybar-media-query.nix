@@ -7,9 +7,9 @@ pkgs.writeShellApplication {
     text=""
     tooltip=""
 
-    if playerctl -p spotify status > /dev/null; then
-      text=" $(playerctl -p spotify metadata title)"
-      tooltip=$(playerctl -p spotify status)
+    if playerctl status > /dev/null; then
+      text=" $(playerctl metadata title)"
+      tooltip=$(playerctl status)
 
       if [ "$tooltip" != "Playing" ]; then
         class="paused"

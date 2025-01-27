@@ -33,19 +33,16 @@
         layer = "top";
         position = "top";
         height = 28;
-        spacing = 10;
-        margin-top = 6;
-        margin-left = 8;
-        margin-right = 8;
+        spacing = 0; # I prefer to use CSS margin
 
         modules-left = [
           "custom/sysmenu"
           "tray"
-          "hyprland/language"
+          # "custom/language" # foo=$(setxkbmap -query | grep layout | awk '{print $2}')
           "custom/media"
         ];
 
-        modules-center = ["hyprland/workspaces"];
+        modules-center = ["river/tags"];
 
         modules-right = [
           "pulseaudio"
@@ -60,15 +57,11 @@
         "custom/sysmenu" = {
           format = "";
           tooltip-format = "App launcher";
-          on-click = "${pkgs.fuzzel}/bin/fuzzel";
+          on-click = config.mainPrograms.appLauncher;
         };
 
         tray = {
           spacing = 10;
-        };
-
-        "hyprland/language" = {
-          format = " {short}";
         };
 
         "custom/media" = let
@@ -79,17 +72,12 @@
           escape = true;
           return-type = "json";
           max-length = 35;
-          on-click = "${playerctl} -p spotify play-pause";
+          on-click = "${playerctl} play-pause";
           exec = "${customPkgs.waybar-media-query}/bin/media-query";
         };
 
-        "hyprland/workspaces" = {
-          format = "{icon}";
-          format-icons = {
-            default = "";
-            active = "";
-            urgent = "";
-          };
+        "river/tags" = {
+          num-tags = 9;
         };
 
         pulseaudio = {
@@ -142,7 +130,7 @@
         };
 
         "custom/notifications" = let
-          dunstctl = "${pkgs.dunst}/bin/dunstctl";
+          dunstctl = "${config.services.dunst.package}/bin/dunstctl";
           signal = 3; # Workaround since exec-on-event isn't guaranteed
         in {
           exec = "${customPkgs.waybar-dunst-state}/bin/dunst-state";

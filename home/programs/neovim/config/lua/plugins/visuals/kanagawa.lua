@@ -8,7 +8,6 @@ local function markview_heading(theme, fg_color)
 end
 
 require('kanagawa').setup({
-  transparent = true,
   colors = {
     theme = {
       all = {

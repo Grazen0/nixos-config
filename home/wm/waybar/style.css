@@ -9,7 +9,8 @@
 }
 
 window#waybar {
-  background-color: transparent;
+  background-color: @background;
+  transition-duration: 0;
   color: @foreground;
 }
 
@@ -21,7 +22,7 @@ window#waybar.hidden {
 #tray,
 #language,
 #custom-media,
-#workspaces,
+#tags,
 #pulseaudio,
 #battery,
 #temperature,
@@ -29,18 +30,14 @@ window#waybar.hidden {
 #clock,
 #custom-notifications,
 #custom-power {
-  padding: 0px 14px;
-  background-color: @background;
-  border: 3px solid @bright-black;
-  border-radius: 14pt;
-  transition: border-color 200ms ease-out;
+  margin: 0px 12px;
+  transition: none;
 }
 
 #custom-sysmenu:hover,
 #tray:hover,
 #language:hover,
 #custom-media:hover,
-#workspaces:hover,
 #pulseaudio:hover,
 #battery:hover,
 #temperature:hover,
@@ -54,7 +51,7 @@ window#waybar.hidden {
 /* SYSMENU */
 #custom-sysmenu {
   color: @cyan;
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 /* TRAY */
@@ -84,21 +81,27 @@ window#waybar.hidden {
   opacity: 0;
 }
 
-/* WORKSPACES */
-#workspaces {
+/* TAGS */
+#tags {
   padding: 0 16px;
 }
 
-#workspaces button {
-  padding: 0 8px;
+#tags button {
+  padding: 0;
+  min-width: 32px;
 }
 
-#workspaces button.empty:not(.active) {
+#tags button:not(.focused):not(.occupied) {
   color: @bright-black;
 }
 
-#workspaces button.urgent {
-  color: @yellow;
+#tags button.focused {
+  background-color: @blue;
+  color: @black;
+}
+
+#tags button.urgent {
+  color: @bright-magenta;
 }
 
 /* PULSEAUDIO */

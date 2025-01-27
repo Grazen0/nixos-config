@@ -53,7 +53,6 @@
         # pavucontrol
         "float, class:org\\.pulseaudio\\.pavucontrol"
         "size 75% 75%, class:org\\.pulseaudio\\.pavucontrol"
-        "center, class:\\.blueman-manager-wrapped"
 
         # blueman-manager
         "float, class:\\.blueman-manager-wrapped"

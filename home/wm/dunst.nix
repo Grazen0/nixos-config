@@ -5,7 +5,6 @@
     settings = let
       inherit (config) theme;
       colors = theme.colors.hexWithHashtag;
-      background = "${colors.background}ee";
     in {
       global = {
         # Display
@@ -29,7 +28,7 @@
         progress_bar_corner_radius = 0;
         progress_bar_corners = "all";
 
-        icon_corner_radius = 8;
+        icon_corner_radius = 0;
         icon_corners = "all";
         indicate_hidden = "yes";
         # transparency = 0; # X11 only
@@ -72,7 +71,7 @@
         always_run_script = true;
         title = "Dunst";
         class = "Dunst";
-        corner_radius = 8;
+        corner_radius = 0;
         corners = "all";
         ignore_dbusclose = false;
 
@@ -89,21 +88,18 @@
       };
 
       urgency_low = {
-        inherit background;
-        inherit (colors) foreground;
+        inherit (colors) background foreground;
         timeout = 10;
       };
 
       urgency_normal = {
-        inherit background;
-        inherit (colors) foreground;
+        inherit (colors) background foreground;
         timeout = 10;
         override_pause_level = 30;
       };
 
       urgency_critical = {
-        inherit background;
-        inherit (colors) foreground;
+        inherit (colors) background foreground;
         frame_color = colors.red;
         timeout = 30;
         override_pause_level = 60;

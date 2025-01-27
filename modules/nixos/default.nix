@@ -1,2 +1,3 @@
 {
+  imports = [./river-uwsm.nix];
 }
