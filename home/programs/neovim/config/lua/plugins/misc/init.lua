@@ -5,6 +5,7 @@ require('plugins.misc.r')
 require('plugins.misc.todo-comments')
 require('plugins.misc.vimtex')
 require('plugins.misc.which-key')
+require('plugins.misc.molten')
 require('plugins.misc.quarto')
 
 require('live-share').setup()

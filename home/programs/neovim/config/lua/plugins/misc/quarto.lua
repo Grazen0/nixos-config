@@ -1,39 +1,21 @@
 local quarto = require('quarto')
 
 vim.g.molten_image_provider = 'image.nvim'
+vim.g.molten_wrap_output = true
 vim.g.molten_output_virt_lines = true
+vim.g.molten_virt_lines_off_by_1 = true
 
 quarto.setup({
   codeRunner = { default_method = 'molten' },
 })
 
 local runner = require('quarto.runner')
-local keyset = vim.keymap.set
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'quarto',
   callback = function()
-    -- molten.nvim
-    keyset(
-      'n',
-      '<localleader>mi',
-      '<cmd>MoltenInit<CR>',
-      { silent = true, buffer = true }
-    )
-    keyset(
-      'n',
-      '<localleader>oh',
-      '<cmd>MoltenHideOutput<CR>',
-      { silent = true, buffer = true }
-    )
-    keyset(
-      'n',
-      '<localleader>os',
-      '<cmd>MoltenEnterOutput<CR>',
-      { silent = true, buffer = true }
-    )
+    local keyset = vim.keymap.set
 
-    -- quarto.nvim
     keyset(
       'n',
       '<C-CR>',
