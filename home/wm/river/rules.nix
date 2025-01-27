@@ -5,6 +5,7 @@
     "-app-id" = {
       "'thunar'" = ["ssd" "float"];
       "'*blueman-manager*'" = ["ssd" "float"];
+      "'*blueman-adapters*'" = ["ssd" "float"];
       "'org.pulseaudio.pavucontrol'" = ["ssd" "float"];
       "'swayimg'" = ["ssd" "float"];
       "'org.gnome.FileRoller'" = ["ssd" "float"];
