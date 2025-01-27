@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  stablePkgs,
   inputs,
   ...
 }: {
@@ -98,6 +99,7 @@
 
     rstudio = {
       enable = true;
+      package = stablePkgs.rstudioWrapper;
 
       preferences = {
         initial_working_directory = "~";
