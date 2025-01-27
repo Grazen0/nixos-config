@@ -3,13 +3,13 @@
     ./hardware
     ./packages
     ./programs
+    ./services
     ./boot.nix
     ./console.nix
     ./laptop.nix
     ./network.nix
     ./nix.nix
     ./security.nix
-    ./services.nix
     ./users.nix
   ];
 
