@@ -21,7 +21,6 @@
 
     (python3.withPackages (ps:
       with ps; [
-        numpy
         customPkgs.inkscape-figures
       ]))
   ];
