@@ -65,7 +65,7 @@
         cairosvg
         pyperclip
         jupyter-client
-        ipykernel
+        ipython
       ];
   };
 }
