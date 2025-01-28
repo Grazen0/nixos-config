@@ -26,7 +26,7 @@ in {
       ];
     };
 
-    river.settings.rule-add = let
+    river.settings.rule-add."-app-id" = let
       inherit (lib'.river) tagNumStr;
     in {
       "'equibop'" = mkForce ["ssd" "output HDMI-A-1" "tags ${tagNumStr 2}"];
