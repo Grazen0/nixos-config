@@ -5,7 +5,10 @@
 }: let
   inherit (lib) mkForce;
 in {
-  wayland.windowManager.hyprland.settings.input.kb_layout = mkForce "latam,us";
+  wayland.windowManager = {
+    hyprland.settings.input.kb_layout = mkForce "latam,us";
+    river.settings.keyboard-layout = mkForce "-options 'grp:alt_shift_toggle,caps:swapescape' 'latam,us'";
+  };
 
   custom.hyprland.ewwAutoStart = ["desktop-time-alt" "desktop-fortune"];
 

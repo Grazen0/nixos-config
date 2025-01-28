@@ -16,12 +16,12 @@
       "'org.pwmt.zathura'" = ["ssd"];
       "'org.inkscape.Inkscape'" = ["ssd"];
       "'thorium-browser'" = ["ssd"];
-
       "'zen'" = ["ssd"];
-      "'equibop'" = ["ssd" "output HDMI-A-1" "tags ${toString (tagNum 2)}"];
 
       "'fceux'" = ["float"];
-      "'spotify'" = ["output HDMI-A-1" "tags ${toString (tagNum 5)}"];
+
+      "'equibop'" = ["ssd" "tags ${toString (tagNum 7)}"];
+      "'spotify'" = ["tags ${toString (tagNum 9)}"];
     };
 
     "-title" = {

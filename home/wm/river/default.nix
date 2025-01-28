@@ -33,6 +33,14 @@
       # bash
       ''
         rivertile -view-padding 6 -outer-padding 3 &
+
+        # Set up touchpads
+        for device in $(riverctl list-inputs | grep -i 'touchpad'); do
+            riverctl input "$device" natural-scroll enabled
+            riverctl input "$device" tap enabled
+            riverctl input "$device" click-method button-areas
+            riverctl input "$device" middle-emulation enabled
+        done
       '';
   };
 }
