@@ -34,21 +34,48 @@ in {
     };
   };
 
-  # Set 1.2 scale on main monitor
-  services.kanshi.profiles.dualMonitor.outputs = mkForce [
+  # Mainly, set 1.2 scale on eDP-1
+  services.kanshi.settings = mkForce [
     {
-      criteria = "eDP-1";
-      status = "enable";
-      scale = 1.2;
-      position = "0,0";
-      transform = "normal";
+      output = {
+        criteria = "eDP-1";
+        status = "enable";
+        scale = 1.2;
+        transform = "normal";
+        position = "0,0";
+      };
     }
     {
-      criteria = "HDMI-A-1";
-      status = "enable";
-      scale = 1.0;
-      position = "-1366,0";
-      transform = "normal";
+      output = {
+        criteria = "HDMI-A-1";
+        status = "enable";
+        scale = 1.0;
+        transform = "normal";
+      };
+    }
+    {
+      profile = {
+        name = "undocked";
+        outputs = [
+          {
+            criteria = "eDP-1";
+          }
+        ];
+      };
+    }
+    {
+      profile = {
+        name = "docked";
+        outputs = [
+          {
+            criteria = "eDP-1";
+          }
+          {
+            criteria = "HDMI-A-1";
+            position = "-1920,0";
+          }
+        ];
+      };
     }
   ];
 
