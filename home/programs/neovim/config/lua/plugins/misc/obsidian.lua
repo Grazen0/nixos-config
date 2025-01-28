@@ -66,7 +66,7 @@ obsidian.setup({
   workspaces = {
     {
       name = 'class-notes',
-      path = '~/Documents/Class Notes',
+      path = '~/Documents/Class notes',
     },
   },
 
