@@ -13,7 +13,7 @@
       colors = config.theme.colors.hex;
     in {
       default-layout = "rivertile";
-      keyboard-layout = "-options grp:alt_shift_toggle,caps:swapescape us,latam";
+      keyboard-layout = "-options 'grp:alt_shift_toggle,caps:swapescape' 'us,latam'";
 
       border-width = 3;
 
