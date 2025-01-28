@@ -6,6 +6,8 @@
   ...
 }: {
   wayland.windowManager.river.settings.spawn = let
+    inherit (lib.strings) concatStringsSep;
+
     uwsmApp = "${osConfig.programs.uwsm.package}/bin/uwsm app --";
     wbg = "${pkgs.wbg}/bin/wbg";
     waybar = "${config.programs.waybar.package}/bin/waybar";
@@ -18,7 +20,7 @@
     spawns = [
       "${uwsmApp} ${wbg} ${config.theme.home.wallpaper.source}"
       "${uwsmApp} ${waybar}"
-      "${uwsmApp} ${eww} open-many ${lib.strings.concatStringsSep " " config.custom.hyprland.ewwAutoStart}"
+      "${uwsmApp} ${eww} open-many ${concatStringsSep " " config.custom.hyprland.ewwAutoStart}"
       "${uwsmApp} ${polkit-gnome}"
       "${uwsmApp} ${wl-paste} --watch ${cliphist} store"
 

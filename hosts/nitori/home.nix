@@ -27,10 +27,10 @@ in {
     };
 
     river.settings.rule-add = let
-      inherit (lib'.river) tagNum;
+      inherit (lib'.river) tagNumStr;
     in {
-      "'equibop'" = mkForce ["ssd" "output HDMI-A-1" "tags ${toString (tagNum 2)}"];
-      "'spotify'" = mkForce ["output HDMI-A-1" "tags ${toString (tagNum 5)}"];
+      "'equibop'" = mkForce ["ssd" "output HDMI-A-1" "tags ${tagNumStr 2}"];
+      "'spotify'" = mkForce ["output HDMI-A-1" "tags ${tagNumStr 5}"];
     };
   };
 

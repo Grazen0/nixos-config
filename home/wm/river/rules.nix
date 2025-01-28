@@ -1,6 +1,6 @@
 {lib', ...}: {
   wayland.windowManager.river.settings.rule-add = let
-    inherit (lib'.river) tagNum;
+    inherit (lib'.river) tagNumStr;
   in {
     "-app-id" = {
       "'thunar'" = ["ssd" "float"];
@@ -20,8 +20,8 @@
 
       "'fceux'" = ["float"];
 
-      "'equibop'" = ["ssd" "tags ${toString (tagNum 7)}"];
-      "'spotify'" = ["tags ${toString (tagNum 9)}"];
+      "'equibop'" = ["ssd" "tags ${tagNumStr 7}"];
+      "'spotify'" = ["tags ${tagNumStr 9}"];
     };
 
     "-title" = {

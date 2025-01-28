@@ -10,7 +10,7 @@
   wayland.windowManager.river.settings = {
     map = let
       inherit (config.mainPrograms) terminal browser fileManager fileManagerCli appLauncher dmenu;
-      inherit (lib'.river) tagNum spawn withRules;
+      inherit (lib'.river) tagNumStr spawn withRules;
 
       grim = "${pkgs.grim}/bin/grim";
       slurp = "${pkgs.slurp}/bin/slurp";
@@ -36,7 +36,7 @@
           "Super Return" = spawn "${uwsmApp} ${terminal}";
           "Super+Shift Return" = spawn (withRules "-app-id 'kitty'" ["float" "dimensions 800 450"] "${uwsmApp} ${terminal}");
           "Super E" = spawn "${uwsmApp} ${fileManager}";
-          "Super+Shift E" = spawn "${uwsmApp} ${terminal} ${fileManagerCli}"; # TODO: float; size 50% 50%
+          "Super+Shift E" = spawn (withRules "-app-id 'kitty'" ["float" "dimensions 800 450"] "${uwsmApp} ${terminal} ${fileManagerCli}");
           "Super B" = spawn "${uwsmApp} ${browser}";
           "Super O" = spawn "${uwsmApp} ${pkgs.obsidian}/bin/obsidian";
 
@@ -108,7 +108,7 @@
         }
         // lib.zipAttrsWith (_: values: assert (lib.length values == 1); lib.head values) (lib.genList (n: let
             key = toString (n + 1);
-            tag = toString (tagNum (n + 1));
+            tag = tagNumStr (n + 1);
           in {
             # Focus tag
             "Super ${key}" = "set-focused-tags ${tag}";
