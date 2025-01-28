@@ -3,25 +3,21 @@
     inherit (lib'.river) tagNumStr;
   in {
     "-app-id" = {
-      "'thunar'" = ["ssd" "float"];
-      "'*blueman-manager*'" = ["ssd" "float"];
-      "'*blueman-adapters*'" = ["ssd" "float"];
-      "'org.pulseaudio.pavucontrol'" = ["ssd" "float"];
-      "'swayimg'" = ["ssd" "float"];
-      "'org.gnome.FileRoller'" = ["ssd" "float"];
-      "'nvidia-settings'" = ["ssd" "float"];
-      "'gcr-prompter'" = ["ssd" "float"];
-      "'nm-connection-editor'" = ["ssd" "float"];
-      "'wdisplays'" = ["ssd" "float"];
+      "'*'" = ["ssd"];
 
-      "'org.pwmt.zathura'" = ["ssd"];
-      "'org.inkscape.Inkscape'" = ["ssd"];
-      "'thorium-browser'" = ["ssd"];
-      "'zen'" = ["ssd"];
-
+      "'thunar'" = ["float"];
+      "'*blueman-manager*'" = ["float"];
+      "'*blueman-adapters*'" = ["float"];
+      "'org.pulseaudio.pavucontrol'" = ["float"];
+      "'swayimg'" = ["float"];
+      "'org.gnome.FileRoller'" = ["float"];
+      "'nvidia-settings'" = ["float"];
+      "'gcr-prompter'" = ["float"];
+      "'nm-connection-editor'" = ["float"];
+      "'wdisplays'" = ["float"];
       "'fceux'" = ["float"];
 
-      "'equibop'" = ["ssd" "tags ${tagNumStr 7}"];
+      "'equibop'" = ["tags ${tagNumStr 7}"];
       "'spotify'" = ["tags ${tagNumStr 9}"];
     };
 
@@ -30,6 +26,7 @@
       "'Select a File*'" = ["float"];
       "'Choose wallpaper*'" = ["float"];
       "'Open Folder*'" = ["float"];
+      "'Open folder*'" = ["float"];
       "'Save As*'" = ["float"];
       "'Library*'" = ["float"];
       "'File Upload*'" = ["float"];
