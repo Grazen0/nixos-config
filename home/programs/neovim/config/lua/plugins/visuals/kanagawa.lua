@@ -37,12 +37,6 @@ require('kanagawa').setup({
       PmenuSbar = { bg = theme.ui.bg_m1 },
       PmenuThumb = { bg = theme.ui.bg_p2 },
 
-      -- bufferline.nvim fixes
-      BufferLineFill = { bg = theme.ui.bg_m1 },
-      BufferLineSeparator = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-      BufferLineSeparatorSelected = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-      BufferLineSeparatorVisible = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-
       -- fzf-lua border
       FzfLuaborder = { link = 'FloatBorder' },
 
