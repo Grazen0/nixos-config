@@ -12,6 +12,7 @@
       "'nvidia-settings'" = ["ssd" "float"];
       "'gcr-prompter'" = ["ssd" "float"];
       "'nm-connection-editor'" = ["ssd" "float"];
+      "'wdisplays'" = ["ssd" "float"];
 
       "'org.pwmt.zathura'" = ["ssd"];
       "'org.inkscape.Inkscape'" = ["ssd"];
