@@ -51,15 +51,14 @@ in {
         status = "enable";
         scale = 1.0;
         transform = "normal";
+        position = "-1366,0";
       };
     }
     {
       profile = {
         name = "undocked";
         outputs = [
-          {
-            criteria = "eDP-1";
-          }
+          {criteria = "eDP-1";}
         ];
       };
     }
@@ -67,13 +66,8 @@ in {
       profile = {
         name = "docked";
         outputs = [
-          {
-            criteria = "eDP-1";
-          }
-          {
-            criteria = "HDMI-A-1";
-            position = "-1366,0";
-          }
+          {criteria = "eDP-1";}
+          {criteria = "HDMI-A-1";}
         ];
       };
     }

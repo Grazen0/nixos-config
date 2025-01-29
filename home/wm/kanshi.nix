@@ -18,6 +18,7 @@
           status = "enable";
           scale = 1.0;
           transform = "normal";
+          position = "-1366,0";
         };
       }
       {
@@ -39,7 +40,6 @@
             }
             {
               criteria = "HDMI-A-1";
-              position = "-1366,0";
             }
           ];
         };
