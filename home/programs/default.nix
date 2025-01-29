@@ -1,6 +1,5 @@
-{inputs, ...}: {
+{
   imports = [
-    inputs.nix-index-database.hmModules.nix-index
     ./fish
     ./graphical
     ./neovim
@@ -20,7 +19,6 @@
   programs = {
     eza.enable = true;
     fd.enable = true;
-    nix-index.enable = true;
     lazygit.enable = true;
     ripgrep.enable = true;
     tealdeer.enable = true;
