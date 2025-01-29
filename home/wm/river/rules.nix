@@ -2,9 +2,9 @@
   wayland.windowManager.river.settings.rule-add = let
     inherit (lib'.river) tagNumStr;
   in {
-    "-app-id" = {
-      "'*'" = ["ssd"];
+    "ssd" = "";
 
+    "-app-id" = {
       "'thunar'" = ["float"];
       "'*blueman-manager*'" = ["float"];
       "'*blueman-adapters*'" = ["float"];
@@ -16,6 +16,8 @@
       "'nm-connection-editor'" = ["float"];
       "'wdisplays'" = ["float"];
       "'fceux'" = ["float"];
+
+      "'kitty-float'" = ["float" "dimensions 800 450"];
 
       "'equibop'" = ["tags ${tagNumStr 7}"];
       "'spotify'" = ["tags ${tagNumStr 9}"];

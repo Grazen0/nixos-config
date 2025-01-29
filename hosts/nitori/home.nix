@@ -26,11 +26,13 @@ in {
       ];
     };
 
-    river.settings.rule-add."-app-id" = let
+    river.settings.rule-add = let
       inherit (lib'.river) tagNumStr;
     in {
-      "'equibop'" = mkForce ["ssd" "output HDMI-A-1" "tags ${tagNumStr 2}"];
-      "'spotify'" = mkForce ["output HDMI-A-1" "tags ${tagNumStr 5}"];
+      "-app-id" = {
+        "'equibop'" = mkForce ["output HDMI-A-1" "tags ${tagNumStr 2}"];
+        "'spotify'" = mkForce ["output HDMI-A-1" "tags ${tagNumStr 5}"];
+      };
     };
   };
 
