@@ -62,7 +62,7 @@
 
       # LSP
       conform-nvim
-      stablePlugins.inc-rename-nvim
+      inc-rename-nvim
       nvim-navbuddy
       tiny-inline-diagnostic-nvim
       nvim-treesitter.withAllGrammars
@@ -93,7 +93,6 @@
       indent-blankline-nvim
       vim-illuminate
       dressing-nvim
-      helpview-nvim
 
       # Misc
       mini-sessions
@@ -104,7 +103,6 @@
       crates-nvim
       hex-nvim
       presence-nvim
-      fidget-nvim
       markdown-preview-nvim
       lazydev-nvim
       image-nvim
