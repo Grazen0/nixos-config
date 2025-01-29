@@ -90,6 +90,14 @@ window#waybar.hidden {
   min-width: 32px;
 }
 
+/* Disable default some GTK stuff */
+#tags button:hover {
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
+}
+
 #tags button:not(.focused):not(.occupied) {
   color: @bright-black;
 }
