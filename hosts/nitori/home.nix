@@ -72,7 +72,7 @@ in {
           }
           {
             criteria = "HDMI-A-1";
-            position = "-1920,0";
+            position = "-1366,0";
           }
         ];
       };
