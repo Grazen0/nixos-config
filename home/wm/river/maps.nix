@@ -81,10 +81,6 @@
           "Super Up" = "move up ${moveStep}";
           "Super Right" = "move right ${moveStep}";
 
-          # Cycle tags
-          "Super S" = spawn "${river-shifttags} --shifts 1";
-          "Super A" = spawn "${river-shifttags} --shifts -1";
-
           # Send view to next/previous tag
           "Super+Shift S" = spawn "${river-shifttags} --view --shifts 1";
           "Super+Shift A" = spawn "${river-shifttags} --view --shifts -1";
@@ -143,6 +139,10 @@
         # Change split ratios
         "Super I" = "send-layout-cmd wideriver '--ratio +${ratioStep}'";
         "Super U" = "send-layout-cmd wideriver '--ratio -${ratioStep}'";
+
+        # Cycle tags
+        "Super S" = spawn "${river-shifttags} --shifts 1";
+        "Super A" = spawn "${river-shifttags} --shifts -1";
 
         # Audio control
         "None XF86AudioRaiseVolume" = spawn "${pamixer} -i ${volumeStep} && ${volume-update}";
