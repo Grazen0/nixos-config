@@ -54,9 +54,8 @@
           # Window controls
           "Super Q" = "close";
           "Super F" = "toggle-fullscreen";
-          # TODO: toggle monocle (if possible)
+          "Super M" = "send-layout-cmd wideriver '--layout-toggle'";
           "Super T" = "toggle-float";
-          # TODO: toggle split direction
 
           # Move view focus
           "Super H" = "focus-view left";
@@ -66,7 +65,7 @@
 
           # Cycle view focus
           "Super C" = "focus-view next";
-          "Super+Shift C" = "swap next";
+          "Super+Shift C" = "focus-view previous";
 
           # Swap views
           "Super+Shift H" = "swap left";
@@ -80,7 +79,7 @@
           "Super Up" = "move up ${moveStep}";
           "Super Right" = "move right ${moveStep}";
 
-          # TODO: Cycle focused tags
+          # TODO: Cycle tags
 
           # Back-and-forth between recent tags
           "Super Tab" = "focus-previous-tags";
@@ -124,12 +123,18 @@
           })
           9);
 
-      "-repeat".normal = {
+      "-repeat".normal = let
+        ratioStep = "0.02";
+      in {
         # Resize views
         "Super+Alt H" = "resize horizontal -${resizeStep}";
         "Super+Alt J" = "resize vertical ${resizeStep}";
         "Super+Alt K" = "resize vertical -${resizeStep}";
         "Super+Alt L" = "resize horizontal ${resizeStep}";
+
+        # Change split ratios
+        "Super I" = "send-layout-cmd wideriver '--ratio +${ratioStep}'";
+        "Super U" = "send-layout-cmd wideriver '--ratio -${ratioStep}'";
 
         # Audio control
         "None XF86AudioRaiseVolume" = spawn "${pamixer} -i ${volumeStep} && ${volume-update}";

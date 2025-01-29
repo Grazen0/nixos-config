@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./maps.nix
     ./rules.nix
@@ -12,7 +16,6 @@
     settings = let
       colors = config.theme.colors.hex;
     in {
-      default-layout = "rivertile";
       keyboard-layout = "-options 'grp:alt_shift_toggle,caps:swapescape' 'us,latam'";
 
       border-width = 3;
@@ -27,12 +30,29 @@
       xcursor-theme = let
         inherit (config.theme.home) cursor;
       in "${cursor.name} ${toString cursor.size}";
+
+      default-layout = "wideriver";
     };
 
-    extraConfig =
+    extraConfig = let
+      wideriver = "${pkgs.wideriver}/bin/wideriver";
+      colors = config.theme.colors.hex;
+    in
       # bash
       ''
-        rivertile -view-padding 6 -outer-padding 3 &
+        ${wideriver} \
+          --layout left \
+          --stack dwindle \
+          --layout-alt monocle \
+          --count 1 \
+          --ratio 0.52 \
+          --inner-gaps 6 \
+          --outer-gaps 6 \
+          --border-width 3 \
+          --border-width-monocle 3 \
+          --border-color-focused 0x${colors.blue} \
+          --border-color-focused-monocle 0x${colors.yellow} \
+          --border-color-unfocused 0x${colors.brightBlack} &
 
         # Set up touchpads
         for device in $(riverctl list-inputs | grep -i 'touchpad'); do
