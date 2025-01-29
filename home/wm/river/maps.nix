@@ -5,12 +5,13 @@
   lib',
   pkgs,
   customPkgs,
+  inputs,
   ...
 }: {
   wayland.windowManager.river.settings = {
     map = let
       inherit (config.mainPrograms) terminal browser fileManager fileManagerCli appLauncher dmenu;
-      inherit (lib'.river) tagNumStr spawn withRules;
+      inherit (lib'.river) tagNumStr spawn;
 
       grim = "${pkgs.grim}/bin/grim";
       slurp = "${pkgs.slurp}/bin/slurp";
@@ -20,6 +21,7 @@
       volume-update = "${customPkgs.volume-update}/bin/volume-update";
       brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
       playerctl = "${pkgs.playerctl}/bin/playerctl";
+      river-shifttags = "${inputs.river-shifttags.packages.${pkgs.system}.default}/bin/river-shifttags";
 
       uwsmApp = "${osConfig.programs.uwsm.package}/bin/uwsm app --";
       moveStep = "50";
@@ -34,9 +36,9 @@
 
           # Programs
           "Super Return" = spawn "${uwsmApp} ${terminal}";
-          "Super+Shift Return" = spawn (withRules "-app-id 'kitty'" ["float" "dimensions 800 450"] "${uwsmApp} ${terminal}");
+          "Super+Shift Return" = spawn "${uwsmApp} ${terminal} --app-id=kitty-float";
           "Super E" = spawn "${uwsmApp} ${fileManager}";
-          "Super+Shift E" = spawn (withRules "-app-id 'kitty'" ["float" "dimensions 800 450"] "${uwsmApp} ${terminal} ${fileManagerCli}");
+          "Super+Shift E" = spawn "${uwsmApp} ${terminal} --app-id=kitty-float -- ${fileManagerCli}";
           "Super B" = spawn "${uwsmApp} ${browser}";
           "Super O" = spawn "${uwsmApp} ${pkgs.obsidian}/bin/obsidian";
 
@@ -79,7 +81,13 @@
           "Super Up" = "move up ${moveStep}";
           "Super Right" = "move right ${moveStep}";
 
-          # TODO: Cycle tags
+          # Cycle tags
+          "Super S" = spawn "${river-shifttags} --shifts 1";
+          "Super A" = spawn "${river-shifttags} --shifts -1";
+
+          # Send view to next/previous tag
+          "Super+Shift S" = spawn "${river-shifttags} --view --shifts 1";
+          "Super+Shift A" = spawn "${river-shifttags} --view --shifts -1";
 
           # Back-and-forth between recent tags
           "Super Tab" = "focus-previous-tags";
@@ -90,12 +98,12 @@
           "Super+Shift W" = "set-view-tags 2048";
 
           # Focus next/previous output
-          "Super S" = "focus-output next";
-          "Super A" = "focus-output previous";
+          "Super+Control S" = "focus-output next";
+          "Super+Control A" = "focus-output previous";
 
           # Send view to next/previous output
-          "Super+Shift S" = "send-to-output -current-tags next";
-          "Super+Shift A" = "send-to-output -current-tags previous";
+          "Super+Control+Shift S" = "send-to-output -current-tags next";
+          "Super+Control+Shift A" = "send-to-output -current-tags previous";
 
           # Audio control
           "None XF86AudioMute" = spawn "${pamixer} -t && ${volume-update}";

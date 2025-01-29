@@ -101,6 +101,11 @@
       flake = false;
     };
 
+    river-shifttags = {
+      url = "gitlab:Grazen0/river-shifttags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvim-plugin-multicursor = {
       url = "github:jake-stewart/multicursor.nvim";
       flake = false;
