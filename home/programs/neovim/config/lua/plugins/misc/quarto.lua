@@ -1,10 +1,5 @@
 local quarto = require('quarto')
 
-vim.g.molten_image_provider = 'image.nvim'
-vim.g.molten_wrap_output = true
-vim.g.molten_output_virt_lines = true
-vim.g.molten_virt_lines_off_by_1 = true
-
 quarto.setup({
   codeRunner = { default_method = 'molten' },
 })

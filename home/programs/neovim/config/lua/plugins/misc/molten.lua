@@ -1,3 +1,7 @@
+vim.g.molten_wrap_output = true
+vim.g.molten_output_virt_lines = true
+vim.g.molten_virt_lines_off_by_1 = true
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'markdown', 'quarto' },
   callback = function()
