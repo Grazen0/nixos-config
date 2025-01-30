@@ -62,6 +62,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-matlab = {
+      url = "gitlab:doronbehar/nix-matlab";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     aphrodite-terminal-theme = {
       url = "github:win0err/aphrodite-terminal-theme";
       flake = false;

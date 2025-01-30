@@ -4,6 +4,7 @@
     ./foot.nix
     ./jetbrains.nix
     ./kitty.nix
+    ./matlab.nix
     ./mpv.nix
     ./spicetify.nix
     ./swayimg.nix
