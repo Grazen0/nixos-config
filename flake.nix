@@ -38,11 +38,7 @@
     nixpkgs-zoom.url = "github:NixOS/nixpkgs/bcb68885668cccec12276bbb379f8f2557aa06ce";
 
     systems.url = "github:nix-systems/default-linux";
-
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
