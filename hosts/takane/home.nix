@@ -17,6 +17,7 @@ in {
     kitty.font.size = mkForce 10;
 
     spicetify.enable = mkForce false;
+    jetbrains.enable = mkForce false;
   };
 
   home.stateVersion = "24.05";
