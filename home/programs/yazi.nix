@@ -12,14 +12,14 @@
     theme.flavor.use = "kanagawa";
 
     plugins = let
-      ya-plugins = [
+      official-plugins = [
         "full-border"
         "smart-enter"
         "max-preview"
         "git"
       ];
     in
-      (lib.genAttrs ya-plugins (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
+      (lib.genAttrs official-plugins (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
       // {
         relative-motions = inputs.yazi-plugin-relative-motions;
       };
