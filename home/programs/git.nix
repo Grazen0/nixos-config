@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   programs.git = {
     enable = true;
     userName = "Grazen0";
@@ -8,7 +8,7 @@
       init.defaultBranch = "main";
       pull.rebase = true;
       credential.helper = "store";
-      core.editor = "nvim -f";
+      core.editor = "${config.mainPrograms.editor} -f";
       commit.gpgsign = true;
     };
   };

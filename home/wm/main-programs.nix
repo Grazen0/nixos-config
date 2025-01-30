@@ -7,6 +7,7 @@
     inherit (config) programs;
   in {
     terminal = "${programs.kitty.package}/bin/kitty";
+    editor = "nvim";
     browser = "zen";
     fileManager = "thunar";
     fileManagerCli = "${programs.yazi.package}/bin/yazi";
