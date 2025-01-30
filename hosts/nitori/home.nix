@@ -10,7 +10,7 @@ in {
   home.packages = with pkgs; [
     prismlauncher # Minecraft
     polychromatic
-
+    kdenlive
     pgadmin
   ];
 

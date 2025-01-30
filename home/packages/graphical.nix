@@ -50,11 +50,9 @@
       gimp
       inkscape
       insomnia
-      kdenlive
       obsidian
       pavucontrol
       thorium-browser
-      wdisplays
       zen-browser
       zoomPkgs.zoom-us
 
