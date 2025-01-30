@@ -2,7 +2,7 @@
   imports = [
     ./equibop
     ./foot.nix
-    ./idea.nix
+    ./jetbrains.nix
     ./kitty.nix
     ./mpv.nix
     ./spicetify.nix
