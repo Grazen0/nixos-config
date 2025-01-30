@@ -1,5 +1,5 @@
 {config, ...}: {
-  # I really want to use fuzzel, but I need kitty's graphics protocol
+  # I really want to use foot, but I need kitty's graphics protocol
   programs.foot = {
     enable = false;
     server.enable = false;

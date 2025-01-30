@@ -15,6 +15,8 @@
     river = {
       enable = true;
       withUWSM = true;
+      # Would install waybar, foot and dmenu for some reason
+      extraPackages = [];
     };
     steam.enable = true;
   };

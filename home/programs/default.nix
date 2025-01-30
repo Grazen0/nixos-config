@@ -21,6 +21,5 @@
     fd.enable = true;
     lazygit.enable = true;
     ripgrep.enable = true;
-    tealdeer.enable = true;
   };
 }

@@ -5,7 +5,6 @@
     jq
     killall
     ripgrep
-    socat
     unzip
     wget
   ];
