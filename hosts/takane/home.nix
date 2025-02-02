@@ -10,7 +10,7 @@ in {
     river.settings.keyboard-layout = mkForce "-options 'grp:alt_shift_toggle,caps:swapescape' 'latam,us'";
   };
 
-  custom.hyprland.ewwAutoStart = ["desktop-time-alt" "desktop-fortune"];
+  programs.eww.autostart.widgets = mkForce ["desktop-time-alt" "desktop-fortune"];
 
   programs = {
     foot.settings.main.font = mkForce "${config.theme.font.regular}:size=10:weight=semibold";

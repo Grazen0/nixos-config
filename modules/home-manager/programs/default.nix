@@ -1,5 +1,6 @@
 {
   imports = [
+    ./eww.nix
     ./jetbrains.nix
     ./peaclock.nix
     ./r.nix
