@@ -48,7 +48,7 @@
       yaml-language-server
 
       # Plugin-specifics
-      xxd # hex-nvim
+      # xxd # hex-nvim
       texlive.combined.scheme-full # vimtex
       imagemagick # image.nvim
       quarto # r.nvim
@@ -62,7 +62,6 @@
     extraPython3Packages = ps:
       with ps; [
         pynvim
-        cairosvg
         pyperclip
         jupyter-client
         ipykernel

@@ -10,19 +10,23 @@ local function custom_callout(name, icon)
   }
 end
 
-require('markview').setup({
-  hybrid_modes = { 'n' },
+require('lib.misc').setup_on_ft(
+  { 'markdown', 'vimwiki', 'quarto' },
+  'markview',
+  {
+    hybrid_modes = { 'n' },
 
-  block_quotes = {
-    callouts = {
-      custom_callout('definition', ''),
-      custom_callout('theorem', ''),
-      custom_callout('lemma', ''),
-      custom_callout('corollary', ''),
-      custom_callout('property', ''),
-      custom_callout('observation', ''),
-      custom_callout('proof', ''),
-      custom_callout('exercise', ''),
+    block_quotes = {
+      callouts = {
+        custom_callout('definition', ''),
+        custom_callout('theorem', ''),
+        custom_callout('lemma', ''),
+        custom_callout('corollary', ''),
+        custom_callout('property', ''),
+        custom_callout('observation', ''),
+        custom_callout('proof', ''),
+        custom_callout('exercise', ''),
+      },
     },
-  },
-})
+  }
+)

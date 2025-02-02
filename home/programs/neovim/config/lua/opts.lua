@@ -33,3 +33,5 @@ o.splitright = true
 o.undofile = true
 o.updatetime = 300
 o.spelllang = { 'es', 'en_us' }
+
+vim.g.tex_flavor = 'latex'

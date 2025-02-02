@@ -1,9 +1,9 @@
-local utils = require('utils')
+local lib_color = require('lib.color')
 
 local function markview_heading(theme, fg_color)
   return {
     fg = fg_color,
-    bg = utils.blend_colors(fg_color, theme.ui.bg, 0.7),
+    bg = lib_color.blend_colors(fg_color, theme.ui.bg, 0.7),
   }
 end
 

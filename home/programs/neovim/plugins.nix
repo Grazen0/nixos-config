@@ -99,9 +99,9 @@
       mini-starter
       todo-comments-nvim
       vimtex
-      live-share-nvim
+      # live-share-nvim
       crates-nvim
-      hex-nvim
+      # hex-nvim
       presence-nvim
       markdown-preview-nvim
       lazydev-nvim

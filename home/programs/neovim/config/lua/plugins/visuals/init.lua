@@ -7,7 +7,11 @@ require('plugins.visuals.bufferline')
 
 require('highlight-undo').setup()
 require('window-picker').setup()
-require('tailwindcss-colors').setup()
+
+require('lib.misc').setup_on_ft(
+  { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
+  'tailwindcss-colors'
+)
 require('tiny-devicons-auto-colors').setup()
 
 require('ibl').setup({ indent = { char = '│' } })

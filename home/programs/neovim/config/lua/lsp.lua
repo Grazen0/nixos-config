@@ -15,44 +15,52 @@ vim.diagnostic.config({
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 
-local function setup_lsp(server, opts)
-  opts = opts or {}
-  opts.capabilities = opts.capabilities or capabilities
+local function setup_lsp_lazy(server, opts)
+  local autocmd_id
+  autocmd_id = vim.api.nvim_create_autocmd('FileType', {
+    pattern = lspconfig[server].config_def.default_config.filetypes,
+    callback = function()
+      vim.api.nvim_del_autocmd(autocmd_id)
 
-  lspconfig[server].setup(opts)
+      opts = opts or {}
+      opts.capabilities = opts.capabilities or capabilities
+
+      lspconfig[server].setup(opts)
+    end,
+  })
 end
 
 -- Scripting and other stuff
-setup_lsp('bashls')
-setup_lsp('clangd')
-setup_lsp('nil_ls')
-setup_lsp('lua_ls')
+setup_lsp_lazy('bashls')
+setup_lsp_lazy('clangd')
+setup_lsp_lazy('nil_ls')
+setup_lsp_lazy('lua_ls')
 
 -- Web dev
-setup_lsp('ts_ls')
-setup_lsp('eslint')
-setup_lsp('html')
-setup_lsp('emmet_language_server')
-setup_lsp('cssls')
-setup_lsp('tailwindcss')
-setup_lsp('svelte')
+setup_lsp_lazy('ts_ls')
+setup_lsp_lazy('eslint')
+setup_lsp_lazy('html')
+setup_lsp_lazy('emmet_language_server')
+setup_lsp_lazy('cssls')
+setup_lsp_lazy('tailwindcss')
+setup_lsp_lazy('svelte')
 
 -- Other cool stuff
-setup_lsp('pyright')
-setup_lsp('rust_analyzer')
-setup_lsp('texlab')
-setup_lsp('java_language_server')
-setup_lsp('hls')
+setup_lsp_lazy('pyright')
+setup_lsp_lazy('rust_analyzer')
+setup_lsp_lazy('texlab')
+setup_lsp_lazy('java_language_server')
+setup_lsp_lazy('hls')
 
 -- Build tools
-setup_lsp('cmake')
-setup_lsp('autotools_ls')
-setup_lsp('taplo')
-setup_lsp('vimls')
+setup_lsp_lazy('cmake')
+setup_lsp_lazy('autotools_ls')
+setup_lsp_lazy('taplo')
+setup_lsp_lazy('vimls')
 
 local schemastore = require('schemastore')
 
-setup_lsp('jsonls', {
+setup_lsp_lazy('jsonls', {
   settings = {
     json = {
       schemas = schemastore.json.schemas(),
@@ -60,7 +68,7 @@ setup_lsp('jsonls', {
     },
   },
 })
-setup_lsp('yamlls', {
+setup_lsp_lazy('yamlls', {
   settings = {
     yaml = {
       schemaStore = {
