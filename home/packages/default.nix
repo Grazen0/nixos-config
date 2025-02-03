@@ -7,5 +7,14 @@
 
   home.packages = with pkgs; [
     wine
+    (fceux.overrideAttrs (prev: {
+      postInstall = ''
+        ${prev.postInstall or ""}
+
+        substituteInPlace "$out/share/applications/fceux.desktop" \
+          --replace-fail "/usr" "$out"
+      '';
+    }))
+    snes9x-gtk
   ];
 }

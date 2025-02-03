@@ -79,6 +79,9 @@
           "application/x-zerosize" = editor;
 
           "application/vnd.microsoft.portable-executable" = wine;
+
+          "application/octet-stream" = "snes9x-gtk.desktop";
+          "application/x-nes-rom" = "fceux.desktop";
         }
         // expandedAssociations;
     };
