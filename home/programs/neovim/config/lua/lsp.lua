@@ -15,23 +15,28 @@ vim.diagnostic.config({
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 
+local function setup_lsp(server, opts)
+  opts = opts or {}
+  opts.capabilities = opts.capabilities or capabilities
+  lspconfig[server].setup(opts)
+end
+
 local function setup_lsp_lazy(server, opts)
   local autocmd_id
   autocmd_id = vim.api.nvim_create_autocmd('FileType', {
     pattern = lspconfig[server].config_def.default_config.filetypes,
     callback = function()
       vim.api.nvim_del_autocmd(autocmd_id)
-
-      opts = opts or {}
-      opts.capabilities = opts.capabilities or capabilities
-
-      lspconfig[server].setup(opts)
+      setup_lsp(server, opts)
     end,
   })
 end
 
+-- At least one of these must be non-lazy in order
+-- for otter.nvim to initialize properly
+
 -- Scripting and other stuff
-setup_lsp_lazy('bashls')
+setup_lsp('bashls')
 setup_lsp_lazy('clangd')
 setup_lsp_lazy('nil_ls')
 setup_lsp_lazy('lua_ls')
