@@ -8,27 +8,32 @@
   inputs,
   ...
 }: {
-  wayland.windowManager.river.settings = {
-    map = let
-      inherit (config.mainPrograms) terminal browser fileManager fileManagerCli appLauncher dmenu;
-      inherit (lib'.river) tagNumStr spawn;
+  wayland.windowManager.river.settings = let
+    inherit (lib'.river) tagNum tagNumStr spawn;
+    inherit (lib'.math) pow;
+    inherit (config.mainPrograms) terminal browser fileManager fileManagerCli appLauncher dmenu;
 
-      grim = "${pkgs.grim}/bin/grim";
-      slurp = "${pkgs.slurp}/bin/slurp";
-      cliphist = "${config.services.cliphist.package}/bin/cliphist";
-      wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
-      pamixer = "${pkgs.pamixer}/bin/pamixer";
-      volume-update = "${customPkgs.volume-update}/bin/volume-update";
-      brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-      playerctl = "${pkgs.playerctl}/bin/playerctl";
-      river-shifttags = "${inputs.river-shifttags.packages.${pkgs.system}.default}/bin/river-shifttags";
+    grim = "${pkgs.grim}/bin/grim";
+    slurp = "${pkgs.slurp}/bin/slurp";
+    cliphist = "${config.services.cliphist.package}/bin/cliphist";
+    wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
+    pamixer = "${pkgs.pamixer}/bin/pamixer";
+    volume-update = "${customPkgs.volume-update}/bin/volume-update";
+    brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+    playerctl = "${pkgs.playerctl}/bin/playerctl";
+    river-shifttags = "${inputs.river-shifttags.packages.${pkgs.system}.default}/bin/river-shifttags";
 
-      uwsmApp = "${osConfig.programs.uwsm.package}/bin/uwsm app --";
-      moveStep = "50";
-      resizeStep = "50";
-      volumeStep = "5";
-      brightnessStep = "5%";
-    in {
+    uwsmApp = "${osConfig.programs.uwsm.package}/bin/uwsm app --";
+    moveStep = "50";
+    resizeStep = "50";
+    volumeStep = "5";
+    brightnessStep = "5%";
+
+    scratchpadTag = tagNum 10;
+  in {
+    spawn-tagmask = (pow 2 32) - 1 - scratchpadTag;
+
+    map = {
       normal =
         {
           # River control
@@ -90,8 +95,8 @@
           "Super+Shift Tab" = "send-to-previous-tags";
 
           # Scratchpad
-          "Super W" = "toggle-focused-tags 2048";
-          "Super+Shift W" = "set-view-tags 2048";
+          "Super W" = "toggle-focused-tags ${toString scratchpadTag}";
+          "Super+Shift W" = "set-view-tags ${toString scratchpadTag}";
 
           # Focus next/previous output
           "Super+Control S" = "focus-output next";
@@ -125,7 +130,7 @@
             # Toggle view tags
             "Super+Shift+Control ${key}" = "toggle-view-tags ${tag}";
           })
-          9);
+          mainTags);
 
       "-repeat".normal = let
         ratioStep = "0.02";

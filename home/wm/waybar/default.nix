@@ -77,7 +77,10 @@
         };
 
         "river/tags" = {
-          num-tags = 9;
+          num-tags = 10;
+          tag-labels =
+            (builtins.genList (n: toString (n + 1)) 9)
+            ++ ["S"];
         };
 
         pulseaudio = {

@@ -107,8 +107,22 @@ window#waybar.hidden {
   color: @black;
 }
 
+/* TODO: change to something more visible */
 #tags button.urgent {
   color: @bright-magenta;
+}
+
+/* Scratchpad stuff */
+#tags button:last-child:not(.occupied):not(.focused) {
+  opacity: 0;
+}
+
+#tags button:last-child.occupied:not(.focused) {
+  color: @bright-magenta;
+}
+
+#tags button:last-child.focused {
+  background-color: @bright-magenta;
 }
 
 /* PULSEAUDIO */
