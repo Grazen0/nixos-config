@@ -130,7 +130,7 @@
             # Toggle view tags
             "Super+Shift+Control ${key}" = "toggle-view-tags ${tag}";
           })
-          mainTags);
+          9);
 
       "-repeat".normal = let
         ratioStep = "0.02";
