@@ -1,6 +1,6 @@
 {config, ...}: {
   programs.hyprlock = {
-    enable = true;
+    enable = false;
 
     settings = with config.theme.colors.hex; {
       general = {

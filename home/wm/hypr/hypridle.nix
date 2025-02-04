@@ -1,12 +1,14 @@
 {
   config,
+  lib',
   pkgs,
   ...
 }: {
   services.hypridle = {
-    enable = true;
+    enable = false;
 
     settings = let
+      inherit (lib'.strings) timeStrToSecs;
       hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
       hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
       brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
@@ -19,25 +21,25 @@
 
       listener = [
         {
-          # Reduce monitor brightness after 5m
-          timeout = 300;
+          # Reduce monitor brightness
+          timeout = timeStrToSecs "5m";
           on-timeout = "${brightnessctl} -s set 15%";
           on-resume = "${brightnessctl} -r";
         }
         {
-          # Lock screen after 10m
-          timeout = 600;
+          # Lock screen
+          timeout = timeStrToSecs "10m";
           on-timeout = "loginctl lock-session";
         }
         {
-          # Screen off after 10m 30s
-          timeout = 630;
+          # Screen off
+          timeout = timeStrToSecs "10m 30s";
           on-timeout = "${hyprctl} dispatch dpms off";
           on-resume = "${hyprctl} dispatch dpms on";
         }
         {
-          # Suspend after 30m
-          timeout = 1800;
+          # Suspend
+          timeout = timeStrToSecs "30m";
           on-timeout = "systemctl suspend";
         }
       ];

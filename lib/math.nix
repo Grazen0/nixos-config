@@ -1,4 +1,6 @@
 {...}: rec {
+  sum = builtins.foldl' builtins.add 0;
+
   pow = base: exp:
     if exp == 0
     then 1

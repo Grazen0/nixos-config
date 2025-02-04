@@ -1,4 +1,11 @@
-require('fzf-lua').setup()
+local fzf_lua = require('fzf-lua')
+local actions = fzf_lua.actions
+
+fzf_lua.setup({
+  actions = {
+    ['ctrl-x'] = actions.file_split,
+  },
+})
 
 local keyset = vim.keymap.set
 keyset('n', '<leader>ff', '<cmd>FzfLua files<CR>')

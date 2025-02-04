@@ -3,6 +3,7 @@
     ./eww
     ./hypr
     ./river
+    ./sway
     ./waybar
     ./cliphist.nix
     ./dunst.nix

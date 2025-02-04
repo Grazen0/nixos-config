@@ -25,6 +25,7 @@ in rec {
   fuzzel-power-menu = callPackage ./scripts/fuzzel-power-menu.nix {};
   handle-monitor-connect = callPackage ./scripts/handle-monitor-connect.nix {};
   make-writable = callPackage ./scripts/make-writable.nix {};
+  wlr-randr-all = callPackage ./scripts/wlr-randr-all.nix {};
   volume-update = callPackage ./scripts/volume-update.nix {};
 
   waybar-dunst-state = callPackage ./waybar/dunst-state.nix {};

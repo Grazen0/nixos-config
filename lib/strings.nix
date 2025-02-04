@@ -24,7 +24,33 @@
     then "-${lib.toLower ch}"
     else ch);
 
-  # Credit: https://github.com/Misterio77/nix-colors/blob/b92df8f5eb1fa20d8e09810c03c9dc0d94ef2820/lib/core/conversions.nix#L87
+  timeStrToMs = timeStr: let
+    inherit (lib) splitString toIntBase10 trim;
+    inherit (lib'.math) sum;
+
+    suffixTable = rec {
+      ms = 1;
+      s = 1000 * ms;
+      m = 60 * s;
+      h = 60 * m;
+      d = 24 * h;
+    };
+
+    parseTimeStr = part: let
+      s = trim part;
+      strLen = builtins.stringLength s;
+      suffix = builtins.substring (strLen - 1) 1 s;
+      numericPart = builtins.substring 0 (strLen - 1) s;
+    in
+      if !(suffixTable ? ${suffix})
+      then throw "Invalid time suffix: '${suffix}'."
+      else suffixTable.${suffix} * (toIntBase10 numericPart);
+  in
+    sum (map parseTimeStr (splitString " " timeStr));
+
+  timeStrToSecs = str: (timeStrToMs str) / 1000;
+
+  # Credit: https://github.com/Misterio77/nix-colors/blob/b92df8f5eb1fa20d8e09810c03c9dc0d94ef2820/lib/${suffix}core/conversions.nix#L87
   hexCharToDec = hex: let
     lowerHex = lib.toLower hex;
     hexToDecMap = {
