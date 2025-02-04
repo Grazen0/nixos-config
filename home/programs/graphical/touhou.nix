@@ -12,7 +12,7 @@
       path ? "${config.home.homeDirectory}/Games/Touhou ${game}",
       exec ? null,
     }: let
-      paddedGame = lib.strings.fixedWidthString 2 "0" game;
+      paddedGame = lib.fixedWidthString 2 "0" game;
       actualExec =
         if isNull exec
         then "th${paddedGame} (thpatch-en).exe"
@@ -41,6 +41,11 @@
       {
         game = "8";
         fullName = "Imperishable Night";
+      }
+      {
+        game = "9";
+        fullName = "Phantasmagoria of Flower View";
+        exec = "th09e.exe";
       }
       {
         game = "10";
