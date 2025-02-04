@@ -19,6 +19,7 @@
       "'zoom'"."-title"."'zoom'" = ["float"];
 
       "'kitty-float'" = ["float" "dimensions 800 450"];
+      "'foot-float'" = ["float" "dimensions 800 450"];
 
       "'equibop'" = ["tags ${tagNumStr 7}"];
       "'spotify'" = ["tags ${tagNumStr 9}"];

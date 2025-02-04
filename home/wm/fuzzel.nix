@@ -7,7 +7,7 @@
     in {
       main = {
         font = "${theme.font.propo}:size=12";
-        terminal = "${config.programs.kitty.package}/bin/kitty";
+        terminal = config.mainPrograms.terminal;
         use-bold = "yes";
         fields = "filename,name,generic,keywords";
         width = 60;

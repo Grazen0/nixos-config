@@ -5,6 +5,6 @@
   xdg.configFile."xfce4/helpers.rc".text =
     # toml
     ''
-      TerminalEmulator=${config.programs.kitty.package}/bin/kitty
+      TerminalEmulator=${config.mainPrograms.terminal}
     '';
 }

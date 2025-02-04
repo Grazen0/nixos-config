@@ -1,7 +1,6 @@
 {config, ...}: {
-  # I really want to use foot, but I need kitty's graphics protocol
   programs.foot = {
-    enable = false;
+    enable = true;
     server.enable = false;
 
     settings = let
@@ -36,8 +35,6 @@
         bright5 = brightMagenta;
         bright6 = brightCyan;
         bright7 = brightWhite;
-
-        alpha = 0.85;
       };
 
       mouse.hide-when-typing = "yes";

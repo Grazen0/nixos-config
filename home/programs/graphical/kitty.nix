@@ -1,6 +1,6 @@
 {config, ...}: {
   programs.kitty = {
-    enable = true;
+    enable = false;
 
     themeFile = "kanagawa";
 

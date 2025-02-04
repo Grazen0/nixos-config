@@ -41,9 +41,9 @@
 
           # Programs
           "Super Return" = spawn "${uwsmApp} ${terminal}";
-          "Super+Shift Return" = spawn "${uwsmApp} ${terminal} --app-id=kitty-float";
+          "Super+Shift Return" = spawn "${uwsmApp} ${terminal} --app-id=foot-float";
           "Super E" = spawn "${uwsmApp} ${fileManager}";
-          "Super+Shift E" = spawn "${uwsmApp} ${terminal} --app-id=kitty-float -- ${fileManagerCli}";
+          "Super+Shift E" = spawn "${uwsmApp} ${terminal} --app-id=foot-float -- ${fileManagerCli}";
           "Super B" = spawn "${uwsmApp} ${browser}";
           "Super O" = spawn "${uwsmApp} ${pkgs.obsidian}/bin/obsidian";
 

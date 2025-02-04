@@ -6,7 +6,7 @@
   mainPrograms = let
     inherit (config) programs;
   in {
-    terminal = "${programs.kitty.package}/bin/kitty";
+    terminal = "${programs.foot.package}/bin/foot";
     editor = "nvim";
     browser = "zen";
     fileManager = "thunar";
