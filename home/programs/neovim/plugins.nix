@@ -105,7 +105,7 @@
       presence-nvim
       markdown-preview-nvim
       lazydev-nvim
-      image-nvim
+      # image-nvim
       r-nvim
       which-key-nvim
       obsidian-nvim
