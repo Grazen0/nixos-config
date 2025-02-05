@@ -22,6 +22,10 @@
     brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
     playerctl = "${pkgs.playerctl}/bin/playerctl";
     river-shifttags = "${inputs.river-shifttags.packages.${pkgs.system}.default}/bin/river-shifttags";
+    wlogout = "${config.programs.wlogout.package}/bin/wlogout";
+    menu-qalc = "${customPkgs.menu-qalc}/bin/=";
+    bemoji = "${pkgs.bemoji}/bin/bemoji";
+    obsidian = "${pkgs.obsidian}/bin/obsidian";
 
     uwsmApp = "${osConfig.programs.uwsm.package}/bin/uwsm app --";
     moveStep = "50";
@@ -45,14 +49,14 @@
           "Super E" = spawn "${uwsmApp} ${fileManager}";
           "Super+Shift E" = spawn "${uwsmApp} ${terminal} --app-id=foot-float -- ${fileManagerCli}";
           "Super B" = spawn "${uwsmApp} ${browser}";
-          "Super O" = spawn "${uwsmApp} ${pkgs.obsidian}/bin/obsidian";
+          "Super O" = spawn "${uwsmApp} ${obsidian}";
 
           # Menus
           "Super Space" = spawn "${appLauncher}";
           "Super V" = spawn "${cliphist} list | ${dmenu} | ${cliphist} decode | ${wl-copy}";
-          "Super Period" = spawn "${pkgs.bemoji}/bin/bemoji -n -t";
-          "Super Comma" = spawn "${uwsmApp} ${customPkgs.menu-qalc}/bin/= --dmenu=fuzzel";
-          "Super+Shift X" = spawn "${uwsmApp} ${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
+          "Super Period" = spawn "${bemoji} -n -t";
+          "Super Comma" = spawn "${uwsmApp} ${menu-qalc} --dmenu=fuzzel";
+          "Super+Shift X" = spawn "${uwsmApp} ${wlogout}";
 
           # Screen capture
           "None Print" = spawn "pidof -q slurp || ${slurp} -w 0 -b 00000088 | ${grim} -g - - | ${wl-copy}";

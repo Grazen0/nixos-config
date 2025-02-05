@@ -5,6 +5,7 @@
     ./river
     ./sway
     ./waybar
+    ./wlogout
     ./cliphist.nix
     ./dunst.nix
     ./env.nix

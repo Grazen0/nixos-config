@@ -145,10 +145,12 @@
           inherit signal;
         };
 
-        "custom/power" = {
+        "custom/power" = let
+          wlogout = "${config.programs.wlogout.package}/bin/wlogout";
+        in {
           format = "";
           tooltip-format = "Power menu";
-          on-click = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
+          on-click = wlogout;
         };
       };
     };
