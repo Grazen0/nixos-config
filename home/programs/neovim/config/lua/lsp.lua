@@ -33,7 +33,7 @@ local function setup_lsp_lazy(server, opts)
 end
 
 -- At least one of these must be non-lazy in order
--- for otter.nvim to initialize properly
+-- for r.nvim to initialize properly
 
 -- Scripting and other stuff
 setup_lsp('bashls')
@@ -51,7 +51,7 @@ setup_lsp_lazy('tailwindcss')
 setup_lsp_lazy('svelte')
 
 -- Other cool stuff
-setup_lsp_lazy('pyright')
+setup_lsp('pyright') -- Does not seem to work lazily
 setup_lsp_lazy('rust_analyzer')
 setup_lsp_lazy('texlab')
 setup_lsp_lazy('java_language_server')
