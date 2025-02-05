@@ -14,7 +14,7 @@
     }: let
       paddedGame = lib.fixedWidthString 2 "0" game;
       actualExec =
-        if isNull exec
+        if exec == null
         then "th${paddedGame} (thpatch-en).exe"
         else exec;
     in {

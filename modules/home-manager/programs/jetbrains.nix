@@ -37,7 +37,7 @@ in {
     });
 
     ideavimrc = mkOption {
-      type = types.lines;
+      type = with types; nullOr lines;
       description = ''
         Contents written to {file}`$HOME/.ideavimrc`.
       '';
@@ -47,7 +47,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = map (editor: mkIf cfg.editors.${editor}.enable cfg.editors.${editor}.package) editors;
 
-    home.file.".ideavimrc" = mkIf (!(isNull cfg.ideavimrc)) {
+    home.file.".ideavimrc" = mkIf (cfg.ideavimrc != null) {
       text = cfg.ideavimrc;
     };
   };
