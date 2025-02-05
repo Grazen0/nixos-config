@@ -36,6 +36,7 @@
       "'File Upload*'" = ["float"];
       "'Choose one'" = ["float"]; # R.nvim help selection popup
       "'Steam Settings'" = ["float"]; # Steam settings
+      "'Friends List'" = ["float"]; # Steam friends list
       "'MainPicker'" = ["float"]; # Window picker
     };
   };
