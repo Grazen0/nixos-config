@@ -30,6 +30,14 @@
         linemode = "size";
       };
 
+      opener.open = [
+        {
+          run = "xdg-open \"$@\"";
+          desc = "Open";
+          orphan = true;
+        }
+      ];
+
       plugin.prepend_fetchers = [
         {
           id = "git";
