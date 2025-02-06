@@ -1,8 +1,4 @@
-{
-  config,
-  osConfig,
-  ...
-}: {
+{config, ...}: {
   mainPrograms = let
     inherit (config) programs;
   in {
@@ -11,7 +7,7 @@
     browser = "zen";
     fileManager = "thunar";
     fileManagerCli = "${programs.yazi.package}/bin/yazi";
-    appLauncher = "${programs.fuzzel.package}/bin/fuzzel --launch-prefix='${osConfig.programs.uwsm.package}/bin/uwsm app -- '";
+    appLauncher = "${programs.fuzzel.package}/bin/fuzzel";
     dmenu = "${programs.fuzzel.package}/bin/fuzzel --dmenu";
   };
 }

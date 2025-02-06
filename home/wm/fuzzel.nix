@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  osConfig,
+  ...
+}: {
   programs.fuzzel = {
     enable = true;
 
@@ -6,6 +10,7 @@
       inherit (config) theme;
     in {
       main = {
+        launch-prefix = "${osConfig.programs.uwsm.package}/bin/uwsm app -- ";
         font = "${theme.font.propo}:size=12";
         terminal = config.mainPrograms.terminal;
         use-bold = "yes";
