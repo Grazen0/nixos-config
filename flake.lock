@@ -266,6 +266,22 @@
         "type": "github"
       }
     },
+    "mopidy-discord-rpc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1614560434,
+        "narHash": "sha256-8BV7K+AJAXIt4jtaxwT49VTV7RZLCcAt+zRzRgY+mcU=",
+        "owner": "very-amused",
+        "repo": "mopidy-discord-rpc",
+        "rev": "0ffe7e27033a7c3ceabf5c25011669c000ed66cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "very-amused",
+        "repo": "mopidy-discord-rpc",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1738471961,
@@ -351,6 +367,22 @@
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "bcb68885668cccec12276bbb379f8f2557aa06ce",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1731763621,
+        "narHash": "sha256-ddcX4lQL0X05AYkrkV2LMFgGdRvgap7Ho8kgon3iWZk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c69a9bffbecde46b4b939465422ddc59493d3e4d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -487,6 +519,7 @@
         "mdformat-web": "mdformat-web",
         "mdformat-wikilink": "mdformat-wikilink",
         "menu-qalc": "menu-qalc",
+        "mopidy-discord-rpc": "mopidy-discord-rpc",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
@@ -498,6 +531,7 @@
         "nvim-plugin-r-nvim": "nvim-plugin-r-nvim",
         "r-nvim": "r-nvim",
         "river-shifttags": "river-shifttags",
+        "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "systems": "systems_2",
         "thorium-browser": "thorium-browser",
@@ -505,6 +539,24 @@
         "yazi-plugin-relative-motions": "yazi-plugin-relative-motions",
         "yazi-plugins": "yazi-plugins",
         "zen-browser": "zen-browser"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1738291974,
+        "narHash": "sha256-wkwYJc8cKmmQWUloyS9KwttBnja2ONRuJQDEsmef320=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "4c1251904d8a08c86ac6bc0d72cc09975e89aef7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "spicetify-nix": {

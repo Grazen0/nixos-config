@@ -39,6 +39,7 @@
 
     systems.url = "github:nix-systems/default-linux";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    sops-nix.url = "github:Mic92/sops-nix";
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
@@ -164,6 +165,11 @@
 
     mdformat-obsidian = {
       url = "github:KyleKing/mdformat-obsidian";
+      flake = false;
+    };
+
+    mopidy-discord-rpc = {
+      url = "github:very-amused/mopidy-discord-rpc";
       flake = false;
     };
   };

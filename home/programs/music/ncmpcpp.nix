@@ -51,11 +51,9 @@
       }
     ];
 
-    settings = let
-      mopidySettings = config.services.mopidy.settings;
-    in {
-      mpd_host = mopidySettings.mpd.hostname;
-      mpd_port = mopidySettings.mpd.port;
+    settings = {
+      mpd_host = "localhost";
+      mpd_port = 6600;
       mpd_music_dir = config.xdg.userDirs.music;
 
       visualizer_data_source = "localhost:5555";
@@ -63,6 +61,8 @@
       visualizer_in_stereo = "yes";
       visualizer_type = "spectrum";
       visualizer_look = "●▮";
+
+      data_fetching_delay = "no";
     };
   };
 }

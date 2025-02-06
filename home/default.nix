@@ -6,6 +6,7 @@
   imports = [
     ./packages
     ./programs
+    ./sops
     ./wm
     ./looks.nix
     ./xdg.nix
