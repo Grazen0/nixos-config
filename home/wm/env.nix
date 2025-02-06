@@ -2,7 +2,7 @@
   config,
   lib,
   ...
-}: {
+}: rec {
   home.sessionVariables = {
     XDG_SESSION_TYPE = "wayland";
     QT_GPA_PLATFORM = "wayland";
@@ -19,7 +19,7 @@
     lines =
       mapAttrsToList
       (key: value: "export ${key}=${escapeShellArg value}")
-      config.home.sessionVariables;
+      home.sessionVariables;
   in
     concatStringsSep "\n" lines;
 }
