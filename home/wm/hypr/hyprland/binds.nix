@@ -14,7 +14,7 @@
       fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
       grim = "${pkgs.grim}/bin/grim";
       slurp = "${pkgs.slurp}/bin/slurp";
-      playerctl = "${pkgs.playerctl}/bin/playerctl";
+      playerctl = "${pkgs.playerctl}/bin/playerctl -p mopidy";
       pamixer = "${pkgs.pamixer}/bin/pamixer";
       wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
       cliphist = "${config.services.cliphist.package}/bin/cliphist";

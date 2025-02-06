@@ -3,13 +3,14 @@ pkgs.writeShellApplication {
   name = "media-query";
   runtimeInputs = with pkgs; [playerctl];
   text = ''
+    playerctl="playerctl -p mopidy"
     class=""
     text=""
     tooltip=""
 
-    if playerctl status > /dev/null; then
-      text=" $(playerctl metadata title)"
-      tooltip=$(playerctl status)
+    if $playerctl status > /dev/null; then
+      text=" $($playerctl metadata title)"
+      tooltip=$($playerctl status)
 
       if [ "$tooltip" != "Playing" ]; then
         class="paused"

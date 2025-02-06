@@ -20,7 +20,7 @@
     pamixer = "${pkgs.pamixer}/bin/pamixer";
     volume-update = "${customPkgs.volume-update}/bin/volume-update";
     brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-    playerctl = "${pkgs.playerctl}/bin/playerctl";
+    playerctl = "${pkgs.playerctl}/bin/playerctl -p mopidy";
     river-shifttags = "${inputs.river-shifttags.packages.${pkgs.system}.default}/bin/river-shifttags";
     wlogout = "${config.programs.wlogout.package}/bin/wlogout";
     menu-qalc = "${customPkgs.menu-qalc}/bin/=";

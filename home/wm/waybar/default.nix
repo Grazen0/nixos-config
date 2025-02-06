@@ -65,7 +65,7 @@
         };
 
         "custom/media" = let
-          playerctl = "${pkgs.playerctl}/bin/playerctl";
+          playerctl = "${pkgs.playerctl}/bin/playerctl -p mopidy";
         in {
           interval = 1;
           format = "{}";

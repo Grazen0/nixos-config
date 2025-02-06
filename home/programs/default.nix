@@ -2,6 +2,7 @@
   imports = [
     ./fish
     ./graphical
+    ./music
     ./neovim
     ./bat.nix
     ./btop.nix
