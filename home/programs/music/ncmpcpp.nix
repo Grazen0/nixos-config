@@ -54,7 +54,6 @@
     settings = {
       mpd_host = "localhost";
       mpd_port = 6600;
-      mpd_music_dir = config.xdg.userDirs.music;
 
       visualizer_data_source = "localhost:5555";
       visualizer_output_name = "t";
