@@ -266,6 +266,22 @@
         "type": "github"
       }
     },
+    "mmtui": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738022695,
+        "narHash": "sha256-ZJDmW1Z9W6v5LGCpuJpviKTcQ1CWqY9gPB12W82Tidw=",
+        "owner": "SL-RU",
+        "repo": "mmtui",
+        "rev": "fc4b80095e691d204c8cf35f07b1d5f9306c8b4a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SL-RU",
+        "repo": "mmtui",
+        "type": "github"
+      }
+    },
     "mopidy-discord-rpc": {
       "flake": false,
       "locked": {
@@ -519,6 +535,7 @@
         "mdformat-web": "mdformat-web",
         "mdformat-wikilink": "mdformat-wikilink",
         "menu-qalc": "menu-qalc",
+        "mmtui": "mmtui",
         "mopidy-discord-rpc": "mopidy-discord-rpc",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
@@ -536,6 +553,7 @@
         "systems": "systems_2",
         "thorium-browser": "thorium-browser",
         "yazi-flavor-kanagawa": "yazi-flavor-kanagawa",
+        "yazi-plugin-mount": "yazi-plugin-mount",
         "yazi-plugin-relative-motions": "yazi-plugin-relative-motions",
         "yazi-plugins": "yazi-plugins",
         "zen-browser": "zen-browser"
@@ -660,6 +678,22 @@
       "original": {
         "owner": "dangooddd",
         "repo": "kanagawa.yazi",
+        "type": "github"
+      }
+    },
+    "yazi-plugin-mount": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735679771,
+        "narHash": "sha256-ds+6aYcZm/O437FXE0/79TCnlx0ivNvM5O7C9T9ajBQ=",
+        "owner": "SL-RU",
+        "repo": "mount.yazi",
+        "rev": "e494101cb8a35cfb13f5c42670cdd28ede850216",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SL-RU",
+        "repo": "mount.yazi",
         "type": "github"
       }
     },

@@ -83,6 +83,11 @@
       flake = false;
     };
 
+    yazi-plugin-mount = {
+      url = "github:SL-RU/mount.yazi";
+      flake = false;
+    };
+
     kanagawa-rstudio = {
       url = "github:camartinezbu/kanagawa-rstudio";
       flake = false;
@@ -95,6 +100,11 @@
 
     menu-qalc = {
       url = "github:Grazen0/menu-qalc-wayland";
+      flake = false;
+    };
+
+    mmtui = {
+      url = "github:SL-RU/mmtui";
       flake = false;
     };
 
