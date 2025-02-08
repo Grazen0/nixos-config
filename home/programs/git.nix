@@ -8,7 +8,7 @@
       init.defaultBranch = "main";
       pull.rebase = true;
       credential.helper = "store";
-      core.editor = "${config.mainPrograms.editor} -f";
+      core.editor = "${config.meta.mainPrograms.editor} -f";
       commit.gpgsign = true;
     };
   };

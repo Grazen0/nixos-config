@@ -10,7 +10,7 @@
 
   wayland.windowManager.hyprland = {
     settings = let
-      inherit (config.mainPrograms) terminal browser fileManager fileManagerCli appLauncher dmenu;
+      inherit (config.meta.mainPrograms) terminal browser fileManager fileManagerCli appLauncher dmenu;
       fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
       grim = "${pkgs.grim}/bin/grim";
       slurp = "${pkgs.slurp}/bin/slurp";

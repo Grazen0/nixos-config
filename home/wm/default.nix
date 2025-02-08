@@ -11,7 +11,6 @@
     ./env.nix
     ./fuzzel.nix
     ./kanshi.nix
-    ./main-programs.nix
     ./wob.nix
   ];
 

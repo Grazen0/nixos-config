@@ -2,7 +2,7 @@
   imports = [
     ./programs
     ./services
-    ./main-programs.nix
+    ./meta.nix
     ./theme.nix
   ];
 }

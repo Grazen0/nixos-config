@@ -1,5 +1,5 @@
 {config, ...}: {
-  mainPrograms = let
+  meta.mainPrograms = let
     inherit (config) programs;
   in {
     terminal = "${programs.foot.package}/bin/foot";

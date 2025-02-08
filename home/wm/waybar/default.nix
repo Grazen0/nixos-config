@@ -57,7 +57,7 @@
         "custom/sysmenu" = {
           format = "";
           tooltip-format = "App launcher";
-          on-click = config.mainPrograms.appLauncher;
+          on-click = config.meta.mainPrograms.appLauncher;
         };
 
         tray = {

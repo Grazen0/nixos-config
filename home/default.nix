@@ -9,6 +9,7 @@
     ./sops
     ./wm
     ./looks.nix
+    ./meta.nix
     ./xdg.nix
   ];
 

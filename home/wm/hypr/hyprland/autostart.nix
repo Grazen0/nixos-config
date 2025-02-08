@@ -4,7 +4,7 @@
   ...
 }: {
   wayland.windowManager.hyprland.settings.exec-once = let
-    inherit (config.mainPrograms) browser;
+    inherit (config.meta.mainPrograms) browser;
     uwsmApp = "uwsm app --";
   in [
     "${uwsmApp} ${pkgs.wbg}/bin/wbg ${config.theme.home.wallpaper.source}"

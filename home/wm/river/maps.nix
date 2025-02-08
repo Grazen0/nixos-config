@@ -11,7 +11,7 @@
   wayland.windowManager.river.settings = let
     inherit (lib'.river) tagNum tagNumStr spawn;
     inherit (lib'.math) pow;
-    inherit (config.mainPrograms) terminal browser fileManager fileManagerCli appLauncher dmenu;
+    inherit (config.meta.mainPrograms) terminal browser fileManager fileManagerCli appLauncher dmenu;
 
     grim = "${pkgs.grim}/bin/grim";
     slurp = "${pkgs.slurp}/bin/slurp";

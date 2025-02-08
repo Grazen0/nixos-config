@@ -12,7 +12,7 @@
       main = {
         launch-prefix = "${osConfig.programs.uwsm.package}/bin/uwsm app -- ";
         font = "${theme.font.propo}:size=12";
-        terminal = config.mainPrograms.terminal;
+        terminal = config.meta.mainPrograms.terminal;
         use-bold = "yes";
         fields = "filename,name,generic,keywords";
         width = 60;
