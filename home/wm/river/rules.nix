@@ -6,10 +6,8 @@
 
     "-app-id" = {
       "'thunar'" = ["float"];
-      "'*blueman-manager*'" = ["float"];
       "'*blueman-adapters*'" = ["float"];
       "'org.pulseaudio.pavucontrol'" = ["float"];
-      "'swayimg'" = ["float"];
       "'org.gnome.FileRoller'" = ["float"];
       "'nvidia-settings'" = ["float"];
       "'gcr-prompter'" = ["float"];
@@ -20,6 +18,9 @@
 
       "'kitty-float'" = ["float" "dimensions 800 450"];
       "'foot-float'" = ["float" "dimensions 800 450"];
+
+      "'*blueman-manager*'" = ["float" "dimensions 480 320"];
+      "'swayimg'" = ["float" "dimensions 1200 800"];
 
       "'equibop'" = ["tags ${tagNumStr 7}"];
       "'spotify'" = ["tags ${tagNumStr 9}"];
