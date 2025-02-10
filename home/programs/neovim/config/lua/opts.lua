@@ -28,6 +28,7 @@ o.tabstop = 4
 o.expandtab = true
 
 -- Misc (?)
+o.autoread = true
 o.mouse = 'a' -- No shame
 o.splitright = true
 o.undofile = true
