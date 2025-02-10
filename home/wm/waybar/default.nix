@@ -30,7 +30,7 @@
       mainBar = {
         reload_style_on_change = true;
 
-        layer = "top";
+        layer = "bottom";
         position = "top";
         height = 28;
         spacing = 0; # I prefer to use CSS margin
