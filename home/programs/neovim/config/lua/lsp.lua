@@ -51,8 +51,8 @@ setup_lsp_lazy('tailwindcss')
 setup_lsp_lazy('svelte')
 
 -- Other cool stuff
-setup_lsp('pyright') -- Does not seem to work lazily
-setup_lsp_lazy('rust_analyzer')
+setup_lsp('pyright')
+setup_lsp('rust_analyzer')
 setup_lsp_lazy('texlab')
 setup_lsp_lazy('java_language_server')
 setup_lsp_lazy('hls')
