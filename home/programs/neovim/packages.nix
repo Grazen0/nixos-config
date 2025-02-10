@@ -1,5 +1,6 @@
 {
   pkgs,
+  stablePkgs,
   customPkgs,
   ...
 }: {
@@ -43,7 +44,7 @@
       taplo # TOML
       texlab # LaTeX
       typescript-language-server
-      vim-language-server
+      stablePkgs.vim-language-server
       vscode-langservers-extracted # HTML, CSS, JSON
       yaml-language-server
 

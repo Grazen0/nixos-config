@@ -11,7 +11,8 @@ rustPlatform.buildRustPackage {
 
   inherit src;
 
-  cargoHash = "sha256-kysZc9EHQ20Km29IgFklZUatWDcraS6shZC1qjTlB00=";
+  cargoHash = "sha256-9F1YMepkWksTQRrkziNhLxVJnhoDH17lSKef5kOjp3Y=";
+  useFetchCargoVendor = true;
 
   # Needed to compile loopdev
   C_INCLUDE_PATH = "${linuxHeaders}/include";
