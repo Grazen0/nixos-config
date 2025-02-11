@@ -4,57 +4,62 @@
   pkgs,
   ...
 }: let
+  inherit (lib) mkEnableOption mkPackageOption mkOption mkIf types;
   cfg = config.programs.r;
   prefsFormat = pkgs.formats.json {};
   prefsFile = prefsFormat.generate "rstudio-prefs.json" cfg.rstudio.preferences;
 in {
   options.programs.r = {
-    enable = lib.mkEnableOption "r";
-    package = lib.mkPackageOption pkgs "rWrapper" {};
+    enable = mkEnableOption "r";
+    package = mkPackageOption pkgs "rWrapper" {};
 
-    rPackages = lib.mkOption {
-      type = with lib.types; listOf package;
+    rPackages = mkOption {
+      type = with types; listOf package;
       default = [];
       description = ''
         Packages to be included in the R installation.
       '';
     };
 
-    profile = lib.mkOption {
-      type = lib.types.lines;
+    finalPackage = mkOption {type = types.package;};
+
+    profile = mkOption {
+      type = types.lines;
       description = ''
         Contents written to {file}`$HOME/.Rprofile`.
       '';
     };
 
     rstudio = {
-      enable = lib.mkEnableOption "rstudio";
-      package = lib.mkPackageOption pkgs "rstudioWrapper" {};
+      enable = mkEnableOption "rstudio";
+      package = mkPackageOption pkgs "rstudioWrapper" {};
 
-      themes = lib.mkOption {
-        type = with lib.types; attrsOf lines;
+      finalPackage = mkOption {type = types.package;};
+
+      themes = mkOption {
+        type = with types; attrsOf lines;
         description = ''
           Contents of the theme files to be placed inside {file}`$XDG_CONFIG_HOME/rstudio/themes`.
         '';
       };
 
-      includeRPackages = lib.mkOption {
-        type = lib.types.bool;
+      includeRPackages = mkOption {
+        type = types.bool;
         default = true;
         description = ''
           Include R packages in RStudio packages.
         '';
       };
 
-      rPackages = lib.mkOption {
-        type = with lib.types; listOf package;
+      rPackages = mkOption {
+        type = with types; listOf package;
         default = [];
         description = ''
           Packages to be included in the RStudio installation
         '';
       };
 
-      preferences = lib.mkOption {
+      preferences = mkOption {
         type = prefsFormat.type;
         default = {};
         description = ''
@@ -64,44 +69,45 @@ in {
     };
   };
 
-  config = let
-    inherit (cfg) rstudio;
-  in
-    lib.mkIf cfg.enable {
-      home.packages = let
-        rWrapped = cfg.package.override {
-          packages = cfg.rPackages;
-        };
-
-        rstudioWrapped = cfg.rstudio.package.override {
-          packages =
-            cfg.rstudio.rPackages
-            ++ (
-              if cfg.rstudio.includeRPackages
-              then cfg.rPackages
-              else []
-            );
-        };
-      in [
-        rWrapped
-        (lib.mkIf rstudio.enable rstudioWrapped)
-      ];
-
-      home.file.rProfile = lib.mkIf (cfg.enable && cfg.profile != "") {
-        target = "${config.home.homeDirectory}/.Rprofile";
-        text = cfg.profile;
+  config = mkIf cfg.enable {
+    programs.r = {
+      finalPackage = cfg.package.override {
+        packages = cfg.rPackages;
       };
 
-      xdg.configFile =
-        {
-          "rstudio/rstudio-prefs.json" = lib.mkIf (rstudio.enable && rstudio.preferences != {}) {
-            source = prefsFile;
-          };
-        }
-        // lib.listToAttrs (lib.mapAttrsToList (theme: text: {
-            name = "rstudio/themes/${theme}.rstheme";
-            value = {inherit text;};
-          })
-          rstudio.themes);
+      rstudio.finalPackage = mkIf cfg.rstudio.enable (cfg.rstudio.package.override {
+        packages =
+          cfg.rstudio.rPackages
+          ++ (
+            if cfg.rstudio.includeRPackages
+            then cfg.rPackages
+            else []
+          );
+      });
     };
+
+    home.packages = [
+      cfg.finalPackage
+      (mkIf cfg.rstudio.enable cfg.rstudio.finalPackage)
+    ];
+
+    home.file.rProfile = mkIf (cfg.enable && cfg.profile != "") {
+      target = "${config.home.homeDirectory}/.Rprofile";
+      text = cfg.profile;
+    };
+
+    xdg.configFile = let
+      inherit (lib) listToAttrs mapAttrsToList;
+    in
+      {
+        "rstudio/rstudio-prefs.json" = mkIf (cfg.rstudio.enable && cfg.rstudio.preferences != {}) {
+          source = prefsFile;
+        };
+      }
+      // listToAttrs (mapAttrsToList (theme: text: {
+          name = "rstudio/themes/${theme}.rstheme";
+          value = {inherit text;};
+        })
+        cfg.rstudio.themes);
+  };
 }
