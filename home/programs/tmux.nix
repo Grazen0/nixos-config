@@ -79,6 +79,12 @@
         bind k select-pane -U
         bind l select-pane -R
 
+        # Resize panes with hjkl
+        bind -r C-h resize-pane -L
+        bind -r C-j resize-pane -D
+        bind -r C-k resize-pane -U
+        bind -r C-l resize-pane -R
+
         # https://reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
         set -ga terminal-overrides ",*256col*:Tc"
         set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
