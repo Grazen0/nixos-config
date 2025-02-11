@@ -59,6 +59,7 @@
       undotree
       lazygit-nvim
       bullets-vim
+      vim-tmux-navigator
 
       # LSP
       conform-nvim
@@ -95,7 +96,7 @@
       dressing-nvim
 
       # Misc
-      mini-sessions
+      vim-obsession
       mini-starter
       todo-comments-nvim
       vimtex

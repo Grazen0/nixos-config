@@ -182,5 +182,10 @@
       url = "github:very-amused/mopidy-discord-rpc";
       flake = false;
     };
+
+    tmux-plugin-kanagawa = {
+      url = "github:Nybkox/tmux-kanagawa";
+      flake = false;
+    };
   };
 }

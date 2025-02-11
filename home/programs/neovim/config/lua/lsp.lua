@@ -21,51 +21,37 @@ local function setup_lsp(server, opts)
   lspconfig[server].setup(opts)
 end
 
-local function setup_lsp_lazy(server, opts)
-  local autocmd_id
-  autocmd_id = vim.api.nvim_create_autocmd('FileType', {
-    pattern = lspconfig[server].config_def.default_config.filetypes,
-    callback = function()
-      vim.api.nvim_del_autocmd(autocmd_id)
-      setup_lsp(server, opts)
-    end,
-  })
-end
-
--- At least one of these must be non-lazy in order
--- for r.nvim to initialize properly
-
 -- Scripting and other stuff
 setup_lsp('bashls')
-setup_lsp_lazy('clangd')
-setup_lsp_lazy('nil_ls')
-setup_lsp_lazy('lua_ls')
+setup_lsp('clangd')
+setup_lsp('nil_ls')
+setup_lsp('lua_ls')
 
 -- Web dev
-setup_lsp_lazy('ts_ls')
-setup_lsp_lazy('eslint')
-setup_lsp_lazy('html')
-setup_lsp_lazy('emmet_language_server')
-setup_lsp_lazy('cssls')
-setup_lsp_lazy('tailwindcss')
-setup_lsp_lazy('svelte')
+setup_lsp('ts_ls')
+setup_lsp('eslint')
+setup_lsp('html')
+setup_lsp('emmet_language_server')
+setup_lsp('cssls')
+setup_lsp('tailwindcss')
+setup_lsp('svelte')
 
 -- Other cool stuff
 setup_lsp('pyright')
 setup_lsp('rust_analyzer')
-setup_lsp_lazy('texlab')
-setup_lsp_lazy('java_language_server')
-setup_lsp_lazy('hls')
+setup_lsp('texlab')
+setup_lsp('java_language_server')
+setup_lsp('hls')
 
 -- Build tools
-setup_lsp_lazy('cmake')
-setup_lsp_lazy('autotools_ls')
-setup_lsp_lazy('taplo')
-setup_lsp_lazy('vimls')
+setup_lsp('cmake')
+setup_lsp('autotools_ls')
+setup_lsp('taplo')
+setup_lsp('vimls')
 
 local schemastore = require('schemastore')
 
-setup_lsp_lazy('jsonls', {
+setup_lsp('jsonls', {
   settings = {
     json = {
       schemas = schemastore.json.schemas(),
@@ -73,7 +59,7 @@ setup_lsp_lazy('jsonls', {
     },
   },
 })
-setup_lsp_lazy('yamlls', {
+setup_lsp('yamlls', {
   settings = {
     yaml = {
       schemaStore = {

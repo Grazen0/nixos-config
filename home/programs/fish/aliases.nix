@@ -77,7 +77,9 @@
     rmdirfr = "${pkgs.coreutils}/bin/rmdir";
 
     v = "nvim";
+    vs = "nvim -S";
     emacs = "nvim";
+    emacss = "nvim -S";
 
     peaclock = "peaclock --config-dir ${config.xdg.configHome}/peaclock";
     lg = "lazygit";

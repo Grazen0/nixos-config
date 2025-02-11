@@ -54,39 +54,3 @@ create_user_command('Mfw', function()
 
   vim.b.disable_autoformat = prev
 end, {})
-
--- Sessions
-local MiniSessions = require('mini.sessions')
-
-create_user_command('SessionWrite', function(opts)
-  local session_name = opts.args
-
-  if session_name == '' then
-    session_name = vim.fn.input('Enter the session name: ')
-    vim.fn.redraw()
-
-    if session_name == '' then
-      vim.print('Session name cannot be empty.')
-      return
-    end
-  end
-
-  MiniSessions.write(session_name)
-end, { nargs = '?' })
-
-create_user_command('SessionDelete', function(opts)
-  if opts.args == '' then
-    MiniSessions.delete(nil, { force = true })
-  else
-    MiniSessions.delete(opts.args, { force = true })
-  end
-end, {
-  nargs = '?',
-  complete = function()
-    local sessions = {}
-    for session_name, _ in pairs(MiniSessions.detected) do
-      table.insert(sessions, session_name)
-    end
-    return sessions
-  end,
-})

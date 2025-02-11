@@ -536,6 +536,7 @@
         "spicetify-nix": "spicetify-nix",
         "systems": "systems_3",
         "thorium-browser": "thorium-browser",
+        "tmux-plugin-kanagawa": "tmux-plugin-kanagawa",
         "yazi-flavor-kanagawa": "yazi-flavor-kanagawa",
         "yazi-plugin-mount": "yazi-plugin-mount",
         "yazi-plugin-relative-motions": "yazi-plugin-relative-motions",
@@ -661,6 +662,22 @@
       "original": {
         "type": "git",
         "url": "https://codeberg.org/Tomkoid/thorium-browser-nix"
+      }
+    },
+    "tmux-plugin-kanagawa": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739196804,
+        "narHash": "sha256-sFL9/PMdPJxN7tgpc4YbUHW4PkCXlKmY7a7gi7PLcn8=",
+        "owner": "Nybkox",
+        "repo": "tmux-kanagawa",
+        "rev": "5440b9476627bf5f7f3526156a17ae0e3fd232dd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Nybkox",
+        "repo": "tmux-kanagawa",
+        "type": "github"
       }
     },
     "yazi-flavor-kanagawa": {
