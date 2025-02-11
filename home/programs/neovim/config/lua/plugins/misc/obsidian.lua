@@ -66,7 +66,7 @@ local function opts(obsidian)
     workspaces = {
       {
         name = 'class-notes',
-        path = '~/Documents/Class notes',
+        path = '~/Documents/class-notes',
       },
     },
 
