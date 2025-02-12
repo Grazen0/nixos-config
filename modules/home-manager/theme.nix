@@ -51,31 +51,33 @@ in {
   };
 
   config = let
+    inherit (lib) mkIf optionals;
     inherit (cfg) wallpaper cursor;
   in {
-    home.file.wallpaper = lib.mkIf wallpaper.enable {
+    home.file.wallpaper = mkIf wallpaper.enable {
       inherit (wallpaper) source target;
     };
 
-    home.pointerCursor = lib.mkIf cursor.enable {
+    home.pointerCursor = mkIf cursor.enable {
       inherit (cursor) package name size;
       gtk.enable = true;
     };
 
-    gtk.cursorTheme = lib.mkIf cursor.enable {
+    gtk.cursorTheme = mkIf cursor.enable {
       inherit (cursor) package name size;
     };
 
     home.sessionVariables = {
-      XCURSOR_THEME = lib.mkIf cursor.enable (cursor.name);
-      XCURSOR_SIZE = lib.mkIf cursor.enable (toString cursor.size);
+      XCURSOR_THEME = mkIf cursor.enable (cursor.name);
+      XCURSOR_SIZE = mkIf cursor.enable (toString cursor.size);
     };
 
-    wayland.windowManager.hyprland.settings.env = let
-      waylandEnabled = config.wayland.windowManager.hyprland.enable;
-    in [
-      (lib.mkIf waylandEnabled "XCURSOR_THEME,${cursor.name}")
-      (lib.mkIf waylandEnabled "XCURSOR_SIZE,${toString cursor.size}")
-    ];
+    wayland.windowManager.hyprland.settings.env =
+      optionals
+      config.wayland.windowManager.hyprland.enable
+      [
+        "XCURSOR_THEME,${cursor.name}"
+        "XCURSOR_SIZE,${toString cursor.size}"
+      ];
   };
 }

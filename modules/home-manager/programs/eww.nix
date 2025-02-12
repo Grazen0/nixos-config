@@ -26,20 +26,21 @@ in {
   };
 
   config = mkIf (cfg.enable && cfg.autostart.enable && length cfg.autostart.widgets != 0) (let
-    inherit (lib) escapeShellArg;
+    inherit (lib) escapeShellArg optionals;
     inherit (lib.strings) concatStringsSep;
+    wmCfg = config.wayland.windowManager;
 
     uwsmApp = "uwsm app --";
     eww = "${config.programs.eww.package}/bin/eww";
     autostartCommand = "${uwsmApp} ${eww} open-many ${concatStringsSep " " cfg.autostart.widgets}";
   in {
     wayland.windowManager = {
-      hyprland.settings.exec-once = [
-        (mkIf config.wayland.windowManager.hyprland.enable autostartCommand)
+      hyprland.settings.exec-once = optionals wmCfg.hyprland.enable [
+        autostartCommand
       ];
 
-      river.settings.spawn = [
-        (mkIf config.wayland.windowManager.river.enable (escapeShellArg autostartCommand))
+      river.settings.spawn = optionals wmCfg.river.enable [
+        (escapeShellArg autostartCommand)
       ];
     };
   });
