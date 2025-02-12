@@ -34,7 +34,7 @@
           # toml
           ''
             [audio]
-            output = tee name=t ! queue ! autoaudiosink t. ! queue ! audio/x-raw,rate=44100,channels=2,format=S16LE ! udpsink host=localhost port=5555
+            output = tee name=my_fifo ! queue ! autoaudiosink t. ! queue ! audio/x-raw,rate=44100,channels=2,format=S16LE ! udpsink host=localhost port=5555
 
             [file]
             enabled = true

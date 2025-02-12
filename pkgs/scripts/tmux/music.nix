@@ -29,11 +29,11 @@ pkgs.writeShellApplication {
     tmux split-window -h -b -t "$visualizer" -l 56 "player-art '$DEFAULT_IMG'"
 
     # Open stuff
-    tmux send-keys -t "$visualizer" "ncmpcpp" C-m 8
+    tmux send-keys -t "$visualizer" "ncmpcpp -s visualizer -c '$XDG_CONFIG_HOME/ncmpcpp/visualizer'" C-m
     sleep 0.25 # The visualizer won't start otherwise for some reason
-    tmux send-keys -t "$playlist" "ncmpcpp" C-m 1
-    tmux send-keys -t "$browser" "ncmpcpp" C-m 2
-    tmux send-keys -t "$search" "ncmpcpp" C-m 3
+    tmux send-keys -t "$playlist" "ncmpcpp -s playlist -c '$XDG_CONFIG_HOME/ncmpcpp/minimal'" C-m
+    tmux send-keys -t "$browser" "ncmpcpp -s browser -c '$XDG_CONFIG_HOME/ncmpcpp/minimal'" C-m
+    tmux send-keys -t "$search" "ncmpcpp -s search_engine -c '$XDG_CONFIG_HOME/ncmpcpp/minimal'" C-m
 
     # Resize panes
     tmux resize-pane -t "$playlist" -x 76

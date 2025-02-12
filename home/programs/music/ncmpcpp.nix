@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  programs.ncmpcpp = {
+  programs.ncmpcpp = rec {
     enable = true;
     package = pkgs.ncmpcpp.override {visualizerSupport = true;};
 
@@ -56,12 +56,31 @@
       mpd_port = 6600;
 
       visualizer_data_source = "localhost:5555";
-      visualizer_output_name = "t";
-      visualizer_in_stereo = "yes";
+      visualizer_output_name = "my_fifo";
+      visualizer_in_stereo = true;
       visualizer_type = "spectrum";
       visualizer_look = "●▮";
+      progressbar_look = "▃▃▃";
+      volume_change_step = 5;
 
-      data_fetching_delay = "no";
+      data_fetching_delay = false;
+      connected_message_on_startup = false;
+    };
+
+    extraSettings = {
+      minimal =
+        settings
+        // {
+          progressbar_look = "\"   \"";
+          statusbar_visibility = false;
+          display_volume_level = false;
+        };
+
+      visualizer =
+        settings
+        // {
+          user_interface = "alternative";
+        };
     };
   };
 }
