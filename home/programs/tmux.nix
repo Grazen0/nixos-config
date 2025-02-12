@@ -23,6 +23,7 @@
         sensible
         vim-tmux-navigator
         yank
+        better-mouse-mode
         {
           plugin = kanagawa;
           extraConfig =
