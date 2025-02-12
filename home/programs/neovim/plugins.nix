@@ -97,7 +97,6 @@
 
       # Misc
       vim-obsession
-      mini-starter
       todo-comments-nvim
       vimtex
       # live-share-nvim

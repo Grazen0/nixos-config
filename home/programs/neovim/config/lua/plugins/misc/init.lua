@@ -1,4 +1,3 @@
-require('plugins.misc.mini-starter')
 require('plugins.misc.obsidian')
 require('plugins.misc.r')
 require('plugins.misc.todo-comments')
