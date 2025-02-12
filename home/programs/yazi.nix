@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  customPkgs,
   inputs,
   ...
 }: {
@@ -13,18 +12,22 @@
     theme.flavor.use = "kanagawa";
 
     plugins = let
+      inherit (lib) genAttrs;
+
       official-plugins = [
         "full-border"
         "smart-enter"
         "max-preview"
         "git"
+        "mount"
+      ];
+
+      input-plugins = [
+        "relative-motions"
       ];
     in
-      (lib.genAttrs official-plugins (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
-      // {
-        relative-motions = inputs.yazi-plugin-relative-motions;
-        mount = inputs.yazi-plugin-mount;
-      };
+      (genAttrs official-plugins (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
+      // (genAttrs input-plugins (plugin: inputs."yazi-plugin-${plugin}"));
 
     settings = {
       manager = {
@@ -80,7 +83,7 @@
         }
         {
           on = "M";
-          run = "plugin mount --args=${customPkgs.mmtui}/bin/mmtui";
+          run = "plugin mount";
           desc = "Mount manager";
         }
       ]

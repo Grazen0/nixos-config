@@ -83,11 +83,6 @@
       flake = false;
     };
 
-    yazi-plugin-mount = {
-      url = "github:SL-RU/mount.yazi";
-      flake = false;
-    };
-
     kanagawa-rstudio = {
       url = "github:camartinezbu/kanagawa-rstudio";
       flake = false;

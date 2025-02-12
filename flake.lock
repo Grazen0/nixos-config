@@ -538,7 +538,6 @@
         "thorium-browser": "thorium-browser",
         "tmux-plugin-kanagawa": "tmux-plugin-kanagawa",
         "yazi-flavor-kanagawa": "yazi-flavor-kanagawa",
-        "yazi-plugin-mount": "yazi-plugin-mount",
         "yazi-plugin-relative-motions": "yazi-plugin-relative-motions",
         "yazi-plugins": "yazi-plugins",
         "zen-browser": "zen-browser"
@@ -693,22 +692,6 @@
       "original": {
         "owner": "dangooddd",
         "repo": "kanagawa.yazi",
-        "type": "github"
-      }
-    },
-    "yazi-plugin-mount": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1735679771,
-        "narHash": "sha256-ds+6aYcZm/O437FXE0/79TCnlx0ivNvM5O7C9T9ajBQ=",
-        "owner": "SL-RU",
-        "repo": "mount.yazi",
-        "rev": "e494101cb8a35cfb13f5c42670cdd28ede850216",
-        "type": "github"
-      },
-      "original": {
-        "owner": "SL-RU",
-        "repo": "mount.yazi",
         "type": "github"
       }
     },
