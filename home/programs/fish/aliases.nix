@@ -1,10 +1,13 @@
 {
   config,
   pkgs,
+  customPkgs,
   ...
 }: {
   programs.fish.shellAliases = let
     flakeDir = "${config.xdg.configHome}/nixos";
+    yt-dlp = "${pkgs.yt-dlp}/bin/yt-dlp";
+    tmux-music = "${customPkgs.tmux-music}/bin/tmux-music";
   in {
     # Required so that sudo can use aliases
     sudo = "sudo ";
@@ -64,7 +67,8 @@
     peaclock = "peaclock --config-dir ${config.xdg.configHome}/peaclock";
     lg = "lazygit";
     # "Borrowed" from https://github.com/NotAShelf/nyx/blob/main/homes/notashelf/programs/terminal/shell/zsh/aliases.nix#L39
-    ytmp3 = ''${pkgs.yt-dlp}/bin/yt-dlp -x -c --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"'';
+    ytmp3 = ''${yt-dlp} -x -c --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"'';
+    music = tmux-music;
 
     R = "R --quiet --no-save";
     Rfr = "${config.programs.r.finalPackage}/bin/R";
