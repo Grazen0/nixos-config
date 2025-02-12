@@ -16,8 +16,8 @@ pkgs.writeShellApplication {
     SESSION="music"
 
     if tmux has-session -t "$SESSION" &>/dev/null; then
-        tmux attach-session -t "$SESSION"
-        exit
+      tmux attach-session -t "$SESSION"
+      exit
     fi
 
     visualizer=$(tmux new-session -d -s "$SESSION" -P -F "#{pane_id}")
