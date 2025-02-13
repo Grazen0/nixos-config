@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   inputs,
@@ -85,6 +86,11 @@
           on = "M";
           run = "plugin mount";
           desc = "Mount manager";
+        }
+        {
+          on = ["g" "t"];
+          run = "cd ${config.xdg.dataHome}/Trash/files";
+          desc = "Goto trash";
         }
       ]
       ++ (
