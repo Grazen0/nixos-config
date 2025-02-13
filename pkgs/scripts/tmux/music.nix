@@ -23,12 +23,12 @@ pkgs.writeShellApplication {
     # If anything goes wrong before attaching, kill the session
     trap 'tmux kill-session -t $SESSION' EXIT
 
-    visualizer=$(tmux new-session -d -s "$SESSION" -x- -y- -P -F "#{pane_id}" "ncmpcpp -s visualizer -c '$XDG_CONFIG_HOME/ncmpcpp/visualizer'")
+    visualizer=$(tmux new-session -d -s "$SESSION" -x- -y- -P -F "#{pane_id}" "ncmpcpp -s visualizer -c '$XDG_CONFIG_HOME/ncmpcpp/visualizer.conf'")
 
     # Open panes
-    playlist=$(tmux split-window -v -l "45%" -P -F "#{pane_id}" "ncmpcpp -s playlist -c '$XDG_CONFIG_HOME/ncmpcpp/minimal'" )
-    tmux split-window -h -l "60%" -P -F "#{pane_id}" "ncmpcpp -s browser -c '$XDG_CONFIG_HOME/ncmpcpp/minimal'"
-    tmux split-window -h -l "50%" -P -F "#{pane_id}" "ncmpcpp -s search_engine -c '$XDG_CONFIG_HOME/ncmpcpp/minimal'"
+    playlist=$(tmux split-window -v -l "45%" -P -F "#{pane_id}" "ncmpcpp -s playlist -c '$XDG_CONFIG_HOME/ncmpcpp/minimal.conf'")
+    tmux split-window -h -l "60%" -P -F "#{pane_id}" "ncmpcpp -s browser -c '$XDG_CONFIG_HOME/ncmpcpp/minimal.conf'"
+    tmux split-window -h -l "50%" -P -F "#{pane_id}" "ncmpcpp -s search_engine -c '$XDG_CONFIG_HOME/ncmpcpp/minimal.conf'"
     tmux split-window -h -b -t "$visualizer" -l "30%" "player-art '$DEFAULT_IMG'"
 
     # Focus playlist

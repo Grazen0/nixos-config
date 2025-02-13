@@ -12,7 +12,7 @@ in {
     extraSettings = mkOption {
       type = with types; attrsOf settingsType;
       description = ''
-        Extra settings files to be written to {FILE}`$XDG_CONFIG_HOME/ncmpcpp`
+        Extra settings files to be written as .conf files to {FILE}`$XDG_CONFIG_HOME/ncmpcpp`.
       '';
     };
   };
@@ -29,15 +29,14 @@ in {
       }
       .${builtins.typeOf option};
 
-    renderSettings = settings:
-      concatStringsSep "\n" (mapAttrsToList renderSetting settings);
+    renderSettings = settings: concatStringsSep "\n" (mapAttrsToList renderSetting settings);
 
     renderSetting = name: value: "${name}=${renderValue value}";
   in
     mkIf cfg.enable {
       xdg.configFile =
         mapAttrs' (name: value: {
-          name = "ncmpcpp/${name}";
+          name = "ncmpcpp/${name}.conf";
           value = {
             text = renderSettings value + "\n";
           };
