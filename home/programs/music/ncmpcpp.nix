@@ -14,6 +14,14 @@
       inherit (lib) replicate;
     in [
       {
+        key = "q";
+        command = "dummy";
+      }
+      {
+        key = "ctrl-q";
+        command = "quit";
+      }
+      {
         key = "j";
         command = "scroll_down";
       }
