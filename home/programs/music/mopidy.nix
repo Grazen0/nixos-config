@@ -34,7 +34,8 @@
           # toml
           ''
             [audio]
-            output = tee name=my_fifo ! queue ! autoaudiosink t. ! queue ! audio/x-raw,rate=44100,channels=2,format=S16LE ! udpsink host=localhost port=5555
+            output = tee name=t ! queue ! autoaudiosink t. ! queue ! audio/x-raw,rate=44100,channels=2,format=S16LE ! udpsink host=localhost port=5555
+            buffer_time = 100000
 
             [file]
             enabled = true
@@ -57,6 +58,7 @@
             enabled = true
             client_id = $(cat '${secrets."mopidy_spotify/client_id".path}')
             client_secret = $(cat '${secrets."mopidy_spotify/client_secret".path}')
+
           '';
 
         pkg = pkgs.writeShellApplication {

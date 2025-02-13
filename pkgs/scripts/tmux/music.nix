@@ -27,8 +27,8 @@ pkgs.writeShellApplication {
 
     # Open panes
     playlist=$(tmux split-window -v -l "45%" -P -F "#{pane_id}" "ncmpcpp -s playlist -c '$XDG_CONFIG_HOME/ncmpcpp/minimal.conf'")
-    tmux split-window -h -l "60%" -P -F "#{pane_id}" "ncmpcpp -s browser -c '$XDG_CONFIG_HOME/ncmpcpp/minimal.conf'"
-    tmux split-window -h -l "50%" -P -F "#{pane_id}" "ncmpcpp -s search_engine -c '$XDG_CONFIG_HOME/ncmpcpp/minimal.conf'"
+    tmux split-window -h -l "60%" "ncmpcpp -s browser -c '$XDG_CONFIG_HOME/ncmpcpp/minimal.conf'"
+    tmux split-window -h -l "50%" "ncmpcpp -s search_engine -c '$XDG_CONFIG_HOME/ncmpcpp/minimal.conf'"
     tmux split-window -h -b -t "$visualizer" -l "30%" "player-art '$DEFAULT_IMG'"
 
     # Focus playlist

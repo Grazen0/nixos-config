@@ -64,7 +64,6 @@
       mpd_port = 6600;
 
       visualizer_data_source = "localhost:5555";
-      visualizer_output_name = "my_fifo";
       visualizer_in_stereo = true;
       visualizer_type = "spectrum";
       visualizer_look = "●▮";
