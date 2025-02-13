@@ -94,12 +94,14 @@
         }
       ]
       ++ (
-        lib.genList (i: {
-          on = toString (i + 1);
-          run = "plugin relative-motions --args=${toString (i + 1)}";
+        lib.genList (i: let
+          iStr = toString (i + 1);
+        in {
+          on = iStr;
+          run = "plugin relative-motions ${iStr}";
           desc = "Move in relative steps";
         })
-        10
+        9
       );
 
     initLua =
