@@ -58,6 +58,7 @@
     rmdir = "rmdirtrash";
     rmfr = "${pkgs.coreutils}/bin/rm";
     rmdirfr = "${pkgs.coreutils}/bin/rmdir";
+    restore = "trash-restore";
 
     v = "nvim";
     vs = "nvim -S";
