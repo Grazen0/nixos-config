@@ -8,7 +8,7 @@ pkgs.writeShellApplication {
       exit 1
     fi
 
-    SIZE="640"
+    SIZE="960"
     VF="scale=$SIZE:$SIZE:force_original_aspect_ratio=increase,crop=$SIZE:$SIZE"
     IMG_FILE=$(mktemp "/tmp/XXXXXXXXXXXXXXXX.png")
 
