@@ -20,13 +20,16 @@ pkgs.writeShellApplication {
       exit
     fi
 
-    visualizer=$(tmux new-session -d -s "$SESSION" -P -F "#{pane_id}")
+    # If anything goes wrong before attaching, kill the session
+    trap 'tmux kill-session -t "$SESSION"' EXIT
+
+    visualizer=$(tmux new-session -d -s "$SESSION" -x- -y- -P -F "#{pane_id}")
 
     # Open panes
-    playlist=$(tmux split-window -v -l 22 -P -F "#{pane_id}")
-    browser=$(tmux split-window -h -P -F "#{pane_id}")
-    search=$(tmux split-window -h -P -F "#{pane_id}")
-    tmux split-window -h -b -t "$visualizer" -l 56 "player-art '$DEFAULT_IMG'"
+    playlist=$(tmux split-window -v -l "45%" -P -F "#{pane_id}")
+    browser=$(tmux split-window -h -l "60%" -P -F "#{pane_id}")
+    search=$(tmux split-window -h -l "50%" -P -F "#{pane_id}")
+    tmux split-window -h -b -t "$visualizer" -l "30%" "player-art '$DEFAULT_IMG'"
 
     # Open stuff
     tmux send-keys -t "$visualizer" "ncmpcpp -s visualizer -c '$XDG_CONFIG_HOME/ncmpcpp/visualizer'" C-m
@@ -35,14 +38,11 @@ pkgs.writeShellApplication {
     tmux send-keys -t "$browser" "ncmpcpp -s browser -c '$XDG_CONFIG_HOME/ncmpcpp/minimal'" C-m
     tmux send-keys -t "$search" "ncmpcpp -s search_engine -c '$XDG_CONFIG_HOME/ncmpcpp/minimal'" C-m
 
-    # Resize panes
-    tmux resize-pane -t "$playlist" -x 76
-    tmux resize-pane -t "$browser" -x 68
-
     # Focus playlist
     tmux select-pane -t "$playlist"
 
-    tmux set-hook -t "$SESSION" client-attached "set-option -t '$SESSION' destroy-unattached on"
+    trap - EXIT
+    tmux set-hook -t "$SESSION" client-attached "set -t '$SESSION' destroy-unattached on"
     tmux attach-session -t "$SESSION"
   '';
 }
