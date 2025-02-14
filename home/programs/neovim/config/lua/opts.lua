@@ -9,7 +9,7 @@ o.termguicolors = true
 o.number = true
 o.relativenumber = true
 o.signcolumn = 'yes'
-o.scrolloff = 4
+o.scrolloff = 1
 o.cursorline = true
 o.cursorlineopt = 'both'
 
