@@ -14,6 +14,7 @@
       "'nm-connection-editor'" = ["float"];
       "'wdisplays'" = ["float"];
       "'fceux'" = ["float"];
+      "'Matplotlib'" = ["float"];
       "'zoom'"."-title"."'zoom'" = ["float"];
 
       "'kitty-float'" = ["float" "dimensions 800 450"];
