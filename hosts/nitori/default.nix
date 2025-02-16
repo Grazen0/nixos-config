@@ -28,5 +28,22 @@
 
   home-manager.users.jdgt.imports = [./home.nix];
 
+  # i got arch btw
+  boot.loader.systemd-boot.extraEntries = {
+    "arch.conf" = ''
+      title Arch Linux
+      linux /vmlinuz-linux
+      initrd /initramfs-linux.img
+      options root=UUID=5d240961-a79a-44f2-8827-ef1cf8aa4e1b rw quiet
+    '';
+
+    "arch-fallback.conf" = ''
+      title Arch Linux (fallback initramfs)
+      linux /vmlinuz-linux
+      initrd /initramfs-linux-fallback.img
+      options root=UUID=5d240961-a79a-44f2-8827-ef1cf8aa4e1b rw quiet
+    '';
+  };
+
   system.stateVersion = "24.05";
 }
