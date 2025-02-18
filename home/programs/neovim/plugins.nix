@@ -102,7 +102,7 @@
       # live-share-nvim
       crates-nvim
       # hex-nvim
-      presence-nvim
+      # presence-nvim
       markdown-preview-nvim
       lazydev-nvim
       # image-nvim
