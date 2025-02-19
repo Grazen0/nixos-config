@@ -45,13 +45,11 @@
     };
   };
 
-  sops.templates."mopidy-secrets.conf".content = let
-    inherit (config.sops) placeholder;
-  in
+  sops.templates."mopidy-secrets.conf".content =
     # toml
     ''
       [spotify]
-      client_id = ${placeholder."mopidy_spotify/client_id"}
-      client_secret = ${placeholder."mopidy_spotify/client_secret"}
+      client_id = ${config.sops.placeholder."mopidy/spotify_client_id"}
+      client_secret = ${config.sops.placeholder."mopidy/spotify_client_secret"}
     '';
 }

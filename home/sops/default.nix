@@ -8,9 +8,16 @@
   ];
 
   sops = {
-    gnupg.home = "${config.home.homeDirectory}/.gnupg";
+    gnupg = {
+      home = "${config.home.homeDirectory}/.gnupg";
+      sshKeyPaths = [];
+    };
+
     defaultSopsFile = ./secrets/secrets.yaml;
-    secrets."mopidy_spotify/client_id" = {};
-    secrets."mopidy_spotify/client_secret" = {};
+
+    secrets = {
+      "mopidy/spotify_client_id" = {};
+      "mopidy/spotify_client_secret" = {};
+    };
   };
 }
