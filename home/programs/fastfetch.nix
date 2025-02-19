@@ -3,42 +3,30 @@
     enable = true;
 
     settings = {
-      logo = "nix_small";
-
       modules = [
-        {
-          type = "os";
-          key = "  ";
-        }
-        {
-          type = "kernel";
-          key = "  ";
-          format = "{1} {2}";
-        }
-        {
-          type = "wm";
-          key = "  ";
-        }
-        {
-          type = "shell";
-          key = "  ";
-        }
-        {
-          type = "terminal";
-          key = "  ";
-        }
-        {
-          type = "uptime";
-          key = "  󰅐";
-        }
-        {
-          type = "colors";
-          paddingLeft = 2;
-          symbol = "circle";
-        }
+        "title"
+        "separator"
+        "os"
+        "host"
+        "kernel"
+        "uptime"
+        "packages"
+        "shell"
+        "display"
+        "de"
+        "wm"
+        "wmtheme"
+        "font"
+        "cpu"
+        "gpu"
+        "memory"
+        "swap"
+        "disk"
+        "battery"
+        "locale"
+        "break"
+        "colors"
       ];
-
-      display.separator = "    ";
     };
   };
 }
