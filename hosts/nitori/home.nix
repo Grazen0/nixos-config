@@ -42,7 +42,7 @@ in {
       output = {
         criteria = "eDP-1";
         status = "enable";
-        scale = 1.2;
+        scale = 1.25;
         transform = "normal";
         position = "0,0";
       };

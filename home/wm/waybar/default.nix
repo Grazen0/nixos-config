@@ -13,7 +13,7 @@
       inherit (config) theme;
 
       colorDefinitions =
-        lib.mapAttrsToList (name: value: "@define-color ${lib'.strings.camelToKebab name} ${value};")
+        lib.mapAttrsToList (name: value: "@define-color ${lib'.camelToKebab name} ${value};")
         theme.colors.hexWithHashtag;
     in
       # css
@@ -32,7 +32,7 @@
 
         layer = "bottom";
         position = "top";
-        height = 28;
+        height = 26;
         spacing = 0; # I prefer to use CSS margin
 
         modules-left = [
