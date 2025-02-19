@@ -26,7 +26,7 @@
 
   timeStrToMs = timeStr: let
     inherit (lib) splitString toIntBase10 trim;
-    inherit (lib'.math) sum;
+    inherit (lib') sum;
 
     suffixTable = rec {
       ms = 1;
@@ -83,7 +83,7 @@
     inherit (lib) stringToCharacters reverseList imap0 foldl;
     decimals = map hexCharToDec (stringToCharacters hex);
     decimalsAscending = reverseList decimals;
-    decimalsPowered = imap0 lib'.math.base16To10 decimalsAscending;
+    decimalsPowered = imap0 lib'.base16To10 decimalsAscending;
   in
     foldl builtins.add 0 decimalsPowered;
 

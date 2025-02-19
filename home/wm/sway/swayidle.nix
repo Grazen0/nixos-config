@@ -6,7 +6,7 @@
   ...
 }: {
   services.swayidle = let
-    inherit (lib'.strings) timeStrToSecs;
+    inherit (lib') timeStrToSecs;
     systemctl = "${pkgs.systemd}/bin/systemctl";
     swaylock = "${config.programs.swaylock.package}/bin/swaylock";
     brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";

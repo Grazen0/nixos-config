@@ -11,7 +11,7 @@
   wayland.windowManager.river.settings = let
     inherit (lib) length head zipAttrsWith genList;
     inherit (lib'.river) tagNum tagNumStr spawn;
-    inherit (lib'.math) pow;
+    inherit (lib') pow;
     inherit (config.meta.mainPrograms) terminal browser fileManager fileManagerCli appLauncher dmenu;
 
     grim = "${pkgs.grim}/bin/grim";

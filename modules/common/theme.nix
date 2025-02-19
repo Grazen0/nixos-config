@@ -13,7 +13,7 @@
         mkColors = hexColors: {
           hex = hexColors;
           hexWithHashtag = lib.mapAttrs (_: hexStr: "#${hexStr}") hexColors;
-          rgb = lib.mapAttrs (_: hexStr: lib'.strings.hexToRGB hexStr) hexColors;
+          rgb = lib.mapAttrs (_: hexStr: lib'.hexToRGB hexStr) hexColors;
         };
       in
         mkColors rec {

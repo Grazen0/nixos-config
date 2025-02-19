@@ -8,7 +8,7 @@
     enable = false;
 
     settings = let
-      inherit (lib'.strings) timeStrToSecs;
+      inherit (lib') timeStrToSecs;
       hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
       hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
       brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
