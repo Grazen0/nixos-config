@@ -15,7 +15,7 @@ $background-alt: #1f1f28;
 
 * {
   all: unset;
-  font-family: "JetBrainsMonoNL Nerd Font Propo";
+  font-family: "CommitMono Nerd Font Propo";
   color: $bright-white;
 }
 
@@ -23,6 +23,7 @@ $background-alt: #1f1f28;
   .time {
     font-weight: bold;
     font-size: 5em;
+    margin-bottom: 0.5rem;
   }
 
   .date {

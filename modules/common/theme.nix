@@ -7,7 +7,7 @@
   # TODO: move this config somewhere else
   config = {
     theme = {
-      font.regular = "JetBrainsMonoNL Nerd Font";
+      font.regular = "CommitMono Nerd Font";
 
       colors = let
         mkColors = hexColors: {
