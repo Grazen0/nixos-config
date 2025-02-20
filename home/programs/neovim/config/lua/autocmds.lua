@@ -75,11 +75,12 @@ create_autocmd('FileType', {
   end,
 })
 
--- Disable formatter for LaTeX files
+-- Disable formatter + enable conceal for LaTeX files
 create_autocmd('FileType', {
   pattern = { 'tex', 'plaintex' },
   callback = function()
     vim.b.disable_autoformat = true
+    vim.opt_local.conceallevel = 2
   end,
 })
 
