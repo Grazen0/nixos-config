@@ -97,6 +97,10 @@
         bind | split-window -h -c "#{pane_current_path}"
         bind - split-window -v -c "#{pane_current_path}"
 
+        # Session select start at index 1
+        # https://unix.stackexchange.com/questions/313577/how-to-make-tmux-sessions-count-from-1-instead-of-0/755474#755474
+        bind-key s choose-tree -ZsK '#{?#{e|<:#{line},9},#{e|+:1,#{line}},#{?#{e|<:#{line},35},M-#{a:#{e|+:97,#{e|-:#{line},9}}},}}'
+
         set-window-option -g mode-keys vi
 
         bind-key -T copy-mode-vi v send-keys -X begin-selection
