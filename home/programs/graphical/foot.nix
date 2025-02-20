@@ -8,8 +8,7 @@
       colors = theme.colors.hex;
     in {
       main = {
-        font = "${theme.font.regular}:size=10.5";
-        line-height = 14;
+        font = "${theme.font.regular}:size=10";
         pad = "4x0";
       };
 
