@@ -2,7 +2,9 @@
   config,
   lib,
   ...
-}: {
+}: let
+  cfg = config.xdg;
+in {
   options.xdg = let
     inherit (lib) mkOption mkDefault types;
     inherit (config.home) homeDirectory;
@@ -24,7 +26,7 @@
             absPath =
               if hasPrefix "/" p
               then p
-              else "${homeDirectory}/${p}";
+              else "${cfg.configHome}/${p}";
           in
             removePrefix (homeDirectory + "/") absPath;
         };
@@ -47,7 +49,6 @@
 
   config = let
     inherit (lib) mapAttrs' nameValuePair;
-    cfg = config.xdg;
   in {
     home.nixFile = mapAttrs' (n: v: nameValuePair "${cfg.configHome}/${n}" v) cfg.configNixFile;
   };
