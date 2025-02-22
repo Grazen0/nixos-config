@@ -1,48 +1,20 @@
 {
   config,
   lib,
+  pkgs,
+  inputs,
   ...
 }: let
   cfg = config.xdg;
 in {
   options.xdg = let
-    inherit (lib) mkOption mkDefault types;
+    inherit (lib) mkOption;
     inherit (config.home) homeDirectory;
 
-    fileType = types.submodule ({
-      name,
-      config,
-      ...
-    }: {
-      options = {
-        enable = mkOption {
-          type = types.bool;
-          default = true;
-        };
-        target = mkOption {
-          type = types.str;
-          apply = p: let
-            inherit (lib) hasPrefix removePrefix;
-            absPath =
-              if hasPrefix "/" p
-              then p
-              else "${cfg.configHome}/${p}";
-          in
-            removePrefix (homeDirectory + "/") absPath;
-        };
-
-        source = mkOption {
-          type = types.path;
-        };
-      };
-
-      config = {
-        target = mkDefault name;
-      };
-    });
+    libFileType = import "${inputs.home-manager}/modules/lib/file-type.nix" {inherit homeDirectory lib pkgs;};
   in {
     configNixFile = mkOption {
-      type = types.attrsOf fileType;
+      type = libFileType.fileType "xdg.configNixFile" "{var}`xdg.configHome`" cfg.configHome;
       default = {};
     };
   };

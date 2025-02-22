@@ -8,7 +8,7 @@
   ...
 }: {
   wayland.windowManager.river.settings = let
-    inherit (lib) length head zipAttrsWith genList;
+    inherit (lib) mergeAttrsList genList;
     inherit (lib'.river) tagNum tagNumStr spawn;
     inherit (lib') pow;
     inherit (config.meta.mainPrograms) terminal browser fileManager fileManagerCli appLauncher dmenu;
@@ -119,7 +119,7 @@
           "None XF86AudioPrev" = spawn "${playerctl} previous";
           "None XF86AudioNext" = spawn "${playerctl} next";
         }
-        // zipAttrsWith (_: values: assert (length values == 1); head values) (genList (n: let
+        // mergeAttrsList (genList (n: let
             key = toString (n + 1);
             tag = tagNumStr (n + 1);
           in {

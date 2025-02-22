@@ -1,55 +1,26 @@
 {
   config,
   lib,
+  pkgs,
+  inputs,
   ...
 } @ moduleArgs: {
   options = let
-    inherit (lib) mkOption types mkDefault;
+    inherit (lib) mkOption;
     inherit (config.home) homeDirectory;
 
-    fileType = types.submodule ({
-      name,
-      config,
-      ...
-    }: {
-      options = {
-        enable = mkOption {
-          type = types.bool;
-          default = true;
-        };
-
-        target = mkOption {
-          type = types.str;
-          apply = p: let
-            inherit (lib) hasPrefix removePrefix;
-            absPath =
-              if hasPrefix "/" p
-              then p
-              else "${homeDirectory}/${p}";
-          in
-            removePrefix (homeDirectory + "/") absPath;
-        };
-
-        source = mkOption {
-          type = types.path;
-        };
-      };
-
-      config = {
-        target = mkDefault name;
-      };
-    });
+    libFileType = import "${inputs.home-manager}/modules/lib/file-type.nix" {inherit homeDirectory lib pkgs;};
   in {
     home = {
       nixFile = mkOption {
         default = {};
-        type = with types; attrsOf fileType;
+        type = libFileType.fileType "home.nixFile" "{env}`HOME`" homeDirectory;
       };
     };
   };
 
   config = let
-    inherit (lib) filterAttrs mapAttrsToList mergeAttrs foldl' pathIsDirectory path removeSuffix hasSuffix mapAttrs' nameValuePair;
+    inherit (lib) filterAttrs mapAttrsToList mergeAttrsList pathIsDirectory path removeSuffix hasSuffix mapAttrs' nameValuePair;
     cfg = config.home;
 
     filteredNixFiles = filterAttrs (n: f: f.enable) cfg.nixFile;
@@ -84,7 +55,7 @@
             ))
             dirItems;
         in
-          foldl' mergeAttrs {} subEntries
+          mergeAttrsList subEntries
       );
 
     entries = mapAttrsToList (name: value:
@@ -97,9 +68,7 @@
       }
       else mkEntries value.source value.target)
     filteredNixFiles;
-
-    files = foldl' mergeAttrs {} entries;
   in {
-    home.file = files;
+    home.file = mergeAttrsList entries;
   };
 }
