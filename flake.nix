@@ -119,7 +119,7 @@
     };
 
     nvim-plugin-r-nvim = {
-      url = "github:R-nvim/R.nvim";
+      url = "github:R-nvim/R.nvim/6d3000fe41d891e4bf9f905578828a910f893c6f";
       flake = false;
     };
 
