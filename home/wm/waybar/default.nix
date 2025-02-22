@@ -1,30 +1,13 @@
 {
   config,
-  lib,
   pkgs,
-  lib',
   customPkgs,
   ...
-}: {
+} @ moduleArgs: {
   programs.waybar = {
     enable = true;
 
-    style = let
-      inherit (config) theme;
-
-      colorDefinitions =
-        lib.mapAttrsToList (name: value: "@define-color ${lib'.camelToKebab name} ${value};")
-        theme.colors.hexWithHashtag;
-    in
-      # css
-      ''
-        * {
-          font-family: ${theme.font.propo}, monospace;
-        }
-
-        ${lib.concatLines colorDefinitions}
-        ${lib.readFile ./style.css}
-      '';
+    style = (import ./style.nix) moduleArgs;
 
     settings = {
       mainBar = {
@@ -38,7 +21,6 @@
         modules-left = [
           "custom/sysmenu"
           "tray"
-          # "custom/language" # foo=$(setxkbmap -query | grep layout | awk '{print $2}')
           "custom/media"
         ];
 
@@ -47,7 +29,6 @@
         modules-right = [
           "pulseaudio"
           "network"
-          # "temperature"
           "battery"
           "clock"
           "custom/notifications"
@@ -66,6 +47,7 @@
 
         "custom/media" = let
           playerctl = "${pkgs.playerctl}/bin/playerctl -p mopidy";
+          media-query = "${customPkgs.waybar-media-query}/bin/media-query";
         in {
           interval = 1;
           format = "{}";
@@ -73,7 +55,7 @@
           return-type = "json";
           max-length = 35;
           on-click = "${playerctl} play-pause";
-          exec = "${customPkgs.waybar-media-query}/bin/media-query";
+          exec = media-query;
         };
 
         "river/tags" = {
@@ -83,12 +65,15 @@
             ++ ["S"];
         };
 
-        pulseaudio = {
+        pulseaudio = let
+          pamixer = "${pkgs.pamixer}/bin/pamixer";
+          volume-update = "${customPkgs.volume-update}/bin/volume-update";
+        in {
           scroll-step = 5;
           format = "{icon} {volume}%";
           format-muted = " {volume}%";
           format-icons.default = ["" ""];
-          on-click = "${pkgs.pamixer}/bin/pamixer -t && ${customPkgs.volume-update}/bin/volume-update";
+          on-click = "${pamixer} -t && ${volume-update}";
         };
 
         network = {
