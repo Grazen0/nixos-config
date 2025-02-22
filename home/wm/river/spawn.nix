@@ -1,12 +1,11 @@
 {
   config,
-  osConfig,
   lib,
   pkgs,
   ...
 }: {
   wayland.windowManager.river.settings.spawn = let
-    uwsmApp = "${osConfig.programs.uwsm.package}/bin/uwsm app --";
+    uwsmApp = "uwsm app --";
     wbg = "${pkgs.wbg}/bin/wbg";
     waybar = "${config.programs.waybar.package}/bin/waybar";
     polkit-gnome = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";

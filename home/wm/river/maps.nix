@@ -1,6 +1,5 @@
 {
   config,
-  osConfig,
   lib,
   lib',
   pkgs,
@@ -13,6 +12,8 @@
     inherit (lib'.river) tagNum tagNumStr spawn;
     inherit (lib') pow;
     inherit (config.meta.mainPrograms) terminal browser fileManager fileManagerCli appLauncher dmenu;
+
+    uwsmApp = "uwsm app --";
 
     grim = "${pkgs.grim}/bin/grim";
     slurp = "${pkgs.slurp}/bin/slurp";
@@ -28,7 +29,6 @@
     bemoji = "${pkgs.bemoji}/bin/bemoji";
     obsidian = "${pkgs.obsidian}/bin/obsidian";
 
-    uwsmApp = "${osConfig.programs.uwsm.package}/bin/uwsm app --";
     moveStep = "50";
     resizeStep = "50";
     volumeStep = "5";
