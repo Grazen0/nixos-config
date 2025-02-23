@@ -61,7 +61,7 @@ in
 
     /* SYSMENU */
     #custom-sysmenu {
-      color: ${colors.cyan};
+      color: ${colors.brightBlue};
       font-size: 1.2em;
     }
 
