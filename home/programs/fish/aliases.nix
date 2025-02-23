@@ -61,7 +61,6 @@
     restore = "trash-restore";
 
     v = "nvim";
-    vs = "nvim -S";
     emacs = "nvim";
     emacss = "nvim -S";
 
