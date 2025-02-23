@@ -5,6 +5,9 @@
 }: let
   inherit (pkgs) callPackage;
   callPy3Package = pkgs.python3Packages.callPackage;
+
+  fnott = pkgs.fnott.overrideAttrs {src = inputs.fnott;};
+
   customPkgs = rec {
     # Existing packages
     menu-qalc = callPackage ./menu-qalc.nix {src = inputs.menu-qalc;};
@@ -32,7 +35,7 @@
     player-art = callPackage ./scripts/player-art.nix {};
     tmux-music = callPackage ./scripts/tmux/music.nix {inherit customPkgs;};
 
-    waybar-dunst-state = callPackage ./waybar/dunst-state.nix {};
+    waybar-notifications-state = callPackage ./waybar/notifications-state.nix {inherit fnott;};
     waybar-media-query = callPackage ./waybar/media-query.nix {};
   };
 in

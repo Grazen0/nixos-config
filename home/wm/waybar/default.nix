@@ -118,14 +118,15 @@
         };
 
         "custom/notifications" = let
-          dunstctl = "${config.services.dunst.package}/bin/dunstctl";
+          fnottctl = "${config.services.fnott.package}/bin/fnottctl";
+          notifications-state = "${customPkgs.waybar-notifications-state}/bin/notifications-state";
           signal = 3; # Workaround since exec-on-event isn't guaranteed
         in {
-          exec = "${customPkgs.waybar-dunst-state}/bin/dunst-state";
+          exec = notifications-state;
           escape = true;
           return-type = "json";
           exec-on-event = false;
-          on-click = "${dunstctl} set-paused toggle && pkill -SIGRTMIN+${toString signal} waybar";
+          on-click = "${fnottctl} toggle-pause && pkill -SIGRTMIN+${toString signal} waybar";
           tooltip-format = "Toggle notifications";
           inherit signal;
         };
