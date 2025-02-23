@@ -1,12 +1,16 @@
-{pkgs, ...}:
-pkgs.writeShellApplication {
+{
+  dunst,
+  writeShellApplication,
+  ...
+}:
+writeShellApplication {
   name = "dunst-state";
-  runtimeInputs = with pkgs; [dunst];
+  runtimeInputs = [dunst];
   text = ''
     icon=""
     class=""
 
-    if [[ "$(dunstctl is-paused)" == "false" ]]; then
+    if [[ "$(fnottctl is-paused)" == "false" ]]; then
       icon=""
       class="enabled"
     else

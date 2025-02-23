@@ -1,5 +1,5 @@
-{pkgs, ...}:
-pkgs.writeShellApplication {
+{writeShellApplication, ...}:
+writeShellApplication {
   name = "make-writable";
   text = ''
     if [[ "$#" -lt 1 ]]; then

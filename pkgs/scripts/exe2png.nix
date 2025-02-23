@@ -1,7 +1,12 @@
-{pkgs, ...}:
-pkgs.writeShellApplication {
+{
+  writeShellApplication,
+  icoutils,
+  imagemagick,
+  ...
+}:
+writeShellApplication {
   name = "exe2png";
-  runtimeInputs = with pkgs; [icoutils imagemagick];
+  runtimeInputs = [icoutils imagemagick];
   text = ''
     if [[ "$#" -lt 1 ]]; then
       echo "No source file provided"

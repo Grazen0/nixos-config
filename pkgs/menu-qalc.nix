@@ -1,23 +1,27 @@
 {
   lib,
-  pkgs,
+  stdenvNoCC,
   src,
+  man,
+  makeWrapper,
+  libqalculate,
+  wl-clipboard,
   ...
 }:
 # Derivation kinda stolen from https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/hy/hyprshot/package.nix
-pkgs.stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation {
   pname = "menu-qalc";
   version = "master";
   inherit src;
 
-  nativeBuildInputs = with pkgs; [man makeWrapper];
+  nativeBuildInputs = [man makeWrapper];
 
   installPhase = ''
     runHook preInstall
 
     install -Dm755 "=" -t "$out/bin"
     wrapProgram "$out/bin/=" \
-      --prefix PATH ":" ${lib.makeBinPath (with pkgs; [libqalculate wl-clipboard])}
+      --prefix PATH ":" ${lib.makeBinPath [libqalculate wl-clipboard]}
 
     install -Dm644 "menu-qalc.1" "=.1" -t "$out/share/man/man1"
 

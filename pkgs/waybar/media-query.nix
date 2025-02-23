@@ -1,7 +1,11 @@
-{pkgs, ...}:
-pkgs.writeShellApplication {
+{
+  writeShellApplication,
+  playerctl,
+  ...
+}:
+writeShellApplication {
   name = "media-query";
-  runtimeInputs = with pkgs; [playerctl];
+  runtimeInputs = [playerctl];
   text = ''
     playerctl="playerctl -p mopidy"
     class=""

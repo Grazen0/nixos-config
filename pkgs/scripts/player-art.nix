@@ -1,7 +1,14 @@
-{pkgs, ...}:
-pkgs.writeShellApplication {
+{
+  writeShellApplication,
+  mpc,
+  playerctl,
+  ffmpeg,
+  chafa,
+  ...
+}:
+writeShellApplication {
   name = "player-art";
-  runtimeInputs = with pkgs; [mpc playerctl ffmpeg chafa];
+  runtimeInputs = [mpc playerctl ffmpeg chafa];
   text = ''
     if [[ $# -ne 1 ]]; then
       echo "Usage: player-art [FALLBACK]"

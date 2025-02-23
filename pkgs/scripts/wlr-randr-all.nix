@@ -1,7 +1,12 @@
-{pkgs, ...}:
-pkgs.writeShellApplication {
+{
+  writeShellApplication,
+  wlr-randr,
+  jq,
+  ...
+}:
+writeShellApplication {
   name = "wlr-randr-all";
-  runtimeInputs = with pkgs; [wlr-randr jq];
+  runtimeInputs = [wlr-randr jq];
   text = ''
     outputs=$(wlr-randr --json | jq --raw-output '.[].name')
     echo "$outputs"

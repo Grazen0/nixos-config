@@ -1,7 +1,11 @@
-{pkgs, ...}:
-pkgs.writeShellApplication {
+{
+  writeShellApplication,
+  fuzzel,
+  ...
+}:
+writeShellApplication {
   name = "fuzzel-power-menu";
-  runtimeInputs = with pkgs; [fuzzel];
+  runtimeInputs = [fuzzel];
 
   # Credit: https://github.com/thnikk/fuzzel-scripts/blob/master/fuzzel-powermenu.sh
   text = ''

@@ -1,7 +1,11 @@
-{pkgs, ...}:
-pkgs.writeShellApplication {
+{
+  writeShellApplication,
+  hyprland,
+  ...
+}:
+writeShellApplication {
   name = "close-window";
-  runtimeInputs = with pkgs; [hyprland];
+  runtimeInputs = [hyprland];
   text = ''
     info=$(hyprctl activewindow)
 

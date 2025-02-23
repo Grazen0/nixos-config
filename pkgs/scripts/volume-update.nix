@@ -1,7 +1,11 @@
-{pkgs, ...}:
-pkgs.writeShellApplication {
+{
+  writeShellApplication,
+  pamixer,
+  ...
+}:
+writeShellApplication {
   name = "volume-update";
-  runtimeInputs = with pkgs; [pamixer];
+  runtimeInputs = [pamixer];
   text = ''
     volume=$(pamixer --get-volume)
     mute=$(pamixer --get-mute)

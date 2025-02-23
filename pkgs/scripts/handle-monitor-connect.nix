@@ -1,7 +1,12 @@
-{pkgs, ...}:
-pkgs.writeShellApplication {
+{
+  writeShellApplication,
+  socat,
+  hyprland,
+  ...
+}:
+writeShellApplication {
   name = "handle-monitor-connect";
-  runtimeInputs = with pkgs; [socat hyprland];
+  runtimeInputs = [socat hyprland];
   text = ''
     handle() {
       case $1 in monitoradded*)

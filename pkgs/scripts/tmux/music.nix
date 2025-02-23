@@ -1,9 +1,9 @@
 {
-  pkgs,
+  writeShellApplication,
   customPkgs,
   ...
 }:
-pkgs.writeShellApplication {
+writeShellApplication {
   name = "tmux-music";
   runtimeInputs = [customPkgs.player-art];
   text = ''
