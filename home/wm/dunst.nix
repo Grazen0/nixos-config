@@ -1,6 +1,6 @@
 {config, ...}: {
   services.dunst = {
-    enable = true;
+    enable = false;
 
     settings = let
       inherit (config) theme;

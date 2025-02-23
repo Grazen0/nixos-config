@@ -9,6 +9,7 @@
     ./cliphist.nix
     ./dunst.nix
     ./env.nix
+    ./fnott.nix
     ./fuzzel.nix
     ./kanshi.nix
     ./wob.nix

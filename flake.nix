@@ -103,6 +103,11 @@
       flake = false;
     };
 
+    fnott = {
+      url = "git+https://codeberg.org/Grazen0/fnott";
+      flake = false;
+    };
+
     river-shifttags = {
       url = "gitlab:Grazen0/river-shifttags";
       inputs.nixpkgs.follows = "nixpkgs";

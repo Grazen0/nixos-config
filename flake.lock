@@ -86,6 +86,22 @@
         "type": "github"
       }
     },
+    "fnott": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740287265,
+        "narHash": "sha256-MD+q0SYoWfzCvYr29NLovil4hL72D/gtkvu6rZUsUYs=",
+        "ref": "refs/heads/master",
+        "rev": "ff8f934b01fbf520477b4cfe3fb345876491167b",
+        "revCount": 738,
+        "type": "git",
+        "url": "https://codeberg.org/Grazen0/fnott"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/Grazen0/fnott"
+      }
+    },
     "grkstyle": {
       "flake": false,
       "locked": {
@@ -510,6 +526,7 @@
         "aphrodite-terminal-theme": "aphrodite-terminal-theme",
         "colorout": "colorout",
         "flake-parts": "flake-parts",
+        "fnott": "fnott",
         "grkstyle": "grkstyle",
         "home-manager": "home-manager",
         "inkscape-figures": "inkscape-figures",
