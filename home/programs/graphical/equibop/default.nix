@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [equibop];
 
-  xdg.configNixFile.equibop = {
+  xdg.nixConfigFile.equibop = {
     source = ./config;
   };
 }

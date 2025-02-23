@@ -8,7 +8,7 @@
     fortune
   ];
 
-  xdg.configNixFile.eww = {
+  xdg.nixConfigFile.eww = {
     source = ./config;
   };
 }
