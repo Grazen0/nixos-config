@@ -16,8 +16,8 @@
 
     jdk
 
-    nodejs_22
-    corepack_22
+    nodejs
+    pnpm
 
     (python3.withPackages (ps:
       with ps; [
