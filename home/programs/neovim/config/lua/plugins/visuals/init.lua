@@ -1,22 +1,43 @@
-require('plugins.visuals.kanagawa')
-require('plugins.visuals.colorizer')
-require('plugins.visuals.gitsigns')
-require('plugins.visuals.lualine')
-require('plugins.visuals.markview')
-require('plugins.visuals.bufferline')
-
-require('highlight-undo').setup()
-require('window-picker').setup()
-
-require('lib.misc').setup_on_ft(
-  { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
-  'tailwindcss-colors'
-)
-require('tiny-devicons-auto-colors').setup()
-
-require('ibl').setup({ indent = { char = '│' } })
-require('dressing').setup({ input = { default_prompt = 'Rename' } })
-
--- For some reason this has to be called here
--- Custom colors appear as white otherwise
-require('plugins.visuals.web-devicons')
+return {
+  {
+    'tzachar/highlight-undo.nvim',
+    opts = {
+      hlgroup = 'HighlightUndo',
+      duration = 300,
+      pattern = { '*' },
+      ignored_filetypes = {
+        'neo-tree',
+        'fugitive',
+        'TelescopePrompt',
+        'mason',
+        'lazy',
+      },
+    },
+  },
+  {
+    'rachartier/tiny-devicons-auto-colors.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    event = 'VeryLazy',
+    config = true,
+  },
+  {
+    -- FIX: does not work
+    'themaxmarchuk/tailwindcss-colors.nvim',
+    main = 'tailwindcss-colors',
+    lazy = true,
+    config = true,
+  },
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    opts = { indent = { char = '│' } },
+  },
+  {
+    's1n7ax/nvim-window-picker',
+    config = true,
+  },
+  {
+    'stevearc/dressing.nvim',
+    opts = { input = { default_prompt = 'Rename' } },
+  },
+}

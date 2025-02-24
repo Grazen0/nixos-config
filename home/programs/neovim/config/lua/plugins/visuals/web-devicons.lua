@@ -1,29 +1,34 @@
-require('nvim-web-devicons').setup({
-  override = {
-    asm = {
-      icon = '',
-      color = '#ff9e3b',
-      name = 'Asm',
-    },
-    s = {
-      icon = '',
-      color = '#ff9e3b',
-      name = 'Asm',
-    },
-    inc = {
-      icon = '',
-      color = '#969696',
-      name = 'Inc',
-    },
-    envrc = {
-      icon = '',
-      color = '#c8c093',
-      name = 'Envrc',
-    },
-    qmd = {
-      icon = '',
-      color = '#7e9cd8',
-      name = 'Quarto',
+return {
+  'nvim-tree/nvim-web-devicons',
+  lazy = false,
+  opts = {
+    -- FIX: does not work
+    override_by_extension = {
+      asm = {
+        icon = '',
+        color = '#ff9e3b',
+        name = 'Asm',
+      },
+      s = {
+        icon = '',
+        color = '#ff9e3b',
+        name = 'Asm',
+      },
+      inc = {
+        icon = '',
+        color = '#969696',
+        name = 'Inc',
+      },
+      envrc = {
+        icon = '',
+        color = '#c8c093',
+        name = 'Envrc',
+      },
+      qmd = {
+        icon = '',
+        color = '#7e9cd8',
+        name = 'Quarto',
+      },
     },
   },
-})
+}

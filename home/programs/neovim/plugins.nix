@@ -10,35 +10,42 @@
     stablePlugins = stablePkgs.vimPlugins;
 
     multicursor-nvim = buildVimPlugin {
-      name = "multicursor-nvim";
+      pname = "multicursor.nvim";
+      version = "main";
       src = inputs.nvim-plugin-multicursor;
     };
 
     live-share-nvim = buildVimPlugin {
-      name = "live-share-nvim";
+      pname = "live-share-nvim";
+      version = "main";
       src = inputs.nvim-plugin-live-share;
       dependencies = with vimPlugins; [instant-nvim];
     };
 
     r-nvim = buildVimPlugin {
-      name = "r-nvim";
+      pname = "R.nvim";
+      version = "main";
       src = inputs.nvim-plugin-r-nvim;
       dependencies = with vimPlugins; [nvim-treesitter];
     };
 
     cmp-r = buildVimPlugin {
-      name = "cmp-r";
+      pname = "cmp-r";
+      version = "main";
       src = inputs.nvim-plugin-cmp-r;
       dependencies = with vimPlugins; [nvim-cmp];
     };
 
     obsidian-bridge-nvim = buildVimPlugin {
-      name = "obsidian-bridge-nvim";
+      pname = "obsidian-bridge.nvim";
+      version = "main";
       src = inputs.nvim-plugin-obsidian-bridge;
       dependencies = with vimPlugins; [plenary-nvim telescope-nvim obsidian-nvim];
     };
   in
     with vimPlugins; [
+      lazy-nvim
+
       # Editor
       nvim-cmp
       cmp-nvim-lsp

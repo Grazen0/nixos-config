@@ -35,8 +35,8 @@
               set -g @kanagawa-git-disable-status true
 
               set -g @kanagawa-show-powerline true
-              set -g @kanagawa-show-left-sep 
-              set -g @kanagawa-show-right-sep 
+              set -g @kanagawa-show-left-sep 
+              set -g @kanagawa-show-right-sep 
             '';
         }
         {

@@ -9,10 +9,10 @@ local function custom_callout(name, icon)
   }
 end
 
-require('lib.misc').setup_on_ft(
-  { 'markdown', 'vimwiki', 'quarto' },
-  'markview',
-  {
+return {
+  'OXY2DEV/markview.nvim',
+  ft = { 'markdown', 'vimwiki', 'quarto' },
+  opts = {
     preview = {
       hybrid_modes = { 'n' },
     },
@@ -29,5 +29,5 @@ require('lib.misc').setup_on_ft(
         ['EXERCISE'] = custom_callout('exercise', ''),
       },
     },
-  }
-)
+  },
+}

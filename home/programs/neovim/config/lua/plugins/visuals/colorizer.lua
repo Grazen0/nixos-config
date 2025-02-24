@@ -1,13 +1,17 @@
-require('colorizer').setup({
-  filetypes = {
-    'html',
-    'css',
-    'sass',
-    'scss',
-    'javascript',
-    'typescript',
-    'javascriptreact',
-    'typescriptreact',
-    'svelte',
+return {
+  'norcalli/nvim-colorizer.lua',
+  opts = {
+    filetypes = {
+      'nix',
+      'html',
+      'css',
+      'sass',
+      'scss',
+      'javascript',
+      'typescript',
+      'javascriptreact',
+      'typescriptreact',
+      'svelte',
+    },
   },
-})
+}

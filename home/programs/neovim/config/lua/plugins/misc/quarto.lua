@@ -1,9 +1,15 @@
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'quarto',
-  callback = function()
-    require('quarto').setup({
-      codeRunner = { default_method = 'molten' },
-    })
+return {
+  'quarto-dev/quarto-nvim',
+  ft = { 'quarto' },
+  dependencies = {
+    'jmbuhr/otter.nvim',
+    'nvim-treesitter/nvim-treesitter',
+  },
+  opts = {
+    codeRunner = { default_method = 'molten' },
+  },
+  config = function(_, opts)
+    require('quarto').setup(opts)
 
     local runner = require('quarto.runner')
     local keyset = vim.keymap.set
@@ -46,4 +52,4 @@ vim.api.nvim_create_autocmd('FileType', {
       buffer = true,
     })
   end,
-})
+}
