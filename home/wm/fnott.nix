@@ -23,9 +23,9 @@
         max-height = 180;
         edge-margin-horizontal = 20;
         edge-margin-vertical = 20;
-        max-icon-size = 96;
         progress-bar-height = 12;
         border-size = 4;
+        padding-vertical = 16;
 
         default-timeout = 5;
         idle-timeout = 240;
