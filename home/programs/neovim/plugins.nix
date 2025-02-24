@@ -102,6 +102,7 @@
       dressing-nvim
 
       # Misc
+      mini-starter
       vim-obsession
       todo-comments-nvim
       vimtex

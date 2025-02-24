@@ -1,5 +1,35 @@
+local cat = [[
+                                                          Welcome back to                            
+  ,-.       _,---._ __  / \                                                                          
+ /  )    .-'       `./ /   \       ██████   █████                                ███                 
+(  (   ,'            `/    /|     ░░██████ ░░███                                ░░░                  
+ \  `-"             \'\   / |      ░███░███ ░███   ██████   ██████  █████ █████ ████  █████████████  
+  `.              ,  \ \ /  |      ░███░░███░███  ███░░███ ███░░███░░███ ░░███ ░░███ ░░███░░███░░███ 
+   /`.          ,'-`----Y   |      ░███ ░░██████ ░███████ ░███ ░███ ░███  ░███  ░███  ░███ ░███ ░███ 
+  (            ;        |   '      ░███  ░░█████ ░███░░░  ░███ ░███ ░░███ ███   ░███  ░███ ░███ ░███ 
+  |  ,-.    ,-'         |  /       █████  ░░█████░░██████ ░░██████   ░░█████    █████ █████░███ █████
+  |  | (   |            | /       ░░░░░    ░░░░░  ░░░░░░   ░░░░░░     ░░░░░    ░░░░░ ░░░░░ ░░░ ░░░░░ 
+  )  |  \  `.___________|/                                                                           
+  `--'   `--'                                                                                        
+]]
+
 return {
   'tpope/vim-obsession',
+  {
+    'echasnovski/mini.starter',
+    opts = function()
+      local MiniStarter = require('mini.starter')
+
+      return {
+        header = cat,
+        footer = '',
+        content_hooks = {
+          MiniStarter.gen_hook.adding_bullet('» '),
+          MiniStarter.gen_hook.aligning('center', 'center'),
+        },
+      }
+    end,
+  },
   {
     'folke/which-key.nvim',
     event = 'VeryLazy',
