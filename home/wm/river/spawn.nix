@@ -20,8 +20,6 @@
       "${uwsmApp} ${wl-paste} --watch ${cliphist} store"
 
       "${uwsmApp} ${equibop} --start-minimized"
-
-      # TODO: browser autostart
     ];
   in
     map lib.escapeShellArg spawns;
