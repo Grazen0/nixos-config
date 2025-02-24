@@ -1,5 +1,6 @@
 return {
   'akinsho/bufferline.nvim',
+  lazy = false,
   opts = {
     options = {
       themable = true,
@@ -7,15 +8,24 @@ return {
       separator_style = 'thin',
     },
   },
-  config = function(_, opts)
-    require('bufferline').setup(opts)
-
-    local keyset = vim.keymap.set
-    keyset('n', 'H', '<cmd>BufferLineCyclePrev<CR>')
-    keyset('n', 'L', '<cmd>BufferLineCycleNext<CR>')
-    keyset('n', '<leader>bmn', '<cmd>BufferLineMoveNext<CR>')
-    keyset('n', '<leader>bmp', '<cmd>BufferLineMovePrev<CR>')
-    keyset('n', '<leader>bc', '<cmd>BufferLinePick<CR>')
-    keyset('n', '<leader>bC', '<cmd>BufferLineCloseOthers<CR>')
-  end,
+  keys = {
+    { 'H', '<cmd>BufferLineCyclePrev<CR>', desc = 'Cycle to previous buffer' },
+    { 'L', '<cmd>BufferLineCycleNext<CR>', desc = 'Cycle to next buffer' },
+    {
+      '<leader>bmn',
+      '<cmd>BufferLineMoveNext<CR>',
+      desc = 'Move buffer after next',
+    },
+    {
+      '<leader>bmp',
+      '<cmd>BufferLineMovePrev<CR>',
+      desc = 'Move buffer before previous',
+    },
+    { '<leader>bc', '<cmd>BufferLinePick<CR>', desc = 'Pick buffer' },
+    {
+      '<leader>bC',
+      '<cmd>BufferLineCloseOthers<CR>',
+      desc = 'Close other buffers',
+    },
+  },
 }

@@ -47,12 +47,6 @@ return {
           show_labelDetails = true,
         }),
       },
-      window = {
-        completion = cmp.config.window.bordered({
-          winhighlight = 'Nomal:Pmenu,CursorLine:PmenuSel,Search:None',
-        }),
-        documentation = cmp.config.window.bordered(),
-      },
     }
   end,
   config = function(_, opts)

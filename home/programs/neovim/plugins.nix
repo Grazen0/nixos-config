@@ -93,7 +93,6 @@
       gitsigns-nvim
       lualine-nvim
       bufferline-nvim
-      highlight-undo-nvim
       markview-nvim
       nvim-window-picker
       tailwindcss-colors-nvim
@@ -108,11 +107,8 @@
       vimtex
       # live-share-nvim
       crates-nvim
-      # hex-nvim
-      # presence-nvim
       markdown-preview-nvim
       lazydev-nvim
-      # image-nvim
       r-nvim
       which-key-nvim
       obsidian-nvim

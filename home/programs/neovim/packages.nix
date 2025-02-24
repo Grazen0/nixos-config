@@ -49,16 +49,9 @@
       yaml-language-server
 
       # Plugin-specifics
-      # xxd # hex-nvim
       texlive.combined.scheme-full # vimtex
-      imagemagick # image.nvim
       quarto # r.nvim
     ];
-
-    extraLuaPackages = ps:
-      with ps; [
-        magick # image.nvim
-      ];
 
     extraPython3Packages = ps:
       with ps; [
