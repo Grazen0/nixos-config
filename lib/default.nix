@@ -29,6 +29,7 @@
               ../modules/common
               ../modules/nixos
               ../system
+              ../common
               ../hosts/${hostName}
               {
                 networking = {inherit hostName;};
@@ -43,6 +44,7 @@
                   users.jdgt.imports = [
                     ../modules/common
                     ../modules/home-manager
+                    ../common
                     ../home
                   ];
                 };
