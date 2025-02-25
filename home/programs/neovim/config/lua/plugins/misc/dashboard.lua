@@ -52,7 +52,7 @@ return {
         {
           icon = '  ',
           desc = 'Recent files',
-          key = 'h',
+          key = 'r',
           key_format = '%s',
           action = 'FzfLua oldfiles',
         },
