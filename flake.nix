@@ -138,6 +138,11 @@
       flake = false;
     };
 
+    nvim-plugin-luasnip-latex-snippets = {
+      url = "github:iurimateus/luasnip-latex-snippets.nvim";
+      flake = false;
+    };
+
     grkstyle = {
       url = "github:gadenbuie/grkstyle";
       flake = false;

@@ -3,6 +3,7 @@ return {
   event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     {
+      'hrsh7th/nvim-cmp',
       'SmiteshP/nvim-navbuddy',
       'rachartier/tiny-inline-diagnostic.nvim',
       dependencies = {

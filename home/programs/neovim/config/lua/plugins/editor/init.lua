@@ -79,13 +79,4 @@ return {
       { '<C-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
     },
   },
-  {
-    'SirVer/ultisnips',
-    event = 'VeryLazy',
-    init = function()
-      vim.g.UltiSnipsExpandTrigger = '<C-j>'
-      vim.g.UltiSnipsJumpForwardTrigger = '<Tab>'
-      vim.g.UltiSnipsJumpBackwardTrigger = '<S-Tab>'
-    end,
-  },
 }

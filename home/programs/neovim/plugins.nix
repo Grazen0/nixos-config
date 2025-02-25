@@ -42,6 +42,13 @@
       src = inputs.nvim-plugin-obsidian-bridge;
       dependencies = with vimPlugins; [plenary-nvim telescope-nvim obsidian-nvim];
     };
+
+    luasnip-latex-snippets-nvim = buildVimPlugin {
+      pname = "luasnip-latex-snippets.nvim";
+      version = "main";
+      src = inputs.nvim-plugin-luasnip-latex-snippets;
+      dependencies = with vimPlugins; [luasnip];
+    };
   in
     with vimPlugins; [
       lazy-nvim
@@ -52,14 +59,15 @@
       cmp-buffer
       cmp-path
       cmp-cmdline
-      cmp-nvim-ultisnips
+      cmp_luasnip
       cmp-r
       multicursor-nvim
       neo-tree-nvim
       yazi-nvim
       fzf-lua
       nvim-spectre
-      ultisnips
+      luasnip
+      luasnip-latex-snippets-nvim
       nvim-surround
       nvim-autopairs
       comment-nvim

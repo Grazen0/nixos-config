@@ -434,6 +434,22 @@
         "type": "github"
       }
     },
+    "nvim-plugin-luasnip-latex-snippets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1732280342,
+        "narHash": "sha256-HGVm0VG8ig8w6gEf5SlIbnrs1c12FAo+LSvESmx2tGM=",
+        "owner": "iurimateus",
+        "repo": "luasnip-latex-snippets.nvim",
+        "rev": "cab134611eb755abe9ba95f5d86969f5cece448d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "iurimateus",
+        "repo": "luasnip-latex-snippets.nvim",
+        "type": "github"
+      }
+    },
     "nvim-plugin-multicursor": {
       "flake": false,
       "locked": {
@@ -545,6 +561,7 @@
         "nixpkgs-zoom": "nixpkgs-zoom",
         "nvim-plugin-cmp-r": "nvim-plugin-cmp-r",
         "nvim-plugin-live-share": "nvim-plugin-live-share",
+        "nvim-plugin-luasnip-latex-snippets": "nvim-plugin-luasnip-latex-snippets",
         "nvim-plugin-multicursor": "nvim-plugin-multicursor",
         "nvim-plugin-obsidian-bridge": "nvim-plugin-obsidian-bridge",
         "nvim-plugin-r-nvim": "nvim-plugin-r-nvim",

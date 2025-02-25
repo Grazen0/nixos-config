@@ -6,16 +6,18 @@ return {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-    'quangnguyen30192/cmp-nvim-ultisnips',
+    'L3MON4D3/luasnip',
+    'saadparwaiz1/cmp_luasnip',
   },
   opts = function()
     local cmp = require('cmp')
+    local ls = require('luasnip')
 
     return {
       preselect = cmp.PreselectMode.None,
       snippet = {
         expand = function(args)
-          vim.fn['UltiSnips#Anon'](args.body)
+          require('luasnip').lsp_expand(args.body)
         end,
       },
       mapping = cmp.mapping.preset.insert({
@@ -30,10 +32,24 @@ return {
         ['<C-n>'] = cmp.mapping.select_next_item({
           behavior = cmp.SelectBehavior.Select,
         }),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          if ls.expand_or_jumpable() then
+            ls.expand_or_jump()
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
+
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+          if ls.locally_jumpable(-1) then
+            ls.jump(-1)
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'ultisnips' },
         { name = 'path' },
         { name = 'cmp_r' },
       }, {
