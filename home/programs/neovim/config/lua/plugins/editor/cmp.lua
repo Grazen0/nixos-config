@@ -34,7 +34,7 @@ return {
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'ultisnips' },
-        { name = 'async_path' },
+        { name = 'path' },
         { name = 'cmp_r' },
       }, {
         {
