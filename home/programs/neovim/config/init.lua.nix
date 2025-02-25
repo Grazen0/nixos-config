@@ -30,7 +30,4 @@
       { import = 'plugins.misc' },
     },
   })
-
-  -- Gotta do this again for some reason
-  vim.cmd('colorscheme kanagawa')
 ''
