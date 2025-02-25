@@ -2,22 +2,10 @@ return {
   'neovim/nvim-lspconfig',
   event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
-    {
-      'hrsh7th/nvim-cmp',
-      'SmiteshP/nvim-navbuddy',
-      'rachartier/tiny-inline-diagnostic.nvim',
-      dependencies = {
-        'SmiteshP/nvim-navic',
-        'MunifTanjim/nui.nvim',
-      },
-      opts = {
-        window = { border = 'none' },
-        lsp = { auto_attach = true },
-      },
-      keys = {
-        { '<leader>n', '<cmd>Navbuddy<CR>', desc = 'Open Navbuddy' },
-      },
-    },
+    'hrsh7th/nvim-cmp',
+    'SmiteshP/nvim-navbuddy',
+    'themaxmarchuk/tailwindcss-colors.nvim',
+    'rachartier/tiny-inline-diagnostic.nvim',
   },
   config = function()
     -- https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows
@@ -56,7 +44,11 @@ return {
     setup_lsp('html')
     setup_lsp('emmet_language_server')
     setup_lsp('cssls')
-    setup_lsp('tailwindcss')
+    setup_lsp('tailwindcss', {
+      on_attach = function(_, bufnr)
+        require('tailwindcss-colors').buf_attach(bufnr)
+      end,
+    })
     setup_lsp('svelte')
 
     -- Other cool stuff

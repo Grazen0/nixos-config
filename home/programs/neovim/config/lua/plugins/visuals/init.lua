@@ -5,7 +5,6 @@ return {
     config = true,
   },
   {
-    -- FIX: does not work
     'themaxmarchuk/tailwindcss-colors.nvim',
     main = 'tailwindcss-colors',
     lazy = true,

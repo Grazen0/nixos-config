@@ -15,6 +15,20 @@ return {
     config = true,
   },
   {
+    'SmiteshP/nvim-navbuddy',
+    dependencies = {
+      'SmiteshP/nvim-navic',
+      'MunifTanjim/nui.nvim',
+    },
+    opts = {
+      window = { border = 'none' },
+      lsp = { auto_attach = true },
+    },
+    keys = {
+      { '<leader>n', '<cmd>Navbuddy<CR>', desc = 'Open Navbuddy' },
+    },
+  },
+  {
     'folke/lazydev.nvim',
     ft = 'lua',
     config = true,

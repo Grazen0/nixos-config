@@ -4,15 +4,15 @@ return {
   opts = {
     filetypes = {
       'nix',
-      'html',
       'css',
       'sass',
       'scss',
       'javascript',
       'typescript',
-      'javascriptreact',
-      'typescriptreact',
-      'svelte',
+      html = { names = false },
+      javascriptreact = { names = false },
+      typescriptreact = { names = false },
+      svelte = { names = false },
     },
   },
 }
