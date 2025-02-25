@@ -64,6 +64,7 @@ return {
     setup_lsp('texlab')
     setup_lsp('java_language_server')
     setup_lsp('hls')
+    setup_lsp('zls')
 
     -- Build tools
     setup_lsp('cmake')

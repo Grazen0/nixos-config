@@ -47,6 +47,8 @@
       stablePkgs.vim-language-server
       vscode-langservers-extracted # HTML, CSS, JSON
       yaml-language-server
+      zls # Zig
+      zig
 
       # Plugin-specifics
       texlive.combined.scheme-full # vimtex
