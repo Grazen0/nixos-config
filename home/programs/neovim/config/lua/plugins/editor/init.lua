@@ -10,7 +10,6 @@ return {
   },
   {
     'mikavilpas/yazi.nvim',
-    event = 'VeryLazy',
     keys = {
       {
         '<leader>-',
@@ -82,6 +81,7 @@ return {
   },
   {
     'SirVer/ultisnips',
+    event = 'VeryLazy',
     init = function()
       vim.g.UltiSnipsExpandTrigger = '<C-j>'
       vim.g.UltiSnipsJumpForwardTrigger = '<Tab>'

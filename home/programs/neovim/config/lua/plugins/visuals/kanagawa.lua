@@ -40,8 +40,9 @@ return {
         PmenuSbar = { bg = theme.ui.bg_m1 },
         PmenuThumb = { bg = theme.ui.bg_p2 },
 
-        -- fzf-lua border
-        FzfLuaborder = { link = 'FloatBorder' },
+        -- dashboard-nvim
+        DashboardHeader = { fg = palette.crystalBlue },
+        DashboardIcon = { fg = palette.springGreen },
 
         -- markview.nvim headings and custom callouts
         MarkviewHeading1 = markview_heading(theme, palette.peachRed),

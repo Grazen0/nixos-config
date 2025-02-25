@@ -14,15 +14,30 @@ return {
   },
   {
     'lukas-reineke/indent-blankline.nvim',
+    event = { 'BufReadPost', 'BufNewFile' },
     main = 'ibl',
-    opts = { indent = { char = '│' } },
+    opts = {
+      indent = { char = '│' },
+      exclude = {
+        filetypes = {
+          'help',
+          'alpha',
+          'dashboard',
+          'neo-tree',
+          'Trouble',
+          'lazy',
+        },
+      },
+    },
   },
   {
     's1n7ax/nvim-window-picker',
+    lazy = true,
     config = true,
   },
   {
     'stevearc/dressing.nvim',
+    lazy = true,
     opts = { input = { default_prompt = 'Rename' } },
   },
 }

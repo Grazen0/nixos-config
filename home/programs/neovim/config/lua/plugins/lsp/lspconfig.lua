@@ -1,8 +1,10 @@
 return {
   'neovim/nvim-lspconfig',
+  event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     {
       'SmiteshP/nvim-navbuddy',
+      'rachartier/tiny-inline-diagnostic.nvim',
       dependencies = {
         'SmiteshP/nvim-navic',
         'MunifTanjim/nui.nvim',

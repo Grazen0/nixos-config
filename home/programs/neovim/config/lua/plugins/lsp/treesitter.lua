@@ -1,9 +1,16 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  event = { 'BufReadPost', 'BufNewFile' },
+  dependencies = {
+    {
+      'nvim-treesitter/nvim-treesitter-context',
+      config = true,
+    },
+  },
   opts = {
     highlight = {
       enable = true,
-      disable = { 'latex' },
+      disable = { 'latex' }, -- Managed by vimtex
     },
     refactor = {
       navigation = {

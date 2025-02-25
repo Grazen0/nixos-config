@@ -50,7 +50,7 @@
       nvim-cmp
       cmp-nvim-lsp
       cmp-buffer
-      cmp-async-path
+      cmp-path
       cmp-cmdline
       cmp-nvim-ultisnips
       cmp-r
@@ -79,7 +79,6 @@
       nvim-treesitter-context
       nvim-ts-autotag
       trouble-nvim
-      lsp_signature-nvim
       nvim-lspconfig
       SchemaStore-nvim
       lspkind-nvim
@@ -102,7 +101,7 @@
       dressing-nvim
 
       # Misc
-      mini-starter
+      dashboard-nvim
       vim-obsession
       todo-comments-nvim
       vimtex

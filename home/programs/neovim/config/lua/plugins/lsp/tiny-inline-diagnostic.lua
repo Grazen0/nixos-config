@@ -1,7 +1,6 @@
 return {
   'rachartier/tiny-inline-diagnostic.nvim',
-  event = 'VeryLazy',
-  priority = 1000,
+  lazy = true,
   opts = {
     hi = {
       mixing_color = '#16161d',

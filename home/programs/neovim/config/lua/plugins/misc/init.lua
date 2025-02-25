@@ -1,34 +1,78 @@
-local cat = [[
-                                                          Welcome back to                            
-  ,-.       _,---._ __  / \                                                                          
- /  )    .-'       `./ /   \       ██████   █████                                ███                 
-(  (   ,'            `/    /|     ░░██████ ░░███                                ░░░                  
- \  `-"             \'\   / |      ░███░███ ░███   ██████   ██████  █████ █████ ████  █████████████  
-  `.              ,  \ \ /  |      ░███░░███░███  ███░░███ ███░░███░░███ ░░███ ░░███ ░░███░░███░░███ 
-   /`.          ,'-`----Y   |      ░███ ░░██████ ░███████ ░███ ░███ ░███  ░███  ░███  ░███ ░███ ░███ 
-  (            ;        |   '      ░███  ░░█████ ░███░░░  ░███ ░███ ░░███ ███   ░███  ░███ ░███ ░███ 
-  |  ,-.    ,-'         |  /       █████  ░░█████░░██████ ░░██████   ░░█████    █████ █████░███ █████
-  |  | (   |            | /       ░░░░░    ░░░░░  ░░░░░░   ░░░░░░     ░░░░░    ░░░░░ ░░░░░ ░░░ ░░░░░ 
-  )  |  \  `.___________|/                                                                           
-  `--'   `--'                                                                                        
-]]
+local header = {
+  [[                                                                       ]],
+  [[                                                                     ]],
+  [[       ████ ██████           █████      ██                     ]],
+  [[      ███████████             █████                             ]],
+  [[      █████████ ███████████████████ ███   ███████████   ]],
+  [[     █████████  ███    █████████████ █████ ██████████████   ]],
+  [[    █████████ ██████████ █████████ █████ █████ ████ █████   ]],
+  [[  ███████████ ███    ███ █████████ █████ █████ ████ █████  ]],
+  [[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
+  [[                                                                       ]],
+  [[                                                                       ]],
+  [[                                                                       ]],
+  [[                                                                       ]],
+}
 
 return {
-  'tpope/vim-obsession',
   {
-    'echasnovski/mini.starter',
-    opts = function()
-      local MiniStarter = require('mini.starter')
-
-      return {
-        header = cat,
-        footer = '',
-        content_hooks = {
-          MiniStarter.gen_hook.adding_bullet('» '),
-          MiniStarter.gen_hook.aligning('center', 'center'),
+    'tpope/vim-obsession',
+    event = 'VeryLazy',
+  },
+  {
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    opts = {
+      theme = 'doom',
+      hide = {
+        statusline = false,
+      },
+      config = {
+        header = header,
+        week_header = {
+          enable = false,
         },
-      }
-    end,
+        center = {
+          {
+            icon = '  ',
+            desc = 'New file                    ',
+            key = 'e',
+            key_format = '%s',
+            action = 'enew',
+          },
+          {
+            icon = '  ',
+            desc = 'Find a file',
+            key = 'f',
+            key_format = '%s',
+            action = 'FzfLua files',
+          },
+          {
+            icon = '  ',
+            desc = 'Find a word',
+            key = 'g',
+            key_format = '%s',
+            action = 'FzfLua live_grep_native',
+          },
+          {
+            icon = '  ',
+            desc = 'Recent files',
+            key = 'h',
+            key_format = '%s',
+            action = 'FzfLua oldfiles',
+          },
+          {
+            icon = '  ',
+            desc = 'Quit',
+            key = 'q',
+            key_format = '%s',
+            action = 'qa!',
+          },
+        },
+        vertical_center = true,
+      },
+    },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
   {
     'folke/which-key.nvim',

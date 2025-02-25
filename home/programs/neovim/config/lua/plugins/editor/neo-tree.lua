@@ -5,6 +5,7 @@ return {
     'nvim-tree/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
   },
+  cmd = 'Neotree',
   keys = {
     { '<leader>e', '<cmd>Neotree<CR>', { desc = 'Open Neo-tree' } },
   },

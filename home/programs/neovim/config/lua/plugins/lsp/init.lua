@@ -1,19 +1,22 @@
 return {
   {
     'windwp/nvim-ts-autotag',
-    config = true,
-  },
-  {
-    'nvim-treesitter/nvim-treesitter-context',
+    ft = {
+      'html',
+      'javascript',
+      'typescript',
+      'javascriptreact',
+      'typescriptreact',
+      'markdown',
+      'svelte',
+      'php',
+      'xml',
+    },
     config = true,
   },
   {
     'folke/lazydev.nvim',
     ft = 'lua',
-    config = true,
-  },
-  {
-    'ray-x/lsp_signature.nvim',
     config = true,
   },
   {
@@ -27,7 +30,6 @@ return {
   },
   {
     'smjonas/inc-rename.nvim',
-    lazy = false,
     opts = {
       input_buffer_type = 'dressing',
     },

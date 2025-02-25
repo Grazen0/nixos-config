@@ -1,5 +1,7 @@
 return {
   'stevearc/conform.nvim',
+  cmd = 'Format',
+  event = 'BufWritePre',
   opts = {
     formatters_by_ft = {
       html = { 'prettierd' },
