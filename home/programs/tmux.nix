@@ -30,13 +30,13 @@
             # tmux
             ''
               set -g @kanagawa-ignore-window-colors true
-              set -g @kanagawa-plugins "cwd git network battery time"
+              set -g @kanagawa-plugins "cwd git time"
               set -g @kanagawa-show-timezone false
               set -g @kanagawa-git-disable-status true
 
               set -g @kanagawa-show-powerline true
-              set -g @kanagawa-show-left-sep 
-              set -g @kanagawa-show-right-sep 
+              set -g @kanagawa-show-left-sep " "
+              set -g @kanagawa-show-right-sep " "
             '';
         }
         {
