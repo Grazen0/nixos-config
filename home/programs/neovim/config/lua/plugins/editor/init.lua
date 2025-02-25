@@ -6,6 +6,7 @@ return {
   },
   {
     'numToStr/comment.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = true,
   },
   {

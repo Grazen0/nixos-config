@@ -2,6 +2,7 @@ return {
   {
     'iurimateus/luasnip-latex-snippets.nvim',
     dependencies = { 'L3MON4D3/luasnip' },
+    event = { 'BufReadPre', 'BufNewFile' },
     config = true,
   },
   {
