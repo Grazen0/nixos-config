@@ -7,10 +7,7 @@
       inherit (config) theme;
       colors = theme.colors.hex;
     in {
-      main = {
-        font = "${theme.font.regular}:size=10";
-        pad = "4x0";
-      };
+      main.font = "${theme.font.regular}:size=10";
 
       colors = with colors; {
         inherit background foreground;
