@@ -35,6 +35,7 @@ return {
   },
   {
     'azratul/live-share.nvim',
+    cmd = { 'LiveShareJoin', 'LiveShareServer' },
     dependencies = {
       {
         'jbyuki/instant.nvim',

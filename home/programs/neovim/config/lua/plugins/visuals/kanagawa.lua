@@ -29,11 +29,6 @@ return {
       local palette = colors.palette
 
       return {
-        -- Transparent floating windows
-        NormalFloat = { bg = 'none' },
-        FloatBorder = { bg = 'none' },
-        FloatTitle = { bg = 'none' },
-
         -- Dark completion background
         Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
         PmenuSel = { fg = 'none', bg = theme.ui.bg_p2 },
@@ -59,6 +54,12 @@ return {
         MarkviewBlockQuoteObservation = { fg = palette.springGreen },
         MarkviewBlockQuoteProof = { fg = palette.springBlue },
         MarkviewBlockQuoteExercise = { fg = palette.surimiOrange },
+
+        -- nvim-window-picker
+        WindowPickerStatusLineNC = { bg = theme.ui.bg_p1 },
+
+        -- neo-tree
+        NeoTreeFloatBorder = { bg = theme.ui.bg_m3, fg = theme.ui.bg_m3 },
       }
     end,
   },

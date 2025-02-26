@@ -9,11 +9,7 @@ return {
     event = { 'BufReadPost', 'BufNewFile' },
     dependencies = { 'L3MON4D3/luasnip' },
     opts = {
-      keymap = {
-        preset = 'enter',
-        ['<C-p>'] = { 'select_prev' },
-        ['<C-n>'] = { 'select_next' },
-      },
+      keymap = { preset = 'enter' },
       cmdline = {
         keymap = {
           preset = 'enter',
@@ -21,7 +17,6 @@ return {
           ['<S-Tab>'] = { 'select_prev', 'fallback' },
         },
       },
-
       snippets = { preset = 'luasnip' },
       sources = {
         default = {

@@ -4,6 +4,7 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
+    's1n7ax/nvim-window-picker',
   },
   cmd = 'Neotree',
   keys = {
@@ -30,8 +31,9 @@ return {
         -- Telescope-like split aliases
         ['<C-v>'] = 'open_vsplit',
         ['<C-x>'] = 'open_split',
+        ['<C-s>'] = 'open_split',
 
-        -- Navigation with HJKL
+        -- Navigation with hjkl
         h = function(state)
           local node = state.tree:get_node()
           if node.type == 'directory' and node:is_expanded() then

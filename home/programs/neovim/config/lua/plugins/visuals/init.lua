@@ -36,7 +36,6 @@ return {
     },
   },
   {
-    -- TODO: proper highlights with kanagawa
     's1n7ax/nvim-window-picker',
     lazy = true,
     opts = {},
