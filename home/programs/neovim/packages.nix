@@ -61,6 +61,7 @@
         pyperclip
         jupyter-client
         ipykernel
+        pillow
       ];
   };
 }
