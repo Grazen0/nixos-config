@@ -16,7 +16,7 @@
     settings = let
       colors = config.theme.colors.hex;
     in {
-      keyboard-layout = "-options 'grp:alt_shift_toggle,caps:swapescape' -variant 'altgr-intl' 'us'";
+      keyboard-layout = "-options 'caps:swapescape' -variant 'altgr-intl' 'us'";
 
       border-width = 3;
 
