@@ -40,8 +40,6 @@ return {
       }
     end,
     formatters = {
-      -- styler doesn't modify in-place
-      styler = { stdin = true },
 
       -- mdformat has some weird default behavior
       mdformat = { append_args = { '--number' } },

@@ -128,11 +128,6 @@
       flake = false;
     };
 
-    nvim-plugin-cmp-r = {
-      url = "github:R-nvim/cmp-r";
-      flake = false;
-    };
-
     nvim-plugin-obsidian-bridge = {
       url = "github:oflisback/obsidian-bridge.nvim";
       flake = false;

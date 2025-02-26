@@ -29,13 +29,6 @@
       dependencies = with vimPlugins; [nvim-treesitter];
     };
 
-    cmp-r = buildVimPlugin {
-      pname = "cmp-r";
-      version = "main";
-      src = inputs.nvim-plugin-cmp-r;
-      doCheck = false; # Not using nvim-cmp
-    };
-
     obsidian-bridge-nvim = buildVimPlugin {
       pname = "obsidian-bridge.nvim";
       version = "main";
@@ -56,7 +49,6 @@
       # Editor
       blink-cmp
       blink-compat
-      cmp-r
       multicursor-nvim
       neo-tree-nvim
       yazi-nvim
@@ -108,7 +100,7 @@
       vim-obsession
       todo-comments-nvim
       vimtex
-      # live-share-nvim
+      live-share-nvim
       crates-nvim
       markdown-preview-nvim
       lazydev-nvim

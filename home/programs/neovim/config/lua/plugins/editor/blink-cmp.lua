@@ -6,9 +6,14 @@ return {
   },
   {
     'saghen/blink.cmp',
-    dependencies = { 'L3MON4D3/luasnip', 'R-nvim/cmp-r' },
+    event = { 'BufReadPost', 'BufNewFile' },
+    dependencies = { 'L3MON4D3/luasnip' },
     opts = {
-      keymap = { preset = 'enter' },
+      keymap = {
+        preset = 'enter',
+        ['<C-p>'] = { 'select_prev' },
+        ['<C-n>'] = { 'select_next' },
+      },
       cmdline = {
         keymap = {
           preset = 'enter',
@@ -25,7 +30,6 @@ return {
           'snippets',
           'buffer',
           'lazydev',
-          'cmp_r',
           'obsidian',
           'obsidian_new',
           'obsidian_tags',
@@ -35,10 +39,6 @@ return {
             name = 'LazyDev',
             module = 'lazydev.integrations.blink',
             score_offset = 100,
-          },
-          cmp_r = {
-            name = 'cmp_r',
-            module = 'blink.compat.source',
           },
           obsidian = {
             name = 'obsidian',

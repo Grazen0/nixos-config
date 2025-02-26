@@ -402,22 +402,6 @@
         "type": "github"
       }
     },
-    "nvim-plugin-cmp-r": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1721144305,
-        "narHash": "sha256-3h+7q/x5xST50b9MdjR+9JULTwgn6kAyyrL5qhCtta0=",
-        "owner": "R-nvim",
-        "repo": "cmp-r",
-        "rev": "18b88eeb7e47996623b9aa0a763677ac00a16221",
-        "type": "github"
-      },
-      "original": {
-        "owner": "R-nvim",
-        "repo": "cmp-r",
-        "type": "github"
-      }
-    },
     "nvim-plugin-live-share": {
       "flake": false,
       "locked": {
@@ -559,7 +543,6 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-zoom": "nixpkgs-zoom",
-        "nvim-plugin-cmp-r": "nvim-plugin-cmp-r",
         "nvim-plugin-live-share": "nvim-plugin-live-share",
         "nvim-plugin-luasnip-latex-snippets": "nvim-plugin-luasnip-latex-snippets",
         "nvim-plugin-multicursor": "nvim-plugin-multicursor",

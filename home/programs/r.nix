@@ -99,6 +99,7 @@
       colorout
       r-nvim
       nvimcom
+      languageserver
     ];
 
     rstudio = {

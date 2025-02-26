@@ -33,6 +33,7 @@ return {
       rust_analyzer = {},
       texlab = {},
       java_language_server = {},
+      r_language_server = {},
       hls = {},
       zls = {},
 
