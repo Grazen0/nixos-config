@@ -1,5 +1,12 @@
 return {
   {
+    'RRethy/vim-illuminate',
+    event = { 'BufReadPost', 'BufNewFile' },
+    config = function()
+      require('illuminate').configure()
+    end,
+  },
+  {
     'rachartier/tiny-devicons-auto-colors.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = true,
@@ -29,6 +36,7 @@ return {
     },
   },
   {
+    -- TODO: proper highlights with kanagawa
     's1n7ax/nvim-window-picker',
     lazy = true,
     config = true,

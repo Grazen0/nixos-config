@@ -2,12 +2,70 @@ return {
   'neovim/nvim-lspconfig',
   event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
-    'hrsh7th/nvim-cmp',
+    'saghen/blink.cmp',
     'SmiteshP/nvim-navbuddy',
     'themaxmarchuk/tailwindcss-colors.nvim',
     'rachartier/tiny-inline-diagnostic.nvim',
   },
-  config = function()
+  opts = {
+    servers = {
+      -- Scripting and other stuff
+      bashls = {},
+      clangd = {},
+      nil_ls = {},
+      lua_ls = {},
+
+      -- Web dev
+      ts_ls = {},
+      eslint = {},
+      html = {},
+      emmet_language_server = {},
+      cssls = {},
+      tailwindcss = {
+        on_attach = function(_, bufnr)
+          require('tailwindcss-colors').buf_attach(bufnr)
+        end,
+      },
+      svelte = {},
+
+      -- Other cool stuff
+      pyright = {},
+      rust_analyzer = {},
+      texlab = {},
+      java_language_server = {},
+      hls = {},
+      zls = {},
+
+      -- Build tools
+      cmake = {},
+      autotools_ls = {},
+      taplo = {},
+      vimls = {},
+
+      jsonls = {
+        settings = {
+          json = {
+            schemas = require('schemastore').json.schemas(),
+            validate = { enable = true },
+          },
+        },
+      },
+      yamlls = {
+        {
+          settings = {
+            yaml = {
+              schemaStore = {
+                enable = false,
+                url = '',
+              },
+              schemas = require('schemastore').yaml.schemas(),
+            },
+          },
+        },
+      },
+    },
+  },
+  config = function(_, opts)
     -- https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows
     vim.lsp.handlers['textDocument/hover'] =
       vim.lsp.with(vim.lsp.handlers.hover, {
@@ -23,68 +81,12 @@ return {
       float = { border = 'solid' },
     })
 
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local lspconfig = require('lspconfig')
+    local blink = require('blink.cmp')
 
-    local function setup_lsp(server, opts)
-      opts = opts or {}
-      opts.capabilities = opts.capabilities or capabilities
-      lspconfig[server].setup(opts)
+    for server, config in pairs(opts.servers) do
+      config.capabilities = blink.get_lsp_capabilities(config.capabilities)
+      lspconfig[server].setup(config)
     end
-
-    -- Scripting and other stuff
-    setup_lsp('bashls')
-    setup_lsp('clangd')
-    setup_lsp('nil_ls')
-    setup_lsp('lua_ls')
-
-    -- Web dev
-    setup_lsp('ts_ls')
-    setup_lsp('eslint')
-    setup_lsp('html')
-    setup_lsp('emmet_language_server')
-    setup_lsp('cssls')
-    setup_lsp('tailwindcss', {
-      on_attach = function(_, bufnr)
-        require('tailwindcss-colors').buf_attach(bufnr)
-      end,
-    })
-    setup_lsp('svelte')
-
-    -- Other cool stuff
-    setup_lsp('pyright')
-    setup_lsp('rust_analyzer')
-    setup_lsp('texlab')
-    setup_lsp('java_language_server')
-    setup_lsp('hls')
-    setup_lsp('zls')
-
-    -- Build tools
-    setup_lsp('cmake')
-    setup_lsp('autotools_ls')
-    setup_lsp('taplo')
-    setup_lsp('vimls')
-
-    local schemastore = require('schemastore')
-
-    setup_lsp('jsonls', {
-      settings = {
-        json = {
-          schemas = schemastore.json.schemas(),
-          validate = { enable = true },
-        },
-      },
-    })
-    setup_lsp('yamlls', {
-      settings = {
-        yaml = {
-          schemaStore = {
-            enable = false,
-            url = '',
-          },
-          schemas = schemastore.yaml.schemas(),
-        },
-      },
-    })
   end,
 }

@@ -33,7 +33,7 @@
       pname = "cmp-r";
       version = "main";
       src = inputs.nvim-plugin-cmp-r;
-      dependencies = with vimPlugins; [nvim-cmp];
+      doCheck = false; # Not using nvim-cmp
     };
 
     obsidian-bridge-nvim = buildVimPlugin {
@@ -54,12 +54,8 @@
       lazy-nvim
 
       # Editor
-      nvim-cmp
-      cmp-nvim-lsp
-      cmp-buffer
-      cmp-path
-      cmp-cmdline
-      cmp_luasnip
+      blink-cmp
+      blink-compat
       cmp-r
       multicursor-nvim
       neo-tree-nvim
@@ -89,7 +85,6 @@
       trouble-nvim
       nvim-lspconfig
       SchemaStore-nvim
-      lspkind-nvim
       vim-fugitive
       otter-nvim
 
