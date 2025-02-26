@@ -56,7 +56,7 @@ return {
     set({ 'n', 'x' }, '<right>', mc.prevCursor)
 
     -- Delete the main cursor.
-    set({ 'n', 'x' }, '<leader>x', mc.deleteCursor)
+    -- set({ 'n', 'x' }, '<leader>x', mc.deleteCursor)
 
     -- Add and remove cursors with control + left click.
     set('n', '<c-leftmouse>', mc.handleMouse)
