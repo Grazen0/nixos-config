@@ -9,13 +9,13 @@ return {
   {
     'rachartier/tiny-devicons-auto-colors.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = true,
+    opts = {},
   },
   {
     'themaxmarchuk/tailwindcss-colors.nvim',
     main = 'tailwindcss-colors',
     lazy = true,
-    config = true,
+    opts = {},
   },
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -39,7 +39,7 @@ return {
     -- TODO: proper highlights with kanagawa
     's1n7ax/nvim-window-picker',
     lazy = true,
-    config = true,
+    opts = {},
   },
   {
     'stevearc/dressing.nvim',

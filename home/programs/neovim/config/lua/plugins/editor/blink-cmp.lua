@@ -2,7 +2,7 @@ return {
   {
     'saghen/blink.compat',
     lazy = true,
-    config = true,
+    opts = {},
   },
   {
     'saghen/blink.cmp',

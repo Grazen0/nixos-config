@@ -30,25 +30,26 @@ return {
   },
   {
     'Saecki/crates.nvim',
-    config = true,
     ft = { 'rust', 'toml' },
-  },
-  {
-    'jbyuki/instant.nvim',
-    enabled = false,
-    init = function()
-      vim.g.instant_username = 'Grazen'
-    end,
+    opts = {},
   },
   {
     'azratul/live-share.nvim',
-    dependencies = { 'jbyuki/instant.nvim' },
+    dependencies = {
+      {
+        'jbyuki/instant.nvim',
+        init = function()
+          vim.g.instant_username = 'Grazen'
+        end,
+      },
+    },
+    opts = {},
   },
   {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     event = { 'BufReadPre', 'BufNewFile' },
-    config = true,
+    opts = {},
   },
   {
     'lervag/vimtex',

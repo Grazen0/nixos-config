@@ -1,13 +1,11 @@
 {
   pkgs,
-  stablePkgs,
   inputs,
   ...
 }: {
   programs.neovim.plugins = let
     inherit (pkgs.vimUtils) buildVimPlugin;
     inherit (pkgs) vimPlugins;
-    stablePlugins = stablePkgs.vimPlugins;
 
     multicursor-nvim = buildVimPlugin {
       pname = "multicursor.nvim";
@@ -16,7 +14,7 @@
     };
 
     live-share-nvim = buildVimPlugin {
-      pname = "live-share-nvim";
+      pname = "live-share.nvim";
       version = "main";
       src = inputs.nvim-plugin-live-share;
       dependencies = with vimPlugins; [instant-nvim];

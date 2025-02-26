@@ -2,12 +2,12 @@ return {
   {
     'kylechui/nvim-surround',
     event = { 'BufReadPre', 'BufNewFile' },
-    config = true,
+    opts = {},
   },
   {
     'numToStr/comment.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
-    config = true,
+    opts = {},
   },
   {
     'mikavilpas/yazi.nvim',

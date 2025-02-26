@@ -1,13 +1,14 @@
-local ft = { 'markdown', 'quarto' }
-
 return {
   'benlubas/molten-nvim',
-  ft = ft,
+  dependencies = { 'stevearc/dressing.nvim' },
+  ft = { 'markdown', 'quarto' },
+
   init = function()
     vim.g.molten_wrap_output = true
     vim.g.molten_output_virt_lines = true
     vim.g.molten_virt_lines_off_by_1 = true
   end,
+
   config = function()
     local keyset = vim.keymap.set
 

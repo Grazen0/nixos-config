@@ -12,7 +12,7 @@ return {
       'php',
       'xml',
     },
-    config = true,
+    opts = {},
   },
   {
     'SmiteshP/nvim-navbuddy',
@@ -31,7 +31,7 @@ return {
   {
     'folke/lazydev.nvim',
     ft = 'lua',
-    config = true,
+    opts = {},
   },
   {
     'jmbuhr/otter.nvim',
