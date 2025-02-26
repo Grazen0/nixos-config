@@ -69,10 +69,8 @@ return {
             return 'No LSP'
           end,
           cond = function()
-            return vim.fn.index(
-              { 'toggleterm', 'NvimTree', 'TelescopePrompt' },
-              vim.bo.filetype
-            ) == -1
+            return vim.fn.index({ 'toggleterm', 'neo-tree' }, vim.bo.filetype)
+              == -1
           end,
           icon = ' ',
         },

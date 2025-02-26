@@ -42,8 +42,17 @@ return {
   },
   {
     'stevearc/dressing.nvim',
-    lazy = true,
-    opts = { input = { default_prompt = 'Rename' } },
+    dependencies = { 'ibhagwan/fzf-lua' },
+    event = 'VeryLazy',
+    opts = {
+      input = {
+        default_prompt = 'Rename',
+        border = 'solid',
+      },
+      select = {
+        backend = { 'fzf_lua', 'builtin' },
+      },
+    },
   },
   {
     'lewis6991/gitsigns.nvim',

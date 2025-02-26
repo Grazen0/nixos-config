@@ -42,20 +42,4 @@ return {
       { '<leader>od', require('otter').deactivate, desc = 'Deactivate otter' },
     },
   },
-  {
-    'smjonas/inc-rename.nvim',
-    opts = {
-      input_buffer_type = 'dressing',
-    },
-    keys = {
-      {
-        '<leader>rn',
-        function()
-          return ':IncRename ' .. vim.fn.expand('<cword>')
-        end,
-        expr = true,
-        desc = 'Rename symbol',
-      },
-    },
-  },
 }
