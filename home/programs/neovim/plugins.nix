@@ -31,8 +31,7 @@
       pname = "obsidian-bridge.nvim";
       version = "main";
       src = inputs.nvim-plugin-obsidian-bridge;
-      dependencies = with vimPlugins; [plenary-nvim obsidian-nvim];
-      doCheck = false; # No telescope
+      dependencies = with vimPlugins; [plenary-nvim telescope-nvim obsidian-nvim];
     };
 
     luasnip-latex-snippets-nvim = buildVimPlugin {
