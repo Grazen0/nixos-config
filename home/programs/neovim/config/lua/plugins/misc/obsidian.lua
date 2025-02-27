@@ -60,24 +60,27 @@ end
 
 return {
   {
+    'oflisback/obsidian-bridge.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'ibhagwan/fzf-lua' },
+    lazy = true,
+    opts = {
+      scroll_sync = true,
+      picker = 'fzf_lua',
+    },
+  },
+  {
     'epwalsh/obsidian.nvim',
     lazy = true,
-    ft = 'markdown',
+    event = {
+      'BufReadPre *.md',
+      'BufNewFile *.md',
+    },
     dependencies = {
       'nvim-lua/plenary.nvim',
-      {
-        'oflisback/obsidian-bridge.nvim',
-        event = {
-          'BufReadPre *.md',
-          'BufNewFile *.md',
-        },
-        lazy = true,
-        dependencies = { 'nvim-lua/plenary.nvim' },
-      },
+      'oflisback/obsidian-bridge.nvim',
     },
     opts = function()
       local obsidian = require('obsidian')
-      local obsidian_bridge = require('obsidian-bridge')
 
       return {
         workspaces = {
@@ -142,9 +145,9 @@ return {
         note_frontmatter_func = note_frontmatter_func,
 
         callbacks = {
-          post_setup = function()
-            obsidian_bridge.setup({ scroll_sync = true })
-          end,
+          -- post_setup = function()
+          --   obsidian_bridge.setup({ scroll_sync = true })
+          -- end,
 
           post_set_workspace = function()
             local keyset = vim.keymap.set

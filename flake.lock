@@ -453,11 +453,11 @@
     "nvim-plugin-obsidian-bridge": {
       "flake": false,
       "locked": {
-        "lastModified": 1739005360,
-        "narHash": "sha256-vfkdMI89sTVC8sRdKVLIDhUzgUN5I4gMaOpmWOitbtQ=",
+        "lastModified": 1740593125,
+        "narHash": "sha256-RVX6VeKvn5XodwX4UIEBI/Bo6ogMwhA/zrEZN8Bm3j4=",
         "owner": "oflisback",
         "repo": "obsidian-bridge.nvim",
-        "rev": "bc0ebc37a98e026f8c7d5d41f30fb3ba9fb8c15b",
+        "rev": "079f788c7df99b3063935249ff9ff6ddadd2b85a",
         "type": "github"
       },
       "original": {
