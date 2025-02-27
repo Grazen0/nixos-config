@@ -7,11 +7,6 @@ return {
     end,
   },
   {
-    'rachartier/tiny-devicons-auto-colors.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    opts = {},
-  },
-  {
     'themaxmarchuk/tailwindcss-colors.nvim',
     main = 'tailwindcss-colors',
     lazy = true,

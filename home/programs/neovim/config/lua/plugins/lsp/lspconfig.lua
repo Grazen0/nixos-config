@@ -5,7 +5,6 @@ return {
     'saghen/blink.cmp',
     'SmiteshP/nvim-navbuddy',
     'themaxmarchuk/tailwindcss-colors.nvim',
-    'rachartier/tiny-inline-diagnostic.nvim',
   },
   opts = {
     servers = {

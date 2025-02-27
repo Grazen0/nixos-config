@@ -66,7 +66,6 @@
       conform-nvim
       inc-rename-nvim
       nvim-navbuddy
-      tiny-inline-diagnostic-nvim
       nvim-treesitter.withAllGrammars
       nvim-treesitter-refactor
       nvim-treesitter-textobjects
@@ -88,7 +87,6 @@
       markview-nvim
       nvim-window-picker
       tailwindcss-colors-nvim
-      tiny-devicons-auto-colors-nvim
       indent-blankline-nvim
       vim-illuminate
       dressing-nvim
