@@ -3,7 +3,6 @@ return {
   event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     'saghen/blink.cmp',
-    'SmiteshP/nvim-navbuddy',
     'themaxmarchuk/tailwindcss-colors.nvim',
   },
   opts = {

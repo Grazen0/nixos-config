@@ -20,12 +20,13 @@ return {
       'SmiteshP/nvim-navic',
       'MunifTanjim/nui.nvim',
     },
+    cmd = 'Nabuddy',
+    keys = {
+      { '<leader>n', '<cmd>Navbuddy<CR>', desc = 'Open Navbuddy' },
+    },
     opts = {
       window = { border = 'none' },
       lsp = { auto_attach = true },
-    },
-    keys = {
-      { '<leader>n', '<cmd>Navbuddy<CR>', desc = 'Open Navbuddy' },
     },
   },
   {
