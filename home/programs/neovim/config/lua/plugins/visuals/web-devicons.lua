@@ -5,7 +5,7 @@ return {
   opts = {
     override_by_extension = {
       ['asm'] = {
-        icon = '',
+        icon = '',
         color = '#ff9e3b',
         name = 'Asm',
       },
