@@ -42,4 +42,9 @@ return {
       { '<leader>od', require('otter').deactivate, desc = 'Deactivate otter' },
     },
   },
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
+  },
 }

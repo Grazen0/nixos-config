@@ -76,6 +76,7 @@
       SchemaStore-nvim
       vim-fugitive
       otter-nvim
+      typescript-tools-nvim
 
       # Visual
       kanagawa-nvim

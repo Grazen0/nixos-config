@@ -15,7 +15,6 @@ return {
       lua_ls = {},
 
       -- Web dev
-      ts_ls = {},
       -- eslint = {},
       html = {},
       emmet_language_server = {},
