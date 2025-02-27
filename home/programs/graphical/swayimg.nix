@@ -1,6 +1,11 @@
-{config, ...}: {
+{
+  config,
+  stablePkgs,
+  ...
+}: {
   programs.swayimg = {
     enable = true;
+    package = stablePkgs.swayimg;
 
     settings = let
       inherit (config) theme;
