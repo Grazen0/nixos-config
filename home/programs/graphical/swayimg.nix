@@ -8,13 +8,11 @@
     in {
       viewer = {
         window = colors.black;
-        antialiasing = "yes";
         scale = "fit";
       };
 
       gallery = {
         window = colors.background;
-        antialiasing = "yes";
       };
 
       font = {
