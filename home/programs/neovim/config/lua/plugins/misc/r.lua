@@ -1,8 +1,8 @@
 return {
   'R-nvim/R.nvim',
-  ft = { 'r', 'quarto' },
+  lazy = false, -- Otherwise the options won't be loaded for some reason
+  -- ft = { 'r', 'quarto' },
   opts = {
-    objbr_auto_start = true,
     objbr_place = 'console,below',
     objbr_h = 15,
     R_args = { '--quiet', '--no-save' },
