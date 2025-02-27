@@ -1,18 +1,33 @@
 return {
-  'nvim-treesitter/nvim-treesitter',
-  event = { 'BufReadPost', 'BufNewFile' },
-  dependencies = {
-    {
-      'nvim-treesitter/nvim-treesitter-context',
-      opts = {},
+  {
+    'nvim-treesitter/nvim-treesitter',
+    event = { 'BufReadPost', 'BufNewFile' },
+    opts = {
+      highlight = {
+        enable = true,
+        disable = { 'latex' }, -- Managed by vimtex
+      },
     },
+    config = function(_, opts)
+      require('nvim-treesitter.configs').setup(opts)
+
+      vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+      vim.opt.foldmethod = 'expr'
+      vim.opt.foldlevel = 99
+    end,
   },
-  opts = {
-    highlight = {
-      enable = true,
-      disable = { 'latex' }, -- Managed by vimtex
-    },
-    refactor = {
+  {
+
+    'nvim-treesitter/nvim-treesitter-context',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    event = { 'BufReadPost', 'BufNewFile' },
+    opts = {},
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-refactor',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    event = { 'BufReadPost', 'BufNewFile' },
+    opts = {
       navigation = {
         enable = true,
         keymaps = {
@@ -24,7 +39,15 @@ return {
         },
       },
     },
-    textobjects = {
+    config = function(_, opts)
+      require('nvim-treesitter.configs').setup({ refactor = opts })
+    end,
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    event = { 'BufReadPost', 'BufNewFile' },
+    opts = {
       select = {
         enable = true,
         keymaps = {
@@ -48,12 +71,8 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      require('nvim-treesitter.configs').setup({ textobjects = opts })
+    end,
   },
-  config = function(_, opts)
-    require('nvim-treesitter.configs').setup(opts)
-
-    vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-    vim.opt.foldmethod = 'expr'
-    vim.opt.foldlevel = 99
-  end,
 }
