@@ -17,7 +17,7 @@ return {
 
       -- Web dev
       ts_ls = {},
-      eslint = {},
+      -- eslint = {},
       html = {},
       emmet_language_server = {},
       cssls = {},
