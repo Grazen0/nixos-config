@@ -8,6 +8,10 @@ local function keyset(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+-- Disable keyword completion (sorry)
+keyset('i', '<C-n>', '<Nop>')
+keyset('i', '<C-p>', '<Nop>')
+
 -- Clear highlights with <Esc>
 -- Set in multicursor.lua
 -- keyset('n', '<Esc>', '<cmd>nohl<CR>')

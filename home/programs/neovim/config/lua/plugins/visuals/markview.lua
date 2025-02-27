@@ -11,12 +11,13 @@ end
 
 return {
   'OXY2DEV/markview.nvim',
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
   ft = { 'markdown', 'vimwiki', 'quarto' },
   opts = {
     preview = {
+      icon_provider = 'devicons',
       hybrid_modes = { 'n' },
     },
-
     markdown = {
       block_quotes = {
         ['DEFINITION'] = custom_callout('definition', ''),
