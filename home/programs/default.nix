@@ -10,6 +10,7 @@
     ./direnv.nix
     ./fastfetch.nix
     ./git.nix
+    ./gowall.nix
     ./peaclock.nix
     ./r.nix
     ./tmux.nix
