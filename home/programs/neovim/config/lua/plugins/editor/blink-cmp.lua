@@ -11,22 +11,20 @@ return {
     opts = function()
       local blink = require('blink.cmp')
 
+      local function expand_scheduled()
+        local ls = require('luasnip')
+
+        if ls.expandable() then
+          blink.hide()
+          vim.schedule(ls.expand)
+          return true
+        end
+      end
+
       return {
         keymap = {
           preset = 'enter',
-          ['<Tab>'] = {
-            function()
-              local ls = require('luasnip')
-
-              if ls.expandable() then
-                blink.hide()
-                vim.schedule(ls.expand)
-                return true
-              end
-            end,
-            'snippet_forward',
-            'fallback',
-          },
+          ['<Tab>'] = { expand_scheduled, 'snippet_forward', 'fallback' },
         },
         cmdline = {
           keymap = {
