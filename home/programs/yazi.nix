@@ -18,7 +18,7 @@
       official-plugins = [
         "full-border"
         "smart-enter"
-        "max-preview"
+        "toggle-pane"
         "git"
         "mount"
       ];
@@ -72,7 +72,7 @@
         }
         {
           on = "T";
-          run = "plugin max-preview";
+          run = "plugin toggle-pane max-preview";
           desc = "Maximize or restore preview";
         }
         {
