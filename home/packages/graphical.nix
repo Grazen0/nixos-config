@@ -46,6 +46,7 @@
   in
     with pkgs; [
       # Apps
+      audacity
       file-roller
       gimp
       inkscape
