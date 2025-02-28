@@ -88,11 +88,6 @@
       flake = false;
     };
 
-    r-nvim = {
-      url = "github:devOpifex/r.nvim";
-      flake = false;
-    };
-
     menu-qalc = {
       url = "github:Grazen0/menu-qalc-wayland";
       flake = false;

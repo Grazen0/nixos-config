@@ -7,7 +7,7 @@
   ...
 }: {
   programs.r = {
-    enable = true;
+    enable = false;
 
     profile = let
       colors = lib.mapAttrs (_: rgb:

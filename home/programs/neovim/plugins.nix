@@ -20,13 +20,6 @@
       dependencies = with vimPlugins; [instant-nvim];
     };
 
-    r-nvim = buildVimPlugin {
-      pname = "R.nvim";
-      version = "main";
-      src = inputs.nvim-plugin-r-nvim;
-      dependencies = with vimPlugins; [nvim-treesitter];
-    };
-
     obsidian-bridge-nvim = buildVimPlugin {
       pname = "obsidian-bridge.nvim";
       version = "main";
@@ -101,7 +94,6 @@
       crates-nvim
       markdown-preview-nvim
       lazydev-nvim
-      r-nvim
       which-key-nvim
       obsidian-nvim
       obsidian-bridge-nvim

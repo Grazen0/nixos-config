@@ -62,16 +62,13 @@
 
     v = "nvim";
     emacs = "nvim";
-    emacss = "nvim -S";
+    emacss = "vs";
 
     peaclock = "peaclock --config-dir ${config.xdg.configHome}/peaclock";
     lg = "lazygit";
     # "Borrowed" from https://github.com/NotAShelf/nyx/blob/main/homes/notashelf/programs/terminal/shell/zsh/aliases.nix#L39
     ytmp3 = ''${yt-dlp} -x -c --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"'';
     music = "${tmux-music} ${../../../files/default_album_art.png}";
-
-    R = "R --quiet --no-save";
-    Rfr = "${config.programs.r.finalPackage}/bin/R";
 
     rbs = "sudo nixos-rebuild switch --flake ${flakeDir}";
     rbb = "sudo nixos-rebuild boot --flake ${flakeDir}";

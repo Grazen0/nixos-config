@@ -1,5 +1,6 @@
 return {
   'R-nvim/R.nvim',
+  enabled = false,
   lazy = false, -- Otherwise the options won't be loaded for some reason
   -- ft = { 'r', 'quarto' },
   opts = {
