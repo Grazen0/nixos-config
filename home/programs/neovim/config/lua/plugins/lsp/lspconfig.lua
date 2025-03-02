@@ -27,7 +27,13 @@ return {
 
       -- Other cool stuff
       pyright = {},
-      rust_analyzer = {},
+      rust_analyzer = {
+        settings = {
+          ['rust-analyzer'] = {
+            checkOnSave = { command = 'clippy' },
+          },
+        },
+      },
       texlab = {},
       java_language_server = {},
       r_language_server = {},
