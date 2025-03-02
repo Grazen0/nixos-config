@@ -70,6 +70,38 @@ return {
           ['im'] = '@call.inner',
         },
       },
+      move = {
+        enable = true,
+        set_jumps = true,
+        goto_next_start = {
+          [']m'] = '@function.outer',
+          [']]'] = '@class.outer',
+          [']o'] = '@loop.outer',
+          [']s'] = '@local.scope',
+          [']z'] = '@fold',
+        },
+        goto_next_end = {
+          [']M'] = '@function.outer',
+          [']['] = '@class.outer',
+          [']O'] = '@loop.outer',
+          [']S'] = '@local.scope',
+          [']Z'] = '@fold',
+        },
+        goto_previous_start = {
+          ['[m'] = '@function.outer',
+          ['[['] = '@class.outer',
+          ['[o'] = '@loop.outer',
+          ['[s'] = '@local.scope',
+          ['[z'] = '@fold',
+        },
+        goto_previous_end = {
+          ['[M'] = '@function.outer',
+          ['[]'] = '@class.outer',
+          ['[O'] = '@loop.outer',
+          ['[S'] = '@local.scope',
+          ['[Z'] = '@fold',
+        },
+      },
     },
     config = function(_, opts)
       require('nvim-treesitter.configs').setup({ textobjects = opts })
