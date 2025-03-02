@@ -2,12 +2,11 @@
   config,
   lib,
   pkgs,
-  stablePkgs,
   inputs,
   ...
 }: {
   programs.r = {
-    enable = false;
+    enable = true;
 
     profile = let
       colors = lib.mapAttrs (_: rgb:
@@ -104,7 +103,7 @@
 
     rstudio = {
       enable = true;
-      package = stablePkgs.rstudioWrapper;
+      package = pkgs.rstudioWrapper;
 
       preferences = {
         initial_working_directory = "~";

@@ -1,6 +1,5 @@
 {
   pkgs,
-  stablePkgs,
   customPkgs,
   ...
 }: {
@@ -44,7 +43,7 @@
       taplo # TOML
       texlab # LaTeX
       typescript-language-server
-      stablePkgs.vim-language-server
+      vim-language-server
       vscode-langservers-extracted # HTML, CSS, JSON
       yaml-language-server
       zls # Zig
@@ -52,16 +51,6 @@
 
       # Plugin-specifics
       texlive.combined.scheme-full # vimtex
-      quarto # r.nvim
     ];
-
-    extraPython3Packages = ps:
-      with ps; [
-        pynvim
-        pyperclip
-        jupyter-client
-        ipykernel
-        pillow
-      ];
   };
 }

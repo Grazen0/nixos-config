@@ -1,6 +1,6 @@
 return {
-  enabled = false,
   'quarto-dev/quarto-nvim',
+  enabled = false,
   ft = { 'quarto' },
   dependencies = {
     'jmbuhr/otter.nvim',
@@ -29,7 +29,7 @@ return {
     )
     keyset(
       'n',
-      '<C-A-P>',
+      '<C-A-p>',
       runner.run_above,
       { desc = 'run cell and above', silent = true, buffer = true }
     )

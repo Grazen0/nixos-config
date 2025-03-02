@@ -483,6 +483,22 @@
         "type": "github"
       }
     },
+    "r-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699634067,
+        "narHash": "sha256-4xJ1vHhDLEMEZ53nSKDm6i0sp9rjTFv0xT/8fCT+ASI=",
+        "owner": "devOpifex",
+        "repo": "r.nvim",
+        "rev": "bb1c66d0f1498561fbc3e60b429ad96263b730e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "devOpifex",
+        "repo": "r.nvim",
+        "type": "github"
+      }
+    },
     "river-shifttags": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -532,6 +548,7 @@
         "nvim-plugin-multicursor": "nvim-plugin-multicursor",
         "nvim-plugin-obsidian-bridge": "nvim-plugin-obsidian-bridge",
         "nvim-plugin-r-nvim": "nvim-plugin-r-nvim",
+        "r-nvim": "r-nvim",
         "river-shifttags": "river-shifttags",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",

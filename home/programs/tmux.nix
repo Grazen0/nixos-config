@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  stablePkgs,
   inputs,
   ...
 }: {
@@ -9,8 +8,6 @@
     enable = true;
 
     plugins = with pkgs.tmuxPlugins; let
-      stablePlugins = stablePkgs.tmuxPlugins;
-
       kanagawa = mkTmuxPlugin {
         version = "master";
         src = inputs.tmux-plugin-kanagawa;
@@ -40,7 +37,7 @@
             '';
         }
         {
-          plugin = stablePlugins.resurrect;
+          plugin = resurrect;
           extraConfig =
             # tmux
             ''

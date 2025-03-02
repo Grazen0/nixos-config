@@ -1,11 +1,6 @@
-{
-  config,
-  stablePkgs,
-  ...
-}: {
+{config, ...}: {
   programs.swayimg = {
     enable = true;
-    package = stablePkgs.swayimg;
 
     settings = let
       inherit (config) theme;
@@ -14,10 +9,12 @@
       viewer = {
         window = colors.black;
         scale = "fit";
+        antialiasing = "bicubic";
       };
 
       gallery = {
         window = colors.background;
+        antialiasing = "bicubic";
       };
 
       font = {
