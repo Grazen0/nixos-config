@@ -97,6 +97,6 @@
       which-key-nvim
       obsidian-nvim
       obsidian-bridge-nvim
-      telescope-nvim
+      fidget-nvim
     ];
 }
