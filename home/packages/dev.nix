@@ -6,16 +6,12 @@
   home.packages = with pkgs; [
     gcc
     cling
-
     gnumake
     cargo
     rustc
     clippy
-
     ghc
-
     jdk
-
     nodejs
     pnpm
 
