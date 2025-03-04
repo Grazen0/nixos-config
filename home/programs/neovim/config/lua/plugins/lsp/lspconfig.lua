@@ -67,8 +67,19 @@ return {
         },
       },
     },
+    signs = {
+      Error = ' ',
+      Warn = ' ',
+      Hint = '󰌶 ',
+      Info = ' ',
+    },
   },
   config = function(_, opts)
+    for type, icon in pairs(opts.signs) do
+      local hl = 'DiagnosticSign' .. type
+      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+    end
+
     local lspconfig = require('lspconfig')
     local blink = require('blink.cmp')
 
