@@ -1,6 +1,6 @@
 {
   programs.jetbrains = {
-    enable = false;
+    enable = true;
     editors.idea-ultimate.enable = true;
 
     ideavimrc =
