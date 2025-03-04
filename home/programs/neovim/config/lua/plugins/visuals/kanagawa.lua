@@ -36,6 +36,7 @@ return {
       return {
         -- Dark completion background
         Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
+        PmenuExtra = { fg = theme.syn.comment, bg = theme.ui.bg_p1 },
         PmenuSel = { fg = 'none', bg = theme.ui.bg_p2 },
         PmenuSbar = { bg = theme.ui.bg_p1 },
         PmenuThumb = { bg = theme.ui.bg_p2 },
