@@ -56,4 +56,24 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     opts = {},
   },
+  {
+    'mfussenegger/nvim-jdtls',
+    ft = { 'java', 'kotlin', 'groovy' },
+    opts = function()
+      return {
+        cmd = { 'jdtls' },
+        root_dir = vim.fs.dirname(
+          vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]
+        ),
+      }
+    end,
+    config = function(_, opts)
+      local jdtls = require('jdtls')
+      jdtls.start_or_attach(opts)
+
+      vim.api.nvim_create_user_command('JdtOrganizeImports', function()
+        jdtls.organize_imports()
+      end, {})
+    end,
+  },
 }

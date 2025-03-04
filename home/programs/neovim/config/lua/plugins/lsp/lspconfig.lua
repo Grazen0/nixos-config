@@ -35,7 +35,6 @@ return {
         },
       },
       texlab = {},
-      java_language_server = {},
       r_language_server = {},
       hls = {},
       zls = {},

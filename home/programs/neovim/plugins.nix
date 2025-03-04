@@ -70,6 +70,7 @@
       vim-fugitive
       otter-nvim
       typescript-tools-nvim
+      nvim-jdtls
 
       # Visual
       kanagawa-nvim
