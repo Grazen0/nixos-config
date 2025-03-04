@@ -12,6 +12,9 @@ end
 keyset('i', '<C-n>', '<Nop>')
 keyset('i', '<C-p>', '<Nop>')
 
+-- Buffer delete without deleting window
+keyset('n', '<leader>q', '<cmd>bp<bar>sp<bar>bn<bar>bd<CR>')
+
 -- Clear highlights with <Esc>
 -- Set in multicursor.lua
 -- keyset('n', '<Esc>', '<cmd>nohl<CR>')

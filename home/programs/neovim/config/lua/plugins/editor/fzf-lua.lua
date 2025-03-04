@@ -16,6 +16,7 @@ return {
       desc = 'Find with grep',
     },
     { '<leader>fb', '<cmd>FzfLua buffers<CR>', desc = 'Find buffers' },
+    { '<leader><leader>', '<cmd>FzfLua buffers<CR>', desc = 'Find buffers' },
     { '<leader>fh', '<cmd>FzfLua helptags<CR>', desc = 'Find help tags' },
     {
       '<leader>fr',
