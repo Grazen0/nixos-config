@@ -4,8 +4,12 @@ return {
   cmd = 'FzfLua',
   opts = {
     winopts = {
-      border = 'solid',
-      preview = { border = 'solid' },
+      border = 'single',
+      preview = { border = 'single' },
+    },
+    hls = {
+      border = 'FloatBorder',
+      preview_border = 'FloatBorder',
     },
   },
   keys = {

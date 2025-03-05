@@ -17,7 +17,7 @@ return {
     },
     opts = {
       delay = 1000,
-      win = { border = 'solid' },
+      win = { border = 'single' },
     },
   },
   {

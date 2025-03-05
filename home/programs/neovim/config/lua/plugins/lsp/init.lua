@@ -25,7 +25,7 @@ return {
       { '<leader>n', '<cmd>Navbuddy<CR>', desc = 'Open Navbuddy' },
     },
     opts = {
-      window = { border = 'none' },
+      window = { border = 'single' },
       lsp = { auto_attach = true },
     },
   },

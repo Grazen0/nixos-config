@@ -65,10 +65,14 @@ return {
             },
           },
         },
-        signature = { enabled = true },
+        signature = {
+          enabled = true,
+          window = { border = 'single' },
+        },
         completion = {
           ghost_text = { enabled = true },
           documentation = {
+            window = { border = 'single' },
             auto_show = true,
             auto_show_delay_ms = 500,
           },
@@ -79,6 +83,7 @@ return {
             },
           },
           menu = {
+            border = 'single',
             draw = {
               columns = {
                 { 'label', 'label_description', gap = 1 },
@@ -91,6 +96,11 @@ return {
           },
         },
       }
+    end,
+    config = function(_, opts)
+      require('blink.cmp').setup(opts)
+
+      vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder', { link = 'FloatBorder' })
     end,
   },
 }

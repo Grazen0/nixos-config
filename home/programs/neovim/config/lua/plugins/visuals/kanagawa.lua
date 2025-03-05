@@ -35,11 +35,22 @@ return {
 
       return {
         -- Dark completion background
-        Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
-        PmenuExtra = { fg = theme.syn.comment, bg = theme.ui.bg_p1 },
+        Pmenu = {
+          fg = theme.ui.shade0,
+          bg = theme.ui.bg,
+          blend = vim.o.pumblend,
+        },
+        PmenuExtra = { fg = theme.syn.comment, bg = theme.ui.bg },
         PmenuSel = { fg = 'none', bg = theme.ui.bg_p2 },
-        PmenuSbar = { bg = theme.ui.bg_p1 },
+        PmenuSbar = { bg = theme.ui.bg_m1 },
         PmenuThumb = { bg = theme.ui.bg_p2 },
+
+        -- Transparent floating windows
+        NormalFloat = { bg = 'none' },
+        FloatBorder = { bg = 'none' },
+        FloatTitle = { bg = 'none' },
+        LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+        MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
 
         -- Tint background of diagnostic messages with their foreground color
         DiagnosticVirtualTextHint = makeDiagnosticColor(theme.diag.hint),
@@ -69,9 +80,6 @@ return {
 
         -- nvim-window-picker
         WindowPickerStatusLineNC = { bg = theme.ui.bg_p1 },
-
-        -- neo-tree
-        NeoTreeFloatBorder = { bg = theme.ui.bg_m3, fg = theme.ui.bg_m3 },
       }
     end,
   },

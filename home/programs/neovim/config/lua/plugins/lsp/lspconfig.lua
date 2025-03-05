@@ -73,8 +73,22 @@ return {
       Hint = '󰌶 ',
       Info = ' ',
     },
+    diagnostic_border = 'single',
   },
   config = function(_, opts)
+    -- https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows
+    vim.lsp.handlers['textDocument/hover'] =
+      vim.lsp.with(vim.lsp.handlers.hover, {
+        border = opts.diagnostic_border,
+      })
+    vim.lsp.handlers['textDocument/signatureHelp'] =
+      vim.lsp.with(vim.lsp.handlers.signature_help, {
+        border = opts.diagnostic_border,
+      })
+    vim.diagnostic.config({
+      float = { border = opts.diagnostic_border },
+    })
+
     for type, icon in pairs(opts.signs) do
       local hl = 'DiagnosticSign' .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })

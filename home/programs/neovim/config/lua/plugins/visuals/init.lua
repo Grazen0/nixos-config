@@ -42,7 +42,7 @@ return {
     opts = {
       input = {
         default_prompt = 'Rename',
-        border = 'solid',
+        border = 'single',
       },
       select = {
         backend = { 'fzf_lua', 'builtin' },
