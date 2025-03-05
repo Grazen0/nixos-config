@@ -31,9 +31,9 @@ return {
       },
     },
     opts = function()
-      local lldb = {
+      local codelldb_config = {
         name = 'Launch lldb',
-        type = 'lldb',
+        type = 'codelldb',
         request = 'launch',
         program = function()
           return vim.fn.input(
@@ -50,7 +50,7 @@ return {
 
       return {
         adapters = {
-          lldb = {
+          codelldb = {
             type = 'server',
             port = '${port}',
             executable = {
@@ -60,8 +60,8 @@ return {
           },
         },
         configurations = {
-          c = { lldb },
-          cpp = { lldb },
+          c = { codelldb_config },
+          cpp = { codelldb_config },
         },
       }
     end,
