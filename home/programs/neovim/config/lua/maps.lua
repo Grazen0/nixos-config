@@ -12,6 +12,9 @@ end
 keyset('i', '<C-n>', '<Nop>')
 keyset('i', '<C-p>', '<Nop>')
 
+-- Exit terminal with <Esc><Esc>
+keyset('t', '<Esc><Esc>', '<C-\\><C-n>')
+
 -- Buffer delete without deleting window
 keyset('n', '<leader>q', '<cmd>bp<bar>sp<bar>bn<bar>bd<CR>')
 
