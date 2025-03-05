@@ -16,8 +16,8 @@ return {
       },
     },
     opts = {
-      delay = 1000,
       win = { border = 'single' },
+      preset = 'helix',
     },
   },
   {
