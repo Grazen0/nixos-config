@@ -23,9 +23,7 @@
         "mount"
       ];
 
-      input-plugins = [
-        "relative-motions"
-      ];
+      input-plugins = [];
     in
       (genAttrs official-plugins (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
       // (genAttrs input-plugins (plugin: inputs."yazi-plugin-${plugin}"));
@@ -58,51 +56,40 @@
       ];
     };
 
-    keymap.manager.prepend_keymap =
-      [
-        {
-          on = "!";
-          run = ''shell "$SHELL" --block --confirm'';
-          desc = "Open shell here";
-        }
-        {
-          on = "l";
-          run = "plugin smart-enter";
-          desc = "Enter the child directory, or open the file";
-        }
-        {
-          on = "T";
-          run = "plugin toggle-pane max-preview";
-          desc = "Maximize or restore preview";
-        }
-        {
-          on = "<C-n>";
-          run = ''
-            shell '${pkgs.xdragon}/bin/dragon -i -T "$@"' --confirm
-          '';
-          desc = "Dragon drop";
-        }
-        {
-          on = "M";
-          run = "plugin mount";
-          desc = "Mount manager";
-        }
-        {
-          on = ["g" "t"];
-          run = "cd ${config.xdg.dataHome}/Trash/files";
-          desc = "Goto trash";
-        }
-      ]
-      ++ (
-        lib.genList (i: let
-          iStr = toString (i + 1);
-        in {
-          on = iStr;
-          run = "plugin relative-motions ${iStr}";
-          desc = "Move in relative steps";
-        })
-        9
-      );
+    keymap.manager.prepend_keymap = [
+      {
+        on = "!";
+        run = ''shell "$SHELL" --block --confirm'';
+        desc = "Open shell here";
+      }
+      {
+        on = "l";
+        run = "plugin smart-enter";
+        desc = "Enter the child directory, or open the file";
+      }
+      {
+        on = "T";
+        run = "plugin toggle-pane max-preview";
+        desc = "Maximize or restore preview";
+      }
+      {
+        on = "<C-n>";
+        run = ''
+          shell '${pkgs.xdragon}/bin/dragon -i -T "$@"' --confirm
+        '';
+        desc = "Dragon drop";
+      }
+      {
+        on = "M";
+        run = "plugin mount";
+        desc = "Mount manager";
+      }
+      {
+        on = ["g" "t"];
+        run = "cd ${config.xdg.dataHome}/Trash/files";
+        desc = "Goto trash";
+      }
+    ];
 
     initLua =
       # lua

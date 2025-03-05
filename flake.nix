@@ -78,11 +78,6 @@
       flake = false;
     };
 
-    yazi-plugin-relative-motions = {
-      url = "github:dedukun/relative-motions.yazi/0.3.3";
-      flake = false;
-    };
-
     kanagawa-rstudio = {
       url = "github:camartinezbu/kanagawa-rstudio";
       flake = false;
