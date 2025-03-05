@@ -10,7 +10,7 @@ return {
       -- Scripting and other stuff
       bashls = {},
       clangd = {},
-      nil_ls = {},
+      nixd = {},
       lua_ls = {},
 
       -- Web dev

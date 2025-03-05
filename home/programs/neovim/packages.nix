@@ -34,7 +34,7 @@
       emmet-language-server
       haskell-language-server
       jdt-language-server # Java
-      nil # Nix
+      nixd # Nix
       lua-language-server
       pyright # Python
       rust-analyzer
