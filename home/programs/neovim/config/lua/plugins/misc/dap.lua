@@ -4,14 +4,12 @@ return {
     dependencies = {
       'rcarriga/nvim-dap-ui',
       'theHamsta/nvim-dap-virtual-text',
-      'julianolf/nvim-dap-lldb',
+      'stevearc/overseer.nvim',
     },
     cmd = {
       'DapContinue',
-      'DapStepInto',
-      'DapStepOut',
       'DapToggleBreakpoint',
-      'DapToggleRepl',
+      'DapNew',
     },
     keys = {
       { '<leader>Dc', '<cmd>DapContinue<CR>' },
@@ -19,7 +17,13 @@ return {
       { '<leader>Di', '<cmd>DapStepInto<CR>' },
       { '<leader>Du', '<cmd>DapStepOut<CR>' },
       { '<leader>Db', '<cmd>DapToggleBreakpoint<CR>' },
-      { '<leader>Dr', '<cmd>DapToggleRepl<CR>' },
+      {
+        '<leader>Dr',
+        function()
+          require('dap').restart()
+        end,
+        desc = 'Restart nvim-dap session',
+      },
       {
         '<leader>Dq',
         function()
@@ -83,7 +87,7 @@ return {
     cmd = { 'DapUiOpen', 'DapUiClose', 'DapUiToggle' },
     keys = {
       {
-        '<A-k>',
+        '<leader>k',
         function()
           require('dapui').eval()
         end,
@@ -126,6 +130,12 @@ return {
   {
     'theHamsta/nvim-dap-virtual-text',
     lazy = true,
+    opts = {},
+  },
+  {
+    'stevearc/overseer.nvim',
+    lazy = true,
+    main = 'overseer',
     opts = {},
   },
 }
