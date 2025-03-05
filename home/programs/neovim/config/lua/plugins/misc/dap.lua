@@ -12,31 +12,23 @@ return {
       'DapNew',
     },
     keys = {
-      { '<leader>Dc', '<cmd>DapContinue<CR>' },
-      { '<leader>Do', '<cmd>DapStepOver<CR>' },
-      { '<leader>Di', '<cmd>DapStepInto<CR>' },
-      { '<leader>Du', '<cmd>DapStepOut<CR>' },
-      { '<leader>Db', '<cmd>DapToggleBreakpoint<CR>' },
+      { '<F5>', '<cmd>DapContinue<CR>' },
+      { '<F10>', '<cmd>DapStepOver<CR>' },
+      { '<F11>', '<cmd>DapStepInto<CR>' },
+      { '<S-F11>', '<cmd>DapStepOut<CR>' },
       {
-        '<leader>Dr',
+        '<C-S-F5>',
         function()
           require('dap').restart()
         end,
         desc = 'Restart nvim-dap session',
       },
-      {
-        '<leader>Dq',
-        function()
-          require('dap').terminate()
-          require('dapui').close()
-          require('nvim-dap-virtual-text').toggle()
-        end,
-        desc = 'Quit nvim-dap',
-      },
+      { '<S-F5>', '<cmd>DapDisconnect<CR>' },
+      { '<leader>b', '<cmd>DapToggleBreakpoint<CR>' },
     },
     opts = function()
       local codelldb_config = {
-        name = 'Launch lldb',
+        name = 'Launch lldb (custom file)',
         type = 'codelldb',
         request = 'launch',
         program = function()
