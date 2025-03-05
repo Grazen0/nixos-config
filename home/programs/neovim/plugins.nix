@@ -99,5 +99,8 @@
       obsidian-nvim
       obsidian-bridge-nvim
       fidget-nvim
+      nvim-dap
+      nvim-dap-ui
+      nvim-dap-virtual-text
     ];
 }

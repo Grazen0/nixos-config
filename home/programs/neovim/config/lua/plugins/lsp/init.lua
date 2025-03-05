@@ -32,7 +32,9 @@ return {
   {
     'folke/lazydev.nvim',
     ft = 'lua',
-    opts = {},
+    opts = {
+      library = { 'nvim-dap-ui' },
+    },
   },
   {
     'jmbuhr/otter.nvim',
