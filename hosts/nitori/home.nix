@@ -8,6 +8,7 @@
   inherit (lib) mkForce;
 in {
   home.packages = with pkgs; [
+    osu-lazer-bin
     prismlauncher # Minecraft
     polychromatic
     kdePackages.kdenlive
