@@ -51,6 +51,8 @@
 
       # Plugin-specifics
       texlive.combined.scheme-full # vimtex
+      lldb # rustaceanvim
+      cmake # cmake-tools.nvim
     ];
   };
 }

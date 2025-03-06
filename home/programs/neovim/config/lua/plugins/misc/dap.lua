@@ -5,6 +5,7 @@ return {
       'rcarriga/nvim-dap-ui',
       'theHamsta/nvim-dap-virtual-text',
       'stevearc/overseer.nvim',
+      'ibhagwan/fzf-lua',
     },
     cmd = {
       'DapContinue',
@@ -26,41 +27,35 @@ return {
       { '<S-F5>', '<cmd>DapDisconnect<CR>' },
       { '<leader>b', '<cmd>DapToggleBreakpoint<CR>' },
     },
-    opts = function()
-      local codelldb_config = {
-        name = 'Launch lldb (custom file)',
-        type = 'codelldb',
-        request = 'launch',
-        program = function()
-          return vim.fn.input(
-            'Path to executable: ',
-            vim.fn.getcwd() .. '/',
-            'file'
-          )
-        end,
-        cwd = '${workspaceFolder}',
-        stopOnEntry = false,
-        args = {},
-        runInTerminal = false,
-      }
-
-      return {
-        adapters = {
-          codelldb = {
-            type = 'server',
-            port = '${port}',
-            executable = {
-              command = require('nix').codelldb_path,
-              args = { '--port', '${port}' },
-            },
+    opts = {
+      adapters = {
+        codelldb = {
+          type = 'server',
+          port = '${port}',
+          executable = {
+            command = require('nix').codelldb_path,
+            args = { '--port', '${port}' },
           },
         },
-        configurations = {
-          c = { codelldb_config },
-          cpp = { codelldb_config },
+      },
+      configurations = {
+        c = {
+          {
+            name = 'Launch lldb (custom file)',
+            type = 'codelldb',
+            request = 'launch',
+            program = function()
+              return vim.fn.input(
+                'Path to executable: ',
+                vim.fn.getcwd() .. '/',
+                'file'
+              )
+            end,
+            cwd = '${workspaceFolder}',
+          },
         },
-      }
-    end,
+      },
+    },
     config = function(_, opts)
       vim.fn.sign_define('DapBreakpoint', { text = '󰠭' })
       vim.fn.sign_define('DapBreakpointCondition', { text = '' })

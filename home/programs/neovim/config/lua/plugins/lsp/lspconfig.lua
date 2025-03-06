@@ -7,13 +7,10 @@ return {
   },
   opts = {
     servers = {
-      -- Scripting and other stuff
       bashls = {},
       clangd = {},
       nixd = {},
       lua_ls = {},
-
-      -- Web dev
       -- eslint = {},
       html = {},
       emmet_language_server = {},
@@ -24,27 +21,15 @@ return {
         end,
       },
       svelte = {},
-
-      -- Other cool stuff
       pyright = {},
-      rust_analyzer = {
-        settings = {
-          ['rust-analyzer'] = {
-            checkOnSave = { command = 'clippy' },
-          },
-        },
-      },
       texlab = {},
       r_language_server = {},
       hls = {},
       zls = {},
-
-      -- Build tools
       cmake = {},
       autotools_ls = {},
       taplo = {},
       vimls = {},
-
       jsonls = {
         settings = {
           json = {

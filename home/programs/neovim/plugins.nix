@@ -103,5 +103,7 @@
       nvim-dap-ui
       nvim-dap-virtual-text
       overseer-nvim
+      rustaceanvim
+      cmake-tools-nvim
     ];
 }

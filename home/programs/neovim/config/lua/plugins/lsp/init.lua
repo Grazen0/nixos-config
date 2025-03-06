@@ -71,11 +71,28 @@ return {
     end,
     config = function(_, opts)
       local jdtls = require('jdtls')
-      jdtls.start_or_attach(opts)
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { 'java', 'kotlin', 'groovy' },
+        callback = function()
+          jdtls.start_or_attach(opts)
+        end,
+      })
 
       vim.api.nvim_create_user_command('JdtOrganizeImports', function()
         jdtls.organize_imports()
       end, {})
     end,
+  },
+  {
+    'mrcjkb/rustaceanvim',
+    event = 'VeryLazy',
+  },
+  {
+    'Civitasv/cmake-tools.nvim',
+    ft = { 'cpp', 'cmake' },
+    dependencies = { 'nvim-lua/plenary.nvim', 'stevearc/overseer.nvim' },
+    main = 'cmake-tools',
+    opts = {},
   },
 }
