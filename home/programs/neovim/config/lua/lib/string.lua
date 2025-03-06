@@ -73,4 +73,8 @@ M.normalize_accents = function(str)
   return str:gsub('[%z\1-\127\194-\244][\128-\191]*', accents)
 end
 
+M.trim = function(str)
+  str:match('^%s*(.-)%s*$')
+end
+
 return M

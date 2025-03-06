@@ -28,6 +28,27 @@ return {
       { '<leader>b', '<cmd>DapToggleBreakpoint<CR>' },
     },
     opts = function()
+      local dap = require('dap')
+
+      local function find_package_main(dir)
+        while dir ~= '/' do
+          local fullpath = dir .. '/package.json'
+          local stat = vim.loop.fs_stat(fullpath)
+
+          if stat ~= nil and stat.type == 'file' then
+            local main = vim.fn.system('jq -rc .main ' .. fullpath)
+
+            if main ~= 'null' then
+              return dir .. '/' .. require('lib').trim(main)
+            end
+          end
+
+          dir = vim.fn.fnamemodify(dir, ':h')
+        end
+
+        return dap.ABORT
+      end
+
       local configs = {
         codelldb = {
           name = 'Launch lldb (custom file)',
@@ -47,6 +68,15 @@ return {
           request = 'launch',
           name = 'Launch js-debug (current file)',
           program = '${file}',
+          cwd = '${workspaceFolder}',
+        },
+        ['pwa-node-main'] = {
+          type = 'pwa-node',
+          request = 'launch',
+          name = 'Launch js-debug (main project file)',
+          program = function()
+            return find_package_main(vim.fn.expand('%:p:h'))
+          end,
           cwd = '${workspaceFolder}',
         },
       }
@@ -73,7 +103,7 @@ return {
         },
         configurations = {
           c = { configs.codelldb },
-          javascript = { configs['pwa-node'] },
+          javascript = { configs['pwa-node'], configs['pwa-node-main'] },
         },
       }
     end,

@@ -49,7 +49,8 @@
       zls # Zig
       zig
 
-      # nvim-dap adapter stuff
+      # nvim-dap
+      jq
       vscode-js-debug
 
       # Plugin-specifics
