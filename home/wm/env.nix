@@ -6,6 +6,7 @@
   home.sessionVariables = {
     XDG_SESSION_TYPE = "wayland";
     QT_GPA_PLATFORM = "wayland";
+    SDL_VIDEODRIVER = "wayland";
     NIXOS_OZONE_WL = "1";
     BEMOJI_PICKER_CMD = config.meta.mainPrograms.dmenu;
     # idc, this is for a local server
