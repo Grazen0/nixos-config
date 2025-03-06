@@ -24,26 +24,37 @@ return {
         end,
         desc = 'Restart nvim-dap session',
       },
-      { '<S-F5>', '<cmd>DapDisconnect<CR>' },
+      {
+        '<S-F5>',
+        function()
+          require('dap').disconnect()
+          require('dapui').close()
+        end,
+        desc = 'Terminate nvim-dap session',
+      },
       { '<leader>b', '<cmd>DapToggleBreakpoint<CR>' },
+      {
+        '<leader>B',
+        function()
+          local condition = vim.fn.input('Breakpoint condition: ')
+          require('dap').set_breakpoint(condition)
+        end,
+      },
     },
     opts = function()
       local dap = require('dap')
 
       local function find_package_main(dir)
-        while dir ~= '/' do
-          local fullpath = dir .. '/package.json'
-          local stat = vim.loop.fs_stat(fullpath)
+        local root = vim.fs.root(0, 'package.json')
 
-          if stat ~= nil and stat.type == 'file' then
-            local main = vim.fn.system('jq -rc .main ' .. fullpath)
+        if root == nil then
+          return dap.ABORT
+        end
 
-            if main ~= 'null' then
-              return dir .. '/' .. require('lib').trim(main)
-            end
-          end
+        local main = vim.fn.system('jq -rc .main ' .. root .. '/package.json')
 
-          dir = vim.fn.fnamemodify(dir, ':h')
+        if main ~= 'null' then
+          return dir .. '/' .. require('lib').trim(main)
         end
 
         return dap.ABORT
@@ -108,14 +119,23 @@ return {
       }
     end,
     config = function(_, opts)
-      vim.fn.sign_define('DapBreakpoint', { text = '󰠭' })
-      vim.fn.sign_define('DapBreakpointCondition', { text = '' })
+      vim.fn.sign_define('DapBreakpoint', { text = '󰠭', texthl = 'Error' })
+      vim.fn.sign_define(
+        'DapBreakpointCondition',
+        { text = '󰠭', texthl = 'Conditional' }
+      )
       vim.fn.sign_define('DapBreakpointRejected', { text = '󰒲' })
       vim.fn.sign_define('DapLogPoint', { text = '' })
 
       local dap = require('dap')
-      dap.adapters = opts.adapters
-      dap.configurations = opts.configurations
+
+      for name, adapter in pairs(opts.adapters) do
+        dap.adapters[name] = adapter
+      end
+
+      for name, config in pairs(opts.configurations) do
+        dap.configurations[name] = config
+      end
     end,
   },
   {
@@ -148,6 +168,13 @@ return {
       vim.api.nvim_create_user_command('DapUiToggle', function()
         dapui.toggle()
       end, { desc = 'Toggle dap-ui' })
+
+      vim.api.nvim_create_autocmd('VimLeavePre', {
+        pattern = '*',
+        callback = function()
+          dapui.close()
+        end,
+      })
 
       local dap = require('dap')
 

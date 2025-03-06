@@ -67,6 +67,11 @@ return {
         root_dir = vim.fs.dirname(
           vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]
         ),
+        init_options = {
+          bundles = {
+            vim.fn.glob(require('nix').java_debug_path, 1),
+          },
+        },
       }
     end,
     config = function(_, opts)
