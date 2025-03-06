@@ -13,14 +13,19 @@ return {
     },
   },
   keys = {
+    {
+      '<leader><leader>',
+      function()
+        require('fzf-lua').buffers({ path_shorten = true })
+      end,
+      desc = 'Find buffers',
+    },
     { '<leader>ff', '<cmd>FzfLua files<CR>', desc = 'Find files' },
     {
       '<leader>fg',
       '<cmd>FzfLua live_grep_native<CR>',
       desc = 'Find with grep',
     },
-    { '<leader>fb', '<cmd>FzfLua buffers<CR>', desc = 'Find buffers' },
-    { '<leader><leader>', '<cmd>FzfLua buffers<CR>', desc = 'Find buffers' },
     { '<leader>fh', '<cmd>FzfLua helptags<CR>', desc = 'Find help tags' },
     {
       '<leader>fr',
