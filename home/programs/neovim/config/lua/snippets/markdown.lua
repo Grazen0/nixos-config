@@ -1,5 +1,9 @@
 return {
-  s({ trig = '!!', snippetType = 'autosnippet' }, {
+  s({
+    trig = '^!!',
+    trigEngine = 'pattern',
+    hidden = true,
+  }, {
     t({ '> [!' }),
     i(1, 'NOTE'),
     t({ ']' }),
