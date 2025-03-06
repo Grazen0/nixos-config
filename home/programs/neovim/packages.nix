@@ -42,12 +42,15 @@
       tailwindcss-language-server
       taplo # TOML
       texlab # LaTeX
-      typescript-language-server
+      nodePackages.typescript # For tsserver
       vim-language-server
       vscode-langservers-extracted # HTML, CSS, JSON
       yaml-language-server
       zls # Zig
       zig
+
+      # nvim-dap adapter stuff
+      vscode-js-debug
 
       # Plugin-specifics
       texlive.combined.scheme-full # vimtex

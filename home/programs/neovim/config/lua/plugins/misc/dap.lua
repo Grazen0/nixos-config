@@ -27,35 +27,56 @@ return {
       { '<S-F5>', '<cmd>DapDisconnect<CR>' },
       { '<leader>b', '<cmd>DapToggleBreakpoint<CR>' },
     },
-    opts = {
-      adapters = {
+    opts = function()
+      local configs = {
         codelldb = {
-          type = 'server',
-          port = '${port}',
-          executable = {
-            command = require('nix').codelldb_path,
-            args = { '--port', '${port}' },
+          name = 'Launch lldb (custom file)',
+          type = 'codelldb',
+          request = 'launch',
+          program = function()
+            return vim.fn.input(
+              'Path to executable: ',
+              vim.fn.getcwd() .. '/',
+              'file'
+            )
+          end,
+          cwd = '${workspaceFolder}',
+        },
+        ['pwa-node'] = {
+          type = 'pwa-node',
+          request = 'launch',
+          name = 'Launch js-debug (current file)',
+          program = '${file}',
+          cwd = '${workspaceFolder}',
+        },
+      }
+
+      return {
+        adapters = {
+          codelldb = {
+            type = 'server',
+            port = '${port}',
+            executable = {
+              command = require('nix').codelldb_path,
+              args = { '--port', '${port}' },
+            },
+          },
+          ['pwa-node'] = {
+            type = 'server',
+            host = '::1',
+            port = '${port}',
+            executable = {
+              command = 'js-debug',
+              args = { '${port}' },
+            },
           },
         },
-      },
-      configurations = {
-        c = {
-          {
-            name = 'Launch lldb (custom file)',
-            type = 'codelldb',
-            request = 'launch',
-            program = function()
-              return vim.fn.input(
-                'Path to executable: ',
-                vim.fn.getcwd() .. '/',
-                'file'
-              )
-            end,
-            cwd = '${workspaceFolder}',
-          },
+        configurations = {
+          c = { configs.codelldb },
+          javascript = { configs['pwa-node'] },
         },
-      },
-    },
+      }
+    end,
     config = function(_, opts)
       vim.fn.sign_define('DapBreakpoint', { text = '󰠭' })
       vim.fn.sign_define('DapBreakpointCondition', { text = '' })
