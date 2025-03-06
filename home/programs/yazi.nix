@@ -23,7 +23,7 @@
         "mount"
       ];
 
-      input-plugins = [];
+      input-plugins = ["restore"];
     in
       (genAttrs official-plugins (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
       // (genAttrs input-plugins (plugin: inputs."yazi-plugin-${plugin}"));
@@ -71,6 +71,11 @@
         on = "T";
         run = "plugin toggle-pane max-preview";
         desc = "Maximize or restore preview";
+      }
+      {
+        on = "u";
+        run = "plugin restore";
+        desc = "Restore last deleted files/folders";
       }
       {
         on = "<C-n>";

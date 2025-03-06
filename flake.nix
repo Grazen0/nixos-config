@@ -182,5 +182,10 @@
       url = "github:Nybkox/tmux-kanagawa";
       flake = false;
     };
+
+    yazi-plugin-restore = {
+      url = "github:boydaihungst/restore.yazi";
+      flake = false;
+    };
   };
 }
