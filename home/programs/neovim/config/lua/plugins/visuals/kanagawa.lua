@@ -49,8 +49,6 @@ return {
         NormalFloat = { bg = 'none' },
         FloatBorder = { bg = 'none' },
         FloatTitle = { bg = 'none' },
-        LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-        MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
 
         -- Tint background of diagnostic messages with their foreground color
         DiagnosticVirtualTextHint = makeDiagnosticColor(theme.diag.hint),
