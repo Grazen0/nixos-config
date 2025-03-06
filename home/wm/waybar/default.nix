@@ -132,11 +132,11 @@
         };
 
         "custom/power" = let
-          wlogout = "${config.programs.wlogout.package}/bin/wlogout";
+          fuzzel-power-menu = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
         in {
           format = "";
           tooltip-format = "Power menu";
-          on-click = wlogout;
+          on-click = fuzzel-power-menu;
         };
       };
     };

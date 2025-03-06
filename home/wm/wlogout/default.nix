@@ -4,7 +4,7 @@
   ...
 }: {
   programs.wlogout = {
-    enable = true;
+    enable = false;
 
     style = let
       inherit (config) theme;

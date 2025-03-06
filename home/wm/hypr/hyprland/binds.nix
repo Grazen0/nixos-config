@@ -47,7 +47,7 @@
         "${mainMod}, V, exec, ${cliphist} list | ${dmenu} | ${cliphist} decode | ${wl-copy}"
         "${mainMod}, Period, exec, BEMOJI_PICKER_CMD='${fuzzel} -d' ${pkgs.bemoji}/bin/bemoji -n -t"
         "${mainMod}, Equal, exec, ${uwsmApp} ${customPkgs.menu-qalc}/bin/= --dmenu=fuzzel"
-        "${mainMod} SHIFT, X, exec, ${uwsmApp} ${config.programs.wlogout.package}/bin/wlogout"
+        "${mainMod} SHIFT, X, exec, ${uwsmApp} ${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu"
 
         # Screen capture
         ", Print, exec, pidof -q slurp || ${slurp} -w 0 -b 00000088 | ${grim} -g - - | ${wl-copy}"

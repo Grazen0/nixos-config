@@ -24,7 +24,7 @@
     brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
     playerctl = "${pkgs.playerctl}/bin/playerctl -p mopidy";
     river-shifttags = "${inputs.river-shifttags.packages.${pkgs.system}.default}/bin/river-shifttags";
-    wlogout = "${config.programs.wlogout.package}/bin/wlogout";
+    fuzzel-power-menu = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
     menu-qalc = "${customPkgs.menu-qalc}/bin/=";
     bemoji = "${pkgs.bemoji}/bin/bemoji";
     obsidian = "${pkgs.obsidian}/bin/obsidian";
@@ -57,7 +57,7 @@
           "Super V" = spawn "${cliphist} list | ${dmenu} | ${cliphist} decode | ${wl-copy}";
           "Super Period" = spawn "${bemoji} -n -t";
           "Super Comma" = spawn "${uwsmApp} ${menu-qalc} --dmenu=fuzzel";
-          "Super+Shift X" = spawn "${uwsmApp} ${wlogout}";
+          "Super+Shift X" = spawn "${uwsmApp} ${fuzzel-power-menu}";
 
           # Screen capture
           "None Print" = spawn "pidof -q slurp || ${slurp} -w 0 -b 00000088 | ${grim} -g - - | ${wl-copy}";
