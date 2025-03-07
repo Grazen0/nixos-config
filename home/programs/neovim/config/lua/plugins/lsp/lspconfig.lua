@@ -49,8 +49,8 @@ return {
     signs = {
       Error = ' ',
       Warn = ' ',
-      Hint = '󰌶 ',
-      Info = ' ',
+      Hint = ' ',
+      Info = ' ',
     },
     diagnostic_border = 'single',
   },
