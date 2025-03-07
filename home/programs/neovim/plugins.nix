@@ -71,6 +71,7 @@
       otter-nvim
       typescript-tools-nvim
       nvim-jdtls
+      dropbar-nvim
 
       # Visual
       kanagawa-nvim

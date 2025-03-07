@@ -1,17 +1,7 @@
 return {
   {
     'windwp/nvim-ts-autotag',
-    ft = {
-      'html',
-      'javascript',
-      'typescript',
-      'javascriptreact',
-      'typescriptreact',
-      'markdown',
-      'svelte',
-      'php',
-      'xml',
-    },
+    event = { 'BufReadPre', 'BufNewFile' },
     opts = {},
   },
   {
@@ -126,6 +116,27 @@ return {
         kind = 'background', -- Until debounce actually works
       },
       conceal = { enabled = true },
+    },
+  },
+  {
+    'Bekaboo/dropbar.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    keys = {
+      {
+        '<leader>;',
+        require('dropbar.api').pick,
+        desc = 'Pick symbols in winbar',
+      },
+      {
+        '[;',
+        require('dropbar.api').goto_context_start,
+        { desc = 'Go to start of current context' },
+      },
+      {
+        '];',
+        require('dropbar.api').goto_next_context,
+        { desc = 'Select next context' },
+      },
     },
   },
 }
