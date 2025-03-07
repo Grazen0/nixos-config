@@ -58,7 +58,6 @@
       # LSP
       conform-nvim
       inc-rename-nvim
-      nvim-navbuddy
       nvim-treesitter.withAllGrammars
       nvim-treesitter-refactor
       nvim-treesitter-textobjects
