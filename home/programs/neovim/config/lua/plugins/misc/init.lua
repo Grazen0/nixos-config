@@ -67,4 +67,8 @@ return {
     event = 'VeryLazy',
     opts = {},
   },
+  {
+    'jghauser/mkdir.nvim',
+    event = 'VeryLazy',
+  },
 }

@@ -7,12 +7,6 @@ return {
     end,
   },
   {
-    'themaxmarchuk/tailwindcss-colors.nvim',
-    main = 'tailwindcss-colors',
-    lazy = true,
-    opts = {},
-  },
-  {
     'lukas-reineke/indent-blankline.nvim',
     event = { 'BufReadPost', 'BufNewFile' },
     main = 'ibl',

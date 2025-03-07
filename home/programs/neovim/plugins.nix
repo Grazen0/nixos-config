@@ -81,7 +81,6 @@
       bufferline-nvim
       markview-nvim
       nvim-window-picker
-      tailwindcss-colors-nvim
       indent-blankline-nvim
       vim-illuminate
       dressing-nvim
@@ -105,5 +104,7 @@
       overseer-nvim
       rustaceanvim
       cmake-tools-nvim
+      tailwind-tools-nvim
+      mkdir-nvim
     ];
 }

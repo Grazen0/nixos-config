@@ -3,7 +3,6 @@ return {
   event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     'saghen/blink.cmp',
-    'themaxmarchuk/tailwindcss-colors.nvim',
   },
   opts = {
     servers = {
@@ -15,11 +14,6 @@ return {
       html = {},
       emmet_language_server = {},
       cssls = {},
-      tailwindcss = {
-        on_attach = function(_, bufnr)
-          require('tailwindcss-colors').buf_attach(bufnr)
-        end,
-      },
       svelte = {},
       pyright = {},
       texlab = {},

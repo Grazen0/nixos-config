@@ -100,4 +100,32 @@ return {
     main = 'cmake-tools',
     opts = {},
   },
+  {
+    'luckasRanarison/tailwind-tools.nvim',
+    ft = {
+      'javascript',
+      'javascriptreact',
+      'javascript.jsx',
+      'typescript',
+      'typescriptreact',
+      'typescript.tsx',
+      'css',
+      'scss',
+      'sass',
+      'svelte',
+    },
+    main = 'tailwind-tools',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'neovim/nvim-lspconfig',
+      'ibhagwan/fzf-lua',
+    },
+    opts = {
+      document_color = {
+        enabled = true,
+        kind = 'background', -- Until debounce actually works
+      },
+      conceal = { enabled = true },
+    },
+  },
 }
