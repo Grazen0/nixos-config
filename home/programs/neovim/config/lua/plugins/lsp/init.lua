@@ -52,6 +52,13 @@ return {
   {
     'mrcjkb/rustaceanvim',
     event = 'VeryLazy',
+    init = function()
+      vim.g.rustaceanvim = {
+        tools = {
+          hover_actions = { border = 'single' },
+        },
+      }
+    end,
   },
   {
     'Civitasv/cmake-tools.nvim',
