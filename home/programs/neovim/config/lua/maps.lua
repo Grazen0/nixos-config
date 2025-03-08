@@ -16,7 +16,13 @@ keyset('i', '<C-p>', '<Nop>')
 -- keyset('t', '<Esc><Esc>', '<C-\\><C-n>')
 
 -- Buffer delete without deleting window
-keyset('n', '<leader>q', '<cmd>bp<bar>sp<bar>bn<bar>bd<CR>')
+keyset('n', '<leader>q', function()
+  if not vim.bo.modified then
+    vim.cmd('bp|bd#')
+  end
+end, { desc = 'Close buffer' })
+
+keyset('n', '<leader>Q', '<cmd>bp|bd!#<CR>', { desc = 'Close buffer (force)' })
 
 -- Clear highlights with <Esc>
 -- Set in multicursor.lua
