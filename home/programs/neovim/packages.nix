@@ -12,6 +12,7 @@
       fd
       ripgrep
       wl-clipboard
+      file
 
       # Conform formatters
       alejandra

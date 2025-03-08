@@ -50,37 +50,6 @@ return {
     opts = {},
   },
   {
-    'mfussenegger/nvim-jdtls',
-    ft = { 'java', 'kotlin', 'groovy' },
-    opts = function()
-      return {
-        cmd = { 'jdtls' },
-        root_dir = vim.fs.dirname(
-          vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]
-        ),
-        init_options = {
-          bundles = {
-            vim.fn.glob(require('nix').java_debug_path, 1),
-          },
-        },
-      }
-    end,
-    config = function(_, opts)
-      local jdtls = require('jdtls')
-
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = { 'java', 'kotlin', 'groovy' },
-        callback = function()
-          jdtls.start_or_attach(opts)
-        end,
-      })
-
-      vim.api.nvim_create_user_command('JdtOrganizeImports', function()
-        jdtls.organize_imports()
-      end, {})
-    end,
-  },
-  {
     'mrcjkb/rustaceanvim',
     event = 'VeryLazy',
   },
@@ -117,66 +86,6 @@ return {
         kind = 'background', -- Until debounce actually works
       },
       conceal = { enabled = true },
-    },
-  },
-  {
-    'Bekaboo/dropbar.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
-    opts = {
-      menu = {
-        win_configs = { border = 'single' },
-        keymaps = {
-          -- Move with hjkl
-          ['h'] = '<C-w>q',
-          ['l'] = function()
-            local utils = require('dropbar.utils')
-            local menu = utils.menu.get_current()
-            if not menu then
-              return
-            end
-            local cursor = vim.api.nvim_win_get_cursor(menu.win)
-            local component = menu.entries[cursor[1]]:first_clickable(cursor[2])
-            if component then
-              menu:click_on(component, nil, 1, 'l')
-            end
-          end,
-        },
-      },
-      bar = {
-        sources = function(buf, _)
-          local utils = require('dropbar.utils')
-          local sources = require('dropbar.sources')
-          if vim.bo[buf].ft == 'markdown' then
-            return { sources.markdown }
-          end
-          if vim.bo[buf].buftype == 'terminal' then
-            return { sources.terminal }
-          end
-          return {
-            utils.source.fallback({
-              sources.lsp,
-              sources.treesitter,
-            }),
-          }
-        end,
-      },
-    },
-    keys = {
-      {
-        '<leader>;',
-        require('dropbar.api').pick,
-        desc = 'Pick symbols in winbar',
-      },
-      {
-        '[;',
-        require('dropbar.api').goto_context_start,
-        { desc = 'Go to start of current context' },
-      },
-      {
-        '];',
-        require('dropbar.api').goto_next_context,
-        { desc = 'Select next context' },
-      },
     },
   },
 }
