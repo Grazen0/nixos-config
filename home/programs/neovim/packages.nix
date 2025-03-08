@@ -59,5 +59,10 @@
       lldb # rustaceanvim
       cmake # cmake-tools.nvim
     ];
+
+    extraPython3Packages = ps:
+      with ps; [
+        debugpy # nvim-dap-python
+      ];
   };
 }

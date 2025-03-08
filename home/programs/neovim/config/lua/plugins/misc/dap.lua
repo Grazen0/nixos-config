@@ -203,4 +203,12 @@ return {
     main = 'overseer',
     opts = {},
   },
+  {
+    'mfussenegger/nvim-dap-python',
+    ft = 'python',
+    dependencies = { 'mfussenegger/nvim-dap' },
+    config = function()
+      require('dap-python').setup(vim.g.python3_host_prog)
+    end,
+  },
 }
