@@ -80,7 +80,7 @@ return {
     },
     indent = {
       enabled = true,
-      hl = 'SignColumn',
+      scope = { hl = 'SignColumn' },
       animate = { enabled = false },
     },
     input = {
