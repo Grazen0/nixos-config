@@ -69,6 +69,6 @@ return {
   },
   {
     'jghauser/mkdir.nvim',
-    event = 'VeryLazy',
+    event = 'BufWritePre',
   },
 }

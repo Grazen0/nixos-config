@@ -1,8 +1,22 @@
 return {
   {
     'windwp/nvim-ts-autotag',
-    event = { 'BufReadPre', 'BufNewFile' },
-    opts = {},
+    ft = {
+      'html',
+      'javascript',
+      'typescript',
+      'javascriptreact',
+      'typescriptreact',
+      'svelte',
+      'markdown',
+      'php',
+      'vue',
+      'xml',
+    },
+    main = 'nvim-ts-autotag',
+    opts = {
+      enable_close_on_slash = true,
+    },
   },
   {
     'SmiteshP/nvim-navbuddy',
