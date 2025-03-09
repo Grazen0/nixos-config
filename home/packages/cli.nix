@@ -11,5 +11,7 @@
     nitch
     rmtrash
     trash-cli
+    man-pages
+    man-pages-posix
   ];
 }
