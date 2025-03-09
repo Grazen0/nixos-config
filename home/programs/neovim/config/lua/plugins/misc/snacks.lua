@@ -71,7 +71,18 @@ return {
     },
     input = {
       enabled = true,
-      win = { border = 'single' },
+      icon = '',
+      win = {
+        border = 'single',
+        relative = 'cursor',
+        title_pos = 'left',
+        width = 40,
+        row = -3,
+        col = -1,
+        -- override = function(conf)
+        --   return conf
+        -- end,
+      },
     },
     rename = { enabled = true },
   },

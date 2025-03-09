@@ -37,7 +37,7 @@ keyset('n', '<leader>Q', function()
 end, { desc = 'Close buffer (force)' })
 
 keyset('n', '<leader>rn', function()
-  vim.lsp.bug.rename()
+  vim.lsp.buf.rename()
 end)
 
 -- Clear highlights with <Esc>
