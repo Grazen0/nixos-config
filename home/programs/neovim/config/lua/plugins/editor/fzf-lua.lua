@@ -26,7 +26,7 @@ return {
       '<cmd>FzfLua live_grep_native<CR>',
       desc = 'Find with grep',
     },
-    { '<leader>fh', '<cmd>FzfLua helptags<CR>', desc = 'Find help tags' },
+    { '<F1>', '<cmd>FzfLua helptags<CR>', desc = 'Find help tags' },
     {
       '<leader>fr',
       '<cmd>FzfLua lsp_references<CR>',
