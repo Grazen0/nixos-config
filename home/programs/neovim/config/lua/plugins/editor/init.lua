@@ -10,6 +10,11 @@ return {
     opts = {},
   },
   {
+    'nvim-pack/nvim-spectre',
+    cmd = 'Spectre',
+    opts = {},
+  },
+  {
     'mikavilpas/yazi.nvim',
     keys = {
       {
