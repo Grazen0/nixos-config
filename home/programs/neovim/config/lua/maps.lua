@@ -15,27 +15,6 @@ keyset('i', '<C-p>', '<Nop>')
 -- Exit terminal with <Esc><Esc>
 -- keyset('t', '<Esc><Esc>', '<C-\\><C-n>')
 
-local lib_nvim = require('lib.nvim')
-
--- Buffer delete without deleting window
-keyset('n', '<leader>q', function()
-  if not vim.bo.modified then
-    if #lib_nvim.list_valid_bufs() > 1 then
-      vim.cmd('bp|bd#')
-    else
-      vim.cmd('bd')
-    end
-  end
-end, { desc = 'Close buffer' })
-
-keyset('n', '<leader>Q', function()
-  if #lib_nvim.list_valid_bufs() > 1 then
-    vim.cmd('bp|bd!#')
-  else
-    vim.cmd('bd!')
-  end
-end, { desc = 'Close buffer (force)' })
-
 keyset('n', '<leader>rn', function()
   vim.lsp.buf.rename()
 end)

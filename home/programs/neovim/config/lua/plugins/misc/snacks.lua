@@ -9,6 +9,20 @@ return {
         require('snacks').lazygit()
       end,
     },
+    {
+      '<leader>q',
+      function()
+        require('snacks').bufdelete()
+      end,
+      desc = 'Delete buffer',
+    },
+    {
+      '<leader>C',
+      function()
+        require('snacks').bufdelete.other()
+      end,
+      desc = 'Delete other buffers',
+    },
   },
   opts = {
     bigfile = { enabled = true },
@@ -82,5 +96,6 @@ return {
       },
     },
     rename = { enabled = true },
+    bufdelete = { enabled = true },
   },
 }
