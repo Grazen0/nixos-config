@@ -1,12 +1,3 @@
-local lib_color = require('lib.color')
-
-local function markview_heading(theme, fg_color)
-  return {
-    fg = fg_color,
-    bg = lib_color.blend_colors(fg_color, theme.ui.bg, 0.7),
-  }
-end
-
 return {
   'rebelot/kanagawa.nvim',
   priority = 1000,
@@ -31,6 +22,14 @@ return {
       local makeDiagnosticColor = function(color)
         local c = require('kanagawa.lib.color')
         return { fg = color, bg = c(color):blend(theme.ui.bg, 0.95):to_hex() }
+      end
+
+      local function markview_heading(theme, fg_color)
+        local c = require('kanagawa.lib.color')
+        return {
+          fg = fg_color,
+          bg = c(fg_color):blend(theme.ui.bg, 0.7):to_hex(),
+        }
       end
 
       return {
