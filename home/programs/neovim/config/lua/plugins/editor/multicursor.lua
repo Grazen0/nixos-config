@@ -74,7 +74,7 @@ return {
     },
 
     -- Press `mWi"ap` will create a cursor in every match of string captured by `i"` inside range `ap`.
-    { mode = 'n', 'mW', require('multicursor-nvim').operator },
+    { 'mW', require('multicursor-nvim').operator },
 
     -- Add all matches in the document
     {
@@ -84,52 +84,52 @@ return {
     },
 
     -- Rotate the main cursor.
-    { mode = { 'n', 'x' }, '<left>', require('multicursor-nvim').nextCursor },
-    { mode = { 'n', 'x' }, '<right>', require('multicursor-nvim').prevCursor },
+    { mode = { 'n', 'x' }, '<Left>', require('multicursor-nvim').nextCursor },
+    { mode = { 'n', 'x' }, '<Right>', require('multicursor-nvim').prevCursor },
 
     -- Delete the main cursor.
-    -- set({ 'n', 'x' }, '<leader>x', require('multicursor-nvim').deleteCursor)
+    -- { mode = { 'n', 'x' }, '<leader>x', require('multicursor-nvim').deleteCursor },
 
-    -- Add and remove cursors with control + left click.
-    { mode = 'n', '<c-leftmouse>', require('multicursor-nvim').handleMouse },
+    -- Add and remove cursors with control + Left click.
+    { '<C-leftmouse>', require('multicursor-nvim').handleMouse },
 
-    { mode = 'n', '<c-leftdrag>', require('multicursor-nvim').handleMouseDrag },
+    { '<C-leftdrag>', require('multicursor-nvim').handleMouseDrag },
     {
-      mode = 'n',
-      '<c-leftrelease>',
+      '<C-leftrelease>',
       require('multicursor-nvim').handleMouseRelease,
     },
 
     -- Easy way to add and remove cursors using the main cursor.
-    { mode = { 'n', 'x' }, '<c-q>', require('multicursor-nvim').toggleCursor },
+    { mode = { 'n', 'x' }, '<C-q>', require('multicursor-nvim').toggleCursor },
 
     -- Clone every cursor and disable the originals.
     {
       mode = { 'n', 'x' },
-      '<leader><c-q>',
+      '<leader><C-q>',
       require('multicursor-nvim').duplicateCursors,
     },
 
     {
-      mode = 'n',
       '<Esc>',
       function()
-        if not require('multicursor-nvim').cursorsEnabled() then
-          require('multicursor-nvim').enableCursors()
-        elseif require('multicursor-nvim').hasCursors() then
-          require('multicursor-nvim').clearCursors()
+        local mc = require('multicursor-nvim')
+
+        if not mc.cursorsEnabled() then
+          mc.enableCursors()
+        elseif mc.hasCursors() then
+          mc.clearCursors()
         else
-          -- Default <esc> handler.
+          -- Default <Esc> handler.
           vim.cmd('nohl')
         end
       end,
     },
 
-    -- bring back cursors if you accidentally clear them
-    { mode = 'n', '<leader>gv', require('multicursor-nvim').restoreCursors },
+    -- Bring back cursors if you accidentally clear them
+    { '<leader>gv', require('multicursor-nvim').restoreCursors },
 
     -- Align cursor columns.
-    { mode = 'n', '<leader>a', require('multicursor-nvim').alignCursors },
+    { '<leader>a', require('multicursor-nvim').alignCursors },
 
     -- Split visual selections by regex.
     -- set('x', 'S', require('multicursor-nvim').splitCursors)
