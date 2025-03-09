@@ -53,6 +53,14 @@ return {
       Info = ' ',
     },
     diagnostic_border = 'single',
+    default_capabilities = {
+      textDocument = {
+        foldingRange = {
+          dynamicRegistration = false,
+          lineFoldingOnly = true,
+        },
+      },
+    },
   },
   config = function(_, opts)
     -- https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows
@@ -77,7 +85,11 @@ return {
     local blink = require('blink.cmp')
 
     for server, config in pairs(opts.servers) do
-      config.capabilities = blink.get_lsp_capabilities(config.capabilities)
+      config.capabilities = vim.tbl_deep_extend(
+        'force',
+        blink.get_lsp_capabilities(config.capabilities),
+        opts.default_capabilities
+      )
       lspconfig[server].setup(config)
     end
   end,
