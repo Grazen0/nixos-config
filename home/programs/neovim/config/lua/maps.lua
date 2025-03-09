@@ -36,6 +36,10 @@ keyset('n', '<leader>Q', function()
   end
 end, { desc = 'Close buffer (force)' })
 
+keyset('n', '<leader>rn', function()
+  vim.lsp.bug.rename()
+end)
+
 -- Clear highlights with <Esc>
 -- Set in multicursor.lua
 -- keyset('n', '<Esc>', '<cmd>nohl<CR>')

@@ -51,14 +51,12 @@
       nvim-autopairs
       comment-nvim
       undotree
-      lazygit-nvim
       bullets-vim
       vim-tmux-navigator
       nvim-ufo
 
       # LSP
       conform-nvim
-      inc-rename-nvim
       nvim-treesitter.withAllGrammars
       nvim-treesitter-refactor
       nvim-treesitter-textobjects
@@ -82,9 +80,7 @@
       bufferline-nvim
       markview-nvim
       nvim-window-picker
-      indent-blankline-nvim
       vim-illuminate
-      dressing-nvim
 
       # Misc
       dashboard-nvim
@@ -108,5 +104,6 @@
       cmake-tools-nvim
       tailwind-tools-nvim
       mkdir-nvim
+      snacks-nvim
     ];
 }

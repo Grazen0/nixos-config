@@ -1,7 +1,8 @@
 return {
   'smjonas/inc-rename.nvim',
+  enabled = false,
   lazy = true,
-  dependencies = { 'stevearc/dressing.nvim' },
+  -- dependencies = { 'stevearc/dressing.nvim' },
   cmd = 'IncRename',
   keys = {
     {
@@ -14,7 +15,6 @@ return {
     },
   },
   opts = {
-    input_buffer_type = 'dressing',
     override = function(conf)
       conf.col = -1
       conf.row = 0

@@ -16,6 +16,7 @@ local header = {
 
 return {
   'nvimdev/dashboard-nvim',
+  enabled = false,
   event = 'VimEnter',
   opts = {
     theme = 'doom',

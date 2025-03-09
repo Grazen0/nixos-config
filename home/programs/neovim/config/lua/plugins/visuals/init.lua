@@ -8,6 +8,7 @@ return {
   },
   {
     'lukas-reineke/indent-blankline.nvim',
+    enabled = false,
     event = { 'BufReadPost', 'BufNewFile' },
     main = 'ibl',
     opts = {
@@ -31,6 +32,7 @@ return {
   },
   {
     'stevearc/dressing.nvim',
+    enabled = false,
     dependencies = { 'ibhagwan/fzf-lua' },
     event = 'VeryLazy',
     opts = {

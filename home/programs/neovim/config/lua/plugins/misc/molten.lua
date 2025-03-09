@@ -1,7 +1,7 @@
 return {
   'benlubas/molten-nvim',
   enabled = false,
-  dependencies = { 'stevearc/dressing.nvim' },
+  -- dependencies = { 'stevearc/dressing.nvim' },
   ft = { 'markdown', 'quarto' },
 
   init = function()
