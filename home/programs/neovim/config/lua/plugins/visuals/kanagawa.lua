@@ -19,16 +19,11 @@ return {
       local theme = colors.theme
       local palette = colors.palette
 
-      local makeDiagnosticColor = function(color)
-        local c = require('kanagawa.lib.color')
-        return { fg = color, bg = c(color):blend(theme.ui.bg, 0.95):to_hex() }
-      end
-
-      local function markview_heading(theme, fg_color)
+      local make_bg_blended_color = function(color, ratio)
         local c = require('kanagawa.lib.color')
         return {
-          fg = fg_color,
-          bg = c(fg_color):blend(theme.ui.bg, 0.7):to_hex(),
+          fg = color,
+          bg = c(color):blend(theme.ui.bg, ratio or 0.95):to_hex(),
         }
       end
 
@@ -50,22 +45,22 @@ return {
         FloatTitle = { bg = 'none' },
 
         -- Tint background of diagnostic messages with their foreground color
-        DiagnosticVirtualTextHint = makeDiagnosticColor(theme.diag.hint),
-        DiagnosticVirtualTextInfo = makeDiagnosticColor(theme.diag.info),
-        DiagnosticVirtualTextWarn = makeDiagnosticColor(theme.diag.warning),
-        DiagnosticVirtualTextError = makeDiagnosticColor(theme.diag.error),
+        DiagnosticVirtualTextHint = make_bg_blended_color(theme.diag.hint),
+        DiagnosticVirtualTextInfo = make_bg_blended_color(theme.diag.info),
+        DiagnosticVirtualTextWarn = make_bg_blended_color(theme.diag.warning),
+        DiagnosticVirtualTextError = make_bg_blended_color(theme.diag.error),
 
         -- dashboard-nvim
         DashboardHeader = { fg = palette.crystalBlue },
         DashboardIcon = { fg = palette.springGreen },
 
         -- markview.nvim headings and custom callouts
-        MarkviewHeading1 = markview_heading(theme, palette.peachRed),
-        MarkviewHeading2 = markview_heading(theme, palette.surimiOrange),
-        MarkviewHeading3 = markview_heading(theme, palette.carpYellow),
-        MarkviewHeading4 = markview_heading(theme, palette.springGreen),
-        MarkviewHeading5 = markview_heading(theme, palette.springBlue),
-        MarkviewHeading6 = markview_heading(theme, palette.springViolet1),
+        MarkviewHeading1 = make_bg_blended_color(palette.peachRed, 0.9),
+        MarkviewHeading2 = make_bg_blended_color(palette.surimiOrange, 0.9),
+        MarkviewHeading3 = make_bg_blended_color(palette.carpYellow, 0.9),
+        MarkviewHeading4 = make_bg_blended_color(palette.springGreen, 0.9),
+        MarkviewHeading5 = make_bg_blended_color(palette.springBlue, 0.9),
+        MarkviewHeading6 = make_bg_blended_color(palette.springViolet1, 0.9),
         MarkviewBlockQuoteDefinition = { fg = palette.carpYellow },
         MarkviewBlockQuoteTheorem = { fg = palette.oniViolet },
         MarkviewBlockQuoteLemma = { fg = palette.springViolet1 },
