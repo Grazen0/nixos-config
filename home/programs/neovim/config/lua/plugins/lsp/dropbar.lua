@@ -20,7 +20,7 @@ return {
   },
   opts = {
     bar = {
-      pick = { pivots = 'asdfghjkl;qwertyuiop' },
+      pick = { pivots = 'fjdksla;cmrueiwoqp' },
     },
     menu = {
       win_configs = { border = 'single' },
