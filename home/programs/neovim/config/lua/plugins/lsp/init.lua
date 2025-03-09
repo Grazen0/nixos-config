@@ -15,7 +15,9 @@ return {
     },
     main = 'nvim-ts-autotag',
     opts = {
-      enable_close_on_slash = true,
+      opts = {
+        enable_close_on_slash = true,
+      },
     },
   },
   {
