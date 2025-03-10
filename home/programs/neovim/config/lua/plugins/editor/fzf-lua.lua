@@ -1,5 +1,6 @@
 return {
   'ibhagwan/fzf-lua',
+  event = 'VeryLazy',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   cmd = 'FzfLua',
   opts = {
@@ -48,4 +49,9 @@ return {
       desc = 'Find todo comments declarations',
     },
   },
+  config = function(_, opts)
+    local fzf_lua = require('fzf-lua')
+    fzf_lua.setup(opts)
+    fzf_lua.register_ui_select()
+  end,
 }
