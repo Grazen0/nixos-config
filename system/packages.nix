@@ -15,5 +15,6 @@
     noto-fonts-emoji
     liberation_ttf
     nerd-fonts.commit-mono
+    nerd-fonts.comic-shanns-mono
   ];
 }

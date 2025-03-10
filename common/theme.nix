@@ -4,7 +4,7 @@
   ...
 }: {
   theme = {
-    font.regular = "CommitMono Nerd Font";
+    font.regular = "ComicShannsMono Nerd Font";
 
     colors = let
       mkColors = hexColors: {
