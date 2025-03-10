@@ -85,9 +85,9 @@
       markview-nvim
       nvim-window-picker
       vim-illuminate
+      tiny-inline-diagnostic-nvim
 
       # Misc
-      dashboard-nvim
       vim-obsession
       todo-comments-nvim
       vimtex
