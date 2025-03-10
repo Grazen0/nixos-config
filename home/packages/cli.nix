@@ -7,6 +7,7 @@
     customPkgs.exe2png
     customPkgs.make-writable
     file
+    fcp
     cmatrix
     nitch
     rmtrash
