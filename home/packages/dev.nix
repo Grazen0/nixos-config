@@ -5,12 +5,14 @@
 }: {
   home.packages = with pkgs; [
     gcc
-    cling
     gnumake
     cargo
     rustc
     clippy
-    ghc
+    (haskellPackages.ghcWithPackages (ps:
+      with ps; [
+        stack
+      ]))
     jdk
     nodejs
     pnpm

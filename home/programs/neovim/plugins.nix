@@ -33,6 +33,10 @@
       src = inputs.nvim-plugin-luasnip-latex-snippets;
       dependencies = with vimPlugins; [luasnip];
     };
+
+    haskell-tools-nvim = vimPlugins.haskell-tools-nvim.overrideAttrs (prev: {
+      patches = [./patches/haskell-tools.patch] ++ (prev.patches or []);
+    });
   in
     with vimPlugins; [
       lazy-nvim
@@ -103,6 +107,7 @@
       rustaceanvim
       cmake-tools-nvim
       tailwind-tools-nvim
+      haskell-tools-nvim
       mkdir-nvim
       snacks-nvim
     ];

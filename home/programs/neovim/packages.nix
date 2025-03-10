@@ -1,6 +1,7 @@
 {
   pkgs,
   customPkgs,
+  inputs,
   ...
 }: {
   # Needed for obsidian.nvim, dang it
@@ -23,6 +24,7 @@
       (mdformat.withPlugins (_ps: [
         customPkgs.mdformat-obsidian
       ]))
+      ormolu
       prettierd
       rustfmt
       stylua
@@ -53,6 +55,7 @@
       # nvim-dap
       jq
       vscode-js-debug
+      (inputs.haskell-debug-adapter.packages.${system}.default)
 
       # Plugin-specifics
       texlive.combined.scheme-full # vimtex

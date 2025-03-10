@@ -42,6 +42,10 @@
     sops-nix.url = "github:Mic92/sops-nix";
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    haskell-debug-adapter = {
+      url = "github:phoityne/haskell-debug-adapter/8f31926595109ade331b6c314d862e0d00a5734a";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";

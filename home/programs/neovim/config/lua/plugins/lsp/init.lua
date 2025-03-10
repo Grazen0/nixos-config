@@ -88,10 +88,8 @@ return {
     ft = {
       'javascript',
       'javascriptreact',
-      'javascript.jsx',
       'typescript',
       'typescriptreact',
-      'typescript.tsx',
       'css',
       'scss',
       'sass',
@@ -110,5 +108,17 @@ return {
       },
       conceal = { enabled = true },
     },
+  },
+  {
+    'mrcjkb/haskell-tools.nvim',
+    dependencies = { 'mfussenegger/nvim-dap' },
+    event = 'VeryLazy',
+    init = function()
+      vim.g.haskell_tools = {
+        tools = {
+          hover = { border = 'single' },
+        },
+      }
+    end,
   },
 }

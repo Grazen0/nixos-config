@@ -1,0 +1,48 @@
+From 01e6f1f242297ca29436263e5b33307293248bdb Mon Sep 17 00:00:00 2001
+From: Grazen0 <josedanielgrayson@proton.me>
+Date: Mon, 10 Mar 2025 02:30:32 -0500
+Subject: [PATCH] fix(config): allow tools.hover.border to be a string
+
+---
+ lua/haskell-tools/config/check.lua    |  2 +-
+ lua/haskell-tools/config/internal.lua | 13 -------------
+ 2 files changed, 1 insertion(+), 14 deletions(-)
+
+diff --git a/lua/haskell-tools/config/check.lua b/lua/haskell-tools/config/check.lua
+index 5ec00f4..7fb5dd1 100644
+--- a/lua/haskell-tools/config/check.lua
++++ b/lua/haskell-tools/config/check.lua
+@@ -79,7 +79,7 @@ function Check.validate(cfg)
+   local hover = tools.hover
+   ok, err = validate('tools.hover', {
+     auto_focus = { hover.auto_focus, 'boolean', true },
+-    border = { hover.border, 'table', true },
++    border = { hover.border, { 'table', 'string' }, true },
+     enable = { hover.enable, { 'boolean', 'function' } },
+     stylize_markdown = { hover.stylize_markdown, 'boolean' },
+   })
+diff --git a/lua/haskell-tools/config/internal.lua b/lua/haskell-tools/config/internal.lua
+index 3cdcf18..72f5c51 100644
+--- a/lua/haskell-tools/config/internal.lua
++++ b/lua/haskell-tools/config/internal.lua
+@@ -286,17 +286,4 @@ if not ok then
+   vim.notify('haskell-tools: ' .. err, vim.log.levels.ERROR)
+ end
+ 
+-local dont_warn = {
+-  'tools.repl.auto_focus',
+-  'hls.capabilities',
+-  'hls.settings',
+-  'hls.default_settings',
+-}
+-local unrecognized_keys = check.get_unrecognized_keys(opts, HTDefaultConfig, dont_warn)
+-if #unrecognized_keys > 0 then
+-  vim.notify('unrecognized configs in vim.g.haskell_tools: ' .. vim.inspect(unrecognized_keys), vim.log.levels.WARN)
+-end
+-
+-HTConfig.debug_info.unrecognized_keys = unrecognized_keys
+-
+ return HTConfig
+-- 
+2.48.1
+

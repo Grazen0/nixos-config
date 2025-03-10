@@ -27,6 +27,7 @@ return {
       markdown = { 'mdformat' },
       quarto = { 'mdformat' },
       r = { 'styler' },
+      haskell = { 'ormolu' },
     },
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable

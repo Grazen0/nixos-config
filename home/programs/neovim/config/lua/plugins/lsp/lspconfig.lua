@@ -19,7 +19,6 @@ return {
       pyright = {},
       texlab = {},
       r_language_server = {},
-      hls = {},
       zls = {},
       cmake = {},
       autotools_ls = {},
