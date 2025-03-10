@@ -1,12 +1,12 @@
 return {
   {
     'kylechui/nvim-surround',
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = 'InsertEnter',
     opts = {},
   },
   {
     'numToStr/comment.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = 'InsertEnter',
     opts = {},
   },
   {
