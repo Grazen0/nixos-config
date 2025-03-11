@@ -4,6 +4,7 @@
   outputs = {
     flake-parts,
     nixpkgs,
+    nixos-generators,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
@@ -13,7 +14,15 @@
       systems = import inputs.systems;
 
       perSystem = {pkgs, ...}: {
-        packages = import ./pkgs {inherit pkgs inputs;};
+        packages =
+          (import ./pkgs {inherit pkgs inputs;})
+          // {
+            iso = nixos-generators.nixosGenerate {
+              system = "x86_64-linux";
+              modules = [./iso/default.nix];
+              format = "iso";
+            };
+          };
         devShells = import ./shell.nix {inherit pkgs;};
       };
 
@@ -40,8 +49,13 @@
     systems.url = "github:nix-systems/default-linux";
     flake-parts.url = "github:hercules-ci/flake-parts";
     sops-nix.url = "github:Mic92/sops-nix";
-
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
+
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     haskell-debug-adapter = {
       url = "github:phoityne/haskell-debug-adapter/8f31926595109ade331b6c314d862e0d00a5734a";
       inputs.nixpkgs.follows = "nixpkgs";
