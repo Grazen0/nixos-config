@@ -67,6 +67,9 @@ return {
       scroll_sync = true,
       picker = 'fzf_lua',
     },
+    keys = {
+      { '<localleader>oc', '<cmd>ObsidianBridgePickCommand<CR>' },
+    },
   },
   {
     'epwalsh/obsidian.nvim',
