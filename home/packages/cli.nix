@@ -8,6 +8,7 @@
     customPkgs.make-writable
     file
     fcp
+    lsof
     cmatrix
     nitch
     rmtrash
