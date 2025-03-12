@@ -195,7 +195,9 @@ return {
   {
     'theHamsta/nvim-dap-virtual-text',
     lazy = true,
-    opts = {},
+    opts = {
+      virt_text_pos = 'eol',
+    },
   },
   {
     'stevearc/overseer.nvim',

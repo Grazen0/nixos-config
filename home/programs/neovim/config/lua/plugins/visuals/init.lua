@@ -24,7 +24,6 @@ return {
       preset = 'simple',
       options = {
         multilines = { enabled = true },
-        use_icons_from_diagnostic = true,
       },
     },
     config = function(_, opts)
