@@ -104,10 +104,10 @@
         # Bindings
         fish_vi_key_bindings
         for mode in normal insert
-          bind -M $mode -k nul 'accept-autosuggestion'
-          bind -M $mode \cp 'history-prefix-search-backward'
-          bind -M $mode \cn 'history-prefix-search-forward'
-          bind -M $mode \cz 'fg &> /dev/null; commandline -f repaint'
+          bind -M $mode ctrl-space 'accept-autosuggestion'
+          bind -M $mode ctrl-p 'history-prefix-search-backward'
+          bind -M $mode ctrl-n 'history-prefix-search-forward'
+          bind -M $mode ctrl-z 'fg &> /dev/null; commandline -f repaint'
         end
       '';
   };
