@@ -111,7 +111,6 @@ return {
   },
   {
     'mrcjkb/haskell-tools.nvim',
-    dependencies = { 'mfussenegger/nvim-dap' },
     event = 'VeryLazy',
     init = function()
       vim.g.haskell_tools = {
