@@ -28,6 +28,9 @@ return {
       end
 
       return {
+        -- Custom window separator line
+        WinSeparator = { link = 'LineNr' },
+
         -- Dark completion background
         Pmenu = {
           fg = theme.ui.shade0,
