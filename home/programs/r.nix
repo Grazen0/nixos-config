@@ -6,8 +6,6 @@
   ...
 }: {
   programs.r = {
-    enable = false;
-
     profile = let
       colors = lib.mapAttrs (_: rgb:
         "\\x1b[38;2;"

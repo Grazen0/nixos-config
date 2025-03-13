@@ -4,8 +4,6 @@
   ...
 }: {
   programs.wlogout = {
-    enable = false;
-
     style = let
       inherit (config) theme;
       colors = theme.colors.hexWithHashtag;

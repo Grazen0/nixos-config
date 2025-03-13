@@ -1,7 +1,5 @@
 {
   programs.peaclock = {
-    enable = false;
-
     extraConfig =
       # bash
       ''

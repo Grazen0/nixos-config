@@ -10,8 +10,6 @@
   ];
 
   wayland.windowManager.hyprland = {
-    enable = false;
-
     xwayland.enable = true;
     systemd.enable = false; # Conflicts with UWSM
 

@@ -5,8 +5,6 @@
   ...
 }: {
   services.hypridle = {
-    enable = false;
-
     settings = let
       inherit (lib') timeStrToSecs;
       hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";

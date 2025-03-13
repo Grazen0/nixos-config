@@ -1,7 +1,5 @@
 {config, ...}: {
   services.dunst = {
-    enable = false;
-
     settings = let
       inherit (config) theme;
       colors = theme.colors.hexWithHashtag;

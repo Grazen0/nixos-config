@@ -1,7 +1,5 @@
 {
   programs.zapzap = {
-    enable = false;
-
     settings = {
       notification.app = true;
 

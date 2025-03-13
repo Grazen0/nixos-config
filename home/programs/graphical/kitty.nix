@@ -1,7 +1,5 @@
 {config, ...}: {
   programs.kitty = {
-    enable = false;
-
     themeFile = "kanagawa";
 
     font = {

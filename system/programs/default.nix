@@ -8,10 +8,7 @@
   programs = {
     dconf.enable = true;
     fish.enable = true;
-    hyprland = {
-      enable = false;
-      withUWSM = true;
-    };
+    hyprland.withUWSM = true;
     river = {
       enable = true;
       withUWSM = true;

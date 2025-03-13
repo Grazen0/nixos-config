@@ -1,6 +1,5 @@
 {
   services.openssh = {
-    enable = false;
     ports = [22];
     openFirewall = true;
 

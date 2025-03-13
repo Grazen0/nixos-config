@@ -1,7 +1,5 @@
 {config, ...}: {
   programs.hyprlock = {
-    enable = false;
-
     settings = with config.theme.colors.hex; {
       general = {
         disable_loading_bar = true;
