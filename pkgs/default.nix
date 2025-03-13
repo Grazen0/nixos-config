@@ -34,6 +34,7 @@
     volume-update = callPackage ./scripts/volume-update.nix {};
     player-art = callPackage ./scripts/player-art.nix {};
     tmux-music = callPackage ./scripts/tmux/music.nix {inherit customPkgs;};
+    tmux-session-picker = callPackage ./scripts/tmux/session-picker.nix {};
 
     waybar-notifications-state = callPackage ./waybar/notifications-state.nix {inherit fnott;};
     waybar-media-query = callPackage ./waybar/media-query.nix {};

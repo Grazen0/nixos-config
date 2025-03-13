@@ -27,6 +27,9 @@
 
     df = "df -h";
     grep = "grep --color=auto";
+    ta = "tmux attach";
+    lg = "lazygit";
+    music = "${tmux-music} ${../../../files/default_album_art.png}";
 
     cat = "bat";
     catfr = "${pkgs.coreutils}/bin/cat";
@@ -43,10 +46,9 @@
     emacss = "vs";
 
     peaclock = "peaclock --config-dir ${config.xdg.configHome}/peaclock";
-    lg = "lazygit";
     # "Borrowed" from https://github.com/NotAShelf/nyx/blob/main/homes/notashelf/programs/terminal/shell/zsh/aliases.nix#L39
+
     ytmp3 = ''${yt-dlp} -x -c --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"'';
-    music = "${tmux-music} ${../../../files/default_album_art.png}";
 
     nrs = "sudo nixos-rebuild switch --flake ${flakeDir}";
     nrb = "sudo nixos-rebuild boot --flake ${flakeDir}";

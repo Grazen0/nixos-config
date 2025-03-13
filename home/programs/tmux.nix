@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  customPkgs,
   ...
 }: {
   programs.tmux = {
@@ -66,7 +67,9 @@
     sensibleOnTop = true;
     secureSocket = true;
 
-    extraConfig =
+    extraConfig = let
+      session-picker = "${customPkgs.tmux-session-picker}/bin/tmux-session-picker";
+    in
       # tmux
       ''
         # Pane navigation with hjkl
@@ -104,6 +107,10 @@
         bind-key -T copy-mode-vi v send-keys -X begin-selection
         bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
         bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+        # Awesome session picker
+        bind S choose-tree -Zs
+        bind s run-shell "${session-picker}"
       '';
   };
 }
