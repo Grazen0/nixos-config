@@ -9,6 +9,7 @@
     ./swayimg.nix
     ./thunar.nix
     ./touhou.nix
+    ./vscode.nix
     ./zapzap.nix
     ./zathura.nix
   ];
