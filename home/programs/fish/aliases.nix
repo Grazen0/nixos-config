@@ -24,32 +24,9 @@
     mkdir = "mkdir -p";
     ".." = "cd ..";
     "..." = "cd ../..";
-    "...." = "cd ../../..";
-    "....." = "cd ../../../..";
 
+    df = "df -h";
     grep = "grep --color=auto";
-
-    g = "git";
-    ga = "git add";
-    gaa = "git add --all";
-    gb = "git branch";
-    gbd = "git branch --delete";
-    gco = "git checkout";
-    gcb = "git checkout -b";
-    gcB = "git checkout -B";
-    gcm = "git checkout main";
-    gcl = "git clone --recurse-submodules";
-    gcmsg = "git commit --message";
-    gd = "git diff";
-    gl = "git pull";
-    gp = "git push";
-    gpsup = "git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)";
-    grh = "git reset";
-    grs = "git restore";
-    grst = "git restore --staged";
-    gstaa = "git stash apply";
-    gstp = "git stash pop";
-    gst = "git status";
 
     cat = "bat";
     catfr = "${pkgs.coreutils}/bin/cat";
@@ -61,6 +38,7 @@
     restore = "trash-restore";
 
     v = "nvim";
+    vs = "nvim -S";
     emacs = "nvim";
     emacss = "vs";
 
@@ -70,10 +48,10 @@
     ytmp3 = ''${yt-dlp} -x -c --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"'';
     music = "${tmux-music} ${../../../files/default_album_art.png}";
 
-    rbs = "sudo nixos-rebuild switch --flake ${flakeDir}";
-    rbb = "sudo nixos-rebuild boot --flake ${flakeDir}";
-    rbt = "sudo nixos-rebuild test --flake ${flakeDir}";
-    upd = "nix flake update --flake ${flakeDir}";
+    nrs = "sudo nixos-rebuild switch --flake ${flakeDir}";
+    nrb = "sudo nixos-rebuild boot --flake ${flakeDir}";
+    nrt = "sudo nixos-rebuild test --flake ${flakeDir}";
+    nfu = "nix flake update --flake ${flakeDir}";
     nss = "nix search nixpkgs";
     ngc = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
   };

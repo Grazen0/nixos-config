@@ -66,16 +66,6 @@
             nix run nixpkgs#$package $argv[2..-1]
           '';
       };
-
-      vs.body =
-        # fish
-        ''
-          if test -f "Session.vim"
-            nvim -S $argv
-          else
-            nvim $argv
-          end
-        '';
     };
 
     interactiveShellInit =
