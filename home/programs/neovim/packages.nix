@@ -36,7 +36,6 @@
       jdt-language-server # Java
       nixd # Nix
       lua-language-server
-      marksman # Markdown
       pyright # Python
       rust-analyzer
       svelte-language-server

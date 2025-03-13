@@ -7,7 +7,6 @@ return {
   },
   opts = {
     servers = {
-      marksman = {},
       bashls = {},
       clangd = {},
       nixd = {},
