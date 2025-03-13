@@ -9,7 +9,7 @@
   ];
 
   # Required for fzf.fish
-  home.packages = with pkgs; [fzf];
+  programs.fzf.enable = true;
 
   programs.fish = {
     enable = true;
