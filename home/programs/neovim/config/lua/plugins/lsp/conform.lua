@@ -2,7 +2,7 @@ local create_user_command = vim.api.nvim_create_user_command
 
 return {
   'stevearc/conform.nvim',
-  cmd = 'Format',
+  cmd = { 'Format', 'ConformInfo' },
   event = 'BufWritePre',
   opts = {
     formatters_by_ft = {
@@ -28,6 +28,7 @@ return {
       quarto = { 'mdformat' },
       r = { 'styler' },
       haskell = { 'ormolu' },
+      sql = { 'sql_formatter' },
     },
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable
@@ -41,12 +42,10 @@ return {
       }
     end,
     formatters = {
-
       -- mdformat has some weird default behavior
       mdformat = { append_args = { '--number' } },
     },
   },
-
   init = function()
     -- Toggle formatting
     create_user_command('FormatEnable', function()
@@ -71,7 +70,6 @@ return {
       vim.b.disable_autoformat = prev
     end, {})
   end,
-
   config = function(_, opts)
     local conform = require('conform')
     conform.setup(opts)

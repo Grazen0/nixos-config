@@ -4,16 +4,12 @@
   inputs,
   ...
 }: {
-  # Needed for obsidian.nvim, dang it
-  home.packages = with pkgs; [wl-clipboard];
-
   programs.neovim = {
     extraPackages = with pkgs; [
       # Essentials
       fd
       ripgrep
       wl-clipboard
-      file
 
       # Conform formatters
       alejandra
@@ -27,6 +23,7 @@
       ormolu
       prettierd
       rustfmt
+      sql-formatter
       stylua
 
       # LSP servers
@@ -39,6 +36,7 @@
       jdt-language-server # Java
       nixd # Nix
       lua-language-server
+      marksman # Markdown
       pyright # Python
       rust-analyzer
       svelte-language-server
@@ -61,6 +59,7 @@
       texlive.combined.scheme-full # vimtex
       lldb # rustaceanvim
       cmake # cmake-tools.nvim
+      file # dropbar.nvim
     ];
 
     extraPython3Packages = ps:
