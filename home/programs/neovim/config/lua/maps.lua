@@ -48,6 +48,10 @@ keyset('n', '<A-=>', '<C-w>+')
 keyset('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 keyset('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
+-- n/N always move forwards/backwards, respectively
+keyset('n', 'n', 'v:searchforward ? "n" : "N"', { expr = true })
+keyset('n', 'N', 'v:searchforward ? "N" : "n"', { expr = true })
+
 -- Floating diagnostic window
 keyset('n', '<leader>d', vim.diagnostic.open_float)
 
