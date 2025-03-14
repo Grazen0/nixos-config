@@ -16,10 +16,20 @@
         inherit name;
       };
 
+      mkBlueSkyFeed = {
+        did,
+        name,
+      }: {
+        url = "https://bsky.app/profile/${did}/rss";
+        inherit name;
+      };
+
       subreddits = [
         "unixporn"
-        "nixos"
+        "NixOS"
         "neovim"
+        "rust"
+        "math"
       ];
 
       ytChannels = [
@@ -31,6 +41,21 @@
           id = "UCOxvBvlRGKjf0ZWfVEdneKA";
           name = "Shinra-Bansho";
         }
+        {
+          id = "UCYO_jab_esuFRV4b17AJtAw";
+          name = "3Blue1Brown";
+        }
+        {
+          id = "UCm8EsftbfNzSiRHzc7I59KQ";
+          name = "Kevin Fang";
+        }
+      ];
+
+      blueSkyAccounts = [
+        {
+          did = "did:plc:ewvi7nxzyoun6zhxrhs64oiz";
+          name = "tobyfox";
+        }
       ];
 
       extraFeeds = [
@@ -38,10 +63,12 @@
           url = "https://isaacfreund.com/blog/feed.xml";
           name = "Isaac Freund";
         }
-        "asdf"
       ];
     in
-      (map mkRedditFeed subreddits) ++ (map mkYtFeed ytChannels) ++ extraFeeds;
+      (map mkRedditFeed subreddits)
+      ++ (map mkYtFeed ytChannels)
+      ++ (map mkBlueSkyFeed blueSkyAccounts)
+      ++ extraFeeds;
 
     extraConfig = {
       showread = true;
@@ -49,8 +76,8 @@
         colors = config.theme.colors.hexWithHashtag;
       in {
         titleColor = colors.blue;
-        selectedItemColor = colors.yellow;
-        filterColor = colors.red;
+        selectedItemColor = colors.magenta;
+        filterColor = colors.yellow;
       };
     };
   };
