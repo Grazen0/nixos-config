@@ -8,6 +8,7 @@
     customPkgs.make-writable
     file
     fcp
+    pciutils
     lsof
     cmatrix
     nitch
