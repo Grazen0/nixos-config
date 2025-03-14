@@ -9,7 +9,7 @@ return {
     servers = {
       bashls = {},
       clangd = {},
-      nixd = {},
+      nil_ls = {},
       lua_ls = {},
       -- eslint = {},
       html = {},
