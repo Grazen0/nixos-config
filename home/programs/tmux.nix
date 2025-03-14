@@ -109,8 +109,7 @@
         bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
         # Awesome session picker
-        bind S choose-tree -Zs
-        bind s run-shell "${session-picker}"
+        bind o run-shell "${session-picker}"
       '';
   };
 }
