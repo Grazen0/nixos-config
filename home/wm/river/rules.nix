@@ -25,7 +25,6 @@
       "'swayimg'" = ["float" "dimensions 1200 800"];
 
       "'equibop'" = ["tags ${tagNumStr 7}"];
-      "'spotify'" = ["tags ${tagNumStr 9}"];
     };
 
     "-title" = {

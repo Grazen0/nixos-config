@@ -32,7 +32,6 @@ in {
     in {
       "-app-id" = {
         "'equibop'" = mkForce ["output HDMI-A-1" "tags ${tagNumStr 2}"];
-        "'spotify'" = mkForce ["output HDMI-A-1" "tags ${tagNumStr 5}"];
       };
     };
   };
