@@ -11,6 +11,7 @@
     ./fastfetch.nix
     ./git.nix
     ./gowall.nix
+    ./nom.nix
     ./peaclock.nix
     ./r.nix
     ./tmux.nix
