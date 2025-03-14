@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   inputs,
   ...
@@ -8,8 +9,8 @@
     ./aliases.nix
   ];
 
-  # Required for fzf.fish
-  programs.fzf.enable = true;
+  # Handled by fzf-fish
+  programs.fzf.enableFishIntegration = false;
 
   programs.fish = {
     enable = true;
@@ -18,10 +19,12 @@
       map (name: {
         inherit name;
         inherit (pkgs.fishPlugins.${name}) src;
-      }) [
-        "autopair"
-        "fzf-fish"
-      ];
+      }) (
+        [
+          "autopair"
+        ]
+        ++ lib.optionals config.programs.fzf.enable ["fzf-fish"]
+      );
 
     functions = {
       fish_mode_prompt.body = "";

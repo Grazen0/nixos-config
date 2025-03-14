@@ -21,6 +21,7 @@
   programs = {
     eza.enable = true;
     fd.enable = true;
+    fzf.enable = true;
     lazygit.enable = true;
     ripgrep.enable = true;
   };
