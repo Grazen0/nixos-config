@@ -4,11 +4,11 @@
   ...
 }: {
   home.packages = with pkgs; [
-    customPkgs.exe2png
     customPkgs.make-writable
     file
     fcp
     pciutils
+    cryptsetup
     lsof
     cmatrix
     nitch
