@@ -1,33 +1,22 @@
 {
   writeShellApplication,
   tmux,
-  fzf,
+  ppick,
   ...
 }:
 writeShellApplication {
   name = "tmux-session-picker";
-  runtimeInputs = [tmux fzf];
-  text = ''
-    set -x
-    sessions=$(tmux list-sessions -F '#S')
-    sessions_len=$(echo "$sessions" | wc -l)
+  runtimeInputs = [tmux];
+  text = let
+    ppick_bin = "${ppick}/bin/ppick";
+  in
+    # bash
+    ''
+      sessions=$(tmux list-sessions -F '#S')
+      sessions_len=$(echo "$sessions" | wc -l)
 
-    tmux_opts="center,24,$((sessions_len + 3))"
-    fzf_flags=(
-        --tmux="$tmux_opts"
-        --border=sharp
-        --border-label=" Sessions "
-        --no-separator
-        --no-info
-        --color="prompt:bright-black,query:bright-black,border:white"
-        --layout=reverse
-        --exact
-        --no-ignore-case
-        --query="^"
-    )
-
-    if selection=$(echo "$sessions" | fzf "''${fzf_flags[@]}"); then
-        tmux switch-client -t "$selection"
-    fi
-  '';
+      # shellcheck disable=SC2016
+      tmux display-popup -E -T " Sessions " -h $((sessions_len + 2)) -w 24 \
+        'tmux switch-client -t $(tmux list-sessions -F "#S" | ${ppick_bin}) || true'
+    '';
 }

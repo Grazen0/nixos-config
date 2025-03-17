@@ -7,6 +7,7 @@
   callPy3Package = pkgs.python3Packages.callPackage;
 
   fnott = pkgs.fnott.overrideAttrs {src = inputs.fnott;};
+  ppick = inputs.ppick.packages.${pkgs.system}.default;
 
   customPkgs = rec {
     # Existing packages
@@ -34,7 +35,7 @@
     volume-update = callPackage ./scripts/volume-update.nix {};
     player-art = callPackage ./scripts/player-art.nix {};
     tmux-music = callPackage ./scripts/tmux/music.nix {inherit customPkgs;};
-    tmux-session-picker = callPackage ./scripts/tmux/session-picker.nix {};
+    tmux-session-picker = callPackage ./scripts/tmux/session-picker.nix {inherit ppick;};
 
     waybar-notifications-state = callPackage ./waybar/notifications-state.nix {inherit fnott;};
     waybar-media-query = callPackage ./waybar/media-query.nix {};

@@ -110,6 +110,9 @@
 
         # Awesome session picker
         bind o run-shell "${session-picker}"
+
+        # Other stuff
+        set -g popup-border-style fg=white
       '';
   };
 }
