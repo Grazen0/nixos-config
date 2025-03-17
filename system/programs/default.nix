@@ -9,6 +9,7 @@
     dconf.enable = true;
     fish.enable = true;
     hyprland.withUWSM = true;
+    nix-ld.enable = true;
     river = {
       enable = true;
       withUWSM = true;
