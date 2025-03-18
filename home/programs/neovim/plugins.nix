@@ -71,7 +71,7 @@
       SchemaStore-nvim
       vim-fugitive
       otter-nvim
-      typescript-tools-nvim
+      # typescript-tools-nvim
       nvim-jdtls
       dropbar-nvim
 
