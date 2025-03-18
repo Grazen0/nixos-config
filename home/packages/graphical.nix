@@ -54,7 +54,6 @@
       obsidian
       pavucontrol
       thorium-browser
-      steam-run
       zen-browser
       zoomPkgs.zoom-us
 

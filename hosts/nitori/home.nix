@@ -13,6 +13,7 @@ in {
     polychromatic
     kdePackages.kdenlive
     pgadmin
+    steam-run
   ];
 
   wayland.windowManager = {
