@@ -16,6 +16,7 @@
       "'fceux'" = ["float"];
       "'Matplotlib'" = ["float"];
       "'R_x11'" = ["float"];
+      "'Gimp*'" = ["float"];
       "'zoom'"."-title"."'zoom'" = ["float"];
 
       "'kitty-float'" = ["float" "dimensions 800 450"];
