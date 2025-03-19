@@ -6,6 +6,7 @@
 
     "-app-id" = {
       "'thunar'" = ["float"];
+      "'Thunar'" = ["float"];
       "'*blueman-adapters*'" = ["float"];
       "'org.pulseaudio.pavucontrol'" = ["float"];
       "'org.gnome.FileRoller'" = ["float"];
