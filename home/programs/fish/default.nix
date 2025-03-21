@@ -34,7 +34,7 @@
         onEvent = "fish_command_not_found";
       };
 
-      pythonEnv = {
+      pythonenv = {
         argumentNames = "pythonVersion";
         body =
           # fish
@@ -63,10 +63,16 @@
 
       nr = {
         argumentNames = "package";
+        body = "nix run nixpkgs#$package $argv[2..-1]";
+      };
+
+      buildiso = {
+        argumentNames = "packageName";
         body =
           # fish
           ''
-            nix run nixpkgs#$package $argv[2..-1]
+            test -n "$packageName"; or set packageName "iso"
+            nix build ".#nixosConfigurations."$packageName".config.system.build.isoImage"
           '';
       };
     };
