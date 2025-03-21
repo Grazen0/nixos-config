@@ -5,7 +5,6 @@
 
     settings = {
       PasswordAuthentication = true;
-      AllowUsers = ["jdgt"];
       UseDns = true;
       X11Forwarding = false;
       PermitRootLogin = "prohibit-password";

@@ -4,41 +4,23 @@
   outputs = {
     flake-parts,
     nixpkgs,
-    nixos-generators,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
-    lib' = import ./lib {inherit lib inputs;};
+    moduleArgs = {inherit lib' inputs;};
+    lib' = import ./lib (moduleArgs // {inherit lib;});
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = import inputs.systems;
 
-      perSystem = {pkgs, ...}: {
-        packages =
-          (import ./pkgs {inherit pkgs inputs;})
-          // {
-            iso = nixos-generators.nixosGenerate {
-              system = "x86_64-linux";
-              modules = [./iso/default.nix];
-              format = "iso";
-            };
-          };
-        devShells = import ./shell.nix {inherit pkgs;};
-      };
-
-      flake.nixosConfigurations = let
-        inherit (lib') mkSystem;
+      perSystem = {pkgs, ...}: let
+        systemModuleArgs = moduleArgs // {inherit pkgs;};
       in {
-        nitori = mkSystem {
-          hostName = "nitori";
-          system = "x86_64-linux";
-        };
-
-        takane = mkSystem {
-          hostName = "takane";
-          system = "x86_64-linux";
-        };
+        packages = import ./pkgs systemModuleArgs;
+        devShells = import ./shell.nix systemModuleArgs;
       };
+
+      flake.nixosConfigurations = import ./hosts moduleArgs;
     };
 
   inputs = {
@@ -51,8 +33,13 @@
     sops-nix.url = "github:Mic92/sops-nix";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -63,11 +50,6 @@
 
     ppick = {
       url = "github:Grazen0/ppick";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

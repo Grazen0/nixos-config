@@ -2,14 +2,13 @@
   inherit (lib) mkForce;
 in {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
   ];
 
   console.keyMap = mkForce "la-latin1";
 
   programs.steam.enable = mkForce false;
 
-  home-manager.users.jdgt.imports = [./home.nix];
-
+  networking.hostName = "takane";
   system.stateVersion = "24.05";
 }

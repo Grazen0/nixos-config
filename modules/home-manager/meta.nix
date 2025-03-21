@@ -2,6 +2,10 @@
   inherit (lib) mkOption types;
 in {
   options.meta = {
+    mainUser = mkOption {
+      type = types.str;
+    };
+
     mainPrograms = {
       terminal = mkOption {type = types.str;};
       editor = mkOption {type = types.str;};

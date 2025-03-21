@@ -14,7 +14,7 @@
   ];
 
   home = {
-    username = "jdgt";
+    username = config.meta.mainUser;
     homeDirectory = "/home/${config.home.username}";
   };
 
