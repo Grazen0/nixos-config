@@ -56,5 +56,6 @@
     nfu = "nix flake update --flake ${flakeDir}";
     nss = "nix search nixpkgs";
     ngc = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
+    nsh = "nix-shell --run 'fish' --packages";
   };
 }

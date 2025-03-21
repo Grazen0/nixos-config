@@ -51,16 +51,6 @@
           '';
       };
 
-      nsh.body =
-        # fish
-        ''
-          for pkg in $argv
-            set pkgs $pkgs "nixpkgs#$pkg"
-          end
-
-          nix shell $pkgs
-        '';
-
       nr = {
         argumentNames = "package";
         body = "nix run nixpkgs#$package $argv[2..-1]";
