@@ -48,7 +48,7 @@
               # https://github.com/tmux-plugins/tmux-resurrect/issues/247#issuecomment-2387643976
               resurrect_dir="${config.xdg.dataHome}/tmux/resurrect"
               set -g @resurrect-dir "$resurrect_dir"
-              set -g @resurrect-hook-post-save-all "sed -i 's| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/$USER/bin/||g; s|/nix/store/.*/bin/||g' $(readlink -f $resurrect_dir/last)"
+              set -g @resurrect-processes 'false'
             '';
         }
         {
