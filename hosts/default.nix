@@ -26,6 +26,7 @@ in {
             [
               ./nitori/home.nix
               ../profiles/home/graphical-extra
+              ../components/home/touhou
             ]
             ++ homeManagerModules;
         })
