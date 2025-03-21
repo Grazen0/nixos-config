@@ -24,19 +24,32 @@ in {
       specialArgs = specialArgsFor system;
     };
 
-  mkHomeManagerModule = users: {pkgs, ...}: {
-    imports = [home-manager.nixosModules.home-manager];
+  mkUserModule = {
+    username,
+    extraGroups ? ["wheel" "audio" "networkmanager"],
+    homeManagerModules ? null,
+    ...
+  }: {pkgs, ...}: let
+    withHomeManager = homeManagerModules != null;
+  in {
+    imports = lib.optionals withHomeManager [home-manager.nixosModules.home-manager];
 
-    home-manager = {
+    users.users.${username} = {
+      isNormalUser = true;
+      inherit extraGroups;
+    };
+
+    home-manager = lib.mkIf withHomeManager {
       verbose = true;
       useGlobalPkgs = true;
       useUserPackages = true;
       extraSpecialArgs = specialArgsFor pkgs.system;
       backupFileExtension = "backup";
-      users =
-        lib.mapAttrs
-        (user: value: {meta.mainUser = user;} // value)
-        users;
+
+      users.${username} = {
+        imports = homeManagerModules;
+        meta.mainUser = username;
+      };
     };
   };
 }

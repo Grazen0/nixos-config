@@ -1,52 +1,74 @@
 {lib', ...}: let
-  inherit (lib') mkSystem mkHomeManagerModule;
+  inherit (lib') mkSystem mkUserModule;
+
+  nixosModules = [
+    ../modules/common
+    ../modules/nixos
+  ];
+
+  homeManagerModules = [
+    ../modules/common
+    ../modules/home-manager
+  ];
 in {
   nitori = mkSystem {
     system = "x86_64-linux";
-    modules = [
-      ../modules/common
-      ../modules/nixos
-      ../system
-      ../common
-      (mkHomeManagerModule {
-        jdgt.imports = [
-          ../modules/common
-          ../modules/home-manager
-          ../common
-          ../home
-          ./nitori/home.nix
-        ];
-      })
-      ./nitori
-    ];
+    modules =
+      [
+        ./nitori
+        ../profiles/nixos/graphical
+        ../components/nixos/laptop
+        ../components/nixos/nvidia
+        ../components/nixos/gaming
+        (mkUserModule {
+          username = "jdgt";
+          homeManagerModules =
+            [
+              ./nitori/home.nix
+              ../profiles/home/graphical-extra
+            ]
+            ++ homeManagerModules;
+        })
+      ]
+      ++ nixosModules;
   };
 
   takane = mkSystem {
     system = "x86_64-linux";
-    modules = [
-      ../modules/common
-      ../modules/nixos
-      ../system
-      ../common
-      (mkHomeManagerModule {
-        jdgt.imports = [
-          ../modules/common
-          ../modules/home-manager
-          ../common
-          ../home
-          ./takane/home.nix
-        ];
-      })
-      ./takane
-    ];
+    modules =
+      [
+        ./takane
+        ../profiles/nixos/graphical
+        ../components/nixos/laptop
+        ../components/nixos/nvidia
+        (mkUserModule {
+          username = "jdgt";
+          homeManagerModules =
+            [
+              ./takane/home.nix
+              ../profiles/home/graphical
+            ]
+            ++ homeManagerModules;
+        })
+      ]
+      ++ nixosModules;
   };
 
   iso = mkSystem {
     system = "x86_64-linux";
-    modules = [
-      ({modulesPath, ...}: {
-        imports = [(modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")];
-      })
-    ];
+    modules =
+      [
+        ../profiles/nixos/minimal
+        ../components/nixos/iso
+        (mkUserModule {
+          username = "jdgt";
+          homeManagerModules =
+            [
+              ../profiles/home/graphical
+            ]
+            ++ homeManagerModules;
+        })
+      ]
+      ++ nixosModules;
   };
 }

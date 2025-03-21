@@ -1,5 +1,5 @@
-# nixos-config
+# My NixOS configurations · [![Check](https://github.com/Grazen0/nixos-config/actions/workflows/check.yml/badge.svg)](https://github.com/Grazen0/nixos-config/actions/workflows/check.yml)
 
-My own personal [NixOS](https://nixos.org/) configurations.
+These are the NixOS configurations I daily drive.
 
-![Screenshot demo](./files/screenshot.png)
+![Screenshot demo](https://github.com/Grazen0/nixos-config/blob/main/.github/screenshot.png?raw=true)
