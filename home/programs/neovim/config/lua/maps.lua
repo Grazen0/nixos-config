@@ -8,16 +8,15 @@ local function keyset(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
--- Exit terminal with <Esc><Esc>
--- keyset('t', '<Esc><Esc>', '<C-\\><C-n>')
+-- gh/gl instead of ^/$
+keyset('n', 'gh', '^')
+keyset('n', 'gl', '$')
 
-keyset('n', '<leader>rn', function()
-  vim.lsp.buf.rename()
-end)
-
--- Clear highlights with <Esc>
--- Set in multicursor.lua
--- keyset('n', '<Esc>', '<cmd>nohl<CR>')
+-- https://www.reddit.com/r/neovim/comments/1jdvvei/my_list_of_useful_keybinds_i_dont_see_mentioned/
+-- Text object to select entire buffer.
+-- So you can do `yie` / `die` / `vie` to yank / delete /select the entire buffer
+vim.keymap.set('o', 'ie', ':<C-u>normal! mzggVG<CR>`z')
+vim.keymap.set('x', 'ie', ':<C-u>normal! ggVG<CR>')
 
 -- Better redo
 keyset('n', 'U', '<C-r>')
@@ -53,11 +52,6 @@ keyset('n', '<leader>d', vim.diagnostic.open_float)
 
 -- Spell quick fix
 keyset('i', '<C-l>', '<C-g>u<Esc>[s1z=`]a<C-g>u')
-
--- Code action
-keyset('n', 'ga', function()
-  vim.lsp.buf.code_action()
-end)
 
 -- Filetype-specific binds
 local function ft_keyset(ft, mode, lhs, rhs, opts)
