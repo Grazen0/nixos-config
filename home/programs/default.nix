@@ -23,7 +23,16 @@
     eza.enable = true;
     fd.enable = true;
     fzf.enable = true;
-    lazygit.enable = true;
+    lazygit = {
+      enable = true;
+      settings = {
+        os.editPreset = "nvim-remote";
+        gui = {
+          border = "single";
+          nerdFontsVersion = "3";
+        };
+      };
+    };
     ripgrep.enable = true;
   };
 }
