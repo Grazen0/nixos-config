@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -12,8 +13,10 @@
       init.defaultBranch = "main";
       pull.rebase = true;
       credential.helper = "store";
-      core = {
-        editor = "${config.meta.mainPrograms.editor} -f";
+      core = let
+        inherit (config.meta.mainPrograms) editor;
+      in {
+        editor = lib.mkIf (editor != null) "${editor} -f";
         excludesfile = let
           globalGitignore =
             pkgs.writeText "global-gitignore"

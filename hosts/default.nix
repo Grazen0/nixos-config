@@ -58,12 +58,13 @@ in {
     system = "x86_64-linux";
     modules =
       [
-        ../profiles/nixos/minimal
-        ../components/nixos/iso
+        ./iso
+        ../profiles/nixos/graphical
         (mkUserModule {
-          username = "jdgt";
+          username = "nixos";
           homeManagerModules =
             [
+              ./iso/home.nix
               ../profiles/home/graphical
             ]
             ++ homeManagerModules;

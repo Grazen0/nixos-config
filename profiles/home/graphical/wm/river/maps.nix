@@ -27,7 +27,6 @@
     fuzzel-power-menu = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
     menu-qalc = "${customPkgs.menu-qalc}/bin/=";
     bemoji = "${pkgs.bemoji}/bin/bemoji";
-    obsidian = "${pkgs.obsidian}/bin/obsidian";
 
     moveStep = "50";
     resizeStep = "50";
@@ -50,7 +49,7 @@
           "Super E" = spawn "${uwsmApp} ${fileManager}";
           "Super+Shift E" = spawn "${uwsmApp} ${terminal} --app-id=foot-float -- ${fileManagerCli}";
           "Super B" = spawn "${uwsmApp} ${browser}";
-          "Super O" = spawn "${uwsmApp} ${obsidian}";
+          "Super O" = spawn "${uwsmApp} obsidian";
 
           # Menus
           "Super Space" = spawn "${appLauncher}";

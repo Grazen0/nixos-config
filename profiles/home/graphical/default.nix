@@ -25,10 +25,7 @@
 
   home.packages = with pkgs; [
     customPkgs.make-writable
-    pciutils
     cryptsetup
-    cmatrix
-    nitch
     rmtrash
     trash-cli
   ];
