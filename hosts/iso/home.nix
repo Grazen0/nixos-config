@@ -22,6 +22,7 @@ in {
 
   programs = {
     jetbrains.enable = mkForce false;
+    obs-studio.enable = mkForce false;
   };
 
   meta.mainPrograms = {
