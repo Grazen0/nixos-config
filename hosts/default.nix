@@ -48,6 +48,7 @@ in {
             [
               ./takane/home.nix
               ../profiles/home/graphical
+              ../components/home/touhou
             ]
             ++ homeManagerModules;
         })
