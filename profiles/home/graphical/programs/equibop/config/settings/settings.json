@@ -3,7 +3,7 @@
   "autoUpdateNotification": true,
   "useQuickCss": true,
   "themeLinks": [],
-  "enabledThemes": ["kanagawa.css"],
+  "enabledThemes": [],
   "enabledThemeLinks": [],
   "enableReactDevtools": false,
   "frameless": false,
