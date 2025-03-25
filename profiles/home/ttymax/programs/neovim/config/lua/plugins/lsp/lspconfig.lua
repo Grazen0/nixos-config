@@ -11,7 +11,7 @@ return {
       clangd = {},
       nil_ls = {},
       lua_ls = {},
-      vtsls = {},
+      ts_ls = {},
       eslint = {},
       html = {},
       emmet_language_server = {},
