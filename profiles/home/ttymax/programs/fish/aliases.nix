@@ -50,9 +50,9 @@
 
     ytmp3 = ''${yt-dlp} -x -c --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"'';
 
-    nrs = "sudo nixos-rebuild switch --flake ${flakeDir}";
-    nrb = "sudo nixos-rebuild boot --flake ${flakeDir}";
-    nrt = "sudo nixos-rebuild test --flake ${flakeDir}";
+    nrs = "sudo nixos-rebuild switch --fast --flake ${flakeDir}";
+    nrb = "sudo nixos-rebuild boot --fast --flake ${flakeDir}";
+    nrt = "sudo nixos-rebuild test --fast --flake ${flakeDir}";
     nfu = "nix flake update --flake ${flakeDir}";
     nss = "nix search nixpkgs";
     ngc = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
