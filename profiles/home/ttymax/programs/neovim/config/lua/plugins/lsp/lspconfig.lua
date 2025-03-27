@@ -46,6 +46,7 @@ return {
           },
         },
       },
+      arduino_language_server = {},
     },
     diagnostic_config = {
       float = {
