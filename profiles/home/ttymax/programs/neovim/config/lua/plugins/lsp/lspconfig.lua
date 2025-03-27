@@ -47,13 +47,19 @@ return {
         },
       },
     },
-    signs = {
-      Error = ' ',
-      Warn = ' ',
-      Hint = ' ',
-      Info = ' ',
+    diagnostic_config = {
+      float = {
+        border = 'single',
+      },
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = ' ',
+          [vim.diagnostic.severity.WARN] = ' ',
+          [vim.diagnostic.severity.HINT] = ' ',
+          [vim.diagnostic.severity.INFO] = ' ',
+        },
+      },
     },
-    diagnostic_border = 'single',
     default_capabilities = {
       textDocument = {
         foldingRange = {
@@ -67,20 +73,13 @@ return {
     -- https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows
     vim.lsp.handlers['textDocument/hover'] =
       vim.lsp.with(vim.lsp.handlers.hover, {
-        border = opts.diagnostic_border,
+        border = 'single',
       })
     vim.lsp.handlers['textDocument/signatureHelp'] =
       vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = opts.diagnostic_border,
+        border = 'single',
       })
-    vim.diagnostic.config({
-      float = { border = opts.diagnostic_border },
-    })
-
-    for type, icon in pairs(opts.signs) do
-      local hl = 'DiagnosticSign' .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
-    end
+    vim.diagnostic.config(opts.diagnostic_config)
 
     local lspconfig = require('lspconfig')
     local blink = require('blink.cmp')
