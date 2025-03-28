@@ -26,7 +26,6 @@
       '';
 
     gnupg.agent = {
-      enable = true;
       enableSSHSupport = true;
       settings = {
         # 7 days
@@ -34,5 +33,7 @@
         max-cache-ttl = 604800;
       };
     };
+
+    ssh.startAgent = true;
   };
 }

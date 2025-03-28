@@ -12,7 +12,11 @@
     extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = true;
-      credential.helper = "store";
+
+      commit.gpgsign = true;
+      gpg.format = "ssh";
+      user.signingkey = "${config.home.homeDirectory}/.ssh/sign_id_ed25519.pub";
+
       core = let
         inherit (config.meta.mainPrograms) editor;
       in {
@@ -32,7 +36,6 @@
             '';
         in "${globalGitignore}";
       };
-      commit.gpgsign = true;
     };
   };
 }
