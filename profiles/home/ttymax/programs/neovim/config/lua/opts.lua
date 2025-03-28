@@ -28,6 +28,7 @@ o.tabstop = 4
 o.expandtab = true
 
 -- Misc (?)
+o.showmode = false
 o.listchars = 'tab:> ,trail:-,nbsp:+,space:·'
 o.autoread = true
 o.mouse = 'a' -- No shame
