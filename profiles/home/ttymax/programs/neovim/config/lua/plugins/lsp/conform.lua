@@ -19,6 +19,7 @@ return {
       rust = { 'rustfmt' },
       c = { 'clang-format' },
       cpp = { 'clang-format' },
+      arduino = { 'clang-format' },
       yaml = { 'prettierd' },
       sh = { 'beautysh' },
       bash = { 'beautysh' },
