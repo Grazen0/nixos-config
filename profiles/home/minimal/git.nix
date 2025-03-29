@@ -6,7 +6,7 @@
 }: {
   programs.git = {
     enable = true;
-    userName = "Grazen0";
+    userName = "José Daniel Grayson";
     userEmail = "josedanielgrayson@proton.me";
 
     extraConfig = {
