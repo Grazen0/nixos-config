@@ -26,7 +26,7 @@ in {
 
   mkUserModule = {
     username,
-    extraGroups ? ["wheel" "audio" "networkmanager"],
+    extraGroups ? ["wheel" "audio" "networkmanager" "dialout"],
     homeManagerModules ? null,
     ...
   }: {pkgs, ...}: let
