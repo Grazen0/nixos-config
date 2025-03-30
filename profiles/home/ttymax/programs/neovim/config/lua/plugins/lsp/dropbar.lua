@@ -1,20 +1,27 @@
 return {
   'Bekaboo/dropbar.nvim',
+  enabled = false,
   event = { 'BufReadPre', 'BufNewFile' },
   keys = {
     {
       '<leader>;',
-      require('dropbar.api').pick,
+      function()
+        require('dropbar.api').pick()
+      end,
       desc = 'Pick symbols in winbar',
     },
     {
       '[;',
-      require('dropbar.api').goto_context_start,
+      function()
+        require('dropbar.api').goto_context_start()
+      end,
       { desc = 'Go to start of current context' },
     },
     {
       '];',
-      require('dropbar.api').select_next_context,
+      function()
+        require('dropbar.api').select_next_context()
+      end,
       { desc = 'Select next context' },
     },
   },

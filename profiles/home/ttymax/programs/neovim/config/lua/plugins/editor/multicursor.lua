@@ -33,34 +33,34 @@ return {
     },
 
     -- Add or skip adding a new cursor by matching word/selection
-    {
-      mode = { 'n', 'x' },
-      '<leader>n',
-      function()
-        require('multicursor-nvim').matchAddCursor(1)
-      end,
-    },
-    {
-      mode = { 'n', 'x' },
-      '<leader>s',
-      function()
-        require('multicursor-nvim').matchSkipCursor(1)
-      end,
-    },
-    {
-      mode = { 'n', 'x' },
-      '<leader>N',
-      function()
-        require('multicursor-nvim').matchAddCursor(-1)
-      end,
-    },
-    {
-      mode = { 'n', 'x' },
-      '<leader>S',
-      function()
-        require('multicursor-nvim').matchSkipCursor(-1)
-      end,
-    },
+    -- {
+    --   mode = { 'n', 'x' },
+    --   '<leader>n',
+    --   function()
+    --     require('multicursor-nvim').matchAddCursor(1)
+    --   end,
+    -- },
+    -- {
+    --   mode = { 'n', 'x' },
+    --   '<leader>s',
+    --   function()
+    --     require('multicursor-nvim').matchSkipCursor(1)
+    --   end,
+    -- },
+    -- {
+    --   mode = { 'n', 'x' },
+    --   '<leader>N',
+    --   function()
+    --     require('multicursor-nvim').matchAddCursor(-1)
+    --   end,
+    -- },
+    -- {
+    --   mode = { 'n', 'x' },
+    --   '<leader>S',
+    --   function()
+    --     require('multicursor-nvim').matchSkipCursor(-1)
+    --   end,
+    -- },
 
     -- In normal/visual mode, press `mwap` will create a cursor in every match of
     -- the word captured by `iw` (or visually selected range) inside the bigger

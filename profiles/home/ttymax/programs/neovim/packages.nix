@@ -58,7 +58,6 @@
       texlive.combined.scheme-full # vimtex
       lldb # rustaceanvim
       cmake # cmake-tools.nvim
-      file # dropbar.nvim
     ];
 
     extraPython3Packages = ps:
