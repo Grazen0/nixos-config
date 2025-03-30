@@ -30,8 +30,6 @@ in {
     '';
   };
 
-  hardware.openrazer.enable = true;
-  users.users.jdgt.extraGroups = ["openrazer"];
   services.openssh.settings.AllowUsers = ["jdgt"];
 
   networking.hostName = "nitori";
