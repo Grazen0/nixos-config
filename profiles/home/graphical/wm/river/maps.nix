@@ -99,8 +99,8 @@
           "Super+Shift Tab" = "send-to-previous-tags";
 
           # Scratchpad
-          "Super W" = "toggle-focused-tags ${toString scratchpadTag}";
-          "Super+Shift W" = "set-view-tags ${toString scratchpadTag}";
+          "Super 0" = "toggle-focused-tags ${toString scratchpadTag}";
+          "Super+Shift 0" = "set-view-tags ${toString scratchpadTag}";
 
           # Focus next/previous output
           "Super+Control S" = "focus-output next";
