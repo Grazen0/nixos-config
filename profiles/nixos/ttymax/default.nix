@@ -33,7 +33,5 @@
         max-cache-ttl = 604800;
       };
     };
-
-    ssh.startAgent = true;
   };
 }
