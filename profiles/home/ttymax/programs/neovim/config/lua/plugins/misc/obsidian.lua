@@ -74,10 +74,7 @@ return {
   {
     'epwalsh/obsidian.nvim',
     lazy = true,
-    event = {
-      'BufReadPre *.md',
-      'BufNewFile *.md',
-    },
+    ft = 'markdown',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'oflisback/obsidian-bridge.nvim',
