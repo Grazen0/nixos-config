@@ -7,6 +7,7 @@
     file
     fd
     ripgrep
+    zip
     unzip
     wget
     man-pages
