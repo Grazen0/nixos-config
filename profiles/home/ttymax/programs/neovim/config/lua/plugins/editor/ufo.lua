@@ -14,10 +14,30 @@ return {
       end,
       desc = 'Preview fold or LSP hover',
     },
-    { 'zR', require('ufo').openAllFolds },
-    { 'zM', require('ufo').closeAllFolds },
-    { 'zr', require('ufo').openFoldsExceptKinds },
-    { 'zm', require('ufo').closeFoldsWith },
+    {
+      'zR',
+      function()
+        require('ufo').openAllFolds()
+      end,
+    },
+    {
+      'zM',
+      function()
+        require('ufo').closeAllFolds()
+      end,
+    },
+    {
+      'zr',
+      function()
+        require('ufo').openFoldsExceptKinds()
+      end,
+    },
+    {
+      'zm',
+      function()
+        require('ufo').closeFoldsWith()
+      end,
+    },
     'zc',
     'zC',
     'zo',
