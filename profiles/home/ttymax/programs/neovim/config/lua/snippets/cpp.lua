@@ -1,27 +1,31 @@
-local function guard_constant()
-  local path = vim.fn.expand('%:.:h')
-  local src_index = path:find('/src/')
+local function guard_name()
+  local path = vim.fn.expand('%:.')
+  local src_index = path:find('src/')
 
   if src_index then
-    path = path:sub(src_index + 5)
+    path = path:sub(src_index + 4)
   end
 
-  local rel_path = path:upper():gsub('[/%.]', '_')
-  return sn(nil, { t(rel_path) })
+  local name = path:upper():gsub('[/%.]', '_')
+  return sn(nil, { i(1, name) })
 end
 
 return {
   s({
     trig = '^guard',
     trigEngine = 'pattern',
+    hidden = true,
   }, {
     t({ '#ifndef ' }),
-    d(1, guard_constant, {}),
+    d(1, guard_name, {}),
     t({ '', '#define ' }),
-    d(1, guard_constant, {}),
-    t({ '' }),
-    t({ '', i(0) }),
-    t({ '' }),
+    f(function(args)
+      return args[1][1]
+    end, { 1 }),
+    t({ '', '' }),
+    t({ '', '' }),
+    i(0),
+    t({ '', '' }),
     t({ '', '#endif' }),
   }),
 }
