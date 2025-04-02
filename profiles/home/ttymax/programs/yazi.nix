@@ -15,7 +15,7 @@
     plugins = let
       inherit (lib) genAttrs;
 
-      official-plugins = [
+      officialPlugins = [
         "full-border"
         "smart-enter"
         "toggle-pane"
@@ -23,10 +23,10 @@
         "mount"
       ];
 
-      input-plugins = ["restore"];
+      inputPlugins = ["restore"];
     in
-      (genAttrs official-plugins (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
-      // (genAttrs input-plugins (plugin: inputs."yazi-plugin-${plugin}"));
+      (genAttrs officialPlugins (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
+      // (genAttrs inputPlugins (plugin: inputs."yazi-plugin-${plugin}"));
 
     settings = {
       manager = {
