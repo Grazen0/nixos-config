@@ -152,16 +152,6 @@
       flake = false;
     };
 
-    mopidy-discord-rpc = {
-      url = "github:very-amused/mopidy-discord-rpc";
-      flake = false;
-    };
-
-    tmux-plugin-kanagawa = {
-      url = "github:Nybkox/tmux-kanagawa";
-      flake = false;
-    };
-
     yazi-plugin-restore = {
       url = "github:boydaihungst/restore.yazi";
       flake = false;

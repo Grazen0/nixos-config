@@ -12,13 +12,11 @@
   customPkgs = {
     # Existing packages
     menu-qalc = callPackage ./menu-qalc.nix {src = inputs.menu-qalc;};
-    mopidy-discord-rpc = callPackage ./mopidy-discord-rpc.nix {src = inputs.mopidy-discord-rpc;};
 
     # Python packages
     inkscape-figures = callPy3Package ./python/inkscape-figures.nix {src = inputs.inkscape-figures;};
 
     # My own stuff
-    close-window = callPackage ./scripts/close-window.nix {};
     exe2png = callPackage ./scripts/exe2png.nix {};
     fuzzel-power-menu = callPackage ./scripts/fuzzel-power-menu.nix {};
     handle-monitor-connect = callPackage ./scripts/handle-monitor-connect.nix {};

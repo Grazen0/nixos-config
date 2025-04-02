@@ -54,7 +54,7 @@
         "SHIFT, Print, exec, pidof -q slurp || ${slurp} -ro -w 0 -b 00000088 -B 00000088 | ${grim} -g - - | ${wl-copy}"
 
         # Window controls
-        "${mainMod}, Q, exec, ${customPkgs.close-window}/bin/close-window"
+        "${mainMod}, Q, killactive"
         "${mainMod}, F, fullscreen"
         "${mainMod}, M, fullscreen, 1"
         "${mainMod}, T, togglefloating"
