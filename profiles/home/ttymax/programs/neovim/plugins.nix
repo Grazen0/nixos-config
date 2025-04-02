@@ -68,8 +68,6 @@
       trouble-nvim
       nvim-lspconfig
       SchemaStore-nvim
-      vim-fugitive
-      otter-nvim
       nvim-jdtls
       nvim-navbuddy
 
@@ -77,7 +75,6 @@
       kanagawa-nvim
       nvim-web-devicons
       nvim-colorizer-lua
-      gitsigns-nvim
       lualine-nvim
       bufferline-nvim
       markview-nvim
@@ -106,7 +103,6 @@
       cmake-tools-nvim
       tailwind-tools-nvim
       haskell-tools-nvim
-      mkdir-nvim
       snacks-nvim
     ];
 }

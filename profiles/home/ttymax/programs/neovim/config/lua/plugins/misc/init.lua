@@ -73,6 +73,7 @@ return {
   },
   {
     'jghauser/mkdir.nvim',
+    enabled = false,
     event = 'BufWritePre',
   },
 }

@@ -44,11 +44,24 @@ return {
   },
   {
     'jmbuhr/otter.nvim',
+    enabled = false,
     ft = { 'markdown', 'quarto' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     keys = {
-      { '<leader>oa', require('otter').activate, desc = 'Activate otter' },
-      { '<leader>od', require('otter').deactivate, desc = 'Deactivate otter' },
+      {
+        '<leader>oa',
+        function()
+          require('otter').activate()
+        end,
+        desc = 'Activate otter',
+      },
+      {
+        '<leader>od',
+        function()
+          require('otter').deactivate()
+        end,
+        desc = 'Deactivate otter',
+      },
     },
   },
   {
