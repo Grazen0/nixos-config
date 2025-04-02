@@ -102,11 +102,6 @@
       flake = false;
     };
 
-    mmtui = {
-      url = "github:SL-RU/mmtui";
-      flake = false;
-    };
-
     fnott = {
       url = "git+https://codeberg.org/Grazen0/fnott";
       flake = false;

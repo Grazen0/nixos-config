@@ -722,22 +722,6 @@
         "type": "github"
       }
     },
-    "mmtui": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1738022695,
-        "narHash": "sha256-ZJDmW1Z9W6v5LGCpuJpviKTcQ1CWqY9gPB12W82Tidw=",
-        "owner": "SL-RU",
-        "repo": "mmtui",
-        "rev": "fc4b80095e691d204c8cf35f07b1d5f9306c8b4a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "SL-RU",
-        "repo": "mmtui",
-        "type": "github"
-      }
-    },
     "mopidy-discord-rpc": {
       "flake": false,
       "locked": {
@@ -1217,7 +1201,6 @@
         "mdformat-web": "mdformat-web",
         "mdformat-wikilink": "mdformat-wikilink",
         "menu-qalc": "menu-qalc",
-        "mmtui": "mmtui",
         "mopidy-discord-rpc": "mopidy-discord-rpc",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixos-hardware": "nixos-hardware",
