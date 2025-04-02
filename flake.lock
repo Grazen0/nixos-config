@@ -626,86 +626,6 @@
         "type": "github"
       }
     },
-    "mdformat-config": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1729280414,
-        "narHash": "sha256-v6xtU6qZMhUnWFcCJOm9CcmLe6nKxmV9qGDM8o8MPe4=",
-        "owner": "hukkin",
-        "repo": "mdformat-config",
-        "rev": "9c1509c3ee7818de2048a1a6c704cc65de1f05de",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hukkin",
-        "repo": "mdformat-config",
-        "type": "github"
-      }
-    },
-    "mdformat-obsidian": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734279691,
-        "narHash": "sha256-ekbfLm8UVqxzxGrxTHDHO5jGPkTkTIkYdqMhCq0+Pdo=",
-        "owner": "KyleKing",
-        "repo": "mdformat-obsidian",
-        "rev": "22b1ae934ea2a33bbbe578e804fe734b266a9b4e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "KyleKing",
-        "repo": "mdformat-obsidian",
-        "type": "github"
-      }
-    },
-    "mdformat-ruff": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1741494014,
-        "narHash": "sha256-+e6Cc7jYir6tBctbirObRfJIbEoFMcLaQUQpfLzjG2Y=",
-        "owner": "Freed-Wu",
-        "repo": "mdformat-ruff",
-        "rev": "c4f4c6c79eae92136c6f1c8a105f76f9b0136018",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Freed-Wu",
-        "repo": "mdformat-ruff",
-        "type": "github"
-      }
-    },
-    "mdformat-web": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1729007967,
-        "narHash": "sha256-BIHXMIx52mW9Ih9FSWUA8H5huaxrWE+S+zFit7nml2E=",
-        "owner": "hukkin",
-        "repo": "mdformat-web",
-        "rev": "e3297644b39ce997e2c6910d9fc7cf6fa0243a86",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hukkin",
-        "repo": "mdformat-web",
-        "type": "github"
-      }
-    },
-    "mdformat-wikilink": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1711040795,
-        "narHash": "sha256-KOPh9iZfb3GCvslQeYBgqNaOyqtWi2llkaiWE7nmcJo=",
-        "owner": "tmr232",
-        "repo": "mdformat-wikilink",
-        "rev": "257c712c705fc263cb6afaf1238a4e16f098628b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tmr232",
-        "repo": "mdformat-wikilink",
-        "type": "github"
-      }
-    },
     "menu-qalc": {
       "flake": false,
       "locked": {
@@ -1195,11 +1115,6 @@
         "home-manager": "home-manager",
         "inkscape-figures": "inkscape-figures",
         "kanagawa-rstudio": "kanagawa-rstudio",
-        "mdformat-config": "mdformat-config",
-        "mdformat-obsidian": "mdformat-obsidian",
-        "mdformat-ruff": "mdformat-ruff",
-        "mdformat-web": "mdformat-web",
-        "mdformat-wikilink": "mdformat-wikilink",
         "menu-qalc": "menu-qalc",
         "mopidy-discord-rpc": "mopidy-discord-rpc",
         "neovim-nightly-overlay": "neovim-nightly-overlay",

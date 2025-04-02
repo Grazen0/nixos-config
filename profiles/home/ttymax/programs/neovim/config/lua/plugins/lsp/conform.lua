@@ -25,8 +25,8 @@ return {
       bash = { 'beautysh' },
       zsh = { 'beautysh' },
       nix = { 'alejandra' },
-      markdown = { 'mdformat' },
-      quarto = { 'mdformat' },
+      markdown = { 'prettierd' },
+      quarto = { 'prettierd' },
       r = { 'styler' },
       haskell = { 'ormolu' },
       sql = { 'sql_formatter' },
@@ -42,10 +42,6 @@ return {
         lsp_format = 'fallback',
       }
     end,
-    formatters = {
-      -- mdformat has some weird default behavior
-      mdformat = { append_args = { '--number' } },
-    },
   },
   init = function()
     -- Toggle formatting

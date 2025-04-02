@@ -1,6 +1,5 @@
 {
   pkgs,
-  customPkgs,
   inputs,
   ...
 }: {
@@ -17,9 +16,6 @@
       black
       clang-tools
       isort
-      (mdformat.withPlugins (_ps: [
-        customPkgs.mdformat-obsidian
-      ]))
       ormolu
       prettierd
       rustfmt

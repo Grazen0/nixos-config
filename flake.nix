@@ -152,31 +152,6 @@
       flake = false;
     };
 
-    mdformat-config = {
-      url = "github:hukkin/mdformat-config";
-      flake = false;
-    };
-
-    mdformat-ruff = {
-      url = "github:Freed-Wu/mdformat-ruff";
-      flake = false;
-    };
-
-    mdformat-web = {
-      url = "github:hukkin/mdformat-web";
-      flake = false;
-    };
-
-    mdformat-wikilink = {
-      url = "github:tmr232/mdformat-wikilink";
-      flake = false;
-    };
-
-    mdformat-obsidian = {
-      url = "github:KyleKing/mdformat-obsidian";
-      flake = false;
-    };
-
     mopidy-discord-rpc = {
       url = "github:very-amused/mopidy-discord-rpc";
       flake = false;
