@@ -11,7 +11,6 @@
 in rec {
   # Existing packages
   menu-qalc = callPackage ./menu-qalc.nix {src = inputs.menu-qalc;};
-  mopidy-discord-rpc = callPackage ./mopidy-discord-rpc.nix {src = inputs.mopidy-discord-rpc;};
 
   # Python packages
   inkscape-figures = callPy3Package ./python/inkscape-figures.nix {src = inputs.inkscape-figures;};
