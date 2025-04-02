@@ -57,6 +57,7 @@
       undotree
       bullets-vim
       vim-tmux-navigator
+      nvim-ufo
 
       # LSP
       conform-nvim

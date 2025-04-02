@@ -31,9 +31,6 @@ return {
         -- Custom window separator line
         WinSeparator = { link = 'LineNr' },
 
-        -- Clearer fold column
-        -- FoldColumn = { link = 'SignColumn' },
-
         -- Dark completion background
         Pmenu = {
           fg = theme.ui.shade0,
