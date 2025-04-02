@@ -42,7 +42,7 @@ in
     #clock,
     #custom-notifications,
     #custom-power {
-      margin: 0px 12px;
+      padding: 0 12px;
     }
 
     #custom-sysmenu:hover,

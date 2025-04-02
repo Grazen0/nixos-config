@@ -15,7 +15,7 @@
 
         layer = "bottom";
         position = "top";
-        height = 26;
+        height = 24;
         spacing = 0; # I prefer to use CSS margin
 
         modules-left = [
