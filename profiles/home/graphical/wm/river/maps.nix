@@ -41,7 +41,7 @@
       normal =
         {
           # River control
-          "Super+Alt Q" = "exit";
+          "Super+Ctrl+Alt Q" = "exit";
 
           # Programs
           "Super Return" = spawn "${uwsmApp} ${terminal}";
@@ -83,12 +83,6 @@
           "Super+Shift J" = "swap down";
           "Super+Shift K" = "swap up";
           "Super+Shift L" = "swap right";
-
-          # Move views
-          "Super Left" = "move left ${moveStep}";
-          "Super Down" = "move down ${moveStep}";
-          "Super Up" = "move up ${moveStep}";
-          "Super Right" = "move right ${moveStep}";
 
           # Send view to next/previous tag
           "Super+Shift S" = spawn "${river-shifttags} --view --shifts 1";
@@ -139,11 +133,17 @@
       "-repeat".normal = let
         ratioStep = "0.02";
       in {
+        # Move views
+        "Super Left" = "move left ${moveStep}";
+        "Super Down" = "move down ${moveStep}";
+        "Super Up" = "move up ${moveStep}";
+        "Super Right" = "move right ${moveStep}";
+
         # Resize views
-        "Super+Alt H" = "resize horizontal -${resizeStep}";
-        "Super+Alt J" = "resize vertical ${resizeStep}";
-        "Super+Alt K" = "resize vertical -${resizeStep}";
-        "Super+Alt L" = "resize horizontal ${resizeStep}";
+        "Super+Alt Left" = "resize horizontal -${resizeStep}";
+        "Super+Alt Down" = "resize vertical ${resizeStep}";
+        "Super+Alt Up" = "resize vertical -${resizeStep}";
+        "Super+Alt Right" = "resize horizontal ${resizeStep}";
 
         # Change split ratios
         "Super I" = "send-layout-cmd wideriver '--ratio +${ratioStep}'";
