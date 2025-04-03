@@ -82,6 +82,7 @@
       nvim-window-picker
       vim-illuminate
       tiny-inline-diagnostic-nvim
+      gitsigns-nvim
 
       # Misc
       vim-obsession
