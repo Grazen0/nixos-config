@@ -2,6 +2,7 @@
   imports = [
     ./fish
     ./neovim
+    ./plates
     ./bat.nix
     ./btop.nix
     ./cava.nix

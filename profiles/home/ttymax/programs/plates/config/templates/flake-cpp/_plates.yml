@@ -1,0 +1,11 @@
+placeholders:
+  - name: pname
+    message: "Package name:"
+    default: "{{ plates_dir_basename }}"
+  - name: version
+    message: "Package version:"
+    default: "0.1.0"
+  - name: description
+    message: "Package description:"
+  - name: executable
+    default: "{{ pname |> tr ' -' '_' }}"

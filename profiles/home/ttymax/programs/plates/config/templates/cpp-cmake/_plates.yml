@@ -1,0 +1,13 @@
+placeholders:
+  - name: project_name
+    message: "Project name:"
+    default: "{{ plates_dir_basename }}"
+  - name: executable
+    message: "Executable name:"
+    default: "{{ project_name |> tr ' -' '_' }}"
+  - name: cpp_version
+    message: "C++ version:"
+    default: "20"
+  - name: cmake_version
+    message: "CMake version:"
+    default: "3.29"

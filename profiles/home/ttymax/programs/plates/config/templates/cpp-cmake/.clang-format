@@ -1,0 +1,10 @@
+BasedOnStyle: Chromium
+IndentWidth: 4
+AccessModifierOffset: -4
+PackConstructorInitializers: Never
+BreakConstructorInitializers: BeforeColon
+AllowShortFunctionsOnASingleLine: Empty
+AlignArrayOfStructures: Right
+FixNamespaceComments: false
+AllowShortEnumsOnASingleLine: false
+NamespaceIndentation: All

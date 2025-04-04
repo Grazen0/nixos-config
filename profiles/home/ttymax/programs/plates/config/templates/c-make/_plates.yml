@@ -1,0 +1,4 @@
+placeholders:
+  - name: executable
+    message: "Executable name:"
+    default: "{{ plates_dir_basename |> tr ' -' '_' }}"

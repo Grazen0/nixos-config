@@ -1,0 +1,7 @@
+placeholders:
+  - name: description
+    message: "Project description:"
+    default:
+      type: shell
+      # https://stackoverflow.com/questions/66370021/how-to-extract-number-with-awk-in-quotes-after-equal-sign
+      value: 'sed -n ''/^description *= */{y/"/ /; s///p;}'' "{{ plates_dir }}/Cargo.toml" '
