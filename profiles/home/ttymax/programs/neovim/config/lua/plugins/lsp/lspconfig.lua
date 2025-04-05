@@ -2,13 +2,20 @@ return {
   'neovim/nvim-lspconfig',
   event = { 'BufReadPost', 'BufNewFile' },
   cmd = { 'LspInfo', 'LspInstall', 'LspUninstall' },
-  dependencies = {
-    'saghen/blink.cmp',
-  },
+  dependencies = { 'saghen/blink.cmp' },
   opts = {
     servers = {
       bashls = {},
-      clangd = {},
+      clangd = {
+        cmd = {
+          'clangd',
+          '--background-index',
+          '--clang-tidy',
+          '--completion-style=detailed',
+          '--header-insertion=iwyu',
+          '--pch-storage=memory',
+        },
+      },
       nil_ls = {},
       lua_ls = {},
       ts_ls = {},
