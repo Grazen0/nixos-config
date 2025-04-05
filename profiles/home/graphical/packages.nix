@@ -37,6 +37,7 @@
       pavucontrol
       file-roller
       gimp
+      wdisplays
 
       zen-browser
       thorium-browser
