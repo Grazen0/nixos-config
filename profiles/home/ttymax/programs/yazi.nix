@@ -80,7 +80,7 @@
       {
         on = "<C-n>";
         run = ''
-          shell '${pkgs.xdragon}/bin/dragon -i -T "$@"' --confirm
+          shell '${pkgs.xdragon}/bin/dragon-drop -i -T "$@"' --confirm
         '';
         desc = "Dragon drop";
       }
