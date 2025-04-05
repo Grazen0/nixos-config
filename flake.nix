@@ -88,7 +88,7 @@
     };
 
     yazi-plugins = {
-      url = "github:yazi-rs/plugins";
+      url = "github:yazi-rs/plugins/273019910c1111a388dd20e057606016f4bd0d17";
       flake = false;
     };
 
