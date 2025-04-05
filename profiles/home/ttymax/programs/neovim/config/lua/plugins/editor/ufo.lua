@@ -8,7 +8,7 @@ return {
       function()
         local winid = require('ufo').peekFoldedLinesUnderCursor()
         if not winid then
-          vim.lsp.buf.hover()
+          vim.lsp.buf.hover({ border = 'single' })
         end
       end,
       desc = 'Preview fold or LSP hover',
