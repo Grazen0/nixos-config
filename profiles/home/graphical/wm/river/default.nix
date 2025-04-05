@@ -46,8 +46,8 @@
           --layout-alt monocle \
           --count 1 \
           --ratio 0.52 \
-          --inner-gaps 6 \
-          --outer-gaps 6 \
+          --inner-gaps 4 \
+          --outer-gaps 4 \
           --border-width 3 \
           --border-width-monocle 3 \
           --border-color-focused 0x${colors.blue} \
