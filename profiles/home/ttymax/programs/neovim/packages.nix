@@ -51,7 +51,7 @@
       (inputs.haskell-debug-adapter.packages.${system}.default)
 
       # Plugin-specifics
-      texlive.combined.scheme-small # vimtex
+      texlive.combined.scheme-medium # vimtex
       lldb # rustaceanvim
       cmake # cmake-tools.nvim
     ];
