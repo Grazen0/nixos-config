@@ -26,7 +26,7 @@ stdenv.mkDerivation {
     cp build/{{ executable }} $out/bin/
   '';
 
-  # meta = with pkgs.lib; {
+  # meta = with lib; {
   #   description = "{{ description }}";
   #   homepage = "https://github.com/<user>/<repo>";
   #   license = licenses.mit;
