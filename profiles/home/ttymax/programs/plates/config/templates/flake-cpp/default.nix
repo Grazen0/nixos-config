@@ -22,8 +22,9 @@ stdenv.mkDerivation {
   '';
 
   installPhase = ''
-    mkdir -p $out/bin
-    cp build/{{ executable }} $out/bin/
+    runHook preInstall
+    install -Dm755 "build/{{ executable }}" -t "$out/bin"
+    runHook postInstall
   '';
 
   # meta = with lib; {
