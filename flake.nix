@@ -62,11 +62,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser = {
-      url = "github:MarceColl/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     thorium-browser = {
       url = "git+https://codeberg.org/Tomkoid/thorium-browser-nix";
       inputs.nixpkgs.follows = "nixpkgs";

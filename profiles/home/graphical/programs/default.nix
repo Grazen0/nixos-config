@@ -1,6 +1,7 @@
 {
   imports = [
     ./equibop
+    ./firefox
     ./foot.nix
     ./jetbrains.nix
     ./kitty.nix

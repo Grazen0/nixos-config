@@ -1175,8 +1175,7 @@
         "thorium-browser": "thorium-browser",
         "yazi-flavor-kanagawa": "yazi-flavor-kanagawa",
         "yazi-plugin-restore": "yazi-plugin-restore",
-        "yazi-plugins": "yazi-plugins",
-        "zen-browser": "zen-browser"
+        "yazi-plugins": "yazi-plugins"
       }
     },
     "sops-nix": {
@@ -1443,26 +1442,6 @@
         "owner": "yazi-rs",
         "repo": "plugins",
         "rev": "273019910c1111a388dd20e057606016f4bd0d17",
-        "type": "github"
-      }
-    },
-    "zen-browser": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1727721329,
-        "narHash": "sha256-QYlWZwUSwrM7BuO+dXclZIwoPvBIuJr6GpFKv9XKFPI=",
-        "owner": "MarceColl",
-        "repo": "zen-browser-flake",
-        "rev": "e6ab73f405e9a2896cce5956c549a9cc359e5fcc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "MarceColl",
-        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

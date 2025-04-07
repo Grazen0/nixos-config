@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   customPkgs,
   ...
@@ -13,14 +12,12 @@
     ./xdg.nix
   ];
 
-  meta.mainPrograms = let
-    inherit (config) programs;
-  in {
-    terminal = "${programs.foot.package}/bin/foot";
-    browser = "zen";
+  meta.mainPrograms = {
+    terminal = "foot";
+    browser = "firefox";
     fileManager = "thunar";
-    appLauncher = "${programs.fuzzel.package}/bin/fuzzel";
-    dmenu = "${programs.fuzzel.package}/bin/fuzzel --dmenu";
+    appLauncher = "fuzzel";
+    dmenu = "fuzzel --dmenu";
   };
 
   home.packages = with pkgs; [

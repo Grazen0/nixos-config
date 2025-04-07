@@ -8,16 +8,6 @@
 
     thorium-browser = inputs.thorium-browser.defaultPackage.${system};
 
-    zen-browser = inputs.zen-browser.packages.${system}.specific.overrideAttrs (prev: let
-      version = "1.7b";
-    in {
-      inherit version;
-      src = builtins.fetchTarball {
-        url = "https://github.com/zen-browser/desktop/releases/download/${version}/zen.linux-x86_64.tar.bz2";
-        sha256 = "sha256:0aig890fcynxwi7xi8jzd1w2gzg47n0jqfq76wvnkwcam611b2bp";
-      };
-    });
-
     fceux = pkgs.fceux.overrideAttrs (prev: {
       postInstall = ''
         ${prev.postInstall or ""}
@@ -39,7 +29,6 @@
       gimp
       wdisplays
 
-      zen-browser
       thorium-browser
       audacity
       inkscape

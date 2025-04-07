@@ -17,16 +17,11 @@ in {
 
     pavucontrol
     file-roller
-    librewolf-bin
   ];
 
   programs = {
     jetbrains.enable = mkForce false;
     obs-studio.enable = mkForce false;
-  };
-
-  meta.mainPrograms = {
-    browser = mkForce "librewolf";
   };
 
   home.stateVersion = "24.05";
