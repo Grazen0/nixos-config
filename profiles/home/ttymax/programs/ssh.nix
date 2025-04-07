@@ -2,9 +2,7 @@
   programs.ssh = {
     enable = true;
     forwardAgent = true;
-    extraConfig = ''
-      AddKeysToAgent yes
-    '';
+    addKeysToAgent = "yes";
 
     matchBlocks = let
       inherit (config.home) homeDirectory;
