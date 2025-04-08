@@ -35,6 +35,7 @@
       # insomnia
       obsidian
       zoomPkgs.zoom-us
+      postman
 
       # Basic gaming
       wine
