@@ -27,6 +27,9 @@
         "break"
         "colors"
       ];
+
+      # Blatantly stolen from https://github.com/Sw3d15h-F1s4/nixos/blob/main/modules/home-manager/features/fastfetch/icon.txt
+      logo.source = ./icon.txt;
     };
   };
 }

@@ -1,5 +1,6 @@
 {
   imports = [
+    ./fastfetch
     ./fish
     ./neovim
     ./plates
@@ -7,7 +8,6 @@
     ./btop.nix
     ./cava.nix
     ./direnv.nix
-    ./fastfetch.nix
     ./gowall.nix
     ./nom.nix
     ./peaclock.nix
