@@ -5,75 +5,151 @@ in
   # css
   ''
     /**
-     * @name system24
-     * @description A tui-style discord theme. * @author refact0r
-     * @version 1.0.0
+     * @name midnight
+     * @description a dark, customizable discord theme.
+     * @author refact0r
+     * @version 2.0.1
      * @invite nz87hXyvcy
-     * @website https://github.com/refact0r/system24
-     * @source https://github.com/refact0r/system24/blob/master/system24.theme.css
+     * @website https://github.com/refact0r/midnight-discord
+     * @source https://github.com/refact0r/midnight-discord/blob/master/themes/midnight.theme.css
      * @authorId 508863359777505290
      * @authorLink https://www.refact0r.dev
     */
 
-    @import url("https://refact0r.github.io/system24/src/main.css");
-    @import url("https://refact0r.github.io/system24/src/unrounding.css");
+    /* import theme modules */
+    @import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
 
+    body {
+        /* sizes */
+        --gap: 6px;
+        --divider-thickness: 2px;
+
+        /* animation/transition options */
+        --animations: off;
+        --list-item-transition: 0.2s ease;
+        --dms-icon-svg-transition: 0.4s ease;
+
+        /* top bar options */
+        --move-top-bar-buttons: off;
+        --custom-app-top-bar-height: 28px;
+
+        /* window controls */
+        --custom-window-controls: on;
+        --window-control-size: 14px;
+
+        /* dms button icon options */
+        --dms-icon: default;
+        --dms-icon-svg-url: url('https://upload.wikimedia.org/wikipedia/commons/c/c4/Font_Awesome_5_solid_moon.svg');
+        --dms-icon-svg-size: 90%;
+        --dms-icon-color-before: var(--icon-secondary);
+        --dms-icon-color-after: var(--white);
+
+        /* dms button background options */
+        --dms-background: off;
+        --dms-background-image-url: url("");
+        --dms-background-image-size: cover;
+        --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2));
+
+        /* background image options */
+        --background-image: off;
+        --background-image-url: url("");
+
+        /* transparency/blur options */
+        --transparency-tweaks: off;
+        --remove-bg-layer: off;
+        --panel-blur: off;
+        --blur-amount: 12px;
+        --bg-floating: var(--bg-3);
+
+        /* chatbar options */
+        --flipped-chatbar: on;
+        --chatbar-height: 47px;
+        --chatbar-padding: 4px;
+
+        /* other options */
+        --small-user-panel: off;
+    }
+
+    /* color options */
     :root {
-      --font: "${theme.font.regular}";
-      letter-spacing: -0.1ch;
-      font-weight: 300;
-      --label-font-weight: 500; /* font weight for panel labels. */
-      --pad: 12px; /* padding between panels. */
-      --txt-pad: 10px; /* padding inside panels to prevent labels from clipping */
-      --panel-roundness: 0px; /* corner roundness of panels. */
+        --colors: on;
 
-      /* background colors */
-      --bg-0: ${colors.background}; /* main background color. */
-      --bg-1: ${colors.black}; /* background color for secondary elements like code blocks, embeds, etc. */
-      --bg-2: ${colors.background}; /* color of neutral buttons. */
-      --bg-3: ${colors.backgroundAlt}; /* color of neutral buttons when hovered. */
+        /* border radiuses */
+        --radius-sm: 0;
+        --radius-md: 0;
+        --radius-lg: 0;
 
-      /* state modifiers */
-      --hover: oklch(54% 0 0 / 0.1); /* color of hovered elements. */
-      --active: oklch(54% 0 0 / 0.2); /* color of elements when clicked. */
-      --selected: var(--active); /* color of selected elements. */
+        /* text colors */
+        --text-0: var(--bg-4); /* text on colored elements */
+        --text-1: ${colors.foreground}; /* other normally white text */
+        --text-2: ${colors.foreground}; /* headings and important text */
+        --text-3: ${colors.foreground}; /* normal text */
+        --text-4: ${colors.white}; /* icon buttons and channels */
+        --text-5: ${colors.brightBlack}; /* muted channels/chats and timestamps */
 
-      /* text colors */
-      --txt-dark: var(--bg-0); /* color of dark text on colored backgrounds. */
-      --txt-link: ${colors.brightBlue}; /* color of links. */
-      --txt-0: ${colors.brightWhite}; /* color of bright/white text. */
-      --txt-1: ${colors.foreground}; /* main text color. */
-      --txt-2: ${colors.white}; /* color of secondary text like channel list. */
-      --txt-3: ${colors.brightBlack}; /* color of muted text. */
+        /* background and dark colors */
+        --bg-1: ${colors.backgroundAlt}; /* dark buttons when clicked */
+        --bg-2: ${colors.black}; /* dark buttons */
+        --bg-3: ${colors.black}; /* spacing, secondary elements */
+        --bg-4: ${colors.background}; /* main background color */
+        --hover: ${colors.backgroundAlt}; /* channels and buttons when hovered */
+        --active: ${colors.backgroundAlt}; /* channels and buttons when clicked or selected */
+        --active-2: red; /* extra state for transparent buttons */
+        --message-hover: color-mix(in srgb, var(--bg-4), 4% ${colors.brightWhite}); /* messages when hovered */
 
-      /* accent colors */
-      --acc-0: ${colors.blue}; /* main accent color. */
-      --acc-1: ${colors.blue}; /* color of accent buttons when hovered. */
-      --acc-2: var(--acc-1); /* color of accent buttons when clicked. */
+        /* accent colors */
+        --accent-1: var(--blue-1); /* links and other accent text */
+        --accent-2: var(--blue-2); /* small accent elements */
+        --accent-3: var(--blue-3); /* accent buttons */
+        --accent-4: var(--blue-4); /* accent buttons when hovered */
+        --accent-5: var(--blue-5); /* accent buttons when clicked */
+        --accent-new: var(--accent-2);
+        --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent);
+        --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent);
+        --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent);
+        --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent);
 
-      /* borders */
-      --border-width: 2px; /* panel border thickness. */
-      --border-color: var(--bg-3); /* panel border color. */
-      --border-hover-color: var(--acc-0); /* panel border color when hovered. */
-      --border-transition: none; /* panel border transition. */
+        /* status indicator colors */
+        --online: ${colors.green};
+        --dnd: ${colors.red};
+        --idle: ${colors.yellow};
+        --streaming: ${colors.magenta};
+        --offline: ${colors.brightBlack};
 
-      /* status dot colors */
-      --online-dot: ${colors.green}; /* color of online dot. */
-      --dnd-dot: ${colors.red}; /* color of do not disturb dot. */
-      --idle-dot: ${colors.yellow}; /* color of idle dot. */
-      --streaming-dot: ${colors.magenta}; /* color of streaming dot. */
+        /* border colors */
+        --border-light: var(--hover); /* light border color */
+        --border: var(--active); /* normal border color */
+        --button-border: ${colors.backgroundAlt}; /* neutral border color of buttons */
 
-      /* mention/ping and message colors */
-      --mention-txt: var(--acc-0); /* color of mention text. */
-      /* background highlight of mention text. */
-      --mention-bg: color-mix(in oklch, var(--acc-0), transparent 90%);
-      /* overlay color of messages that mention you. */
-      --mention-overlay: color-mix(in oklch, var(--acc-0), transparent 90%);
-      /* overlay color of messages that mention you when hovered. */
-      --mention-hover-overlay: color-mix(in oklch, var(--acc-0), transparent 95%);
-      /* overlay color of message you are replying to. */
-      --reply-overlay: var(--active);
-      /* overlay color of message you are replying to when hovered. */
-      --reply-hover-overlay: var(--hover);
+        /* base colors */
+        --red-1: ${colors.red};
+        --red-2: var(--red-1);
+        --red-3: var(--red-1);
+        --red-4: var(--red-1);
+        --red-5: var(--red-1);
+
+        --green-1: ${colors.green};
+        --green-2: var(--green-1);
+        --green-3: var(--green-1);
+        --green-4: var(--green-1);
+        --green-5: var(--green-1);
+
+        --blue-1: ${colors.blue};
+        --blue-2: var(--blue-1);
+        --blue-3: var(--blue-1);
+        --blue-4: var(--blue-1);
+        --blue-5: var(--blue-1);
+
+        --yellow-1: ${colors.yellow};
+        --yellow-2: var(--yellow-1);
+        --yellow-3: var(--yellow-1);
+        --yellow-4: var(--yellow-1);
+        --yellow-5: var(--yellow-1);
+
+        --purple-1: ${colors.magenta};
+        --purple-2: var(--purple-1);
+        --purple-3: var(--purple-1);
+        --purple-4: var(--purple-1);
+        --purple-5: var(--purple-1);
     }
   ''
