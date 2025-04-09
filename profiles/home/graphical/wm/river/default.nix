@@ -84,11 +84,17 @@
       }
 
       decoration {
+        border-radius: 0;
         border: none;
+        padding: 0;
+        border: 0;
+        box-shadow: none;
       }
 
       decoration:backdrop {
+        border-radius: 0;
         border: none;
+        box-shadow: none;
       }
     '';
 }
