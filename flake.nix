@@ -151,5 +151,10 @@
       url = "github:boydaihungst/restore.yazi";
       flake = false;
     };
+
+    ristate = {
+      url = "github:ViniciusSSilva/ristate";
+      flake = false;
+    };
   };
 }

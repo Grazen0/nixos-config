@@ -1105,6 +1105,22 @@
         "type": "github"
       }
     },
+    "ristate": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1674677391,
+        "narHash": "sha256-dZqGoWgEV95+cN1aqJZfYx2B9dz9CJMaCdaRSqlHP24=",
+        "owner": "ViniciusSSilva",
+        "repo": "ristate",
+        "rev": "dfeb9ad94ef445ec9b79741b344ebc42c67b2893",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ViniciusSSilva",
+        "repo": "ristate",
+        "type": "github"
+      }
+    },
     "river-shifttags": {
       "inputs": {
         "flake-parts": "flake-parts_6",
@@ -1151,6 +1167,7 @@
         "plates": "plates",
         "ppick": "ppick",
         "r-nvim": "r-nvim",
+        "ristate": "ristate",
         "river-shifttags": "river-shifttags",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",

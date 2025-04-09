@@ -17,5 +17,8 @@ writeShellApplication {
       echo "$volume" > "$wob_sock"
     fi
 
+    if command -v eww &>/dev/null; then
+      eww poll volume volume-mute
+    fi
   '';
 }

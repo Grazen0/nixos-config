@@ -10,8 +10,13 @@ in
   ''
     * {
       all: unset;
-      font-family: "${theme.font.propo}";
-      color: ${colors.brightWhite};
+    }
+
+    .desktop-time,
+    .desktop-fortune,
+    .bar {
+      font-family: "ComicShannsMono Nerd Font Propo";
+      color: ${colors.foreground};
     }
 
     .desktop-time {
@@ -30,31 +35,57 @@ in
       font-size: 1.05em;
     }
 
-    .desktop-player {
+    .bar {
+      font-size: 0.9rem;
+      background-color: ${colors.background};
+      padding: 0 12px;
 
-      .art {
-        background-size: cover;
+      .sysmenu {
+        color: ${colors.brightBlue};
+        font-size: 1rem;
+      }
+
+      .systray {
+        margin: 0 10px;
+      }
+
+      .tag {
+        padding: 0 12px;
+
+        &.empty {
+          color: ${colors.brightBlack};
+        }
+
+        &.active {
+          background-color: ${colors.blue};
+          color: ${colors.black};
+        }
+
+        &.scratchpad {
+          background-color: ${colors.magenta};
+          color: ${colors.black};
+        }
+
+        &.scratchpad:not(.active) {
+          opacity: 0;
+        }
+      }
+
+      .notifications {
+        min-width: 16px; // Muted icon is slightly wider
+
+      }
+
+      .time {
+        color: ${colors.yellow};
+      }
+
+      .dim {
+        color: ${colors.brightBlack};
       }
     }
 
-    .volume-bar {
+    tooltip {
       background-color: ${colors.background};
-      padding: 1.5em;
-
-      .slider {
-        margin-bottom: 1em;
-
-        trough {
-          background-color: ${colors.backgroundAlt};
-          min-height: 10em;
-          min-width: 1em;
-
-          highlight {
-            opacity: 0;
-            background-color: ${colors.blue};
-            min-height: 1em;
-          }
-        }
-      }
     }
   ''
