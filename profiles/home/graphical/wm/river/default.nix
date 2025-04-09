@@ -9,7 +9,9 @@
     ./spawn.nix
   ];
 
-  wayland.windowManager.river = {
+  home.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
+
+  wayland.windowManager.river = rec {
     enable = true;
     package = null; # Let river NixOS module handle this
 
@@ -46,10 +48,10 @@
           --layout-alt monocle \
           --count 1 \
           --ratio 0.52 \
-          --inner-gaps 4 \
-          --outer-gaps 4 \
-          --border-width 3 \
-          --border-width-monocle 3 \
+          --inner-gaps 10 \
+          --outer-gaps 10 \
+          --border-width ${toString settings.border-width} \
+          --border-width-monocle ${toString settings.border-width} \
           --border-color-focused 0x${colors.blue} \
           --border-color-focused-monocle 0x${colors.yellow} \
           --border-color-unfocused 0x${colors.brightBlack} &
@@ -79,6 +81,14 @@
       window.csd,             /* gtk4? */
       window.csd decoration { /* gtk3 */
         box-shadow: none;
+      }
+
+      decoration {
+        border: none;
+      }
+
+      decoration:backdrop {
+        border: none;
       }
     '';
 }

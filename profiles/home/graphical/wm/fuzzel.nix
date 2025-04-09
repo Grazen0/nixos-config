@@ -19,7 +19,7 @@
       };
 
       border = {
-        width = 3;
+        width = 2;
         radius = 0;
       };
 
