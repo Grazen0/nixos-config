@@ -1,5 +1,6 @@
 {config, ...}: {
   services.dunst = {
+    enable = true;
     settings = let
       inherit (config) theme;
       colors = theme.colors.hexWithHashtag;
@@ -13,7 +14,7 @@
         width = 360;
         height = 300;
         origin = "bottom-right";
-        offset = "8x8";
+        offset = "10x10";
         scale = 0; # Auto-detect
         notification_limit = 20;
 
@@ -34,8 +35,8 @@
         padding = 6;
         horizontal_padding = 8;
         text_icon_padding = 0;
-        frame_width = 3;
-        frame_color = colors.brightBlue;
+        frame_width = 2;
+        frame_color = colors.blue;
         gap_size = 8;
         separator_color = "frame";
         sort = "yes";

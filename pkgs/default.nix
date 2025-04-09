@@ -6,7 +6,6 @@
   inherit (pkgs) callPackage;
   callPy3Package = pkgs.python3Packages.callPackage;
 
-  fnott = pkgs.fnott.overrideAttrs {src = inputs.fnott;};
   ppick = inputs.ppick.packages.${pkgs.system}.default;
 in rec {
   # Existing packages
@@ -25,6 +24,6 @@ in rec {
   player-art = callPackage ./scripts/player-art.nix {};
   tmux-music = callPackage ./scripts/tmux/music.nix {inherit player-art;};
   tmux-session-picker = callPackage ./scripts/tmux/session-picker.nix {inherit ppick;};
-  waybar-notifications-state = callPackage ./scripts/waybar/notifications-state.nix {inherit fnott;};
+  waybar-notifications-state = callPackage ./scripts/waybar/notifications-state.nix {};
   waybar-media-query = callPackage ./scripts/waybar/media-query.nix {};
 }

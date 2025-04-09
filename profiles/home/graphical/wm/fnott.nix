@@ -1,13 +1,5 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+{config, ...}: {
   services.fnott = {
-    enable = true;
-    package = pkgs.fnott.overrideAttrs {src = inputs.fnott;};
-
     settings = let
       inherit (config) theme;
 

@@ -1,16 +1,16 @@
 {
   writeShellApplication,
-  fnott,
+  dunst,
   ...
 }:
 writeShellApplication {
   name = "notifications-state";
-  runtimeInputs = [fnott];
+  runtimeInputs = [dunst];
   text = ''
     icon=""
     class=""
 
-    if [[ "$(fnottctl is-paused || echo "false")" == "false" ]]; then
+    if [[ "$(dunstctl is-paused)" == "false" ]]; then
       icon=""
       class="enabled"
     else
