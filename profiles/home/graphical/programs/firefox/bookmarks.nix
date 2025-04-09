@@ -22,6 +22,23 @@
       url = "https://web.whatsapp.com/";
     }
     {
+      name = "Social";
+      bookmarks = [
+        {
+          name = "Instagram";
+          url = "https://www.instagram.com/";
+        }
+        {
+          name = "Reddit";
+          url = "https://reddit.com/";
+        }
+        {
+          name = "BlueSky";
+          url = "https://bsky.app/";
+        }
+      ];
+    }
+    {
       name = "UTEC";
       bookmarks = [
         {
@@ -83,6 +100,10 @@
           name = "Discrete Mathematics With Applications";
           url = "https://www.toomey.org/tutor/text_books/Digital_Logic/Discrete%20Mathematics%20with%20Applications%20-%20Susanna%20S.%20Epp%20(2019).pdf";
         }
+        {
+          name = "Desmos Calculator";
+          url = "https://www.desmos.com/calculator";
+        }
       ];
     }
     {
@@ -94,10 +115,12 @@
         }
         {
           name = "Home Manager Option Search";
+          tags = ["homemanager" "hm"];
           url = "https://home-manager-options.extranix.com/?release=master";
         }
         {
           name = "Nixpkgs Search";
+          tags = ["pkgs"];
           url = "https://search.nixos.org/packages?channel=unstable";
         }
         {
@@ -114,8 +137,8 @@
           url = "https://www.nytimes.com/games/wordle/index.html";
         }
         {
-          name = "Desmos Calculator";
-          url = "https://www.desmos.com/calculator";
+          name = "monkeytype";
+          url = "https://monkeytype.com/";
         }
       ];
     }

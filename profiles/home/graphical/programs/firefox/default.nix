@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    libnotify # Required for notifications to work properly
+  ];
+
   # Credit: https://github.com/c1d3r24/dotfiles-config/blob/main/home/common/firefox.nix
   programs.firefox = {
     enable = true;
@@ -62,10 +66,10 @@
 
         "middlemouse.paste" = false;
 
-        "browser.startup.homepage" = "https://start.duckduckgo.com";
         "browser.toolbars.bookmarks.visibility" = "never";
         "browser.aboutConfig.showWarning" = false;
         "browser.quitShortcut.disabled" = true;
+        "browser.search.suggest.enabled" = false;
 
         "browser.uiCustomization.state" =
           # json
