@@ -70,6 +70,7 @@
         "browser.aboutConfig.showWarning" = false;
         "browser.quitShortcut.disabled" = true;
         "browser.search.suggest.enabled" = false;
+        "browser.startup.page" = 3;
 
         "browser.uiCustomization.state" =
           # json
