@@ -12,7 +12,6 @@
         "uptime"
         "packages"
         "shell"
-        "display"
         "de"
         "wm"
         "wmtheme"
@@ -20,10 +19,7 @@
         "cpu"
         "gpu"
         "memory"
-        "swap"
         "disk"
-        "battery"
-        "locale"
         "break"
         "colors"
       ];
