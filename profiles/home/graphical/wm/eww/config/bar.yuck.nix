@@ -137,7 +137,11 @@ in
 
     (defwidget battery-metric [status capacity]
       (icon-metric
-        :class "battery ''${status == "Discharging" ? "" : "charging"}"
+        :class "battery ''${status == "Discharging"
+          ? capacity <= 15
+            ? "critical"
+            : ""
+          : "charging"}"
         :tooltip {status}
         :icon {status == "Discharging"
           ? capacity < 10

@@ -135,6 +135,11 @@ in
           color: ${colors.magenta};
           border-color: ${colors.magenta};
         }
+
+        &.critical {
+          color: ${colors.red};
+          border-color: ${colors.red};
+        }
       }
 
       .time {
