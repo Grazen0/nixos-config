@@ -20,7 +20,7 @@
     in {
       keyboard-layout = "-options 'caps:swapescape' -variant 'altgr-intl' 'us'";
 
-      border-width = 3;
+      border-width = 2;
 
       background-color = "0x${colors.background}";
       border-color-focused = "0x${colors.blue}";
@@ -48,8 +48,8 @@
           --layout-alt monocle \
           --count 1 \
           --ratio 0.52 \
-          --inner-gaps 10 \
-          --outer-gaps 10 \
+          --inner-gaps 12 \
+          --outer-gaps 12 \
           --border-width ${toString settings.border-width} \
           --border-width-monocle ${toString settings.border-width} \
           --border-color-focused 0x${colors.blue} \
