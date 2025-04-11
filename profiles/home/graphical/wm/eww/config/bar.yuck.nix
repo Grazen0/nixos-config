@@ -74,13 +74,19 @@ in
     (deflisten views-tag :initial "{}"
       `${uniqq} ${ristate} --views-tag`)
 
+    (deflisten urgency :initial "{}"
+      `${uniqq} ${ristate} --urgency`)
+
+
     (defwidget tag-button [n monitor ?class ?text]
       (button
-        :class "''${class} ''${jq(tags.tags[monitor], 'index("''${n}") != null')
-          ? "active"
-          : jq(views-tag.viewstag[monitor], 'index(''${n}) == null')
-            ? "empty"
-            : ""}"
+        :class "''${class} ''${jq(urgency.urgency[monitor], 'index("''${n}") != null')
+          ? "urgent"
+          : jq(tags.tags[monitor], 'index("''${n}") != null')
+            ? "active"
+            : jq(views-tag.viewstag[monitor], 'index(''${n}) == null')
+              ? "empty"
+              : ""}"
         :onclick "riverctl set-focused-tags ''${powi(2, n - 1)}"
         :onrightclick "riverctl toggle-focused-tags ''${powi(2, n - 1)}"
         {text ?: n}))

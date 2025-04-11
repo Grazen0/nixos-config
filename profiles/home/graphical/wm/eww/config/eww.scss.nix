@@ -88,6 +88,11 @@ in
           color: ${colors.blue};
         }
 
+        &.urgent {
+          color: ${colors.magenta};
+          border-color: ${colors.magenta};
+        }
+
         &.scratchpad {
           color: ${colors.magenta};
 
