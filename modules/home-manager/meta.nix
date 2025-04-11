@@ -18,5 +18,26 @@ in {
       appLauncher = mkOption {type = types.str;};
       dmenu = mkOption {type = types.str;};
     };
+
+    eww = {
+      autostartWidgets = mkOption {
+        type = with types; listOf str;
+        default = [
+          "desktop-clock"
+          "desktop-cow"
+          "bar-primary"
+        ];
+      };
+
+      battery = mkOption {
+        type = types.str;
+        default = "BAT0";
+      };
+
+      outputs = {
+        primary = mkOption {type = types.str;};
+        secondary = mkOption {type = types.str;};
+      };
+    };
   };
 }

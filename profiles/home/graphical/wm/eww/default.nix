@@ -1,8 +1,4 @@
 {
-  programs.eww = {
-    enable = true;
-    autostart.widgets = ["desktop-time" "desktop-fortune"];
-  };
-
+  programs.eww.enable = true;
   xdg.nixConfigFile.eww.source = ./config;
 }

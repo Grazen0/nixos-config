@@ -12,18 +12,18 @@ in
       all: unset;
     }
 
-    .desktop-time,
-    .desktop-fortune,
+    .desktop-clock,
+    .desktop-cow,
     .bar {
-      font-family: "ComicShannsMono Nerd Font Propo";
+      font-family: "${theme.font.regular}";
       color: ${colors.foreground};
     }
 
-    .desktop-time {
+    .desktop-clock {
       .time {
         font-weight: bold;
         font-size: 5em;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.1em;
       }
 
       .date {
@@ -31,57 +31,115 @@ in
       }
     }
 
-    .desktop-fortune {
+    .desktop-cow {
       font-size: 1.05em;
     }
 
     .bar {
-      font-size: 0.9rem;
+      font-size: 0.9em;
       background-color: ${colors.background};
       padding: 0 12px;
 
+      .dim {
+        color: ${colors.brightBlack};
+        border-color: ${colors.brightBlack};
+      }
+
       .sysmenu {
-        color: ${colors.brightBlue};
-        font-size: 1rem;
+        color: ${colors.blue};
+        font-size: 1.5em;
       }
 
       .systray {
         margin: 0 10px;
+
+        menu {
+          background-color: ${colors.black};
+          padding: 4px 0;
+
+          > separator {
+            background-color: transparent;
+          }
+
+          > * {
+            padding: 4px 10px;
+
+            &:disabled {
+              color: ${colors.brightBlack};
+            }
+
+            &:hover:not(:disabled) {
+              background-color: ${colors.backgroundAlt};
+            }
+          }
+        }
       }
 
-      .tag {
+      .tags > * {
         padding: 0 12px;
+        border-bottom: 2px solid transparent;
 
         &.empty {
           color: ${colors.brightBlack};
         }
 
         &.active {
-          background-color: ${colors.blue};
-          color: ${colors.black};
+          border-color: ${colors.blue};
+          color: ${colors.blue};
         }
 
         &.scratchpad {
-          background-color: ${colors.magenta};
-          color: ${colors.black};
-        }
+          color: ${colors.magenta};
 
-        &.scratchpad:not(.active) {
-          opacity: 0;
+          &.empty {
+            opacity: 0;
+          }
+
+          &.active {
+            color: ${colors.magenta};
+            border-color: ${colors.magenta};
+          }
         }
       }
 
-      .notifications {
-        min-width: 16px; // Muted icon is slightly wider
+      .bar-right > * {
+        padding: 0 10px;
+        border-bottom: 2px solid;
+      }
 
+      .volume {
+        color: ${colors.white};
+        border-color: ${colors.white};
+      }
+
+      .network {
+        color: ${colors.green};
+        border-color: ${colors.green};
+
+        &.offline {
+          color: ${colors.red};
+          border-color: ${colors.red};
+        }
+      }
+
+      .battery {
+        color: ${colors.cyan};
+        border-color: ${colors.cyan};
+
+        &.charging {
+          color: ${colors.magenta};
+          border-color: ${colors.magenta};
+        }
       }
 
       .time {
         color: ${colors.yellow};
+        border-color: ${colors.yellow};
       }
 
-      .dim {
-        color: ${colors.brightBlack};
+      .notifications {
+        color: ${colors.white};
+        border-color: ${colors.white};
       }
     }
 

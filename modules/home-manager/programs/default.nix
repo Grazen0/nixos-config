@@ -1,6 +1,5 @@
 {
   imports = [
-    ./eww.nix
     ./gowall.nix
     ./jetbrains.nix
     ./ncmpcpp.nix

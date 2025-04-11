@@ -5,8 +5,6 @@
   ...
 } @ moduleArgs: {
   programs.waybar = {
-    enable = true;
-
     style = (import ./style.nix) moduleArgs;
 
     settings = {

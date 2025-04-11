@@ -33,7 +33,23 @@ in {
     };
   };
 
-  # Mainly, set 1.2 scale on eDP-1
+  meta.eww = {
+    autostartWidgets = [
+      "desktop-clock"
+      "desktop-cow"
+      "bar-primary"
+      "bar-secondary"
+    ];
+
+    battery = "BAT1";
+
+    outputs = {
+      primary = "AUOptronics";
+      secondary = "SamsungElectricCompany";
+    };
+  };
+
+  # Mainly, set scale on eDP-1
   services.kanshi.settings = mkForce [
     {
       output = {
