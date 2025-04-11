@@ -14,6 +14,8 @@ return {
       graphql = { 'prettierd' },
       json = { 'prettierd' },
       css = { 'prettierd' },
+      scss = { 'prettierd' },
+      sass = { 'prettierd' },
       python = { 'isort', 'black' },
       lua = { 'stylua' },
       rust = { 'rustfmt' },
