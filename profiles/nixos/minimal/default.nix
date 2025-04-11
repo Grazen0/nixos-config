@@ -51,5 +51,7 @@
     timeout = 5;
   };
 
+  hardware.enableAllFirmware = true;
+
   nixpkgs.config.allowUnfree = true;
 }
