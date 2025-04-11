@@ -35,8 +35,14 @@ in {
       };
 
       outputs = {
-        primary = mkOption {type = types.str;};
-        secondary = mkOption {type = types.str;};
+        primary = mkOption {
+          type = types.str;
+          default = "";
+        };
+        secondary = mkOption {
+          type = types.str;
+          default = "";
+        };
       };
     };
   };
