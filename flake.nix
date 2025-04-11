@@ -32,6 +32,18 @@
     systems.url = "github:nix-systems/default-linux";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
+    base16.url = "github:SenchoPens/base16.nix";
+
+    tt-schemes = {
+      url = "github:tinted-theming/schemes";
+      flake = false;
+    };
+
+    base16-zathura = {
+      url = "github:haozeke/base16-zathura";
+      flake = false;
+    };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -69,7 +81,7 @@
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     aphrodite-terminal-theme = {
