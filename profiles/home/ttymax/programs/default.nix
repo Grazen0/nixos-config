@@ -30,5 +30,6 @@
         };
       };
     };
+    java.enable = true;
   };
 }

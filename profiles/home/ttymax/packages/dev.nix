@@ -10,7 +10,6 @@
       with ps; [
         stack
       ]))
-    jdk
     nodejs
     pnpm
     python3
