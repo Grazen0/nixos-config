@@ -7,11 +7,8 @@
     enable = true;
     package = pkgs.swaylock-effects;
 
-    settings = let
-      inherit (config) theme;
-      colors = theme.colors.hex;
-    in {
-      font = theme.font.regular;
+    settings = with config.scheme; {
+      font = config.theme.font.regular;
 
       hide-keyboard-layout = true;
       indicator = true;
@@ -22,28 +19,28 @@
       timestr = "%I:%M %p";
       datestr = "%B %-d, %Y";
 
-      color = colors.background;
-      separator-color = colors.background;
+      color = base00;
+      separator-color = base00;
 
-      key-hl-color = colors.blue;
-      bs-hl-color = colors.red;
+      key-hl-color = blue;
+      bs-hl-color = red;
 
-      inside-color = colors.background;
-      inside-clear-color = colors.background;
-      inside-ver-color = colors.background;
-      inside-wrong-color = colors.background;
+      inside-color = base00;
+      inside-clear-color = base00;
+      inside-ver-color = base00;
+      inside-wrong-color = base00;
 
-      ring-color = colors.brightBlack;
-      ring-clear-color = colors.cyan;
-      ring-caps-lock-color = colors.magenta;
-      ring-ver-color = colors.yellow;
-      ring-wrong-color = colors.red;
+      ring-color = base04;
+      ring-clear-color = cyan;
+      ring-caps-lock-color = magenta;
+      ring-ver-color = yellow;
+      ring-wrong-color = red;
 
-      text-color = colors.foreground;
-      text-clear-color = colors.cyan;
-      text-caps-lock-color = colors.magenta;
-      text-ver-color = colors.yellow;
-      text-wrong-color = colors.red;
+      text-color = base05;
+      text-clear-color = cyan;
+      text-caps-lock-color = magenta;
+      text-ver-color = yellow;
+      text-wrong-color = red;
     };
   };
 }

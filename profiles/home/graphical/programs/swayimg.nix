@@ -2,26 +2,23 @@
   programs.swayimg = {
     enable = true;
 
-    settings = let
-      inherit (config) theme;
-      colors = theme.colors.hexWithHashtag;
-    in {
+    settings = with config.scheme.withHashtag; {
       viewer = {
-        window = colors.black;
+        window = base01;
         scale = "fit";
         antialiasing = "bicubic";
       };
 
       gallery = {
-        window = colors.background;
+        window = base00;
         antialiasing = "bicubic";
       };
 
       font = {
-        name = theme.font.propo;
+        name = config.theme.font.propo;
         size = 18;
-        color = colors.brightWhite;
-        shadow = colors.black;
+        color = base05;
+        shadow = base01;
       };
 
       info.show = "no";

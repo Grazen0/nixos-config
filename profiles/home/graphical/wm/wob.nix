@@ -2,9 +2,7 @@
   services.wob = {
     enable = true;
 
-    settings = let
-      colors = config.theme.colors.hex;
-    in {
+    settings = with config.scheme; {
       "" = {
         timeout = 750;
 
@@ -20,18 +18,18 @@
 
         bar_padding = 4;
 
-        background_color = colors.background;
-        border_color = colors.brightWhite;
-        bar_color = colors.brightWhite;
+        background_color = base00;
+        border_color = base05;
+        bar_color = base05;
 
-        overflow_background_color = colors.black;
-        overflow_border_color = colors.brightWhite;
-        overflow_bar_color = colors.red;
+        overflow_background_color = base01;
+        overflow_border_color = base05;
+        overflow_bar_color = red;
       };
 
       "style.muted" = {
-        bar_color = colors.brightBlack;
-        border_color = colors.brightBlack;
+        bar_color = base04;
+        border_color = base04;
       };
     };
   };

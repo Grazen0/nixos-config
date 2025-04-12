@@ -15,17 +15,15 @@
     enable = true;
     package = null; # Let river NixOS module handle this
 
-    settings = let
-      colors = config.theme.colors.hex;
-    in {
+    settings = with config.scheme; {
       keyboard-layout = "-options 'caps:swapescape' -variant 'altgr-intl' 'us'";
 
       border-width = 2;
 
-      background-color = "0x${colors.background}";
-      border-color-focused = "0x${colors.blue}";
-      border-color-unfocused = "0x${colors.brightBlack}";
-      border-color-urgent = "0x${colors.brightMagenta}";
+      background-color = "0x${base00}";
+      border-color-focused = "0x${blue}";
+      border-color-unfocused = "0x${base04}";
+      border-color-urgent = "0x${bright-magenta}";
 
       set-repeat = "50 300";
 
@@ -38,32 +36,32 @@
 
     extraConfig = let
       wideriver = "${pkgs.wideriver}/bin/wideriver";
-      colors = config.theme.colors.hex;
     in
+      with config.scheme;
       # bash
-      ''
-        ${wideriver} \
-          --layout left \
-          --stack dwindle \
-          --layout-alt monocle \
-          --count 1 \
-          --ratio 0.52 \
-          --inner-gaps 12 \
-          --outer-gaps 12 \
-          --border-width ${toString settings.border-width} \
-          --border-width-monocle ${toString settings.border-width} \
-          --border-color-focused 0x${colors.blue} \
-          --border-color-focused-monocle 0x${colors.yellow} \
-          --border-color-unfocused 0x${colors.brightBlack} &
+        ''
+          ${wideriver} \
+            --layout left \
+            --stack dwindle \
+            --layout-alt monocle \
+            --count 1 \
+            --ratio 0.52 \
+            --inner-gaps 12 \
+            --outer-gaps 12 \
+            --border-width ${toString settings.border-width} \
+            --border-width-monocle ${toString settings.border-width} \
+            --border-color-focused 0x${blue} \
+            --border-color-focused-monocle 0x${yellow} \
+            --border-color-unfocused 0x${base04} &
 
-        # Set up touchpads
-        for device in $(riverctl list-inputs | grep -i 'touchpad'); do
-            riverctl input "$device" natural-scroll enabled
-            riverctl input "$device" tap enabled
-            riverctl input "$device" click-method button-areas
-            riverctl input "$device" middle-emulation enabled
-        done
-      '';
+          # Set up touchpads
+          for device in $(riverctl list-inputs | grep -i 'touchpad'); do
+              riverctl input "$device" natural-scroll enabled
+              riverctl input "$device" tap enabled
+              riverctl input "$device" click-method button-areas
+              riverctl input "$device" middle-emulation enabled
+          done
+        '';
   };
 
   # Disable ugly GTK header

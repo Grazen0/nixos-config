@@ -88,7 +88,7 @@
         set fish_color_command green
         set fish_color_error red
         set fish_color_cancel black --background red
-        set fish_color_selection brwhite --background ${config.theme.colors.hex.highlight}
+        set fish_color_selection brwhite --background ${config.scheme.base02}
 
         # Bindings
         fish_vi_key_bindings

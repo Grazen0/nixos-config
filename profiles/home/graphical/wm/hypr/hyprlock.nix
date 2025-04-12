@@ -1,6 +1,6 @@
 {config, ...}: {
   programs.hyprlock = {
-    settings = with config.theme.colors.hex; {
+    settings = with config.scheme; {
       general = {
         disable_loading_bar = true;
         hide_cursor = true;
@@ -27,8 +27,8 @@
           dots_center = true;
           fade_on_empty = true;
 
-          font_color = "rgb(${brightWhite})";
-          inner_color = "rgb(${black})";
+          font_color = "rgb(${base05})";
+          inner_color = "rgb(${base01})";
           outer_color = "rgb(${blue})";
           check_color = "rgb(${yellow})";
           fail_color = "rgb(${red})";

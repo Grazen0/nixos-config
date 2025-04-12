@@ -1,45 +1,49 @@
 {
   config,
   lib,
+  lib',
   pkgs,
   inputs,
   ...
 }: {
   programs.r = {
     profile = let
-      colors = lib.mapAttrs (_: rgb:
-        "\\x1b[38;2;"
-        + (lib.concatStringsSep ";" (map toString rgb))
-        + "m")
-      config.theme.colors.rgb;
-    in
-      # r
-      ''
-        if (interactive() || isatty(stdout())) {
-          options(colorout.verbose = 0)
-          if (require("colorout", quietly = TRUE)) {
-            colorout::setOutputColors(
-              index    = "${colors.brightBlack}",
-              normal   = "${colors.foreground}",
-              number   = "${colors.white}",
-              negnum   = "${colors.white}",
-              zero     = "${colors.white}",
-              infinite = "${colors.yellow}",
-              string   = "${colors.green}",
-              date     = "${colors.magenta}",
-              const    = "${colors.yellow}",
-              true     = "${colors.brightCyan}",
-              false    = "${colors.brightCyan}",
-              warn     = "${colors.brightYellow}",
-              stderror = "${colors.red}",
-              error    = "${colors.red}",
-              verbose  = FALSE
-            )
-          }
+      inherit (lib) concatStringsSep;
+      inherit (lib') hexToRGB;
 
-          options(browser = "xdg-open")
-        }
-      '';
+      ansiify = hex: let
+        rgb = hexToRGB hex;
+      in
+        "\\x1b[38;2;" + (concatStringsSep ";" (map toString rgb)) + "m";
+    in
+      with config.scheme;
+      # r
+        ''
+          if (interactive() || isatty(stdout())) {
+            options(colorout.verbose = 0)
+            if (require("colorout", quietly = TRUE)) {
+              colorout::setOutputColors(
+                index    = "${ansiify base04}",
+                normal   = "${ansiify base05}",
+                number   = "${ansiify base06}",
+                negnum   = "${ansiify base06}",
+                zero     = "${ansiify base06}",
+                infinite = "${ansiify yellow}",
+                string   = "${ansiify green}",
+                date     = "${ansiify magenta}",
+                const    = "${ansiify yellow}",
+                true     = "${ansiify bright-cyan}",
+                false    = "${ansiify bright-cyan}",
+                warn     = "${ansiify yellow}",
+                stderror = "${ansiify red}",
+                error    = "${ansiify red}",
+                verbose  = FALSE
+              )
+            }
+
+            options(browser = "xdg-open")
+          }
+        '';
 
     rPackages = with pkgs.rPackages; let
       inherit (pkgs) rPackages;

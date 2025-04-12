@@ -1,10 +1,7 @@
 {config, ...}: {
   services.dunst = {
     enable = true;
-    settings = let
-      inherit (config) theme;
-      colors = theme.colors.hexWithHashtag;
-    in {
+    settings = with config.scheme.withHashtag; {
       global = {
         # Display
         # monitor = 0; # Ignored because of `follow`
@@ -36,14 +33,14 @@
         horizontal_padding = 8;
         text_icon_padding = 0;
         frame_width = 2;
-        frame_color = colors.blue;
+        frame_color = blue;
         gap_size = 8;
         separator_color = "frame";
         sort = "yes";
         idle_threshold = 120;
 
         # Text
-        font = "${theme.font.regular} 10";
+        font = "${config.theme.font.regular} 10";
         line_height = 0;
         markup = "full";
         format = "<b>%s</b>\n%b";
@@ -87,19 +84,22 @@
       };
 
       urgency_low = {
-        inherit (colors) background foreground;
+        background = base00;
+        foreground = base05;
         timeout = 10;
       };
 
       urgency_normal = {
-        inherit (colors) background foreground;
+        background = base00;
+        foreground = base05;
         timeout = 10;
         override_pause_level = 30;
       };
 
       urgency_critical = {
-        inherit (colors) background foreground;
-        frame_color = colors.red;
+        background = base00;
+        foreground = base05;
+        frame_color = red;
         timeout = 30;
         override_pause_level = 60;
       };

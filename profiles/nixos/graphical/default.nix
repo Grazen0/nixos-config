@@ -49,23 +49,23 @@
     };
   };
 
-  console.colors = with config.theme.colors.hex; [
-    black
+  console.colors = with config.scheme; [
+    base01
     red
     green
     yellow
     blue
     magenta
     cyan
-    white
-    brightBlack
-    brightRed
-    brightGreen
-    brightYellow
-    brightBlue
-    brightMagenta
-    brightCyan
-    brightWhite
+    base06
+    base04
+    bright-red
+    bright-green
+    yellow
+    bright-blue
+    bright-magenta
+    bright-cyan
+    base05
   ];
 
   boot = {

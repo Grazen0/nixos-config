@@ -70,12 +70,10 @@
 
     extraConfig = {
       showread = true;
-      theme = let
-        colors = config.theme.colors.hexWithHashtag;
-      in {
-        titleColor = colors.blue;
-        selectedItemColor = colors.magenta;
-        filterColor = colors.yellow;
+      theme = with config.scheme.withHashtag; {
+        titleColor = blue;
+        selectedItemColor = magenta;
+        filterColor = yellow;
       };
     };
   };

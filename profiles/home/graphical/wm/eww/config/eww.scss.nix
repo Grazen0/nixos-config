@@ -2,11 +2,9 @@
   config,
   lib,
   ...
-}: let
-  inherit (config) theme;
-  colors = theme.colors.hexWithHashtag;
-in
-  # scss
+}:
+with config.scheme.withHashtag;
+# scss
   ''
     * {
       all: unset;
@@ -15,8 +13,8 @@ in
     .desktop-clock,
     .desktop-cow,
     .bar {
-      font-family: "${theme.font.regular}";
-      color: ${colors.foreground};
+      font-family: "${config.theme.font.regular}";
+      color: ${base05};
     }
 
     .desktop-clock {
@@ -37,16 +35,16 @@ in
 
     .bar {
       font-size: 0.9em;
-      background-color: ${colors.background};
+      background-color: ${base00};
       padding: 0 12px;
 
       .dim {
-        color: ${colors.brightBlack};
-        border-color: ${colors.brightBlack};
+        color: ${base04};
+        border-color: ${base04};
       }
 
       .sysmenu {
-        color: ${colors.blue};
+        color: ${blue};
         font-size: 1.5em;
       }
 
@@ -54,7 +52,7 @@ in
         margin: 0 10px;
 
         menu {
-          background-color: ${colors.black};
+          background-color: ${base01};
           padding: 4px 0;
 
           > separator {
@@ -65,11 +63,11 @@ in
             padding: 4px 10px;
 
             &:disabled {
-              color: ${colors.brightBlack};
+              color: ${base04};
             }
 
             &:hover:not(:disabled) {
-              background-color: ${colors.backgroundAlt};
+              background-color: ${base03};
             }
           }
         }
@@ -80,29 +78,29 @@ in
         border-bottom: 2px solid transparent;
 
         &.empty {
-          color: ${colors.brightBlack};
+          color: ${base04};
         }
 
         &.active {
-          border-color: ${colors.blue};
-          color: ${colors.blue};
+          border-color: ${blue};
+          color: ${blue};
         }
 
         &.urgent {
-          color: ${colors.magenta};
-          border-color: ${colors.magenta};
+          color: ${magenta};
+          border-color: ${magenta};
         }
 
         &.scratchpad {
-          color: ${colors.magenta};
+          color: ${magenta};
 
           &.empty {
             opacity: 0;
           }
 
           &.active {
-            color: ${colors.magenta};
-            border-color: ${colors.magenta};
+            color: ${magenta};
+            border-color: ${magenta};
           }
         }
       }
@@ -113,47 +111,47 @@ in
       }
 
       .volume {
-        color: ${colors.white};
-        border-color: ${colors.white};
+        color: ${base06};
+        border-color: ${base06};
       }
 
       .network {
-        color: ${colors.green};
-        border-color: ${colors.green};
+        color: ${green};
+        border-color: ${green};
 
         &.offline {
-          color: ${colors.red};
-          border-color: ${colors.red};
+          color: ${red};
+          border-color: ${red};
         }
       }
 
       .battery {
-        color: ${colors.cyan};
-        border-color: ${colors.cyan};
+        color: ${cyan};
+        border-color: ${cyan};
 
         &.charging {
-          color: ${colors.magenta};
-          border-color: ${colors.magenta};
+          color: ${magenta};
+          border-color: ${magenta};
         }
 
         &.critical {
-          color: ${colors.red};
-          border-color: ${colors.red};
+          color: ${red};
+          border-color: ${red};
         }
       }
 
       .time {
-        color: ${colors.yellow};
-        border-color: ${colors.yellow};
+        color: ${yellow};
+        border-color: ${yellow};
       }
 
       .notifications {
-        color: ${colors.white};
-        border-color: ${colors.white};
+        color: ${base06};
+        border-color: ${base06};
       }
     }
 
     tooltip {
-      background-color: ${colors.background};
+      background-color: ${base00};
     }
   ''

@@ -2,12 +2,10 @@
   programs.fuzzel = {
     enable = true;
 
-    settings = let
-      inherit (config) theme;
-    in {
+    settings = {
       main = {
         launch-prefix = "uwsm app -- ";
-        font = "${theme.font.propo}:size=12";
+        font = "${config.theme.font.propo}:size=12";
         terminal = config.meta.mainPrograms.terminal;
         use-bold = "yes";
         fields = "filename,name,generic,keywords";
@@ -23,16 +21,16 @@
         radius = 0;
       };
 
-      colors = with theme.colors.hex; {
-        background = "${background}ff";
-        text = "${foreground}ff";
+      colors = with config.scheme; {
+        background = "${base00}ff";
+        text = "${base05}ff";
         prompt = "${blue}ff";
-        placeholder = "${brightBlack}ff";
-        input = "${foreground}ff";
-        match = "${foreground}ff";
+        placeholder = "${base04}ff";
+        input = "${base05}ff";
+        match = "${base05}ff";
         selection = "${blue}ff";
-        selection-text = "${background}ff";
-        selection-match = "${background}ff";
+        selection-text = "${base00}ff";
+        selection-match = "${base00}ff";
         border = "${blue}ff";
       };
 

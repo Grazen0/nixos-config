@@ -3,9 +3,7 @@
   lib,
   ...
 }: {
-  wayland.windowManager.hyprland.settings = let
-    colors = config.theme.colors.hex;
-  in {
+  wayland.windowManager.hyprland.settings = with config.scheme; {
     windowrule = [
     ];
 
@@ -35,8 +33,7 @@
         "noshadow, floating:0"
 
         # Border colors for pinned and monocle windows
-        "bordercolor rgb(${colors.brightYellow}), pinned:1"
-        "bordercolor rgb(${colors.white}), fullscreen:1"
+        "bordercolor rgb(${yellow}), fullscreen:1"
 
         # Workspace-specific programs
         "workspace 7, class:equibop"

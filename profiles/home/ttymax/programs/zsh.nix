@@ -165,22 +165,17 @@
       bindkey -M vicmd '^v' edit-command-line
     '';
 
-    sessionVariables =
-      {
-        # Show the time in prompt
-        APHRODITE_THEME_SHOW_TIME = "yes";
+    sessionVariables = with config.scheme.withHashtag; {
+      # Show the time in prompt
+      APHRODITE_THEME_SHOW_TIME = "yes";
 
-        # Options for zsh-history-substring-search
-        HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND = "underline";
-        HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND = "default";
-        HISTORY_SUBSTRING_SEARCH_PREFIXED = "yeah";
-      }
-      // (let
-        colors = config.theme.colors.hexWithHashtag;
-      in {
-        # Highlight colors for zsh-vi-mode
-        ZVM_VI_HIGHLIGHT_BACKGROUND = colors.highlight;
-        ZVM_VI_HIGHLIGHT_FOREGROUND = colors.brightWhite;
-      });
+      # Options for zsh-history-substring-search
+      HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND = "underline";
+      HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND = "default";
+      HISTORY_SUBSTRING_SEARCH_PREFIXED = "yeah";
+
+      ZVM_VI_HIGHLIGHT_BACKGROUND = base02;
+      ZVM_VI_HIGHLIGHT_FOREGROUND = base05;
+    };
   };
 }

@@ -1,8 +1,6 @@
-{config, ...}: let
-  inherit (config) theme;
-  colors = theme.colors.hexWithHashtag;
-in
-  # css
+{config, ...}:
+with config.scheme.withHashtag;
+# css
   ''
     /**
      * @name midnight
@@ -81,21 +79,21 @@ in
 
         /* text colors */
         --text-0: var(--bg-4); /* text on colored elements */
-        --text-1: ${colors.foreground}; /* other normally white text */
-        --text-2: ${colors.foreground}; /* headings and important text */
-        --text-3: ${colors.foreground}; /* normal text */
-        --text-4: ${colors.white}; /* icon buttons and channels */
-        --text-5: ${colors.brightBlack}; /* muted channels/chats and timestamps */
+        --text-1: ${base05}; /* other normally white text */
+        --text-2: ${base05}; /* headings and important text */
+        --text-3: ${base05}; /* normal text */
+        --text-4: ${base06}; /* icon buttons and channels */
+        --text-5: ${base04}; /* muted channels/chats and timestamps */
 
         /* background and dark colors */
-        --bg-1: ${colors.backgroundAlt}; /* dark buttons when clicked */
-        --bg-2: ${colors.black}; /* dark buttons */
-        --bg-3: ${colors.black}; /* spacing, secondary elements */
-        --bg-4: ${colors.background}; /* main background color */
-        --hover: ${colors.backgroundAlt}; /* channels and buttons when hovered */
-        --active: ${colors.backgroundAlt}; /* channels and buttons when clicked or selected */
+        --bg-1: ${base03}; /* dark buttons when clicked */
+        --bg-2: ${base01}; /* dark buttons */
+        --bg-3: ${base01}; /* spacing, secondary elements */
+        --bg-4: ${base00}; /* main background color */
+        --hover: ${base03}; /* channels and buttons when hovered */
+        --active: ${base03}; /* channels and buttons when clicked or selected */
         --active-2: red; /* extra state for transparent buttons */
-        --message-hover: color-mix(in srgb, var(--bg-4), 4% ${colors.brightWhite}); /* messages when hovered */
+        --message-hover: color-mix(in srgb, var(--bg-4), 4% ${base05}); /* messages when hovered */
 
         /* accent colors */
         --accent-1: var(--blue-1); /* links and other accent text */
@@ -110,43 +108,43 @@ in
         --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent);
 
         /* status indicator colors */
-        --online: ${colors.green};
-        --dnd: ${colors.red};
-        --idle: ${colors.yellow};
-        --streaming: ${colors.magenta};
-        --offline: ${colors.brightBlack};
+        --online: ${green};
+        --dnd: ${red};
+        --idle: ${yellow};
+        --streaming: ${magenta};
+        --offline: ${base04};
 
         /* border colors */
         --border-light: var(--hover); /* light border color */
         --border: var(--active); /* normal border color */
-        --button-border: ${colors.backgroundAlt}; /* neutral border color of buttons */
+        --button-border: ${base03}; /* neutral border color of buttons */
 
         /* base colors */
-        --red-1: ${colors.red};
+        --red-1: ${red};
         --red-2: var(--red-1);
         --red-3: var(--red-1);
         --red-4: var(--red-1);
         --red-5: var(--red-1);
 
-        --green-1: ${colors.green};
+        --green-1: ${green};
         --green-2: var(--green-1);
         --green-3: var(--green-1);
         --green-4: var(--green-1);
         --green-5: var(--green-1);
 
-        --blue-1: ${colors.blue};
+        --blue-1: ${blue};
         --blue-2: var(--blue-1);
         --blue-3: var(--blue-1);
         --blue-4: var(--blue-1);
         --blue-5: var(--blue-1);
 
-        --yellow-1: ${colors.yellow};
+        --yellow-1: ${yellow};
         --yellow-2: var(--yellow-1);
         --yellow-3: var(--yellow-1);
         --yellow-4: var(--yellow-1);
         --yellow-5: var(--yellow-1);
 
-        --purple-1: ${colors.magenta};
+        --purple-1: ${magenta};
         --purple-2: var(--purple-1);
         --purple-3: var(--purple-1);
         --purple-4: var(--purple-1);

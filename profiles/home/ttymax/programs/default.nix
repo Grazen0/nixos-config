@@ -8,7 +8,6 @@
     ./btop.nix
     ./cava.nix
     ./direnv.nix
-    ./gowall.nix
     ./nom.nix
     ./peaclock.nix
     ./r.nix

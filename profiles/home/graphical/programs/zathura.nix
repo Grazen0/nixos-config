@@ -24,25 +24,22 @@
 
     options = let
       inherit (config) theme;
-    in
-      with theme.colors.hexWithHashtag; {
-        adjust-open = "best-fit";
-        render-loading = false;
+    in {
+      adjust-open = "best-fit";
+      render-loading = false;
 
-        scroll-step = 50;
+      scroll-step = 50;
 
-        selection-clipboard = "clipboard";
+      selection-clipboard = "clipboard";
 
-        recolor = true;
-        recolor-keephue = true;
-        recolor-reverse-video = true;
-        recolor-lightcolor = background;
-        recolor-darkcolor = brightWhite;
+      recolor = true;
+      recolor-keephue = true;
+      recolor-reverse-video = true;
 
-        font = "${theme.font.regular} 10";
+      font = "${theme.font.regular} 10";
 
-        database = "sqlite";
-      };
+      database = "sqlite";
+    };
 
     extraConfig = builtins.readFile (config.scheme inputs.base16-zathura);
   };

@@ -5,7 +5,7 @@
 
       input.method = "pulse";
 
-      color.foreground = "'${config.theme.colors.hexWithHashtag.brightWhite}'";
+      color.foreground = "'${config.scheme.withHashtag.base05}'";
 
       smoothing.noise_reduction = 64;
     };
