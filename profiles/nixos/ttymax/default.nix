@@ -1,11 +1,5 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    inputs.base16.nixosModule
-    {scheme = "${inputs.tt-schemes}/base16/kanagawa.yaml";}
     ../minimal
     ../../../components/common/theme
   ];

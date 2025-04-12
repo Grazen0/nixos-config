@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
   programs.zathura = {
     enable = true;
 
@@ -29,20 +33,6 @@
 
         selection-clipboard = "clipboard";
 
-        default-fg = brightWhite;
-        default-bg = black;
-        inputbar-bg = black;
-        completion-bg = black;
-        statusbar-bg = black;
-        statusbar-fg = brightWhite;
-        inputbar-fg = brightWhite;
-        completion-group-bg = black;
-        completion-highlight-bg = blue;
-        notification-warning-bg = yellow;
-        notification-warning-fg = black;
-        notification-error-bg = red;
-        notification-error-fg = brightWhite;
-
         recolor = true;
         recolor-keephue = true;
         recolor-reverse-video = true;
@@ -53,5 +43,7 @@
 
         database = "sqlite";
       };
+
+    extraConfig = builtins.readFile (config.scheme inputs.base16-zathura);
   };
 }
