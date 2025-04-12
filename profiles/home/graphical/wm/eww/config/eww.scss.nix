@@ -73,6 +73,11 @@ with config.scheme.withHashtag;
         }
       }
 
+      .player {
+        color: ${brown};
+        border-color: ${brown};
+      }
+
       .tags > * {
         padding: 0 12px;
         border-bottom: 2px solid transparent;
@@ -111,13 +116,13 @@ with config.scheme.withHashtag;
       }
 
       .volume {
-        color: ${base06};
-        border-color: ${base06};
+        color: ${cyan};
+        border-color: ${cyan};
       }
 
       .network {
-        color: ${green};
-        border-color: ${green};
+        color: ${blue};
+        border-color: ${blue};
 
         &.offline {
           color: ${red};
@@ -126,12 +131,12 @@ with config.scheme.withHashtag;
       }
 
       .battery {
-        color: ${cyan};
-        border-color: ${cyan};
+        color: ${base06};
+        border-color: ${base06};
 
         &.charging {
-          color: ${magenta};
-          border-color: ${magenta};
+          color: ${green};
+          border-color: ${green};
         }
 
         &.critical {
@@ -146,8 +151,8 @@ with config.scheme.withHashtag;
       }
 
       .notifications {
-        color: ${base06};
-        border-color: ${base06};
+        color: ${orange};
+        border-color: ${orange};
       }
     }
 

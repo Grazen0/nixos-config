@@ -18,6 +18,7 @@
   network = "${networkPkg}/bin/network";
 
   pamixer = "${pkgs.pamixer}/bin/pamixer";
+  playerctl = "${pkgs.playerctl}/bin/playerctl";
 
   ristate = let
     ristatePkg = pkgs.ristate.override (prev: {
@@ -61,12 +62,24 @@ in
         (bar-middle :monitor {monitor})
         (bar-right)))
 
+    (deflisten player-status
+      `${playerctl} -p mopidy,spotify -F status`)
+
+    (deflisten player-title
+      `${playerctl} -p mopidy,spotify -F metadata title`)
+
     (defwidget bar-left []
         (box
           :space-evenly false
-          :spacing 12
+          :spacing 16
           (button :class "sysmenu" :onclick "fuzzel &" "")
-          (systray :class "systray" :spacing 6 :icon-size 18)))
+          (systray :class "systray" :spacing 6 :icon-size 18)
+          (icon-metric
+            :class {player-status == "Playing" ? "player" : "dim"}
+            :onclick "${playerctl} -p mopidy,spotify play-pause"
+            :icon ""
+            :visible {player-status != "Stopped"}
+            {strlength(player-title) > 30 ? substring(player-title, 0, 30) + "…" : player-title})))
 
     (deflisten tags :initial "{}"
       `${uniqq} ${ristate} --tags`)
@@ -112,11 +125,12 @@ in
             :monitor {monitor})
         ))
 
-    (defwidget icon-metric [icon ?onclick ?tooltip ?class ?spacing]
+    (defwidget icon-metric [icon ?onclick ?tooltip ?class ?spacing ?visible]
       (button
         :onclick {onclick}
         :class {class}
         :tooltip {tooltip}
+        :visible {visible}
         (box
           :space-evenly false
           :spacing {spacing ?: 12}
@@ -135,6 +149,9 @@ in
     (defpoll volume-sink :interval "5s"
       `${pamixer} --get-default-sink | awk -F'"' '{print $4}'`)
 
+    (defvar charging-icons `["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅", "󰂅"]`)
+    (defvar discharging-icons `["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹", "󰁹"]`)
+
     (defwidget battery-metric [status capacity]
       (icon-metric
         :class "battery ''${status == "Discharging"
@@ -144,44 +161,8 @@ in
           : "charging"}"
         :tooltip {status}
         :icon {status == "Discharging"
-          ? capacity < 10
-            ? "󰁺"
-            : capacity < 20
-              ? "󰁻"
-              : capacity < 30
-                ? "󰁼"
-                : capacity < 40
-                  ? "󰁽"
-                  : capacity < 50
-                    ? "󰁾"
-                    : capacity < 60
-                      ? "󰁿"
-                      : capacity < 70
-                        ? "󰂀"
-                        : capacity < 80
-                          ? "󰂁"
-                            : capacity < 90
-                              ? "󰂂"
-                              : "󰁹"
-          : capacity < 10
-            ? "󰢜"
-            : capacity < 20
-              ? "󰂆"
-              : capacity < 30
-                ? "󰂇"
-                : capacity < 40
-                  ? "󰂈"
-                  : capacity < 50
-                    ? "󰢝"
-                    : capacity < 60
-                      ? "󰂉"
-                      : capacity < 70
-                        ? "󰢞"
-                        : capacity < 80
-                          ? "󰂊"
-                            : capacity < 90
-                              ? "󰂋"
-                              : "󰂅"}
+          ? discharging-icons[round(capacity / 10 - 0.5, 0)]
+          : charging-icons[round(capacity / 10 - 0.5, 0)]}
         "''${capacity}%"))
 
     (defpoll network-info :interval "1s" `${network}`)
