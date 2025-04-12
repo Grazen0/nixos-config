@@ -33,7 +33,7 @@ writeShellApplication {
 
     function update_image() {
       # Attempt 1: mpris:artUrl via playerctl
-      if art_url=$(playerctl --player mopidy metadata mpris:artUrl 2>/dev/null); then
+      if art_url=$(playerctl -p mopidy,spotify metadata mpris:artUrl 2>/dev/null); then
         ffmpeg -nostdin -loglevel 0 -y -i "$art_url" -vf "$VF" "$IMG_FILE"
         return
       fi
@@ -103,11 +103,11 @@ writeShellApplication {
     resize_check_loop &
 
     # If nothing is on, playerctl won't output anything initially
-    if ! playerctl --player mopidy metadata &>/dev/null; then
+    if ! playerctl -p mopidy,spotify metadata &>/dev/null; then
       on_playerctl_update
     fi
 
-    playerctl --player mopidy --follow metadata title | while read -r; do
+    playerctl -p mopidy,spotify --follow metadata title | while read -r; do
       on_playerctl_update
     done
   '';

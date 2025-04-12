@@ -7,7 +7,7 @@ writeShellApplication {
   name = "media-query";
   runtimeInputs = [playerctl];
   text = ''
-    playerctl="playerctl -p mopidy"
+    playerctl="playerctl -p mopidy,spotify"
     class=""
     text=""
     tooltip=""

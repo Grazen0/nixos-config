@@ -44,7 +44,7 @@
         };
 
         "custom/media" = let
-          playerctl = "${pkgs.playerctl}/bin/playerctl -p mopidy";
+          playerctl = "${pkgs.playerctl}/bin/playerctl -p mopidy,spotify";
           media-query = "${customPkgs.waybar-media-query}/bin/media-query";
         in {
           interval = 1;
