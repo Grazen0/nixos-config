@@ -11,7 +11,7 @@
         width = 360;
         height = 300;
         origin = "bottom-right";
-        offset = "10x10";
+        offset = "12x12";
         scale = 0; # Auto-detect
         notification_limit = 20;
 
