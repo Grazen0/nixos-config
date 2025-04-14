@@ -188,14 +188,12 @@ in
           :tooltip "''${round(EWW_RAM.used_mem / 1073741824, 2)} GiB / ''${round(EWW_RAM.total_mem / 1073741824, 2)} GiB"
           "''${round(EWW_RAM.used_mem_perc, 0)}%")
         (eventbox
-          :space-evenly false
-          :spacing 6
-          :class `volume ''${volume-mute ? "mute" : ""}`
           :onhover "eww update show-volume-bar=true"
           :onhoverlost "eww update show-volume-bar=false"
           (box
             :space-evenly false
             :spacing 8
+            :class "volume ''${volume-mute ? "mute" : ""}"
             (scale
               :orientation "h"
               :min 0 :max 100
