@@ -1,8 +1,8 @@
 return {
   {
     'iurimateus/luasnip-latex-snippets.nvim',
-    dependencies = { 'L3MON4D3/luasnip' },
-    ft = { 'plaintex', 'tex' },
+    dependencies = { 'L3MON4D3/luasnip', 'lervag/vimtex' },
+    ft = { 'plaintex', 'tex', 'markdown', 'quarto' },
     opts = {},
   },
   {
