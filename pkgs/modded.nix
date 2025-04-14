@@ -4,7 +4,8 @@
   ...
 }: let
   zoomPkgs = import inputs.nixpkgs-zoom {
-    inherit (pkgs) system config;
+    inherit (pkgs) system;
+    config.allowUnfree = true;
   };
 in {
   inherit (zoomPkgs) zoom-us;
