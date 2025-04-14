@@ -33,10 +33,17 @@ with config.scheme.withHashtag;
       font-size: 1.05em;
     }
 
+    tooltip {
+      background-color: ${base01};
+      border: solid 2px ${base03};
+      padding: 4px 12px
+    }
+
     .bar {
       font-size: 0.9em;
       background-color: ${base00};
       padding: 0 12px;
+
 
       .dim {
         color: ${base04};
@@ -110,19 +117,52 @@ with config.scheme.withHashtag;
         }
       }
 
-      .bar-right > * {
+      .memory,
+      .volume,
+      .network,
+      .battery,
+      .clock,
+      .notifications,
+      .power-menu {
         padding: 0 10px;
         border-bottom: 2px solid;
       }
 
+      .memory {
+        color: ${magenta};
+        border-color: ${magenta};
+      }
+
       .volume {
-        color: ${cyan};
-        border-color: ${cyan};
+        color: ${blue};
+        border-color: ${blue};
+
+        scale trough {
+          min-height: 4px;
+          background-color: ${base03};
+
+          highlight {
+            background-color: ${blue};
+          }
+        }
+
+        &.mute {
+          color: ${base04};
+          border-color: ${base04};
+
+          scale trough {
+            background-color: ${base03};
+
+            highlight {
+              background-color: ${base04};
+            }
+          }
+        }
       }
 
       .network {
-        color: ${blue};
-        border-color: ${blue};
+        color: ${cyan};
+        border-color: ${cyan};
 
         &.offline {
           color: ${red};
@@ -145,7 +185,7 @@ with config.scheme.withHashtag;
         }
       }
 
-      .time {
+      .clock {
         color: ${yellow};
         border-color: ${yellow};
       }
@@ -154,9 +194,10 @@ with config.scheme.withHashtag;
         color: ${orange};
         border-color: ${orange};
       }
-    }
 
-    tooltip {
-      background-color: ${base00};
+      .power-menu {
+        color: ${red};
+        border-color: ${red};
+      }
     }
   ''

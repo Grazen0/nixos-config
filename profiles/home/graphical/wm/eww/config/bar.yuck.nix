@@ -17,8 +17,12 @@
   networkPkg = pkgs.callPackage ../scripts/network.nix {};
   network = "${networkPkg}/bin/network";
 
+  roundnPkg = pkgs.callPackage ../scripts/roundn.nix {};
+  roundn = "${roundnPkg}/bin/roundn";
+
   pamixer = "${pkgs.pamixer}/bin/pamixer";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
+  fuzzel-power-menu = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
 
   ristate = let
     ristatePkg = pkgs.ristate.override (prev: {
@@ -72,7 +76,7 @@ in
         (box
           :space-evenly false
           :spacing 16
-          (button :class "sysmenu" :onclick "fuzzel &" "")
+          (button :class "sysmenu" :onclick "${config.meta.mainPrograms.appLauncher} &" "")
           (systray :class "systray" :spacing 6 :icon-size 18)
           (icon-metric
             :class {player-status == "Playing" ? "player" : "dim"}
@@ -81,23 +85,17 @@ in
             :visible {player-status != "Stopped"}
             {strlength(player-title) > 30 ? substring(player-title, 0, 30) + "…" : player-title})))
 
-    (deflisten tags :initial "{}"
-      `${uniqq} ${ristate} --tags`)
-
-    (deflisten views-tag :initial "{}"
-      `${uniqq} ${ristate} --views-tag`)
-
-    (deflisten urgency :initial "{}"
-      `${uniqq} ${ristate} --urgency`)
+    (deflisten ristate :initial "{}"
+      `${uniqq} ${ristate} --tags --views-tag --urgency`)
 
 
     (defwidget tag-button [n monitor ?class ?text]
       (button
-        :class "''${class} ''${jq(urgency.urgency[monitor], 'index("''${n}") != null')
+        :class "''${class} ''${jq(ristate.urgency[monitor], 'index("''${n}") != null')
           ? "urgent"
-          : jq(tags.tags[monitor], 'index("''${n}") != null')
+          : jq(ristate.tags[monitor], 'index("''${n}") != null')
             ? "active"
-            : jq(views-tag.viewstag[monitor], 'index(''${n}) == null')
+            : jq(ristate.viewstag[monitor], 'index(''${n}) == null')
               ? "empty"
               : ""}"
         :onclick "riverctl set-focused-tags ''${powi(2, n - 1)}"
@@ -170,17 +168,17 @@ in
     (defwidget network-metric [info]
       (icon-metric
         :class "network ''${info.type == "null" ? "offline" : ""}"
-        :onclick "nm-connection-editor"
+        :onclick "nm-connection-editor &"
         :tooltip {info.device}
         :icon {info.type == "null"
           ? "󰤮"
           : info.type == "ethernet"
             ? "󰈀"
-            : info.strength < 10
+            : info.strength < 20
               ? "󰤯"
-              : info.strength < 30
+              : info.strength < 50
                 ? "󰤟"
-                : info.strength < 50
+                : info.strength < 60
                   ? "󰤢"
                   : info.strength < 80
                     ? "󰤥"
@@ -191,38 +189,61 @@ in
             ? "ethernet"
             : "''${info.strength}%"}))
 
+    (defvar show-volume-bar false)
+
     (defwidget bar-right []
-        (box
-          :class "bar-right"
+      (box
+        :space-evenly false
+        :spacing 4
+        :halign "end"
+        (icon-metric
+          :class "memory"
+          :icon "󰍛"
+          :tooltip "''${round(EWW_RAM.used_mem / 1073741824, 2)} GiB / ''${round(EWW_RAM.total_mem / 1073741824, 2)} GiB"
+          "''${round(EWW_RAM.used_mem_perc, 0)}%")
+        (eventbox
           :space-evenly false
-          :spacing 4
-          :halign "end"
-          (icon-metric
-            :onclick "${pamixer} --toggle-mute && eww poll volume-mute"
-            :tooltip {volume-sink}
-            :class {volume-mute ? "dim" : "volume"}
-            :icon {volume-mute
-              ? ""
-              : volume < 20
-                ? ""
-                : volume < 60
-                  ? ""
-                  : ""}
-            "''${volume}%")
-          (network-metric :info {network-info})
-          (battery-metric
-            :status {EWW_BATTERY.${cfg.battery}.status}
-            :capacity {EWW_BATTERY.${cfg.battery}.capacity})
-          (icon-metric
-            :class "time"
-            :onclick "eww update clock-date=''${!clock-date}"
-            :icon {clock-date ? "" : ""}
-            {formattime(EWW_TIME, clock-date ? "%d/%m/%y" : "%I:%M %p")})
-          (button
-            :class {notifs-paused ? "dim" : "notifications"}
-            :style "font-family: ${theme.font.propo}"
-            :width 35
-            :onclick "dunstctl set-paused toggle && eww poll notifs-paused"
-            :tooltip "Toggle notifications"
-            {notifs-paused ? "" : ""})))
+          :spacing 6
+          :class `volume ''${volume-mute ? "mute" : ""}`
+          :onhover "eww update show-volume-bar=true"
+          :onhoverlost "eww update show-volume-bar=false"
+          (box
+            :space-evenly false
+            :spacing 8
+            (scale
+              :orientation "h"
+              :min 0 :max 100
+              :value {volume}
+              :width 64
+              :onchange "${pamixer} --set-volume $(${roundn} 5 {}) && eww poll volume"
+              :visible {show-volume-bar})
+            (button
+              :onclick "${pamixer} --toggle-mute && eww poll volume-mute"
+              :tooltip {volume-sink}
+              (box
+                :space-evenly false
+                :spacing 12
+                {volume-mute ? "" : volume < 20 ? "" : volume < 60 ? "" : ""}
+                "''${volume}%"))))
+        (network-metric :info {network-info})
+        (battery-metric
+          :status {EWW_BATTERY.${cfg.battery}.status}
+          :capacity {EWW_BATTERY.${cfg.battery}.capacity})
+        (icon-metric
+          :class "clock"
+          :onclick "eww update clock-date=''${!clock-date}"
+          :icon {clock-date ? "" : ""}
+          {formattime(EWW_TIME, clock-date ? "%d/%m/%y" : "%I:%M %p")})
+        (button
+          :class "notifications ''${notifs-paused ? "dim" : ""}"
+          :style "font-family: ${theme.font.propo}"
+          :width 35
+          :onclick "dunstctl set-paused toggle && eww poll notifs-paused"
+          :tooltip "Toggle notifications"
+          {notifs-paused ? "" : ""})
+        (button
+          :class "power-menu"
+          :onclick "${fuzzel-power-menu}"
+          :tooltip "Power menu"
+          " ")))
   ''
