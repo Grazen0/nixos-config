@@ -58,6 +58,14 @@
 
     keymap.manager.prepend_keymap = [
       {
+        on = "j";
+        run = "arrow 1";
+      }
+      {
+        on = "k";
+        run = "arrow -1";
+      }
+      {
         on = "!";
         run = ''shell "$SHELL" --block --confirm'';
         desc = "Open shell here";
