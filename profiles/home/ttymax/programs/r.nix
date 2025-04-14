@@ -3,6 +3,7 @@
   lib,
   lib',
   pkgs,
+  customPkgs,
   inputs,
   ...
 }: {
@@ -94,9 +95,7 @@
       tidyverse
       modeest
       quarto
-      (IRkernel.overrideAttrs (oldAttrs: {
-        patches = [./patches/irkernel.patch] ++ oldAttrs.patches or [];
-      }))
+      customPkgs.r-package-irkernel
       colorout
       r-nvim
       nvimcom

@@ -1,51 +1,33 @@
 {
   pkgs,
+  customPkgs,
   inputs,
   ...
 }: {
-  home.packages = let
-    inherit (pkgs) system;
+  home.packages = with pkgs; [
+    # Desktop utilities
+    pavucontrol
+    file-roller
+    gimp
+    wdisplays
 
-    thorium-browser = inputs.thorium-browser.defaultPackage.${system};
+    inputs.thorium-browser.defaultPackage.${pkgs.system}
+    audacity
+    inkscape
+    # insomnia
+    obsidian
+    customPkgs.zoom-us
+    postman
 
-    fceux = pkgs.fceux.overrideAttrs (prev: {
-      postInstall = ''
-        ${prev.postInstall or ""}
+    # Basic gaming
+    wine
+    customPkgs.fceux
+    snes9x-gtk
 
-        substituteInPlace "$out/share/applications/fceux.desktop" \
-          --replace-fail "/usr" "$out"
-      '';
-    });
-
-    zoomPkgs = import inputs.nixpkgs-zoom {
-      inherit system;
-      config.allowUnfree = true;
-    };
-  in
-    with pkgs; [
-      # Desktop utilities
-      pavucontrol
-      file-roller
-      gimp
-      wdisplays
-
-      thorium-browser
-      audacity
-      inkscape
-      # insomnia
-      obsidian
-      zoomPkgs.zoom-us
-      postman
-
-      # Basic gaming
-      wine
-      fceux
-      snes9x-gtk
-
-      # LibreOffice + spellcheck
-      libreoffice-qt
-      hunspell
-      hunspellDicts.en_US
-      hunspellDicts.es_PE
-    ];
+    # LibreOffice + spellcheck
+    libreoffice-qt
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.es_PE
+  ];
 }

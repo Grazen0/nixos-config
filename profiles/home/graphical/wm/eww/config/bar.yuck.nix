@@ -23,21 +23,7 @@
   pamixer = "${pkgs.pamixer}/bin/pamixer";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   fuzzel-power-menu = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
-
-  ristate = let
-    ristatePkg = pkgs.ristate.override (prev: {
-      rustPlatform =
-        prev.rustPlatform
-        // {
-          buildRustPackage = args:
-            prev.rustPlatform.buildRustPackage (args
-              // {
-                src = inputs.ristate;
-                cargoHash = "sha256-6uvIc69x/yHkAC3GJUuYGcCbpVyX/mb/pXLf+BQC+48=";
-              });
-        };
-    });
-  in "${ristatePkg}/bin/ristate";
+  ristate = "${customPkgs.ristate}/bin/ristate";
 in
   # yuck
   ''
