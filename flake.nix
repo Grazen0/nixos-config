@@ -54,11 +54,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     haskell-debug-adapter = {
       url = "github:phoityne/haskell-debug-adapter/8f31926595109ade331b6c314d862e0d00a5734a";
       inputs.nixpkgs.follows = "nixpkgs";

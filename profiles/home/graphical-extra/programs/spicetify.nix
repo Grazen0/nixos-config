@@ -24,7 +24,7 @@ in {
         '';
       };
 
-    colorScheme = "kanagawa";
+    colorScheme = "Kanagawa";
 
     enabledExtensions = with spicePkgs.extensions; [
       adblock

@@ -1,8 +1,4 @@
 {
-  pkgs,
-  inputs,
-  ...
-}: {
   imports = [
     ./plugins.nix
     ./packages.nix
@@ -12,7 +8,6 @@
 
   programs.neovim = {
     enable = true;
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
     defaultEditor = true;
     viAlias = true;
