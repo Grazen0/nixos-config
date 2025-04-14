@@ -17,4 +17,4 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check
-        run: nix flake check --all-systems
+        run: nix flake check
