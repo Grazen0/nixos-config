@@ -7,6 +7,10 @@
   inputs,
   ...
 }: {
+  home.packages = with pkgs; [
+    wtype
+  ];
+
   wayland.windowManager.river.settings = let
     inherit (lib) mergeAttrsList genList;
     inherit (lib'.river) tagNum tagNumStr spawn;
