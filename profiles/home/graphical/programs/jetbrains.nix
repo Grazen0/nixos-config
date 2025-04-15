@@ -1,17 +1,25 @@
 {
   programs.jetbrains = {
     enable = true;
-    editors.idea-ultimate.enable = true;
+
+    editors = {
+      idea-ultimate.enable = true;
+      pycharm-professional.enable = true;
+    };
 
     ideavimrc =
       # vim
       ''
         " Plugins =======================
         set surround
-        set multiple-cursors
         set commentary
         set highlightedyank
         set NERDTree
+        set argtextobj
+        set textobj-indent
+        set functiontextobj
+        set peekaboo
+        set which-key
 
         " Settings ======================
         set relativenumber
@@ -26,6 +34,10 @@
 
         " Clear search highlights with <Esc>
         nmap <Esc> :nohl<CR>
+
+        " Helix-like thingy
+        nmap gh ^
+        nmap gl $
 
         " Better redo
         nmap U <C-r>

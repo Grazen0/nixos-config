@@ -18,7 +18,8 @@
   };
 in {
   programs.vscode = {
-    mutableExtensionsDir = false;
+    enable = true;
+    mutableExtensionsDir = true;
 
     profiles.default = {
       enableUpdateCheck = false;
