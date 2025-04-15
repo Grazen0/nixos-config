@@ -28,18 +28,16 @@
         set smartcase
         set hlsearch
 
-        " Mapings =======================
+        " Mappings =======================
         let mapleader=" "
         let maplocalleader=","
 
         " Clear search highlights with <Esc>
         nmap <Esc> :nohl<CR>
 
-        " Helix-like thingy
+        " Helix-like stuff
         nmap gh ^
         nmap gl $
-
-        " Better redo
         nmap U <C-r>
 
         " NERDTree
