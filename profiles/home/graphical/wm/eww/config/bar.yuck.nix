@@ -182,11 +182,6 @@ in
         :space-evenly false
         :spacing 4
         :halign "end"
-        (icon-metric
-          :class "memory"
-          :icon "󰍛"
-          :tooltip "''${round(EWW_RAM.used_mem / 1073741824, 2)} GiB / ''${round(EWW_RAM.total_mem / 1073741824, 2)} GiB"
-          "''${round(EWW_RAM.used_mem_perc, 0)}%")
         (eventbox
           :onhover "eww update show-volume-bar=true"
           :onhoverlost "eww update show-volume-bar=false"
@@ -209,6 +204,11 @@ in
                 :spacing 12
                 {volume-mute ? "" : volume < 20 ? "" : volume < 60 ? "" : ""}
                 "''${volume}%"))))
+        (icon-metric
+          :class "memory"
+          :icon "󰍛"
+          :tooltip "''${round(EWW_RAM.used_mem / 1073741824, 2)} GiB / ''${round(EWW_RAM.total_mem / 1073741824, 2)} GiB"
+          "''${round(EWW_RAM.used_mem_perc, 0)}%")
         (network-metric :info {network-info})
         (battery-metric
           :status {EWW_BATTERY.${cfg.battery}.status}
