@@ -52,7 +52,7 @@ in
         (bar-middle :monitor {monitor})
         (bar-right)))
 
-    (deflisten player-status
+    (deflisten player-status :initial "Stopped"
       `${playerctl} -p mopidy,spotify -F status`)
 
     (deflisten player-title
