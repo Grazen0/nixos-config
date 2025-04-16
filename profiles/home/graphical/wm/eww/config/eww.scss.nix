@@ -44,12 +44,6 @@ with config.scheme.withHashtag;
       background-color: ${base00};
       padding: 0 12px;
 
-
-      .dim {
-        color: ${base04};
-        border-color: ${base04};
-      }
-
       .sysmenu {
         color: ${blue};
         font-size: 1.5em;
@@ -83,6 +77,11 @@ with config.scheme.withHashtag;
       .player {
         color: ${brown};
         border-color: ${brown};
+
+        &.paused {
+          color: ${base04};
+          border-color: ${base04};
+        }
       }
 
       .tags > * {
@@ -150,12 +149,8 @@ with config.scheme.withHashtag;
           color: ${base04};
           border-color: ${base04};
 
-          scale trough {
-            background-color: ${base03};
-
-            highlight {
-              background-color: ${base04};
-            }
+          scale trough highlight {
+            background-color: ${base04};
           }
         }
       }
@@ -193,6 +188,11 @@ with config.scheme.withHashtag;
       .notifications {
         color: ${orange};
         border-color: ${orange};
+
+        &.paused {
+          color: ${base04};
+          border-color: ${base04};
+        }
       }
 
       .power-menu {

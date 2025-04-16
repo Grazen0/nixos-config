@@ -65,7 +65,7 @@ in
           (button :class "sysmenu" :onclick "${config.meta.mainPrograms.appLauncher} &" "")
           (systray :class "systray" :spacing 6 :icon-size 18)
           (icon-metric
-            :class {player-status == "Playing" ? "player" : "dim"}
+            :class "player ''${player-status != "Playing" ? "paused" : ""}"
             :onclick "${playerctl} -p mopidy,spotify play-pause"
             :icon ""
             :visible {player-status != "Stopped"}
@@ -219,7 +219,7 @@ in
           :icon {clock-date ? "" : ""}
           {formattime(EWW_TIME, clock-date ? "%d/%m/%y" : "%I:%M %p")})
         (button
-          :class "notifications ''${notifs-paused ? "dim" : ""}"
+          :class "notifications ''${notifs-paused ? "paused" : ""}"
           :style "font-family: ${theme.font.propo}"
           :width 35
           :onclick "dunstctl set-paused toggle && eww poll notifs-paused"
