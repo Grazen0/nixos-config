@@ -38,6 +38,7 @@
           }
           // extraConfig;
       in {
+        "{26690e10-862d-456f-8bf2-50117a3cb206}" = mkExtension "kanagawa-theme" {private_browsing = true;};
         "uBlock0@raymondhill.net" = mkExtension "ublock-origin" {private_browsing = true;};
         "private-relay@firefox.com" = mkExtension "private-relay" {};
         "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = mkExtension "vimium-ff" {private_browsing = true;};
@@ -53,6 +54,7 @@
       search.default = "ddg";
 
       settings = {
+        "extensions.activeThemeID" = "{26690e10-862d-456f-8bf2-50117a3cb206}";
         "privacy.trackingprotection.enabled" = true;
         "privacy.globalprivacycontrol.enabled" = true;
 
