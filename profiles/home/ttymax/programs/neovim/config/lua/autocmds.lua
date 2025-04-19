@@ -84,6 +84,14 @@ create_autocmd('FileType', {
   end,
 })
 
+-- Disable wrap for Java files
+create_autocmd('FileType', {
+  pattern = 'java',
+  callback = function()
+    vim.opt.wrap = false
+  end,
+})
+
 -- Proper syntax highlighting for .inc assembly files
 create_autocmd({ 'BufNew', 'BufNewFile', 'BufRead' }, {
   pattern = { '*.inc' },
