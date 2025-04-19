@@ -9,7 +9,7 @@ o.termguicolors = true
 o.number = true
 o.relativenumber = true
 o.signcolumn = 'yes'
-o.scrolloff = 1
+o.scrolloff = 10
 o.cursorline = true
 o.cursorlineopt = 'both'
 
@@ -29,12 +29,13 @@ o.expandtab = true
 
 -- Misc (?)
 o.showmode = false
-o.listchars = 'tab:> ,trail:-,nbsp:+,space:·'
+o.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 o.autoread = true
 o.mouse = 'a' -- No shame
 o.splitright = true
 o.undofile = true
 o.updatetime = 300
 o.spelllang = { 'es', 'en_us' }
+o.confirm = true
 
 vim.g.tex_flavor = 'latex'
