@@ -128,20 +128,20 @@ with config.scheme.withHashtag;
       }
 
       .memory {
-        color: ${magenta};
-        border-color: ${magenta};
+        color: ${blue};
+        border-color: ${blue};
       }
 
       .volume {
-        color: ${blue};
-        border-color: ${blue};
+        color: ${magenta};
+        border-color: ${magenta};
 
         scale trough {
           min-height: 4px;
           background-color: ${base03};
 
           highlight {
-            background-color: ${blue};
+            background-color: ${magenta};
           }
         }
 
