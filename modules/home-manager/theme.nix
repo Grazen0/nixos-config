@@ -1,11 +1,9 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{ config, lib, ... }:
+let
   inherit (lib) mkOption mkEnableOption types;
   cfg = config.theme.home;
-in {
+in
+{
   options.theme.home = {
     wallpaper = {
       enable = mkEnableOption "wallpaper theming";
@@ -50,33 +48,28 @@ in {
     };
   };
 
-  config = let
-    inherit (lib) mkIf optionals;
-    inherit (cfg) wallpaper cursor;
-  in {
-    home.file.wallpaper = mkIf wallpaper.enable {
-      inherit (wallpaper) source target;
-    };
+  config =
+    let
+      inherit (lib) mkIf optionals;
+      inherit (cfg) wallpaper cursor;
+    in
+    {
+      home.file.wallpaper = mkIf wallpaper.enable { inherit (wallpaper) source target; };
 
-    home.pointerCursor = mkIf cursor.enable {
-      inherit (cursor) package name size;
-    };
+      home.pointerCursor = mkIf cursor.enable { inherit (cursor) package name size; };
 
-    gtk.cursorTheme = mkIf cursor.enable {
-      inherit (cursor) package name size;
-    };
+      gtk.cursorTheme = mkIf cursor.enable { inherit (cursor) package name size; };
 
-    home.sessionVariables = mkIf cursor.enable {
-      XCURSOR_THEME = cursor.name;
-      XCURSOR_SIZE = toString cursor.size;
-    };
+      home.sessionVariables = mkIf cursor.enable {
+        XCURSOR_THEME = cursor.name;
+        XCURSOR_SIZE = toString cursor.size;
+      };
 
-    wayland.windowManager.hyprland.settings.env =
-      optionals
-      config.wayland.windowManager.hyprland.enable
-      [
-        "XCURSOR_THEME,${cursor.name}"
-        "XCURSOR_SIZE,${toString cursor.size}"
-      ];
-  };
+      wayland.windowManager.hyprland.settings.env =
+        optionals config.wayland.windowManager.hyprland.enable
+          [
+            "XCURSOR_THEME,${cursor.name}"
+            "XCURSOR_SIZE,${toString cursor.size}"
+          ];
+    };
 }

@@ -1,11 +1,7 @@
-{
-  writeShellApplication,
-  playerctl,
-  ...
-}:
+{ writeShellApplication, playerctl, ... }:
 writeShellApplication {
   name = "media-query";
-  runtimeInputs = [playerctl];
+  runtimeInputs = [ playerctl ];
   text = ''
     playerctl="playerctl -p mopidy,spotify"
     class=""

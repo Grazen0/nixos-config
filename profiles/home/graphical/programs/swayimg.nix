@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   programs.swayimg = {
     enable = true;
 

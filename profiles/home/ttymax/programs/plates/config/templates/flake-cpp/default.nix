@@ -10,11 +10,9 @@ stdenv.mkDerivation {
 
   src = lib.cleanSource ./.;
 
-  nativeBuildInputs = [cmake];
+  nativeBuildInputs = [ cmake ];
 
-  cmakeFlags = [
-    "-DCMAKE_BUILD_TYPE=Release"
-  ];
+  cmakeFlags = [ "-DCMAKE_BUILD_TYPE=Release" ];
 
   buildPhase = ''
     cmake . -B build $cmakeFlags

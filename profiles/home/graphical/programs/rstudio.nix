@@ -3,7 +3,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   programs.r.rstudio = {
     preferences = {
       initial_working_directory = "~";

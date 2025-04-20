@@ -3,9 +3,11 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   inherit (lib) mkForce;
-in {
+in
+{
   imports = [
     inputs.nixos-hardware.nixosModules.common-gpu-intel
     ./hardware.nix
@@ -30,7 +32,12 @@ in {
     '';
   };
 
-  services.openssh.settings.AllowUsers = ["jdgt"];
+  services.openssh.settings.AllowUsers = [ "jdgt" ];
+
+  virtualisation.virtualbox = {
+    host.enable = true;
+  };
+  users.extraGroups.vboxusers.members = [ "jdgt" ];
 
   networking.hostName = "nitori";
   system.stateVersion = "24.05";

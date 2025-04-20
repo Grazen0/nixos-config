@@ -6,7 +6,10 @@
 }:
 writeShellApplication {
   name = "network";
-  runtimeInputs = [jq networkmanager];
+  runtimeInputs = [
+    jq
+    networkmanager
+  ];
   text = ''
     active_connections=$(nmcli -t -f TYPE,DEVICE connection show --active)
     ethernet_device=$(echo "$active_connections" | { grep 'ethernet:' || true; } | awk -F ':' '{print $2}')

@@ -1,10 +1,8 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
+{ lib, pkgs, ... }:
+let
   inherit (lib) mkForce;
-in {
+in
+{
   disabledModules = [
     ../../profiles/home/graphical/programs/equibop
     ../../profiles/home/graphical/packages.nix

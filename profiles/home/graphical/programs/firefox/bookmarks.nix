@@ -59,7 +59,7 @@
         }
         {
           name = "Canvas";
-          tags = ["instructure"];
+          tags = [ "instructure" ];
           url = "https://utec.instructure.com/";
         }
         {
@@ -115,12 +115,15 @@
         }
         {
           name = "Home Manager Option Search";
-          tags = ["homemanager" "hm"];
+          tags = [
+            "homemanager"
+            "hm"
+          ];
           url = "https://home-manager-options.extranix.com/?release=master";
         }
         {
           name = "Nixpkgs Search";
-          tags = ["pkgs"];
+          tags = [ "pkgs" ];
           url = "https://search.nixos.org/packages?channel=unstable";
         }
         {

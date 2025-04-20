@@ -1,14 +1,9 @@
+{ config, pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}: {
   services.mopidy = {
     enable = true;
 
-    extraConfigFiles = [
-      config.sops.templates."mopidy-secrets.conf".path
-    ];
+    extraConfigFiles = [ config.sops.templates."mopidy-secrets.conf".path ];
 
     extensionPackages = with pkgs; [
       mopidy-mpd

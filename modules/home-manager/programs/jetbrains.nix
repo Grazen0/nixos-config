@@ -3,8 +3,16 @@
   lib,
   pkgs,
   ...
-}: let
-  inherit (lib) mkEnableOption mkPackageOption mkOption types mkIf genAttrs;
+}:
+let
+  inherit (lib)
+    mkEnableOption
+    mkPackageOption
+    mkOption
+    types
+    mkIf
+    genAttrs
+    ;
 
   cfg = config.programs.jetbrains;
 
@@ -27,13 +35,14 @@
     "webstorm"
     "writerside"
   ];
-in {
+in
+{
   options.programs.jetbrains = {
     enable = mkEnableOption "JetBrains editors";
 
     editors = genAttrs editors (editor: {
       enable = mkEnableOption editor;
-      package = mkPackageOption pkgs.jetbrains editor {};
+      package = mkPackageOption pkgs.jetbrains editor { };
     });
 
     ideavimrc = mkOption {
@@ -45,10 +54,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = map (editor: mkIf cfg.editors.${editor}.enable cfg.editors.${editor}.package) editors;
+    home.packages = map (
+      editor: mkIf cfg.editors.${editor}.enable cfg.editors.${editor}.package
+    ) editors;
 
-    home.file.".ideavimrc" = mkIf (cfg.ideavimrc != null) {
-      text = cfg.ideavimrc;
-    };
+    home.file.".ideavimrc" = mkIf (cfg.ideavimrc != null) { text = cfg.ideavimrc; };
   };
 }

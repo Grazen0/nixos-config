@@ -4,7 +4,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   programs.yazi = {
     enable = true;
     shellWrapperName = "y";
@@ -12,19 +13,20 @@
     flavors.kanagawa = inputs.yazi-flavor-kanagawa;
     theme.flavor.use = "kanagawa";
 
-    plugins = let
-      inherit (lib) genAttrs;
+    plugins =
+      let
+        inherit (lib) genAttrs;
 
-      officialPlugins = [
-        "full-border"
-        "smart-enter"
-        "toggle-pane"
-        "git"
-        "mount"
-      ];
+        officialPlugins = [
+          "full-border"
+          "smart-enter"
+          "toggle-pane"
+          "git"
+          "mount"
+        ];
 
-      inputPlugins = ["restore"];
-    in
+        inputPlugins = [ "restore" ];
+      in
       (genAttrs officialPlugins (plugin: "${inputs.yazi-plugins}/${plugin}.yazi"))
       // (genAttrs inputPlugins (plugin: inputs."yazi-plugin-${plugin}"));
 
@@ -98,7 +100,10 @@
         desc = "Mount manager";
       }
       {
-        on = ["g" "t"];
+        on = [
+          "g"
+          "t"
+        ];
         run = "cd ${config.xdg.dataHome}/Trash/files";
         desc = "Goto trash";
       }

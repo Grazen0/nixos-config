@@ -1,11 +1,9 @@
-{
-  lib,
-  modulesPath,
-  ...
-}: let
+{ lib, modulesPath, ... }:
+let
   inherit (lib) mkForce;
-in {
-  imports = [(modulesPath + "/installer/cd-dvd/installation-cd-base.nix")];
+in
+{
+  imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-base.nix") ];
 
   networking.wireless.enable = mkForce false;
 

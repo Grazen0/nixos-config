@@ -6,10 +6,11 @@
 }:
 writeShellApplication {
   name = "tmux-session-picker";
-  runtimeInputs = [tmux];
-  text = let
-    ppick_bin = "${ppick}/bin/ppick";
-  in
+  runtimeInputs = [ tmux ];
+  text =
+    let
+      ppick_bin = "${ppick}/bin/ppick";
+    in
     # bash
     ''
       sessions=$(tmux list-sessions -F '#S')

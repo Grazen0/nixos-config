@@ -4,10 +4,9 @@
   pkgs,
   inputs,
   ...
-}: {
-  imports = [
-    ./aliases.nix
-  ];
+}:
+{
+  imports = [ ./aliases.nix ];
 
   # Handled by fzf-fish
   programs.fzf.enableFishIntegration = false;
@@ -15,16 +14,10 @@
   programs.fish = {
     enable = true;
 
-    plugins =
-      map (name: {
-        inherit name;
-        inherit (pkgs.fishPlugins.${name}) src;
-      }) (
-        [
-          "autopair"
-        ]
-        ++ lib.optionals config.programs.fzf.enable ["fzf-fish"]
-      );
+    plugins = map (name: {
+      inherit name;
+      inherit (pkgs.fishPlugins.${name}) src;
+    }) ([ "autopair" ] ++ lib.optionals config.programs.fzf.enable [ "fzf-fish" ]);
 
     functions = {
       fish_mode_prompt.body = "";

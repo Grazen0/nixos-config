@@ -7,13 +7,16 @@
     systems.url = "github:nix-systems/default";
   };
 
-  outputs = inputs @ {flake-parts, ...}:
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import inputs.systems;
 
-      perSystem = {pkgs, ...}: {
-        packages.default = pkgs.callPackage ./default.nix {};
-        devShells.default = pkgs.callPackage ./shell.nix {};
-      };
+      perSystem =
+        { pkgs, ... }:
+        {
+          packages.default = pkgs.callPackage ./default.nix { };
+          devShells.default = pkgs.callPackage ./shell.nix { };
+        };
     };
 }

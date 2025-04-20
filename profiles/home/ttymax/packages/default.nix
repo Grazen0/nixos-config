@@ -1,7 +1,6 @@
-{pkgs, ...}: {
-  imports = [
-    ./dev.nix
-  ];
+{ pkgs, ... }:
+{
+  imports = [ ./dev.nix ];
 
   home.packages = with pkgs; [
     pciutils

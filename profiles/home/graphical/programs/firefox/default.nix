@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     libnotify # Required for notifications to work properly
   ];
@@ -30,24 +31,29 @@
 
       TranslateEnabled = false;
 
-      ExtensionSettings = let
-        mkExtension = name: extraConfig:
-          {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/${name}/latest.xpi";
-            installation_mode = "force_installed";
-          }
-          // extraConfig;
-      in {
-        "{26690e10-862d-456f-8bf2-50117a3cb206}" = mkExtension "kanagawa-theme" {private_browsing = true;};
-        "uBlock0@raymondhill.net" = mkExtension "ublock-origin" {private_browsing = true;};
-        "private-relay@firefox.com" = mkExtension "private-relay" {};
-        "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = mkExtension "vimium-ff" {private_browsing = true;};
-        "addon@darkreader.org" = mkExtension "darkreader" {private_browsing = true;};
-        "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = mkExtension "return-youtube-dislikes" {};
-        "jid1-MnnxcxisBPnSXQ@jetpack" = mkExtension "privacy-badger17" {private_browsing = true;};
-        "CanvasBlocker@kkapsner.de" = mkExtension "canvasblocker" {private_browsing = true;};
-        "custom-new-tab-page@mint.as" = mkExtension "custom-new-tab-page" {};
-      };
+      ExtensionSettings =
+        let
+          mkExtension =
+            name: extraConfig:
+            {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/${name}/latest.xpi";
+              installation_mode = "force_installed";
+            }
+            // extraConfig;
+        in
+        {
+          "{26690e10-862d-456f-8bf2-50117a3cb206}" = mkExtension "kanagawa-theme" {
+            private_browsing = true;
+          };
+          "uBlock0@raymondhill.net" = mkExtension "ublock-origin" { private_browsing = true; };
+          "private-relay@firefox.com" = mkExtension "private-relay" { };
+          "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = mkExtension "vimium-ff" { private_browsing = true; };
+          "addon@darkreader.org" = mkExtension "darkreader" { private_browsing = true; };
+          "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = mkExtension "return-youtube-dislikes" { };
+          "jid1-MnnxcxisBPnSXQ@jetpack" = mkExtension "privacy-badger17" { private_browsing = true; };
+          "CanvasBlocker@kkapsner.de" = mkExtension "canvasblocker" { private_browsing = true; };
+          "custom-new-tab-page@mint.as" = mkExtension "custom-new-tab-page" { };
+        };
     };
 
     profiles.default = {

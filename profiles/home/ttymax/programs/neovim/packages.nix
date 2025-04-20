@@ -1,8 +1,5 @@
+{ pkgs, inputs, ... }:
 {
-  pkgs,
-  inputs,
-  ...
-}: {
   programs.neovim = {
     extraPackages = with pkgs; [
       # Essentials
@@ -11,11 +8,11 @@
       wl-clipboard
 
       # Conform formatters
-      alejandra
       beautysh
       black
       clang-tools
       isort
+      nixfmt-rfc-style
       ormolu
       prettierd
       rustfmt
@@ -48,7 +45,7 @@
       # nvim-dap
       jq
       vscode-js-debug
-      (inputs.haskell-debug-adapter.packages.${system}.default)
+      inputs.haskell-debug-adapter.packages.${system}.default
 
       # Plugin-specifics
       texlive.combined.scheme-medium # vimtex
@@ -56,8 +53,8 @@
       cmake # cmake-tools.nvim
     ];
 
-    extraPython3Packages = ps:
-      with ps; [
+    extraPython3Packages =
+      ps: with ps; [
         debugpy # nvim-dap-python
       ];
   };

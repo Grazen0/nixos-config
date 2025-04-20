@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     gcc
     cmake
@@ -6,10 +7,7 @@
     cargo
     rustc
     clippy
-    (haskellPackages.ghcWithPackages (ps:
-      with ps; [
-        stack
-      ]))
+    (haskellPackages.ghcWithPackages (ps: with ps; [ stack ]))
     nodejs
     pnpm
     python3

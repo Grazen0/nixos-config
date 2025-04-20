@@ -6,7 +6,10 @@
 }:
 writeShellApplication {
   name = "exe2png";
-  runtimeInputs = [icoutils imagemagick];
+  runtimeInputs = [
+    icoutils
+    imagemagick
+  ];
   text = ''
     if [[ "$#" -lt 1 ]]; then
       echo "No source file provided"

@@ -1,34 +1,32 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   programs.wlogout = {
-    style = let
-      inherit (config) theme;
-      colors = theme.colors.hexWithHashtag;
-      buttons = [
-        "lock"
-        "logout"
-        "suspend"
-        "hibernate"
-        "shutdown"
-        "reboot"
-      ];
+    style =
+      let
+        inherit (config) theme;
+        colors = theme.colors.hexWithHashtag;
+        buttons = [
+          "lock"
+          "logout"
+          "suspend"
+          "hibernate"
+          "shutdown"
+          "reboot"
+        ];
 
-      buttonCss = map (btn:
-        # css
-        ''
-          #${btn} {
-            background-image: url('${./icons/${btn}.png}');
-          }
+        buttonCss = map (
+          btn:
+          # css
+          ''
+            #${btn} {
+              background-image: url('${./icons/${btn}.png}');
+            }
 
-          #${btn}:focus, #${btn}:active {
-            background-image: url('${./icons/${btn}-hover.png}');
-          }
-        '')
-      buttons;
-    in
+            #${btn}:focus, #${btn}:active {
+              background-image: url('${./icons/${btn}-hover.png}');
+            }
+          '') buttons;
+      in
       # css
       ''
         * {

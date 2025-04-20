@@ -4,9 +4,11 @@
   pkgs,
   customPkgs,
   ...
-}: let
+}:
+let
   inherit (lib) mkForce;
-in {
+in
+{
   home.packages = with pkgs; [
     kdePackages.kdenlive
     prismlauncher
@@ -19,18 +21,21 @@ in {
         "HDMI-A-1, preferred, auto-left, 1"
       ];
 
-      exec-once = [
-        "${customPkgs.handle-monitor-connect}/bin/handle-monitor-connect"
-      ];
+      exec-once = [ "${customPkgs.handle-monitor-connect}/bin/handle-monitor-connect" ];
     };
 
-    river.settings.rule-add = let
-      inherit (lib'.river) tagNumStr;
-    in {
-      "-app-id" = {
-        "'equibop'" = mkForce ["output HDMI-A-1" "tags ${tagNumStr 2}"];
+    river.settings.rule-add =
+      let
+        inherit (lib'.river) tagNumStr;
+      in
+      {
+        "-app-id" = {
+          "'equibop'" = mkForce [
+            "output HDMI-A-1"
+            "tags ${tagNumStr 2}"
+          ];
+        };
       };
-    };
   };
 
   meta.eww = {
@@ -72,17 +77,15 @@ in {
     {
       profile = {
         name = "undocked";
-        outputs = [
-          {criteria = "eDP-1";}
-        ];
+        outputs = [ { criteria = "eDP-1"; } ];
       };
     }
     {
       profile = {
         name = "docked";
         outputs = [
-          {criteria = "eDP-1";}
-          {criteria = "HDMI-A-1";}
+          { criteria = "eDP-1"; }
+          { criteria = "HDMI-A-1"; }
         ];
       };
     }

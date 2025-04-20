@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   xdg = {
     userDirs = {
       enable = true;
@@ -31,29 +32,34 @@
     mimeApps = {
       enable = true;
 
-      defaultApplications = let
-        browser = ["firefox.desktop"];
-        documentViewer = ["org.pwmt.zathura.desktop"];
-        fileManager = ["thunar.desktop"];
-        archiver = ["org.gnome.FileRoller.desktop"];
-        editor = ["nvim.desktop"];
-        imageViewer = ["swayimg.desktop"];
-        mediaPlayer = ["mpv.desktop"];
-        wine = ["wine.desktop"];
+      defaultApplications =
+        let
+          browser = [ "firefox.desktop" ];
+          documentViewer = [ "org.pwmt.zathura.desktop" ];
+          fileManager = [ "thunar.desktop" ];
+          archiver = [ "org.gnome.FileRoller.desktop" ];
+          editor = [ "nvim.desktop" ];
+          imageViewer = [ "swayimg.desktop" ];
+          mediaPlayer = [ "mpv.desktop" ];
+          wine = [ "wine.desktop" ];
 
-        inherit (lib.attrsets) mapAttrsToList genAttrs;
-        inherit (lib.strings) splitString hasPrefix;
+          inherit (lib.attrsets) mapAttrsToList genAttrs;
+          inherit (lib.strings) splitString hasPrefix;
 
-        globAssociations = {
-          "audio/" = mediaPlayer;
-          "video/" = mediaPlayer;
-          "image/" = imageViewer;
-          "text/" = editor;
-        };
+          globAssociations = {
+            "audio/" = mediaPlayer;
+            "video/" = mediaPlayer;
+            "image/" = imageViewer;
+            "text/" = editor;
+          };
 
-        commonTypes = splitString "\n" (lib.readFile "${pkgs.shared-mime-info}/share/mime/types");
-        expandedAssociations = lib.mergeAttrsList (mapAttrsToList (name: value: genAttrs (lib.filter (hasPrefix name) commonTypes) (_: value)) globAssociations);
-      in
+          commonTypes = splitString "\n" (lib.readFile "${pkgs.shared-mime-info}/share/mime/types");
+          expandedAssociations = lib.mergeAttrsList (
+            mapAttrsToList (
+              name: value: genAttrs (lib.filter (hasPrefix name) commonTypes) (_: value)
+            ) globAssociations
+          );
+        in
         {
           "x-scheme-handler/http" = browser;
           "x-scheme-handler/https" = browser;

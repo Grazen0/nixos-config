@@ -3,7 +3,8 @@
   lib',
   inputs,
   ...
-}: let
+}:
+let
   inherit (inputs) home-manager nixpkgs-stable self;
 
   specialArgsFor = system: {
@@ -14,42 +15,50 @@
     };
     customPkgs = self.packages.${system};
   };
-in {
-  mkSystem = {
-    system,
-    modules,
-  }:
+in
+{
+  mkSystem =
+    { system, modules }:
     lib.nixosSystem rec {
       inherit system modules;
       specialArgs = specialArgsFor system;
     };
 
-  mkUserModule = {
-    username,
-    extraGroups ? ["wheel" "audio" "networkmanager" "dialout"],
-    homeManagerModules ? null,
-    ...
-  }: {pkgs, ...}: let
-    withHomeManager = homeManagerModules != null;
-  in {
-    imports = lib.optionals withHomeManager [home-manager.nixosModules.home-manager];
+  mkUserModule =
+    {
+      username,
+      extraGroups ? [
+        "wheel"
+        "audio"
+        "networkmanager"
+        "dialout"
+      ],
+      homeManagerModules ? null,
+      ...
+    }:
+    { pkgs, ... }:
+    let
+      withHomeManager = homeManagerModules != null;
+    in
+    {
+      imports = lib.optionals withHomeManager [ home-manager.nixosModules.home-manager ];
 
-    users.users.${username} = {
-      isNormalUser = true;
-      inherit extraGroups;
-    };
+      users.users.${username} = {
+        isNormalUser = true;
+        inherit extraGroups;
+      };
 
-    home-manager = lib.mkIf withHomeManager {
-      verbose = true;
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      extraSpecialArgs = specialArgsFor pkgs.system;
-      backupFileExtension = "backup";
+      home-manager = lib.mkIf withHomeManager {
+        verbose = true;
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        extraSpecialArgs = specialArgsFor pkgs.system;
+        backupFileExtension = "backup";
 
-      users.${username} = {
-        imports = homeManagerModules;
-        meta.mainUser = username;
+        users.${username} = {
+          imports = homeManagerModules;
+          meta.mainUser = username;
+        };
       };
     };
-  };
 }

@@ -8,7 +8,12 @@
 }:
 writeShellApplication {
   name = "player-art";
-  runtimeInputs = [mpc playerctl ffmpeg chafa];
+  runtimeInputs = [
+    mpc
+    playerctl
+    ffmpeg
+    chafa
+  ];
   text = ''
     if [[ $# -ne 1 ]]; then
       echo "Usage: player-art [FALLBACK]"

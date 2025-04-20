@@ -1,30 +1,25 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   wayland.windowManager.hyprland.settings = with config.scheme; {
-    windowrule = [
-    ];
+    windowrule = [ ];
 
-    windowrulev2 = let
-      dialogTitles = [
-        "Open File"
-        "Select a File"
-        "Choose wallpaper"
-        "Open Folder"
-        "Save As"
-        "Library"
-        "File Upload"
-      ];
+    windowrulev2 =
+      let
+        dialogTitles = [
+          "Open File"
+          "Select a File"
+          "Choose wallpaper"
+          "Open Folder"
+          "Save As"
+          "Library"
+          "File Upload"
+        ];
 
-      dialogRules =
-        map (title: [
+        dialogRules = map (title: [
           "float, title:^(${title})(.*)$"
           "center, title:^(${title})(.*)$"
-        ])
-        dialogTitles;
-    in
+        ]) dialogTitles;
+      in
       [
         # Gives complete control over maximizing
         "suppressevent maximize, class:.*"

@@ -1,8 +1,5 @@
+{ config, pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}: {
   gtk = {
     enable = true;
 

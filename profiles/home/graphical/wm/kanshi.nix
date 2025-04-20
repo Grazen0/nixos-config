@@ -24,17 +24,15 @@
       {
         profile = {
           name = "undocked";
-          outputs = [
-            {criteria = "eDP-1";}
-          ];
+          outputs = [ { criteria = "eDP-1"; } ];
         };
       }
       {
         profile = {
           name = "docked";
           outputs = [
-            {criteria = "eDP-1";}
-            {criteria = "HDMI-A-1";}
+            { criteria = "eDP-1"; }
+            { criteria = "HDMI-A-1"; }
           ];
         };
       }

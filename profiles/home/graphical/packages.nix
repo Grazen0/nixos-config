@@ -3,7 +3,8 @@
   customPkgs,
   inputs,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     # Desktop utilities
     pavucontrol

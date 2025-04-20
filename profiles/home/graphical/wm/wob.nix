@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   services.wob = {
     enable = true;
 

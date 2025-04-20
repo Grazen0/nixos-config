@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   programs.hyprlock = {
     settings = with config.scheme; {
       general = {
@@ -7,11 +8,7 @@
         no_fade_in = false;
       };
 
-      background = [
-        {
-          path = config.theme.home.wallpaper.target;
-        }
-      ];
+      background = [ { path = config.theme.home.wallpaper.target; } ];
 
       input-field = [
         {

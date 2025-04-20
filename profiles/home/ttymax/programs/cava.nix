@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   programs.cava = {
     settings = {
       general.framerate = 60;

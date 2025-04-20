@@ -26,7 +26,7 @@ return {
       sh = { 'beautysh' },
       bash = { 'beautysh' },
       zsh = { 'beautysh' },
-      nix = { 'alejandra' },
+      nix = { 'nixfmt' },
       markdown = { 'prettierd' },
       quarto = { 'prettierd' },
       r = { 'styler' },

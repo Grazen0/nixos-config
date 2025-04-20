@@ -1,8 +1,5 @@
+{ pkgs, customPkgs, ... }:
 {
-  pkgs,
-  customPkgs,
-  ...
-}: {
   imports = [
     ../ttymax
     ./programs

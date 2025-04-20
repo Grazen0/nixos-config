@@ -3,12 +3,14 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.programs.peaclock;
-in {
+in
+{
   options.programs.peaclock = {
     enable = lib.mkEnableOption "peaclock";
-    package = lib.mkPackageOption pkgs "peaclock" {};
+    package = lib.mkPackageOption pkgs "peaclock" { };
 
     extraConfig = lib.mkOption {
       type = lib.types.lines;
@@ -20,10 +22,8 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [peaclock];
+    home.packages = with pkgs; [ peaclock ];
 
-    xdg.configFile."peaclock/config" = lib.mkIf (cfg.extraConfig != "") {
-      text = cfg.extraConfig;
-    };
+    xdg.configFile."peaclock/config" = lib.mkIf (cfg.extraConfig != "") { text = cfg.extraConfig; };
   };
 }

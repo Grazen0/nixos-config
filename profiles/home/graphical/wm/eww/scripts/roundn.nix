@@ -1,11 +1,7 @@
-{
-  writeShellApplication,
-  bc,
-  ...
-}:
+{ writeShellApplication, bc, ... }:
 writeShellApplication {
   name = "roundn";
-  runtimeInputs = [bc];
+  runtimeInputs = [ bc ];
   text = ''
     snap="$1"
     value="$2"

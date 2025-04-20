@@ -1,11 +1,7 @@
-{
-  writeShellApplication,
-  dunst,
-  ...
-}:
+{ writeShellApplication, dunst, ... }:
 writeShellApplication {
   name = "notifications-state";
-  runtimeInputs = [dunst];
+  runtimeInputs = [ dunst ];
   text = ''
     icon=""
     class=""

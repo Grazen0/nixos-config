@@ -3,28 +3,27 @@
   rustPlatform,
   installShellFiles,
   ...
-}: let
+}:
+let
   manifest = (lib.importTOML ./Cargo.toml).package;
   inherit (manifest) name;
 in
-  rustPlatform.buildRustPackage rec {
-    pname = name;
-    inherit (manifest) version;
-    src = lib.cleanSource ./.;
-    cargoLock.lockFile = "${src}/Cargo.lock";
+rustPlatform.buildRustPackage rec {
+  pname = name;
+  inherit (manifest) version;
+  src = lib.cleanSource ./.;
+  cargoLock.lockFile = "${src}/Cargo.lock";
 
-    env = {
-      RUST_BACKTRACE = "1";
-    };
+  env = {
+    RUST_BACKTRACE = "1";
+  };
 
-    nativeBuildInputs = [
-      installShellFiles
-    ];
+  nativeBuildInputs = [ installShellFiles ];
 
-    # meta = with lib; {
-    #   description = "{{ description }}";
-    #   homepage = manifest.homepage;
-    #   license = licenses.mit;
-    #   mainProgram = "TODO";
-    # };
-  }
+  # meta = with lib; {
+  #   description = "{{ description }}";
+  #   homepage = manifest.homepage;
+  #   license = licenses.mit;
+  #   mainProgram = "TODO";
+  # };
+}

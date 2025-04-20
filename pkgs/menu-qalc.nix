@@ -14,14 +14,22 @@ stdenvNoCC.mkDerivation {
   version = "master";
   inherit src;
 
-  nativeBuildInputs = [man makeWrapper];
+  nativeBuildInputs = [
+    man
+    makeWrapper
+  ];
 
   installPhase = ''
     runHook preInstall
 
     install -Dm755 "=" -t "$out/bin"
     wrapProgram "$out/bin/=" \
-      --prefix PATH ":" ${lib.makeBinPath [libqalculate wl-clipboard]}
+      --prefix PATH ":" ${
+        lib.makeBinPath [
+          libqalculate
+          wl-clipboard
+        ]
+      }
 
     install -Dm644 "menu-qalc.1" "=.1" -t "$out/share/man/man1"
 

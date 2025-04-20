@@ -6,7 +6,10 @@
 }:
 writeShellApplication {
   name = "handle-monitor-connect";
-  runtimeInputs = [socat hyprland];
+  runtimeInputs = [
+    socat
+    hyprland
+  ];
   text = ''
     handle() {
       case $1 in monitoradded*)

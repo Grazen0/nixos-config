@@ -1,8 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: rec {
+{ config, lib, ... }:
+rec {
   home.sessionVariables = {
     XDG_SESSION_TYPE = "wayland";
     QT_GPA_PLATFORM = "wayland";
@@ -14,13 +11,11 @@
   };
 
   # Export home.sessionVariables from .config/uwsm/env
-  xdg.configFile."uwsm/env".text = let
-    inherit (lib) mapAttrsToList escapeShellArg concatStringsSep;
+  xdg.configFile."uwsm/env".text =
+    let
+      inherit (lib) mapAttrsToList escapeShellArg concatStringsSep;
 
-    lines =
-      mapAttrsToList
-      (key: value: "export ${key}=${escapeShellArg value}")
-      home.sessionVariables;
-  in
+      lines = mapAttrsToList (key: value: "export ${key}=${escapeShellArg value}") home.sessionVariables;
+    in
     concatStringsSep "\n" lines;
 }

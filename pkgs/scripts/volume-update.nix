@@ -1,11 +1,7 @@
-{
-  writeShellApplication,
-  pamixer,
-  ...
-}:
+{ writeShellApplication, pamixer, ... }:
 writeShellApplication {
   name = "volume-update";
-  runtimeInputs = [pamixer];
+  runtimeInputs = [ pamixer ];
   text = ''
     volume=$(pamixer --get-volume)
     mute=$(pamixer --get-mute)

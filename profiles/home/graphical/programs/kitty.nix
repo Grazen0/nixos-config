@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   programs.kitty = {
     themeFile = "kanagawa";
 

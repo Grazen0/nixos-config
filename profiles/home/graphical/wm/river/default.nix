@@ -1,8 +1,5 @@
+{ config, pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}: {
   imports = [
     ./maps.nix
     ./rules.nix
@@ -27,41 +24,44 @@
 
       set-repeat = "50 300";
 
-      xcursor-theme = let
-        inherit (config.theme.home) cursor;
-      in "${cursor.name} ${toString cursor.size}";
+      xcursor-theme =
+        let
+          inherit (config.theme.home) cursor;
+        in
+        "${cursor.name} ${toString cursor.size}";
 
       default-layout = "wideriver";
     };
 
-    extraConfig = let
-      wideriver = "${pkgs.wideriver}/bin/wideriver";
-    in
+    extraConfig =
+      let
+        wideriver = "${pkgs.wideriver}/bin/wideriver";
+      in
       with config.scheme;
       # bash
-        ''
-          ${wideriver} \
-            --layout left \
-            --stack dwindle \
-            --layout-alt monocle \
-            --count 1 \
-            --ratio 0.52 \
-            --inner-gaps 12 \
-            --outer-gaps 12 \
-            --border-width ${toString settings.border-width} \
-            --border-width-monocle ${toString settings.border-width} \
-            --border-color-focused 0x${blue} \
-            --border-color-focused-monocle 0x${yellow} \
-            --border-color-unfocused 0x${base04} &
+      ''
+        ${wideriver} \
+          --layout left \
+          --stack dwindle \
+          --layout-alt monocle \
+          --count 1 \
+          --ratio 0.52 \
+          --inner-gaps 12 \
+          --outer-gaps 12 \
+          --border-width ${toString settings.border-width} \
+          --border-width-monocle ${toString settings.border-width} \
+          --border-color-focused 0x${blue} \
+          --border-color-focused-monocle 0x${yellow} \
+          --border-color-unfocused 0x${base04} &
 
-          # Set up touchpads
-          for device in $(riverctl list-inputs | grep -i 'touchpad'); do
-              riverctl input "$device" natural-scroll enabled
-              riverctl input "$device" tap enabled
-              riverctl input "$device" click-method button-areas
-              riverctl input "$device" middle-emulation enabled
-          done
-        '';
+        # Set up touchpads
+        for device in $(riverctl list-inputs | grep -i 'touchpad'); do
+            riverctl input "$device" natural-scroll enabled
+            riverctl input "$device" tap enabled
+            riverctl input "$device" click-method button-areas
+            riverctl input "$device" middle-emulation enabled
+        done
+      '';
   };
 
   # Disable ugly GTK header

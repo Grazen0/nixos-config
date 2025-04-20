@@ -1,9 +1,9 @@
-{lib, ...}: let
+{ lib, ... }:
+let
   inherit (lib) mkForce;
-in {
-  imports = [
-    ./hardware.nix
-  ];
+in
+{
+  imports = [ ./hardware.nix ];
 
   console.keyMap = mkForce "la-latin1";
 

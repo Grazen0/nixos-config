@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   services.dunst = {
     enable = true;
     settings = with config.scheme.withHashtag; {

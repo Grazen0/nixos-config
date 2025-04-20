@@ -6,7 +6,10 @@
 }:
 writeShellApplication {
   name = "wlr-randr-all";
-  runtimeInputs = [wlr-randr jq];
+  runtimeInputs = [
+    wlr-randr
+    jq
+  ];
   text = ''
     outputs=$(wlr-randr --json | jq --raw-output '.[].name')
     echo "$outputs"

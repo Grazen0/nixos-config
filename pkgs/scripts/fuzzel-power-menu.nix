@@ -1,11 +1,7 @@
-{
-  writeShellApplication,
-  fuzzel,
-  ...
-}:
+{ writeShellApplication, fuzzel, ... }:
 writeShellApplication {
   name = "fuzzel-power-menu";
-  runtimeInputs = [fuzzel];
+  runtimeInputs = [ fuzzel ];
 
   # Credit: https://github.com/thnikk/fuzzel-scripts/blob/master/fuzzel-powermenu.sh
   text = ''

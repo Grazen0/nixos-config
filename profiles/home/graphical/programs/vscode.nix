@@ -3,8 +3,11 @@
   pkgs,
   inputs,
   ...
-}: let
-  vscodeUtils = pkgs.callPackage "${inputs.nixpkgs}/pkgs/applications/editors/vscode/extensions/vscode-utils.nix" {};
+}:
+let
+  vscodeUtils =
+    pkgs.callPackage "${inputs.nixpkgs}/pkgs/applications/editors/vscode/extensions/vscode-utils.nix"
+      { };
 
   inherit (vscodeUtils) buildVscodeMarketplaceExtension;
 
@@ -16,7 +19,8 @@
       hash = "sha256-AGGioXcK/fjPaFaWk2jqLxovUNR59gwpotcSpGNbj1c=";
     };
   };
-in {
+in
+{
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;

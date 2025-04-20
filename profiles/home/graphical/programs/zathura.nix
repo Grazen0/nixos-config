@@ -1,8 +1,5 @@
+{ config, inputs, ... }:
 {
-  config,
-  inputs,
-  ...
-}: {
   programs.zathura = {
     enable = true;
 
@@ -22,24 +19,26 @@
       B = ''set "guioptions none"'';
     };
 
-    options = let
-      inherit (config) theme;
-    in {
-      adjust-open = "best-fit";
-      render-loading = false;
+    options =
+      let
+        inherit (config) theme;
+      in
+      {
+        adjust-open = "best-fit";
+        render-loading = false;
 
-      scroll-step = 50;
+        scroll-step = 50;
 
-      selection-clipboard = "clipboard";
+        selection-clipboard = "clipboard";
 
-      recolor = true;
-      recolor-keephue = true;
-      recolor-reverse-video = true;
+        recolor = true;
+        recolor-keephue = true;
+        recolor-reverse-video = true;
 
-      font = "${theme.font.regular} 10";
+        font = "${theme.font.regular} 10";
 
-      database = "sqlite";
-    };
+        database = "sqlite";
+      };
 
     extraConfig = builtins.readFile (config.scheme inputs.base16-zathura);
   };

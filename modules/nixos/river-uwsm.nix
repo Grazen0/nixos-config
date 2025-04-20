@@ -1,16 +1,11 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    programs.river.withUWSM =
-      lib.mkEnableOption null
-      // {
-        description = ''
-          Launch River with the UWSM (Universal Wayland Session Manager) session manager.
-        '';
-      };
+    programs.river.withUWSM = lib.mkEnableOption null // {
+      description = ''
+        Launch River with the UWSM (Universal Wayland Session Manager) session manager.
+      '';
+    };
   };
 
   config = lib.mkIf config.programs.river.withUWSM {

@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   programs.fuzzel = {
     enable = true;
 
@@ -6,7 +7,7 @@
       main = {
         launch-prefix = "uwsm app -- ";
         font = "${config.theme.font.propo}:size=12";
-        terminal = config.meta.mainPrograms.terminal;
+        inherit (config.meta.mainPrograms) terminal;
         use-bold = "yes";
         fields = "filename,name,generic,keywords";
         width = 60;

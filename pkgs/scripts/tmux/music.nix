@@ -1,11 +1,7 @@
-{
-  writeShellApplication,
-  player-art,
-  ...
-}:
+{ writeShellApplication, player-art, ... }:
 writeShellApplication {
   name = "tmux-music";
-  runtimeInputs = [player-art];
+  runtimeInputs = [ player-art ];
   text = ''
     if [[ $# -ne 1 ]]; then
       echo "Usage: tmux-music [DEFAULT_IMAGE]"

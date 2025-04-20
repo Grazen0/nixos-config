@@ -14,7 +14,7 @@
     systemd.enable = false; # Conflicts with UWSM
 
     settings = {
-      monitor = [", preferred, auto, 1"];
+      monitor = [ ", preferred, auto, 1" ];
 
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
@@ -28,6 +28,6 @@
       ];
     };
 
-    systemd.variables = ["--all"];
+    systemd.variables = [ "--all" ];
   };
 }

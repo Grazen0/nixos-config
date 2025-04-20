@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   # Thunar is already enabled in the system configuration,
   # though it'd be cool if it could be enable per-user
 

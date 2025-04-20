@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./eww
     ./hypr
@@ -15,7 +16,5 @@
     ./wob.nix
   ];
 
-  home.packages = with pkgs; [
-    networkmanagerapplet
-  ];
+  home.packages = with pkgs; [ networkmanagerapplet ];
 }
