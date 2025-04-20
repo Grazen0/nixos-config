@@ -103,5 +103,6 @@
       tailwind-tools-nvim
       customPkgs.vim-plugin-haskell-tools-nvim
       snacks-nvim
+      nvim-dbee
     ];
 }

@@ -76,4 +76,10 @@ return {
     enabled = false,
     event = 'BufWritePre',
   },
+  {
+    'kndndrj/nvim-dbee',
+    dependencies = { 'MunifTanjim/nui.nvim' },
+    cmd = 'Dbee',
+    opts = {},
+  },
 }
