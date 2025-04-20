@@ -1,24 +1,38 @@
 {
   description = "My personal NixOS configurations";
 
-  outputs = {
-    flake-parts,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    inherit (nixpkgs) lib;
-    moduleArgs = {inherit lib' inputs;};
-    lib' = import ./lib (moduleArgs // {inherit lib;});
-  in
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    {
+      self,
+      flake-parts,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      inherit (nixpkgs) lib;
+      moduleArgs = { inherit lib' inputs; };
+      lib' = import ./lib (moduleArgs // { inherit lib; });
+    in
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import inputs.systems;
 
-      perSystem = {pkgs, ...}: let
-        systemModuleArgs = moduleArgs // {inherit pkgs;};
-      in {
-        packages = import ./pkgs systemModuleArgs;
-        devShells = import ./shell.nix systemModuleArgs;
-      };
+      perSystem =
+        { pkgs, ... }:
+        let
+          systemModuleArgs = moduleArgs // {
+            inherit pkgs;
+          };
+          treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
+        in
+        {
+          packages = import ./pkgs systemModuleArgs;
+
+          devShells = import ./shell.nix systemModuleArgs;
+
+          formatter = treefmtEval.config.build.wrapper;
+
+          checks.style = treefmtEval.config.build.check self;
+        };
 
       flake.nixosConfigurations = import ./hosts moduleArgs;
     };
@@ -27,6 +41,11 @@
     nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-zoom.url = "github:NixOS/nixpkgs/bcb68885668cccec12276bbb379f8f2557aa06ce";
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     systems.url = "github:nix-systems/default-linux";

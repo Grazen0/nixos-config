@@ -1058,6 +1058,7 @@
         "spicetify-nix": "spicetify-nix",
         "systems": "systems_8",
         "thorium-browser": "thorium-browser",
+        "treefmt-nix": "treefmt-nix",
         "tt-schemes": "tt-schemes",
         "yazi-flavor-kanagawa": "yazi-flavor-kanagawa",
         "yazi-plugin-restore": "yazi-plugin-restore",
@@ -1257,6 +1258,26 @@
       "original": {
         "type": "git",
         "url": "https://codeberg.org/Tomkoid/thorium-browser-nix"
+      }
+    },
+    "treefmt-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1744961264,
+        "narHash": "sha256-aRmUh0AMwcbdjJHnytg1e5h5ECcaWtIFQa6d9gI85AI=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "8d404a69efe76146368885110f29a2ca3700bee6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
       }
     },
     "tt-schemes": {
