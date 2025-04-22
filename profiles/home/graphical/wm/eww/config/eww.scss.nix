@@ -94,8 +94,8 @@ with config.scheme.withHashtag;
       }
 
       &.urgent {
-        color: ${magenta};
-        border-color: ${magenta};
+        color: ${orange};
+        border-color: ${orange};
       }
 
       &.scratchpad {

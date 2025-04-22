@@ -20,7 +20,7 @@
       background-color = "0x${base00}";
       border-color-focused = "0x${blue}";
       border-color-unfocused = "0x${base04}";
-      border-color-urgent = "0x${bright-magenta}";
+      border-color-urgent = "0x${orange}";
 
       set-repeat = "50 300";
 

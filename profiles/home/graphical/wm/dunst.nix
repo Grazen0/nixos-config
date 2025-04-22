@@ -34,7 +34,7 @@
         horizontal_padding = 8;
         text_icon_padding = 0;
         frame_width = 2;
-        frame_color = blue;
+        frame_color = orange;
         gap_size = 8;
         separator_color = "frame";
         sort = "yes";
@@ -87,6 +87,7 @@
       urgency_low = {
         background = base00;
         foreground = base05;
+        frame_color = base04;
         timeout = 10;
       };
 
