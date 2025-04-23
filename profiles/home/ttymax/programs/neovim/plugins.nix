@@ -49,7 +49,6 @@
 
       # Editor
       blink-cmp
-      blink-compat
       multicursor-nvim
       neo-tree-nvim
       yazi-nvim
