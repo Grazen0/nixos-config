@@ -22,8 +22,8 @@
 
     # Basic gaming
     wine
-    customPkgs.fceux
-    snes9x-gtk
+    # customPkgs.fceux
+    # snes9x-gtk
 
     # LibreOffice + spellcheck
     libreoffice-qt
