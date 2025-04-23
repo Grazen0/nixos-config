@@ -14,9 +14,6 @@ in
     foot.settings.main.font = mkForce "${config.theme.font.regular}:size=10.5";
     kitty.font.size = mkForce 10;
 
-    jetbrains.enable = mkForce false;
-
-    # All of this just to set the heights, bruh
     wlogout.layout =
       let
         height = 1;
