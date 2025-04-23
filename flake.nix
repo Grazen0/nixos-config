@@ -149,6 +149,11 @@
       flake = false;
     };
 
+    nvim-plugin-obsidian = {
+      url = "github:obsidian-nvim/obsidian.nvim";
+      flake = false;
+    };
+
     nvim-plugin-obsidian-bridge = {
       url = "github:oflisback/obsidian-bridge.nvim";
       flake = false;

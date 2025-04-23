@@ -83,6 +83,11 @@ return {
       local obsidian = require('obsidian')
 
       return {
+        completion = {
+          nvim_cmp = false,
+          blink = true,
+        },
+
         workspaces = {
           {
             name = 'class-notes',
@@ -145,10 +150,6 @@ return {
         note_frontmatter_func = note_frontmatter_func,
 
         callbacks = {
-          -- post_setup = function()
-          --   obsidian_bridge.setup({ scroll_sync = true })
-          -- end,
-
           post_set_workspace = function()
             local keyset = vim.keymap.set
 

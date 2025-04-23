@@ -18,6 +18,14 @@
         dependencies = with vimPlugins; [ instant-nvim ];
       };
 
+      obsidian-nvim = buildVimPlugin {
+        pname = "obsidian.nvim";
+        version = "main";
+        src = inputs.nvim-plugin-obsidian;
+        dependencies = with vimPlugins; [ plenary-nvim ];
+        doCheck = false;
+      };
+
       obsidian-bridge-nvim = buildVimPlugin {
         pname = "obsidian-bridge.nvim";
         version = "main";

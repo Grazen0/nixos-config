@@ -818,6 +818,22 @@
         "type": "github"
       }
     },
+    "nvim-plugin-obsidian": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745221486,
+        "narHash": "sha256-xbM0m3w6IrJ+hNekpQnsFUTdlNuwPM5JrDjVCPAzAjM=",
+        "owner": "obsidian-nvim",
+        "repo": "obsidian.nvim",
+        "rev": "3baea080cc92c7e9c96d9de725c1545315db55ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "obsidian-nvim",
+        "repo": "obsidian.nvim",
+        "type": "github"
+      }
+    },
     "nvim-plugin-obsidian-bridge": {
       "flake": false,
       "locked": {
@@ -1046,6 +1062,7 @@
         "nvim-plugin-live-share": "nvim-plugin-live-share",
         "nvim-plugin-luasnip-latex-snippets": "nvim-plugin-luasnip-latex-snippets",
         "nvim-plugin-multicursor": "nvim-plugin-multicursor",
+        "nvim-plugin-obsidian": "nvim-plugin-obsidian",
         "nvim-plugin-obsidian-bridge": "nvim-plugin-obsidian-bridge",
         "nvim-plugin-r-nvim": "nvim-plugin-r-nvim",
         "plates": "plates",
