@@ -1,9 +1,4 @@
-{
-  pkgs,
-  customPkgs,
-  inputs,
-  ...
-}:
+{ pkgs, inputs, ... }:
 {
   programs.neovim.plugins =
     let

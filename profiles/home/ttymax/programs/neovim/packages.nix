@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   programs.neovim = {
     extraPackages = with pkgs; [
