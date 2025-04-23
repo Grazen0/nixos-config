@@ -107,7 +107,7 @@
       rustaceanvim
       cmake-tools-nvim
       tailwind-tools-nvim
-      customPkgs.vim-plugin-haskell-tools-nvim
+      # customPkgs.vim-plugin-haskell-tools-nvim
       snacks-nvim
       nvim-dbee
     ];

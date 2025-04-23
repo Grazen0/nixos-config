@@ -45,7 +45,7 @@
       # nvim-dap
       jq
       vscode-js-debug
-      inputs.haskell-debug-adapter.packages.${system}.default
+      # inputs.haskell-debug-adapter.packages.${system}.default
 
       # Plugin-specifics
       texlive.combined.scheme-medium # vimtex
