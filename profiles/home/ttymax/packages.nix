@@ -11,5 +11,8 @@
     nodejs
     pnpm
     python3
+
+    pciutils
+    nitch
   ];
 }
