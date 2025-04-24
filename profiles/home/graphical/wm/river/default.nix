@@ -17,6 +17,8 @@
 
       border-width = 2;
 
+      hide-cursor.timeout = 3000;
+
       background-color = "0x${base00}";
       border-color-focused = "0x${blue}";
       border-color-unfocused = "0x${base04}";
