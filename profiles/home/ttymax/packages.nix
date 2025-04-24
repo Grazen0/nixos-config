@@ -12,6 +12,7 @@
     pnpm
     python3
 
+    lazydocker
     pciutils
     nitch
   ];
