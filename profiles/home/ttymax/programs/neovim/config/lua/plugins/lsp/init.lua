@@ -124,6 +124,7 @@ return {
   },
   {
     'mrcjkb/haskell-tools.nvim',
+    enabled = false,
     event = 'VeryLazy',
     init = function()
       vim.g.haskell_tools = {

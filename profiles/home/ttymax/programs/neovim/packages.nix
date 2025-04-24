@@ -25,7 +25,7 @@
       cmake-language-server
       clang-tools
       emmet-language-server
-      haskell-language-server
+      # haskell-language-server
       jdt-language-server # Java
       nil # Nix
       lua-language-server
