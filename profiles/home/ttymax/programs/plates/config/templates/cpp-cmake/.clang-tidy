@@ -1,12 +1,20 @@
 Checks: >
   boost-*,
   bugprone-*,
+  -bugprone-easily-swappable-parameters,
   clang-analyzer-*,
   concurrency-*,
   cppcoreguidelines-*,
+  -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-owning-memory,
   misc-*,
   modernize-*,
+  -modernize-use-trailing-return-type,
   mpi-*,
   performance-*,
+  -performance-avoid-endl,
   portability-*,
-  readability-*
+  readability-*,
+  -readability-magic-numbers,
+  -readability-identifier-length
