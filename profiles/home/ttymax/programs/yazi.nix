@@ -21,7 +21,7 @@
           "full-border"
           "smart-enter"
           "toggle-pane"
-          "git"
+          # "git"
           "mount"
         ];
 
@@ -44,18 +44,18 @@
         }
       ];
 
-      plugin.prepend_fetchers = [
-        {
-          id = "git";
-          name = "*";
-          run = "git";
-        }
-        {
-          id = "git";
-          name = "*/";
-          run = "git";
-        }
-      ];
+      # plugin.prepend_fetchers = [
+      #   {
+      #     id = "git";
+      #     name = "*";
+      #     run = "git";
+      #   }
+      #   {
+      #     id = "git";
+      #     name = "*/";
+      #     run = "git";
+      #   }
+      # ];
     };
 
     keymap.manager.prepend_keymap = [
@@ -136,7 +136,7 @@
         end, 500, Header.LEFT)
 
         require("full-border"):setup()
-        require("git"):setup()
+        -- require("git"):setup()
       '';
   };
 }
