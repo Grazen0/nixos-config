@@ -51,6 +51,7 @@
       texlive.combined.scheme-medium # vimtex
       lldb # rustaceanvim
       cmake # cmake-tools.nvim
+      marp-cli # marp.nvim
     ];
 
     extraPython3Packages =

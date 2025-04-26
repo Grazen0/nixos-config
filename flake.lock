@@ -802,6 +802,22 @@
         "type": "github"
       }
     },
+    "nvim-plugin-marp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722411115,
+        "narHash": "sha256-CebyoqIBi8xT5U+aCBwptOSz89KxhXS27kAtPrRZvT8=",
+        "owner": "mpas",
+        "repo": "marp-nvim",
+        "rev": "4f38e6ffe2f5ea260f35f7ff3e4e424b9f8bea29",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mpas",
+        "repo": "marp-nvim",
+        "type": "github"
+      }
+    },
     "nvim-plugin-multicursor": {
       "flake": false,
       "locked": {
@@ -1061,6 +1077,7 @@
         "nixpkgs-zoom": "nixpkgs-zoom",
         "nvim-plugin-live-share": "nvim-plugin-live-share",
         "nvim-plugin-luasnip-latex-snippets": "nvim-plugin-luasnip-latex-snippets",
+        "nvim-plugin-marp": "nvim-plugin-marp",
         "nvim-plugin-multicursor": "nvim-plugin-multicursor",
         "nvim-plugin-obsidian": "nvim-plugin-obsidian",
         "nvim-plugin-obsidian-bridge": "nvim-plugin-obsidian-bridge",

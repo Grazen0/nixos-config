@@ -82,4 +82,9 @@ return {
     cmd = 'Dbee',
     opts = {},
   },
+  {
+    'mpas/marp-nvim',
+    cmd = { 'MarpStart', 'MarpStatus', 'MarpToggle' },
+    opts = {},
+  },
 }

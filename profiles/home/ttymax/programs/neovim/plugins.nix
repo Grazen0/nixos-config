@@ -42,6 +42,12 @@
         src = inputs.nvim-plugin-luasnip-latex-snippets;
         dependencies = with vimPlugins; [ luasnip ];
       };
+
+      marp-nvim = buildVimPlugin {
+        pname = "marp-nvim";
+        version = "main";
+        src = inputs.nvim-plugin-marp;
+      };
     in
     with vimPlugins;
     [
@@ -112,5 +118,6 @@
       # customPkgs.vim-plugin-haskell-tools-nvim
       snacks-nvim
       nvim-dbee
+      marp-nvim
     ];
 }
