@@ -61,11 +61,7 @@
       "file": true
     },
     "AnonymiseFileNames": {
-      "enabled": true,
-      "anonymiseByDefault": true,
-      "method": 0,
-      "randomisedLength": 7,
-      "consistent": "image"
+      "enabled": false
     },
     "AppleMusicRichPresence": {
       "enabled": false
