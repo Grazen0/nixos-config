@@ -52,7 +52,6 @@
           "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = mkExtension "return-youtube-dislikes" { };
           "jid1-MnnxcxisBPnSXQ@jetpack" = mkExtension "privacy-badger17" { private_browsing = true; };
           "CanvasBlocker@kkapsner.de" = mkExtension "canvasblocker" { private_browsing = true; };
-          "custom-new-tab-page@mint.as" = mkExtension "custom-new-tab-page" { };
         };
     };
 
@@ -101,7 +100,6 @@
                   "customizableui-special-spring3",
                   "urlbar-container",
                   "vertical-spacer",
-                  "customizableui-special-spring4",
                   "downloads-button",
                   "unified-extensions-button",
                   "addon_darkreader_org-browser-action",
@@ -110,7 +108,7 @@
                 "toolbar-menubar": ["menubar-items"],
                 "TabsToolbar": [],
                 "vertical-tabs": ["tabbrowser-tabs"],
-                "PersonalToolbar": ["personal-bookmarks"]
+                "PersonalToolbar": ["import-button", "personal-bookmarks"]
               },
               "seen": [
                 "canvasblocker_kkapsner_de-browser-action",
@@ -131,7 +129,7 @@
                 "PersonalToolbar"
               ],
               "currentVersion": 21,
-              "newElementCount": 6
+              "newElementCount": 11
             }
           '';
       };
