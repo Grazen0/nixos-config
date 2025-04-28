@@ -10,7 +10,7 @@ in
 {
   imports = [
     inputs.nixos-hardware.nixosModules.common-gpu-intel
-    ./hardware.nix
+    ./hardware-configuration.nix
   ];
 
   console.font = mkForce "${pkgs.terminus_font}/share/consolefonts/ter-v20b.psf.gz";

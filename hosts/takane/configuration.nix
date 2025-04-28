@@ -3,7 +3,7 @@ let
   inherit (lib) mkForce;
 in
 {
-  imports = [ ./hardware.nix ];
+  imports = [ ./hardware-configuration.nix ];
 
   console.keyMap = mkForce "la-latin1";
 

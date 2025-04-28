@@ -16,7 +16,7 @@ in
   nitori = mkSystem {
     system = "x86_64-linux";
     modules = [
-      ./nitori
+      ./nitori/configuration.nix
       ../profiles/nixos/graphical
       ../components/nixos/laptop
       ../components/nixos/nvidia
@@ -35,7 +35,7 @@ in
   takane = mkSystem {
     system = "x86_64-linux";
     modules = [
-      ./takane
+      ./takane/configuration.nix
       ../profiles/nixos/graphical
       ../components/nixos/laptop
       ../components/nixos/nvidia
