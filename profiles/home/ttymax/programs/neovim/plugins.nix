@@ -119,5 +119,6 @@
       snacks-nvim
       nvim-dbee
       marp-nvim
+      hex-nvim
     ];
 }

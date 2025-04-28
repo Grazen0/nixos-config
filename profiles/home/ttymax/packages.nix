@@ -15,5 +15,6 @@
     lazydocker
     pciutils
     nitch
+    github-cli
   ];
 }

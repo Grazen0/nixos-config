@@ -87,4 +87,8 @@ return {
     cmd = { 'MarpStart', 'MarpStatus', 'MarpToggle' },
     opts = {},
   },
+  {
+    'RaafatTurki/hex.nvim',
+    opts = {},
+  },
 }

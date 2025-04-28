@@ -52,6 +52,7 @@
       lldb # rustaceanvim
       cmake # cmake-tools.nvim
       marp-cli # marp.nvim
+      xxd # hex.nvim
     ];
 
     extraPython3Packages =
