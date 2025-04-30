@@ -17,37 +17,7 @@ return {
       },
       lualine_c = {},
       lualine_x = {
-        {
-          function()
-            return ' ' .. require('dap').status()
-          end,
-          cond = function()
-            return package.loaded['dap'] and require('dap').status() ~= ''
-          end,
-          color = 'Debug',
-        },
-        {
-          'diagnostics',
-          sources = {
-            'nvim_lsp',
-            'nvim_diagnostic',
-            'vim_lsp',
-          },
-          symbols = {
-            error = ' ',
-            warn = ' ',
-            hint = ' ',
-            info = ' ',
-          },
-          colored = true,
-          update_in_insert = false,
-          always_visible = false,
-          diagnostics_color = {
-            color_error = { fg = 'red' },
-            color_warn = { fg = 'yellow' },
-            color_info = { fg = 'cyan' },
-          },
-        },
+        'diagnostics',
         {
           function()
             local clients = vim.lsp.get_clients()
@@ -68,29 +38,19 @@ return {
             return 'No LSP'
           end,
           cond = function()
-            return vim.fn.index({ 'toggleterm', 'neo-tree' }, vim.bo.filetype)
-              == -1
+            return vim.fn.index(
+              { 'toggleterm', 'snacks_picker_list' },
+              vim.bo.filetype
+            ) == -1
           end,
           icon = ' ',
         },
       },
       lualine_y = {
         { 'searchcount', maxcount = 999, timeout = 120 },
-        { 'branch', icon = ' •' },
+        { 'branch', icon = '' },
       },
-      lualine_z = {
-        'progress',
-        'location',
-        {
-          'fileformat',
-          color = { fg = 'black' },
-          symbols = {
-            unix = '',
-            dos = '',
-            mac = '',
-          },
-        },
-      },
+      lualine_z = { 'progress', 'location', 'fileformat' },
     },
   },
 }
