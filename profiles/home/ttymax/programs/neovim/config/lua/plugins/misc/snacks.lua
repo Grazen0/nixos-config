@@ -6,7 +6,7 @@ return {
     {
       '<leader>e',
       function()
-        require('snacks').explorer()
+        require('snacks').explorer({ auto_close = true })
       end,
       desc = 'Open explorer',
     },
@@ -59,32 +59,39 @@ return {
       desc = 'Find with grep',
     },
     {
-      '<leader>fr',
-      function()
-        require('snacks').picker.lsp_references()
-      end,
-      desc = 'Find LSP references',
-    },
-    {
-      '<leader>fi',
-      function()
-        require('snacks').picker.lsp_implementations()
-      end,
-      desc = 'Find LSP implementations',
-    },
-    {
-      '<leader>fd',
-      function()
-        require('snacks').picker.lsp_declarations()
-      end,
-      desc = 'Find LSP declarations',
-    },
-    {
       '<leader>ft',
       function()
         require('snacks').picker.pick({ source = 'todo_comments' })
       end,
       desc = 'Find todo comments',
+    },
+    {
+      'gd',
+      function()
+        require('snacks').picker.lsp_definitions()
+      end,
+      desc = 'Goto Definition',
+    },
+    {
+      'gD',
+      function()
+        require('snacks').picker.lsp_declarations()
+      end,
+      desc = 'Goto Declaration',
+    },
+    {
+      'gr',
+      function()
+        require('snacks').picker.lsp_references()
+      end,
+      desc = 'References',
+    },
+    {
+      'gI',
+      function()
+        require('snacks').picker.lsp_implementations()
+      end,
+      desc = 'Goto Implementation',
     },
   },
   opts = {
@@ -158,7 +165,40 @@ return {
         col = -1,
       },
     },
-    picker = { enable = true },
+    picker = {
+      enable = true,
+      win = {
+        list = {
+          keys = {
+            -- Mostly for file explorer
+            ['w'] = { { 'pick_win', 'jump' }, mode = { 'n', 'i' } },
+          },
+        },
+      },
+      layouts = {
+        default = {
+          layout = {
+            box = 'horizontal',
+            width = 0.8,
+            min_width = 120,
+            height = 0.8,
+            {
+              box = 'vertical',
+              border = 'single',
+              title = '{title} {live} {flags}',
+              { win = 'input', height = 1, border = 'bottom' },
+              { win = 'list', border = 'none' },
+            },
+            {
+              win = 'preview',
+              title = '{preview}',
+              border = 'single',
+              width = 0.5,
+            },
+          },
+        },
+      },
+    },
     explorer = { enable = true },
     rename = { enabled = true },
     bufdelete = { enabled = true },
