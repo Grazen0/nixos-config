@@ -4,6 +4,13 @@ return {
   lazy = false,
   keys = {
     {
+      '<leader>e',
+      function()
+        require('snacks').explorer()
+      end,
+      desc = 'Open explorer',
+    },
+    {
       '<leader>lg',
       function()
         require('snacks').lazygit()
@@ -22,6 +29,62 @@ return {
         require('snacks').bufdelete.other()
       end,
       desc = 'Delete other buffers',
+    },
+    {
+      '<F1>',
+      function()
+        require('snacks').picker.help()
+      end,
+      desc = 'Find help tags',
+    },
+    {
+      '<leader><leader>',
+      function()
+        require('snacks').picker.buffers()
+      end,
+      desc = 'Find buffers',
+    },
+    {
+      '<leader>ff',
+      function()
+        require('snacks').picker.files()
+      end,
+      desc = 'Find files',
+    },
+    {
+      '<leader>fg',
+      function()
+        require('snacks').picker.grep()
+      end,
+      desc = 'Find with grep',
+    },
+    {
+      '<leader>fr',
+      function()
+        require('snacks').picker.lsp_references()
+      end,
+      desc = 'Find LSP references',
+    },
+    {
+      '<leader>fi',
+      function()
+        require('snacks').picker.lsp_implementations()
+      end,
+      desc = 'Find LSP implementations',
+    },
+    {
+      '<leader>fd',
+      function()
+        require('snacks').picker.lsp_declarations()
+      end,
+      desc = 'Find LSP declarations',
+    },
+    {
+      '<leader>ft',
+      function()
+        require('snacks').picker.pick({ source = 'todo_comments' })
+      end,
+      desc = 'Find todo comments',
     },
   },
   opts = {
@@ -95,6 +158,8 @@ return {
         col = -1,
       },
     },
+    picker = { enable = true },
+    explorer = { enable = true },
     rename = { enabled = true },
     bufdelete = { enabled = true },
   },

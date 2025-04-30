@@ -56,9 +56,7 @@
       # Editor
       blink-cmp
       multicursor-nvim
-      neo-tree-nvim
       yazi-nvim
-      fzf-lua
       nvim-spectre
       luasnip
       luasnip-latex-snippets-nvim
