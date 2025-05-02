@@ -63,10 +63,7 @@ return {
     'oflisback/obsidian-bridge.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     lazy = true,
-    opts = {
-      scroll_sync = true,
-      picker = 'fzf_lua',
-    },
+    opts = { scroll_sync = true },
     keys = {
       { '<localleader>oc', '<cmd>ObsidianBridgePickCommand<CR>' },
     },
