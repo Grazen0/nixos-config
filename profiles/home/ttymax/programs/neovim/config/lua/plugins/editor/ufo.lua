@@ -8,7 +8,7 @@ return {
       function()
         local winid = require('ufo').peekFoldedLinesUnderCursor()
         if not winid then
-          vim.lsp.buf.hover({ border = 'single' })
+          vim.lsp.buf.hover({ border = vim.o.winborder })
         end
       end,
       desc = 'Preview fold or LSP hover',
@@ -50,7 +50,7 @@ return {
   opts = {
     enable_get_fold_virt_text = true,
     preview = {
-      win_config = { border = 'single' },
+      win_config = { border = vim.o.winborder },
     },
   },
 }

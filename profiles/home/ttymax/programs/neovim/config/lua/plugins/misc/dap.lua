@@ -5,7 +5,6 @@ return {
       'rcarriga/nvim-dap-ui',
       'theHamsta/nvim-dap-virtual-text',
       'stevearc/overseer.nvim',
-      'ibhagwan/fzf-lua',
     },
     cmd = {
       'DapContinue',

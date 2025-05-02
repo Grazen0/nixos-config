@@ -30,7 +30,7 @@ return {
       pick = { pivots = 'fjdksla;cmrueiwoqp' },
     },
     menu = {
-      win_configs = { border = 'single' },
+      win_configs = { border = vim.o.winborder },
       keymaps = {
         -- Go up
         ['h'] = function()

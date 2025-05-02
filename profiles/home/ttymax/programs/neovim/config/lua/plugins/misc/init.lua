@@ -16,7 +16,7 @@ return {
       },
     },
     opts = {
-      win = { border = 'single' },
+      win = { border = vim.o.winborder },
       preset = 'helix',
     },
   },
@@ -64,6 +64,7 @@ return {
   },
   {
     'j-hui/fidget.nvim',
+    enabled = false,
     event = 'VeryLazy',
     opts = {
       notification = {

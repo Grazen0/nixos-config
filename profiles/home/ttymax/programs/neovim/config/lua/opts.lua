@@ -4,7 +4,6 @@ local o = vim.opt
 o.encoding = 'utf-8'
 o.compatible = false
 o.termguicolors = true
-
 -- Numbering and stuff
 o.number = true
 o.relativenumber = true
@@ -37,5 +36,6 @@ o.undofile = true
 o.updatetime = 300
 o.spelllang = { 'es', 'en_us' }
 o.confirm = true
+o.winborder = 'single'
 
 vim.g.tex_flavor = 'latex'

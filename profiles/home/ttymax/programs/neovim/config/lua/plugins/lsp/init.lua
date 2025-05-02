@@ -22,6 +22,7 @@ return {
   },
   {
     'SmiteshP/nvim-navbuddy',
+    enabled = false,
     dependencies = {
       'SmiteshP/nvim-navic',
       'MunifTanjim/nui.nvim',
@@ -31,7 +32,7 @@ return {
       { '<leader>n', '<cmd>Navbuddy<CR>', desc = 'Open Navbuddy' },
     },
     opts = {
-      window = { border = 'single' },
+      window = { border = vim.o.winborder },
       lsp = { auto_attach = true },
     },
   },
@@ -84,7 +85,7 @@ return {
     init = function()
       vim.g.rustaceanvim = {
         tools = {
-          hover_actions = { border = 'single' },
+          hover_actions = { border = vim.o.winborder },
         },
       }
     end,
@@ -112,7 +113,6 @@ return {
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
       'neovim/nvim-lspconfig',
-      'ibhagwan/fzf-lua',
     },
     opts = {
       document_color = {
@@ -129,7 +129,7 @@ return {
     init = function()
       vim.g.haskell_tools = {
         tools = {
-          hover = { border = 'single' },
+          hover = { border = vim.o.winborder },
         },
       }
     end,

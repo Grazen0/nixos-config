@@ -22,5 +22,5 @@ require('lazy').setup({
     { import = 'plugins.lsp' },
     { import = 'plugins.misc' },
   },
-  ui = { border = 'single' },
+  ui = { border = vim.o.winborder },
 })

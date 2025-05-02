@@ -6,8 +6,8 @@ return {
   cmd = 'FzfLua',
   opts = {
     winopts = {
-      border = 'single',
-      preview = { border = 'single' },
+      border = vim.o.winborder,
+      preview = { border = vim.o.winborder },
     },
     hls = {
       border = 'FloatBorder',

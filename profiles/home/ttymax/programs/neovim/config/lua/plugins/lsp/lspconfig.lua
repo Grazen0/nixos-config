@@ -56,9 +56,6 @@ return {
       arduino_language_server = {},
     },
     diagnostic_config = {
-      float = {
-        border = 'single',
-      },
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = ' ',
@@ -81,11 +78,11 @@ return {
     -- https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows
     vim.lsp.handlers['textDocument/hover'] =
       vim.lsp.with(vim.lsp.handlers.hover, {
-        border = 'single',
+        border = vim.o.winborder,
       })
     vim.lsp.handlers['textDocument/signatureHelp'] =
       vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = 'single',
+        border = vim.o.winborder,
       })
     vim.diagnostic.config(opts.diagnostic_config)
 

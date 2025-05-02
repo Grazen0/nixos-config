@@ -6,7 +6,7 @@ return {
     {
       '<leader>e',
       function()
-        require('snacks').explorer({ auto_close = true })
+        require('snacks').explorer({ auto_close = true, hidden = true })
       end,
       desc = 'Open explorer',
     },
@@ -80,7 +80,7 @@ return {
       desc = 'Goto Declaration',
     },
     {
-      'gr',
+      'grr',
       function()
         require('snacks').picker.lsp_references()
       end,
@@ -99,7 +99,7 @@ return {
     quickfile = { enabled = true },
     lazygit = {
       enabled = true,
-      win = { border = 'single' },
+      win = { border = vim.o.winborder },
     },
     dashboard = {
       enabled = true,
@@ -157,7 +157,7 @@ return {
       enabled = true,
       icon = '',
       win = {
-        border = 'single',
+        border = vim.o.winborder,
         relative = 'cursor',
         title_pos = 'left',
         width = 40,
@@ -184,7 +184,7 @@ return {
             height = 0.8,
             {
               box = 'vertical',
-              border = 'single',
+              border = vim.o.winborder,
               title = '{title} {live} {flags}',
               { win = 'input', height = 1, border = 'bottom' },
               { win = 'list', border = 'none' },
@@ -192,12 +192,63 @@ return {
             {
               win = 'preview',
               title = '{preview}',
-              border = 'single',
+              border = vim.o.winborder,
               width = 0.5,
             },
           },
         },
+        sidebar = {
+          preview = 'main',
+          layout = {
+            backdrop = false,
+            width = 40,
+            min_width = 40,
+            height = 0,
+            position = 'left',
+            border = 'none',
+            box = 'vertical',
+            {
+              win = 'input',
+              height = 1,
+              border = vim.o.winborder,
+              title = '{title} {live} {flags}',
+              title_pos = 'center',
+            },
+            { win = 'list', border = 'none' },
+            {
+              win = 'preview',
+              title = '{preview}',
+              height = 0.4,
+              border = 'top',
+            },
+          },
+        },
+        select = {
+          preview = false,
+          layout = {
+            backdrop = false,
+            width = 0.5,
+            min_width = 80,
+            height = 0.4,
+            min_height = 3,
+            box = 'vertical',
+            border = vim.o.winborder,
+            title = '{title}',
+            title_pos = 'center',
+            { win = 'input', height = 1, border = 'bottom' },
+            { win = 'list', border = 'none' },
+            {
+              win = 'preview',
+              title = '{preview}',
+              height = 0.4,
+              border = 'top',
+            },
+          },
+        },
       },
+    },
+    notifier = {
+      enabled = true,
     },
     explorer = { enable = true },
     rename = { enabled = true },
