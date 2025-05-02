@@ -61,7 +61,7 @@ end
 return {
   {
     'oflisback/obsidian-bridge.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'ibhagwan/fzf-lua' },
+    dependencies = { 'nvim-lua/plenary.nvim' },
     lazy = true,
     opts = {
       scroll_sync = true,
@@ -74,93 +74,92 @@ return {
   {
     'epwalsh/obsidian.nvim',
     lazy = true,
-    ft = 'markdown',
+    event = {
+      'BufReadPre ' .. vim.fn.expand('~') .. '/Documents/class-notes/*.md',
+      'BufNewFile ' .. vim.fn.expand('~') .. '/Documents/class-notes/*.md',
+    },
     dependencies = {
       'nvim-lua/plenary.nvim',
       'oflisback/obsidian-bridge.nvim',
     },
-    opts = function()
-      local obsidian = require('obsidian')
+    opts = {
+      completion = {
+        nvim_cmp = false,
+        blink = true,
+      },
 
-      return {
-        completion = {
-          nvim_cmp = false,
-          blink = true,
+      workspaces = {
+        {
+          name = 'class-notes',
+          path = '~/Documents/class-notes',
         },
+      },
 
-        workspaces = {
-          {
-            name = 'class-notes',
-            path = '~/Documents/class-notes',
-          },
+      mappings = {
+        ['gf'] = {
+          action = function()
+            return require('obsidian').util.gf_passthrough()
+          end,
+          opts = { noremap = false, expr = true, buffer = true },
         },
-
-        mappings = {
-          ['gf'] = {
-            action = function()
-              return obsidian.util.gf_passthrough()
-            end,
-            opts = { noremap = false, expr = true, buffer = true },
-          },
-          ['<localleader>ch'] = {
-            action = function()
-              return obsidian.util.toggle_checkbox()
-            end,
-            opts = { buffer = true },
-          },
-          ['<localleader>oo'] = { action = '<cmd>ObsidianOpen<CR>' },
-          ['<localleader>or'] = {
-            action = '<cmd>ObsidianRename<CR>',
-            opts = { buffer = true },
-          },
-          ['<localleader>op'] = {
-            action = '<cmd>ObsidianPasteImg<CR>',
-            opts = { buffer = true },
-          },
+        ['<localleader>ch'] = {
+          action = function()
+            return require('obsidian').util.toggle_checkbox()
+          end,
+          opts = { buffer = true },
         },
-
-        picker = { name = 'fzf-lua' },
-        ui = { enable = false },
-
-        new_notes_location = 'notes_subdir',
-        notes_subdir = 'notes',
-
-        attachments = { img_folder = 'attachments' },
-
-        templates = {
-          folder = 'vault/templates',
-          substitutions = {
-            date_text = function()
-              return '%B %-d, %Y'
-            end,
-          },
+        ['<localleader>oo'] = { action = '<cmd>ObsidianOpen<CR>' },
+        ['<localleader>or'] = {
+          action = '<cmd>ObsidianRename<CR>',
+          opts = { buffer = true },
         },
-
-        daily_notes = {
-          folder = 'dailies',
-          alias_format = '%B %-d, %Y',
-          default_tags = { 'daily' },
-          template = 'vault/templates/daily.md',
+        ['<localleader>op'] = {
+          action = '<cmd>ObsidianPasteImg<CR>',
+          opts = { buffer = true },
         },
+      },
 
-        follow_url_func = opener,
-        follow_img_func = opener,
+      picker = { name = 'snacks.pick' },
+      ui = { enable = false },
 
-        note_id_func = note_id_func,
-        note_frontmatter_func = note_frontmatter_func,
+      new_notes_location = 'notes_subdir',
+      notes_subdir = 'notes',
 
-        callbacks = {
-          post_set_workspace = function()
-            local keyset = vim.keymap.set
+      attachments = { img_folder = 'attachments' },
 
-            keyset('n', '<localleader>on', '<cmd>ObsidianNew<CR>')
-            keyset('n', '<localleader>of', '<cmd>ObsidianQuickSwitch<CR>')
-            keyset('n', '<localleader>og', '<cmd>ObsidianSearch<CR>')
-            keyset('n', '<localleader>ot', '<cmd>ObsidianTags<CR>')
-            keyset('n', '<localleader>od', '<cmd>ObsidianDailies<CR>')
+      templates = {
+        folder = 'vault/templates',
+        substitutions = {
+          date_text = function()
+            return '%B %-d, %Y'
           end,
         },
-      }
-    end,
+      },
+
+      daily_notes = {
+        folder = 'dailies',
+        alias_format = '%B %-d, %Y',
+        default_tags = { 'daily' },
+        template = 'vault/templates/daily.md',
+      },
+
+      follow_url_func = opener,
+      follow_img_func = opener,
+
+      note_id_func = note_id_func,
+      note_frontmatter_func = note_frontmatter_func,
+
+      callbacks = {
+        post_set_workspace = function()
+          local keyset = vim.keymap.set
+
+          keyset('n', '<localleader>on', '<cmd>ObsidianNew<CR>')
+          keyset('n', '<localleader>of', '<cmd>ObsidianQuickSwitch<CR>')
+          keyset('n', '<localleader>og', '<cmd>ObsidianSearch<CR>')
+          keyset('n', '<localleader>ot', '<cmd>ObsidianTags<CR>')
+          keyset('n', '<localleader>od', '<cmd>ObsidianDailies<CR>')
+        end,
+      },
+    },
   },
 }

@@ -1,0 +1,22 @@
+diff --git a/after/ftplugin/markdown.lua b/after/ftplugin/markdown.lua
+index 870ee31..77b43a6 100644
+--- a/after/ftplugin/markdown.lua
++++ b/after/ftplugin/markdown.lua
+@@ -5 +5 @@ local buf_dir = vim.fs.dirname(vim.api.nvim_buf_get_name(buf))
+-local client = obsidian.get_client()
++local ok, client = pcall(obsidian.get_client)
+@@ -7,4 +7,5 @@ local client = obsidian.get_client()
+-local workspace = obsidian.Workspace.get_workspace_for_dir(buf_dir, client.opts.workspaces)
+-if not workspace then
+-  return -- if not in any workspace.
+-end
++if ok then
++  local workspace = obsidian.Workspace.get_workspace_for_dir(buf_dir, client.opts.workspaces)
++  if not workspace then
++    return -- if not in any workspace.
++  end
+@@ -12 +13,2 @@ end
+-vim.o.commentstring = "%%%s%%"
++  vim.o.commentstring = "%%%s%%"
++end
+

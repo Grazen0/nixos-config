@@ -23,6 +23,7 @@
         version = "main";
         src = inputs.nvim-plugin-obsidian;
         dependencies = with vimPlugins; [ plenary-nvim ];
+        patches = [ ./patches/obsidian-nvim.patch ];
         doCheck = false;
       };
 
@@ -79,7 +80,7 @@
       nvim-lspconfig
       SchemaStore-nvim
       nvim-jdtls
-      nvim-navbuddy
+      # nvim-navbuddy
 
       # Visual
       kanagawa-nvim
@@ -104,7 +105,7 @@
       which-key-nvim
       obsidian-nvim
       obsidian-bridge-nvim
-      fidget-nvim
+      # fidget-nvim
       nvim-dap
       nvim-dap-ui
       nvim-dap-virtual-text
