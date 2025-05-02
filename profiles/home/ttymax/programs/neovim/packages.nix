@@ -48,7 +48,7 @@
       # inputs.haskell-debug-adapter.packages.${system}.default
 
       # Plugin-specifics
-      texlive.combined.scheme-medium # vimtex
+      texlive.combined.scheme-full # vimtex
       lldb # rustaceanvim
       cmake # cmake-tools.nvim
       marp-cli # marp.nvim
