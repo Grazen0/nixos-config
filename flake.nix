@@ -159,7 +159,7 @@
     };
 
     nvim-plugin-obsidian-bridge = {
-      url = "github:oflisback/obsidian-bridge.nvim";
+      url = "github:Grazen0/obsidian-bridge.nvim";
       flake = false;
     };
 
