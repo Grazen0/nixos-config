@@ -16,12 +16,6 @@ in
     :stacking "bg"
     (desktop-clock))
 
-  (defwindow desktop-clock-alt
-    :monitor 0
-    :geometry (geometry :anchor "center right" :x "5%")
-    :stacking "bg"
-    (desktop-clock))
-
   (defwidget desktop-clock []
     (box :class "desktop-time" :orientation "v" :space-evenly false
       (label :class "time" :text {formattime(EWW_TIME, "%I:%M %p")})
