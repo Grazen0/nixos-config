@@ -23,7 +23,6 @@ return {
   {
     'iamcco/markdown-preview.nvim',
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-    ft = { 'markdown', 'quarto' },
     init = function()
       vim.g.mkdp_filetypes = { 'markdown', 'quarto' }
     end,
@@ -90,6 +89,7 @@ return {
   },
   {
     'RaafatTurki/hex.nvim',
+    event = 'VeryLazy',
     opts = {},
   },
 }
