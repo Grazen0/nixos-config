@@ -4,14 +4,15 @@ local function package_name()
   end
 
   local path = vim.fn.expand('%:p:h')
-  local base_path = '/src/main/java/'
-  local src_index = path:find(base_path)
+  local base_path_main = '/src/main/java/'
+  local base_path_test = '/src/test/java/'
+  local src_index = path:find(base_path_main) or path:find(base_path_test)
 
   if not src_index then
     return
   end
 
-  local name = path:sub(src_index + base_path:len()):gsub('/', '.')
+  local name = path:sub(src_index + base_path_main:len()):gsub('/', '.')
   return { 'package ' .. name .. ';', '', '' }
 end
 
