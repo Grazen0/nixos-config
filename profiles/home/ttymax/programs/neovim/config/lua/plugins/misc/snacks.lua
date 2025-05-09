@@ -47,7 +47,7 @@ return {
     {
       '<leader>ff',
       function()
-        require('snacks').picker.files()
+        require('snacks').picker.files({ hidden = true })
       end,
       desc = 'Find files',
     },
@@ -247,9 +247,7 @@ return {
         },
       },
     },
-    notifier = {
-      enabled = true,
-    },
+    notifier = { enabled = true },
     explorer = { enable = true },
     rename = { enabled = true },
     bufdelete = { enabled = true },
