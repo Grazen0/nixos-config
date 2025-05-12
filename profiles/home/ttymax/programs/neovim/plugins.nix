@@ -5,11 +5,7 @@
       inherit (pkgs.vimUtils) buildVimPlugin;
       inherit (pkgs) vimPlugins;
 
-      nvim-spectre = (
-        vimPlugins.nvim-spectre.overrideAttrs {
-          doCheck = false;
-        }
-      );
+      nvim-spectre = vimPlugins.nvim-spectre.overrideAttrs { doCheck = false; };
 
       multicursor-nvim = buildVimPlugin {
         pname = "multicursor.nvim";

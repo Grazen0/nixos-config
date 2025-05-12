@@ -48,9 +48,7 @@
       # inputs.haskell-debug-adapter.packages.${system}.default
 
       # Plugin-specifics
-      (texlive.combine {
-        inherit (texlive) scheme-medium minted;
-      }) # vimtex
+      (texlive.combine { inherit (texlive) scheme-medium minted; }) # vimtex
       lldb # rustaceanvim
       cmake # cmake-tools.nvim
       marp-cli # marp.nvim
