@@ -57,6 +57,10 @@
           game = "11";
           fullName = "Subterranean Animism";
         }
+        {
+          game = "12";
+          fullName = "Undefined Fantastic Object";
+        }
       ];
     in
     lib.listToAttrs (
