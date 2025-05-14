@@ -5,6 +5,7 @@
     editors = {
       idea-ultimate.enable = true;
       pycharm-professional.enable = true;
+      datagrip.enable = true;
     };
 
     ideavimrc =
