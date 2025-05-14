@@ -88,7 +88,7 @@ create_autocmd('FileType', {
 create_autocmd('FileType', {
   pattern = 'java',
   callback = function()
-    vim.opt.wrap = false
+    vim.opt_local.wrap = false
   end,
 })
 
