@@ -9,8 +9,8 @@ local function keyset(mode, lhs, rhs, opts)
 end
 
 -- gh/gl instead of ^/$
-keyset('n', 'gh', '^')
-keyset('n', 'gl', '$')
+keyset({ 'n', 'v' }, 'gh', '^')
+keyset({ 'n', 'v' }, 'gl', '$')
 
 -- https://www.reddit.com/r/neovim/comments/1jdvvei/my_list_of_useful_keybinds_i_dont_see_mentioned/
 -- Text object to select entire buffer.
@@ -40,12 +40,12 @@ keyset('n', '<A-->', '<C-w>-')
 keyset('n', '<A-=>', '<C-w>+')
 
 -- Soft line wrap movement
-keyset('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
-keyset('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
+keyset({ 'n', 'v' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
+keyset({ 'n', 'v' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
 -- n/N always move forwards/backwards, respectively
-keyset('n', 'n', 'v:searchforward ? "n" : "N"', { expr = true })
-keyset('n', 'N', 'v:searchforward ? "N" : "n"', { expr = true })
+keyset({ 'n', 'v' }, 'n', 'v:searchforward ? "n" : "N"', { expr = true })
+keyset({ 'n', 'v' }, 'N', 'v:searchforward ? "N" : "n"', { expr = true })
 
 -- Floating diagnostic window
 keyset('n', '<leader>d', vim.diagnostic.open_float)
