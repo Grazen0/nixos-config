@@ -8,6 +8,7 @@ return {
   },
   {
     's1n7ax/nvim-window-picker',
+    enabled = false,
     lazy = true,
     opts = {},
   },
@@ -18,6 +19,7 @@ return {
   },
   {
     'rachartier/tiny-inline-diagnostic.nvim',
+    enabled = false,
     event = 'LspAttach',
     priority = 1000,
     opts = {

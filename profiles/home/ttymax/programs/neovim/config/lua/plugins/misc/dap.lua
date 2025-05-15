@@ -206,6 +206,7 @@ return {
   },
   {
     'mfussenegger/nvim-dap-python',
+    enabled = false,
     ft = 'python',
     dependencies = { 'mfussenegger/nvim-dap' },
     config = function()

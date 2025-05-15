@@ -78,7 +78,7 @@
       nvim-treesitter-textobjects
       nvim-treesitter-context
       nvim-ts-autotag
-      trouble-nvim
+      # trouble-nvim
       nvim-lspconfig
       SchemaStore-nvim
       nvim-jdtls
@@ -91,9 +91,9 @@
       lualine-nvim
       bufferline-nvim
       markview-nvim
-      nvim-window-picker
+      # nvim-window-picker
       vim-illuminate
-      tiny-inline-diagnostic-nvim
+      # tiny-inline-diagnostic-nvim
       gitsigns-nvim
 
       # Misc
@@ -111,7 +111,7 @@
       nvim-dap
       nvim-dap-ui
       nvim-dap-virtual-text
-      nvim-dap-python
+      # nvim-dap-python
       overseer-nvim
       rustaceanvim
       cmake-tools-nvim
