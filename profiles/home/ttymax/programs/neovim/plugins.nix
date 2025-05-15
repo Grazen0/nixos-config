@@ -65,7 +65,7 @@
       luasnip-latex-snippets-nvim
       nvim-surround
       nvim-autopairs
-      comment-nvim
+      # comment-nvim
       undotree
       bullets-vim
       vim-tmux-navigator

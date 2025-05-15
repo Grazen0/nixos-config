@@ -6,6 +6,7 @@ return {
   },
   {
     'numToStr/comment.nvim',
+    enabled = false,
     event = 'InsertEnter',
     opts = {},
   },
