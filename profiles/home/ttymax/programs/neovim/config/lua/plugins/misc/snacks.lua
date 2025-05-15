@@ -59,6 +59,13 @@ return {
       desc = 'Find with grep',
     },
     {
+      '<leader>fd',
+      function()
+        require('snacks').picker.diagnostics()
+      end,
+      desc = 'Find diagnostics',
+    },
+    {
       '<leader>ft',
       function()
         require('snacks').picker.pick({ source = 'todo_comments' })
@@ -92,6 +99,13 @@ return {
         require('snacks').picker.lsp_implementations()
       end,
       desc = 'Goto Implementation',
+    },
+    {
+      'gO',
+      function()
+        require('snacks').picker.lsp_symbols()
+      end,
+      desc = 'Open Document symbols',
     },
   },
   opts = {
