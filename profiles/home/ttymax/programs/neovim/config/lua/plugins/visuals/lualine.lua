@@ -18,33 +18,7 @@ return {
       lualine_c = {},
       lualine_x = {
         'diagnostics',
-        {
-          function()
-            local clients = vim.lsp.get_clients()
-
-            if next(clients) == nil then
-              return 'No LSP'
-            end
-
-            for _, client in ipairs(clients) do
-              local filetypes = client.config.filetypes
-              if
-                filetypes and vim.fn.index(filetypes, vim.bo.filetype) ~= -1
-              then
-                return client.name
-              end
-            end
-
-            return 'No LSP'
-          end,
-          cond = function()
-            return vim.fn.index(
-              { 'toggleterm', 'snacks_picker_list' },
-              vim.bo.filetype
-            ) == -1
-          end,
-          icon = ' ',
-        },
+        'lsp_status',
       },
       lualine_y = {
         { 'searchcount', maxcount = 999, timeout = 120 },
