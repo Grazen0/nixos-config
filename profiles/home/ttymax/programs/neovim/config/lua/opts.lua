@@ -28,10 +28,12 @@ o.expandtab = true
 
 -- Misc (?)
 o.showmode = false
+o.list = true
 o.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 o.autoread = true
 o.mouse = 'a' -- No shame
 o.splitright = true
+o.splitbelow = true
 o.undofile = true
 o.updatetime = 300
 o.spelllang = { 'es', 'en_us' }
