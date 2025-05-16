@@ -109,7 +109,7 @@
     };
 
     yazi-plugins = {
-      url = "github:yazi-rs/plugins/273019910c1111a388dd20e057606016f4bd0d17";
+      url = "github:yazi-rs/plugins";
       flake = false;
     };
 
@@ -149,7 +149,7 @@
     };
 
     nvim-plugin-r-nvim = {
-      url = "github:R-nvim/R.nvim/6d3000fe41d891e4bf9f905578828a910f893c6f";
+      url = "github:R-nvim/R.nvim";
       flake = false;
     };
 
