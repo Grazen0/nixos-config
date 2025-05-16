@@ -61,6 +61,13 @@ return {
     {
       '<leader>fd',
       function()
+        require('snacks').picker.diagnostics_buffer()
+      end,
+      desc = 'Find diagnostics',
+    },
+    {
+      '<leader>fD',
+      function()
         require('snacks').picker.diagnostics()
       end,
       desc = 'Find diagnostics',
