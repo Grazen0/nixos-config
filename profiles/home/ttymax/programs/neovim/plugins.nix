@@ -74,7 +74,7 @@
       # LSP
       conform-nvim
       nvim-treesitter.withAllGrammars
-      nvim-treesitter-refactor
+      # nvim-treesitter-refactor
       nvim-treesitter-textobjects
       nvim-treesitter-context
       nvim-ts-autotag

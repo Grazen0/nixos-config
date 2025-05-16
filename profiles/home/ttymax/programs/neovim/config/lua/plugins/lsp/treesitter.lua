@@ -2,39 +2,19 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     event = { 'BufReadPost', 'BufNewFile' },
+    main = 'nvim-treesitter.configs',
     opts = {
       highlight = {
         enable = true,
         disable = { 'latex' }, -- Managed by vimtex
       },
     },
-    config = function(_, opts)
-      require('nvim-treesitter.configs').setup(opts)
-    end,
   },
   {
-
     'nvim-treesitter/nvim-treesitter-context',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     event = { 'BufReadPost', 'BufNewFile' },
     opts = {},
-  },
-  {
-    'nvim-treesitter/nvim-treesitter-refactor',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    event = { 'BufReadPost', 'BufNewFile' },
-    opts = {
-      navigation = {
-        enable = true,
-        keymaps = {
-          goto_next_usage = '<A-*>',
-          goto_previous_usage = '<A-#>',
-        },
-      },
-    },
-    config = function(_, opts)
-      require('nvim-treesitter.configs').setup({ refactor = opts })
-    end,
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
