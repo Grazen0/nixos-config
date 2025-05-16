@@ -26,8 +26,8 @@ return {
       svelte = {},
       pyright = {},
       texlab = {},
-      r_language_server = {},
-      zls = {},
+      -- r_language_server = {},
+      -- zls = {},
       cmake = {},
       autotools_ls = {},
       taplo = {},
@@ -41,15 +41,10 @@ return {
         },
       },
       yamlls = {
-        {
-          settings = {
-            yaml = {
-              schemaStore = {
-                enable = false,
-                url = '',
-              },
-              schemas = require('schemastore').yaml.schemas(),
-            },
+        settings = {
+          yaml = {
+            schemas = require('schemastore').yaml.schemas(),
+            schemaStore = { enable = false, url = '' },
           },
         },
       },

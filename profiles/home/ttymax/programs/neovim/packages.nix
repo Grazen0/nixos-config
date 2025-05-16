@@ -39,8 +39,8 @@
       vim-language-server
       vscode-langservers-extracted # HTML, CSS, JSON
       yaml-language-server
-      zls # Zig
-      zig
+      # zls # Zig
+      # zig
 
       # nvim-dap
       jq
