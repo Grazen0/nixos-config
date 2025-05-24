@@ -11,6 +11,7 @@
     ./nom.nix
     ./peaclock.nix
     ./r.nix
+    ./taskwarrior.nix
     ./ssh.nix
     ./tmux.nix
     ./yazi.nix

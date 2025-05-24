@@ -1,7 +1,8 @@
-{ config, ... }:
+{ config, stablePkgs, ... }:
 {
   programs.swayimg = {
     enable = true;
+    package = stablePkgs.swayimg;
 
     settings = with config.scheme.withHashtag; {
       viewer = {
