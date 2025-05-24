@@ -26,6 +26,15 @@ return {
       svelte = {},
       pyright = {},
       texlab = {},
+      rust_analyzer = {
+        settings = {
+          ['rust-analyzer'] = {
+            check = {
+              command = 'clippy',
+            },
+          },
+        },
+      },
       -- r_language_server = {},
       -- zls = {},
       cmake = {},

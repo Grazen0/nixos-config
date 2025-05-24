@@ -113,7 +113,7 @@
       nvim-dap-virtual-text
       # nvim-dap-python
       overseer-nvim
-      rustaceanvim
+      # rustaceanvim
       cmake-tools-nvim
       tailwind-tools-nvim
       # customPkgs.vim-plugin-haskell-tools-nvim

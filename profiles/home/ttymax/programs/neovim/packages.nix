@@ -31,6 +31,7 @@
       lua-language-server
       pyright # Python
       rust-analyzer
+      clippy
       svelte-language-server
       tailwindcss-language-server
       taplo # TOML
@@ -49,7 +50,7 @@
 
       # Plugin-specifics
       (texlive.combine { inherit (texlive) scheme-medium minted; }) # vimtex
-      lldb # rustaceanvim
+      # lldb # rustaceanvim
       cmake # cmake-tools.nvim
       marp-cli # marp.nvim
       xxd # hex.nvim

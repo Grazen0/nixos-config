@@ -81,6 +81,7 @@ return {
   },
   {
     'mrcjkb/rustaceanvim',
+    enabled = false,
     event = 'VeryLazy',
     init = function()
       vim.g.rustaceanvim = {
