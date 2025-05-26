@@ -21,32 +21,6 @@ create_autocmd('FileType', {
   command = 'wincmd L',
 })
 
--- Enable spellcheck for some filetypes
-create_autocmd('FileType', {
-  pattern = { 'plaintex', 'tex', 'markdown', 'quarto' },
-  callback = function()
-    vim.opt_local.spell = true
-  end,
-})
-
--- Use relative numbers only on focused buffer
-create_autocmd({ 'WinEnter', 'FocusGained' }, {
-  pattern = '*',
-  callback = function()
-    if vim.api.nvim_win_get_option(0, 'number') then
-      vim.opt_local.relativenumber = true
-    end
-  end,
-})
-create_autocmd({ 'WinLeave', 'FocusLost' }, {
-  pattern = '*',
-  callback = function()
-    if vim.api.nvim_win_get_option(0, 'number') then
-      vim.opt_local.relativenumber = false
-    end
-  end,
-})
---
 -- Tab width 2 for some filetypes
 create_autocmd('FileType', {
   pattern = {

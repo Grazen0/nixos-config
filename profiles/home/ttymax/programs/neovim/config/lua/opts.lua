@@ -35,6 +35,7 @@ o.splitright = true
 o.splitbelow = true
 o.undofile = true
 o.updatetime = 300
+o.spell = true
 o.spelllang = { 'es', 'en_us' }
 o.confirm = true
 o.winborder = 'single'
