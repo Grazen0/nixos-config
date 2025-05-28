@@ -6,6 +6,7 @@ o.compatible = false
 o.termguicolors = true
 -- Numbering and stuff
 o.number = true
+o.relativenumber = true
 o.signcolumn = 'yes'
 o.scrolloff = 10
 o.cursorline = true
