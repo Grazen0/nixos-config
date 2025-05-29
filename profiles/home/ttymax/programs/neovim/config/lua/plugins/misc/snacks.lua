@@ -114,6 +114,20 @@ return {
       end,
       desc = 'Open Document symbols',
     },
+    {
+      'gW',
+      function()
+        require('snacks').picker.lsp_workspace_symbols()
+      end,
+      desc = 'Open Workspace symbols',
+    },
+    {
+      'grt',
+      function()
+        require('snacks').picker.lsp_type_definitions()
+      end,
+      desc = 'Goto Type Definition',
+    },
   },
   opts = {
     bigfile = { enabled = true },
