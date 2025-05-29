@@ -54,6 +54,7 @@
       cmake # cmake-tools.nvim
       marp-cli # marp.nvim
       xxd # hex.nvim
+      cargo-nextest # neotest-rust
     ];
 
     extraPython3Packages =

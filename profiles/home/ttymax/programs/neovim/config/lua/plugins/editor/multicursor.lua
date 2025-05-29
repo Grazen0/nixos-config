@@ -142,20 +142,20 @@ return {
     { mode = 'x', 'M', require('multicursor-nvim').matchCursors },
 
     -- Rotate visual selection contents.
-    {
-      mode = 'x',
-      '<leader>t',
-      function()
-        require('multicursor-nvim').transposeCursors(1)
-      end,
-    },
-    {
-      mode = 'x',
-      '<leader>T',
-      function()
-        require('multicursor-nvim').transposeCursors(-1)
-      end,
-    },
+    -- {
+    --   mode = 'x',
+    --   '<leader>t',
+    --   function()
+    --     require('multicursor-nvim').transposeCursors(1)
+    --   end,
+    -- },
+    -- {
+    --   mode = 'x',
+    --   '<leader>T',
+    --   function()
+    --     require('multicursor-nvim').transposeCursors(-1)
+    --   end,
+    -- },
 
     -- Jumplist support
     { mode = { 'x', 'n' }, '<C-i>', require('multicursor-nvim').jumpForward },

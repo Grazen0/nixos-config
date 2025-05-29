@@ -6,6 +6,7 @@
       inherit (pkgs) vimPlugins;
 
       nvim-spectre = vimPlugins.nvim-spectre.overrideAttrs { doCheck = false; };
+      # neotest = vimPlugins.nvim-spectre.overrideAttrs { doCheck = false; };
 
       multicursor-nvim = buildVimPlugin {
         pname = "multicursor.nvim";
@@ -82,7 +83,6 @@
       nvim-lspconfig
       SchemaStore-nvim
       nvim-jdtls
-      # nvim-navbuddy
 
       # Visual
       kanagawa-nvim
@@ -91,9 +91,7 @@
       lualine-nvim
       bufferline-nvim
       markview-nvim
-      # nvim-window-picker
       vim-illuminate
-      # tiny-inline-diagnostic-nvim
       gitsigns-nvim
 
       # Misc
@@ -107,13 +105,10 @@
       which-key-nvim
       obsidian-nvim
       obsidian-bridge-nvim
-      # fidget-nvim
       nvim-dap
       nvim-dap-ui
       nvim-dap-virtual-text
-      # nvim-dap-python
-      overseer-nvim
-      # rustaceanvim
+      # overseer-nvim
       cmake-tools-nvim
       tailwind-tools-nvim
       # customPkgs.vim-plugin-haskell-tools-nvim
@@ -121,5 +116,8 @@
       nvim-dbee
       marp-nvim
       hex-nvim
+      neotest
+      neotest-rust
+      neotest-java
     ];
 }

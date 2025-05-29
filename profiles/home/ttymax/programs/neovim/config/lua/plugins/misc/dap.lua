@@ -200,6 +200,7 @@ return {
   },
   {
     'stevearc/overseer.nvim',
+    enabled = false,
     lazy = true,
     main = 'overseer',
     opts = {},
