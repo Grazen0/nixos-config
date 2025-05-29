@@ -8,8 +8,8 @@ let
   };
 
   junit = pkgs.fetchurl {
-    url = "https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.10.1/junit-platform-console-standalone-1.10.1.jar";
-    hash = "sha256-tC6qU9E1dtF9tfuLKAcipq6eNtr5X0JivG6W1Msgcl8=";
+    url = "https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.12.2/junit-platform-console-standalone-1.12.2.jar";
+    hash = "sha256-MpvRAoiHWnTQTJymt8mInCZd34eyGp6kKn9zkvORRyo=";
   };
 in
 # lua

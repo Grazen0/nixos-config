@@ -6,7 +6,10 @@
       inherit (pkgs) vimPlugins;
 
       nvim-spectre = vimPlugins.nvim-spectre.overrideAttrs { doCheck = false; };
-      # neotest = vimPlugins.nvim-spectre.overrideAttrs { doCheck = false; };
+
+      neotest-java = vimPlugins.neotest-java.overrideAttrs {
+        patches = [ ./patches/neotest-java.patch ];
+      };
 
       multicursor-nvim = buildVimPlugin {
         pname = "multicursor.nvim";
@@ -52,6 +55,7 @@
         version = "main";
         src = inputs.nvim-plugin-marp;
       };
+
     in
     with vimPlugins;
     [
