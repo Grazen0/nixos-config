@@ -5,6 +5,7 @@ return {
     dependencies = {
       'nvim-neotest/nvim-nio',
       'nvim-lua/plenary.nvim',
+      'antoinemadec/FixCursorHold.nvim',
       'nvim-treesitter/nvim-treesitter',
       'rcarriga/nvim-dap-ui',
       'theHamsta/nvim-dap-virtual-text',
@@ -39,11 +40,53 @@ return {
         desc = 'Stop nearest test',
       },
       {
-        '<leader>ta',
+        '<leader>tso',
         function()
-          require('neotest').run.attach()
+          require('neotest').summary.open()
         end,
-        desc = 'Attach to nearest test',
+        desc = 'Open test summary window',
+      },
+      {
+        '<leader>tsc',
+        function()
+          require('neotest').summary.close()
+        end,
+        desc = 'Close test summary window',
+      },
+      {
+        '<leader>tO',
+        function()
+          require('neotest').output.open({ enter = true })
+        end,
+        desc = 'Open test result output',
+      },
+      {
+        '<leader>too',
+        function()
+          require('neotest').output_panel.open()
+        end,
+        desc = 'Open output panel',
+      },
+      {
+        '<leader>toc',
+        function()
+          require('neotest').output_panel.close()
+        end,
+        desc = 'Open output panel',
+      },
+      {
+        '<leader>tww',
+        function()
+          require('neotest').watch.watch()
+        end,
+        desc = 'Start watching tests',
+      },
+      {
+        '<leader>tws',
+        function()
+          require('neotest').watch.stop()
+        end,
+        desc = 'Stop watching tests',
       },
     },
     opts = {
@@ -52,6 +95,7 @@ return {
         require('neotest-java')({
           junit_jar = require('nix').junit_path,
         }),
+        require('neotest-catch2')(),
       },
     },
   },

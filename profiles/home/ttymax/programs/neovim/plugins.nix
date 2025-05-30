@@ -70,7 +70,6 @@
       luasnip-latex-snippets-nvim
       nvim-surround
       nvim-autopairs
-      # comment-nvim
       undotree
       bullets-vim
       vim-tmux-navigator
@@ -79,11 +78,9 @@
       # LSP
       conform-nvim
       nvim-treesitter.withAllGrammars
-      # nvim-treesitter-refactor
       nvim-treesitter-textobjects
       nvim-treesitter-context
       nvim-ts-autotag
-      # trouble-nvim
       nvim-lspconfig
       SchemaStore-nvim
       nvim-jdtls
@@ -115,7 +112,6 @@
       # overseer-nvim
       cmake-tools-nvim
       tailwind-tools-nvim
-      # customPkgs.vim-plugin-haskell-tools-nvim
       snacks-nvim
       nvim-dbee
       marp-nvim
@@ -123,5 +119,6 @@
       neotest
       neotest-rust
       neotest-java
+      FixCursorHold-nvim
     ];
 }
