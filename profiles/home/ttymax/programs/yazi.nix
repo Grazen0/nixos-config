@@ -6,8 +6,14 @@
   ...
 }:
 {
+  nix.settings = {
+    extra-substituters = [ "https://yazi.cachix.org" ];
+    extra-trusted-public-keys = [ "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k=" ];
+  };
+
   programs.yazi = {
     enable = true;
+    package = inputs.yazi.packages.${pkgs.system}.default;
     shellWrapperName = "y";
 
     flavors.kanagawa = inputs.yazi-flavor-kanagawa;
@@ -21,7 +27,7 @@
           "full-border"
           "smart-enter"
           "toggle-pane"
-          # "git"
+          "git"
           "mount"
         ];
 
@@ -31,7 +37,7 @@
       // (genAttrs inputPlugins (plugin: inputs."yazi-plugin-${plugin}"));
 
     settings = {
-      manager = {
+      mgr = {
         sort_by = "natural";
         linemode = "size";
       };
@@ -44,21 +50,21 @@
         }
       ];
 
-      # plugin.prepend_fetchers = [
-      #   {
-      #     id = "git";
-      #     name = "*";
-      #     run = "git";
-      #   }
-      #   {
-      #     id = "git";
-      #     name = "*/";
-      #     run = "git";
-      #   }
-      # ];
+      plugin.prepend_fetchers = [
+        {
+          id = "git";
+          name = "*";
+          run = "git";
+        }
+        {
+          id = "git";
+          name = "*/";
+          run = "git";
+        }
+      ];
     };
 
-    keymap.manager.prepend_keymap = [
+    keymap.mgr.prepend_keymap = [
       {
         on = "j";
         run = "arrow 1";
@@ -136,7 +142,7 @@
         end, 500, Header.LEFT)
 
         require("full-border"):setup()
-        -- require("git"):setup()
+        require("git"):setup()
       '';
   };
 }

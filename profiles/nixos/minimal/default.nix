@@ -33,6 +33,7 @@
     };
 
     settings = {
+      trusted-users = [ "jdgt" ];
       experimental-features = [
         "nix-command"
         "flakes"
