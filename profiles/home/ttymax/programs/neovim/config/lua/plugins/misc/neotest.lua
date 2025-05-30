@@ -1,5 +1,4 @@
 return {
-
   {
     'nvim-neotest/neotest',
     dependencies = {
@@ -24,6 +23,20 @@ return {
           require('neotest').run.run(vim.fn.expand('%'))
         end,
         desc = 'Run all tests in file',
+      },
+      {
+        '<leader>tS',
+        function()
+          require('neotest').run.run({ suite = true })
+        end,
+        desc = 'Run all tests',
+      },
+      {
+        '<leader>ta',
+        function()
+          require('neotest').run.attach()
+        end,
+        desc = 'Attach to nearest test',
       },
       {
         '<leader>td',
@@ -95,7 +108,6 @@ return {
         require('neotest-java')({
           junit_jar = require('nix').junit_path,
         }),
-        require('neotest-catch2')(),
       },
     },
   },
