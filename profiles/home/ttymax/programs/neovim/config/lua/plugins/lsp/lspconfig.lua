@@ -26,6 +26,7 @@ return {
       svelte = {},
       pyright = {},
       texlab = {},
+      gopls = {},
       rust_analyzer = {
         settings = {
           ['rust-analyzer'] = {

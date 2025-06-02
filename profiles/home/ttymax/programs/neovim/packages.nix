@@ -25,6 +25,7 @@
       cmake-language-server
       clang-tools
       emmet-language-server
+      gopls # Go
       # haskell-language-server
       jdt-language-server # Java
       nil # Nix
