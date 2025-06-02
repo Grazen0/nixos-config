@@ -63,7 +63,7 @@ return {
       function()
         require('snacks').picker.diagnostics_buffer()
       end,
-      desc = 'Find diagnostics',
+      desc = 'Find buffer diagnostics',
     },
     {
       '<leader>fD',
@@ -78,6 +78,13 @@ return {
         require('snacks').picker.pick({ source = 'todo_comments' })
       end,
       desc = 'Find todo comments',
+    },
+    {
+      '<leader>fm',
+      function()
+        require('snacks').picker.man()
+      end,
+      desc = 'Find man pages',
     },
     {
       'gd',
