@@ -120,5 +120,6 @@
       neotest-rust
       neotest-java
       FixCursorHold-nvim
+      fidget-nvim
     ];
 }

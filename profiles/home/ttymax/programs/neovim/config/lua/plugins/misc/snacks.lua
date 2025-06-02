@@ -282,10 +282,6 @@ return {
         },
       },
     },
-    notifier = {
-      enabled = true,
-      style = 'fancy',
-    },
     explorer = { enable = true },
     rename = { enabled = true },
     bufdelete = { enabled = true },
