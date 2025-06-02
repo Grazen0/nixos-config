@@ -58,7 +58,7 @@ return {
           },
         },
       },
-      arduino_language_server = {},
+      -- arduino_language_server = {},
     },
     diagnostic_config = {
       virtual_text = true,
