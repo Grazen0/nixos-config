@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ../minimal
@@ -43,4 +43,23 @@
       setSocketVariable = true;
     };
   };
+
+  console.colors = with config.scheme; [
+    base01
+    red
+    green
+    yellow
+    blue
+    magenta
+    cyan
+    base06
+    base04
+    bright-red
+    bright-green
+    yellow
+    bright-blue
+    bright-magenta
+    bright-cyan
+    base05
+  ];
 }

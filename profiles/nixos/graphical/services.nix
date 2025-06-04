@@ -7,9 +7,18 @@
     gvfs.enable = true;
     tumbler.enable = true;
 
-    xserver.displayManager.gdm = {
+    greetd = {
       enable = true;
-      autoSuspend = false;
+      settings = {
+        default_session = {
+          command = ''
+            ${pkgs.greetd.tuigreet}/bin/tuigreet \
+              -r -t --asterisks --remember-user-session \
+              -g "Hello there"
+          '';
+          user = "greeter";
+        };
+      };
     };
 
     pipewire = {
