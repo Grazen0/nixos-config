@@ -39,6 +39,7 @@ in
       ../profiles/nixos/graphical
       ../components/nixos/laptop
       ../components/nixos/nvidia
+      ../components/nixos/gaming
       (mkUserModule {
         username = "jdgt";
         homeManagerModules = [
