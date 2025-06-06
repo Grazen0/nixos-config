@@ -16,5 +16,6 @@
     pciutils
     nitch
     github-cli
+    cloc
   ];
 }
