@@ -144,7 +144,7 @@ return {
       win = { border = vim.o.winborder },
     },
     dashboard = {
-      enabled = true,
+      enabled = false,
       preset = {
         header = [[
                                                                     
