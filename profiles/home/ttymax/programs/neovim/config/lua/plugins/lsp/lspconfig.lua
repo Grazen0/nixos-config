@@ -21,7 +21,7 @@ return {
       ts_ls = {},
       eslint = {},
       html = {},
-      emmet_language_server = {},
+      -- emmet_language_server = {},
       cssls = {},
       svelte = {},
       pyright = {},
