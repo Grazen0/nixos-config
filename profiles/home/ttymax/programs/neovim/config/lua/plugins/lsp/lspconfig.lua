@@ -18,7 +18,7 @@ return {
       },
       nil_ls = {},
       lua_ls = {},
-      ts_ls = {},
+      vtsls = {},
       eslint = {},
       html = {},
       -- emmet_language_server = {},
