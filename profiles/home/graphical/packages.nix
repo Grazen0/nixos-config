@@ -22,6 +22,7 @@
 
     # Basic gaming
     wine
+    wl-clipboard
     # customPkgs.fceux
     # snes9x-gtk
 
