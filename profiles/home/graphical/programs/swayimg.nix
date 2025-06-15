@@ -1,8 +1,7 @@
-{ config, stablePkgs, ... }:
+{ config, ... }:
 {
   programs.swayimg = {
     enable = true;
-    package = stablePkgs.swayimg;
 
     settings = with config.scheme.withHashtag; {
       viewer = {
@@ -11,9 +10,11 @@
         antialiasing = "bicubic";
       };
 
+      list.all = "yes";
+
       gallery = {
         window = base00;
-        antialiasing = "bicubic";
+        antialiasing = "mks13";
       };
 
       font = {
