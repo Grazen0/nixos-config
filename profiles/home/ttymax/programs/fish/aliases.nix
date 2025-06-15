@@ -32,7 +32,6 @@
       grep = "grep --color=auto";
       ta = "tmux attach";
       lg = "lazygit";
-      music = "${tmux-music} ${./default_album_art.png}";
 
       cat = "bat";
       catfr = "${pkgs.coreutils}/bin/cat";
@@ -49,13 +48,15 @@
       emacss = "vs";
 
       peaclock = "peaclock --config-dir ${config.xdg.configHome}/peaclock";
+
+      ccat = "wl-copy <";
       # "Borrowed" from https://github.com/NotAShelf/nyx/blob/main/homes/notashelf/programs/terminal/shell/zsh/aliases.nix#L39
-
       ytmp3 = ''${yt-dlp} -x -c --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"'';
+      music = "${tmux-music} ${./default_album_art.png}";
 
-      nrs = "sudo nixos-rebuild switch --fast --flake ${flakeDir}";
-      nrb = "sudo nixos-rebuild boot --fast --flake ${flakeDir}";
-      nrt = "sudo nixos-rebuild test --fast --flake ${flakeDir}";
+      nrs = "sudo nixos-rebuild switch --no-reexec --flake ${flakeDir}";
+      nrb = "sudo nixos-rebuild boot --no-reexec --flake ${flakeDir}";
+      nrt = "sudo nixos-rebuild test --no-reexec --flake ${flakeDir}";
       nfu = "nix flake update --flake ${flakeDir}";
       nss = "nix search nixpkgs";
       ngc = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
