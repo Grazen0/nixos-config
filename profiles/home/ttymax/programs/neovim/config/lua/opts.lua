@@ -8,7 +8,7 @@ o.termguicolors = true
 o.number = true
 o.relativenumber = true
 o.signcolumn = 'yes'
-o.scrolloff = 10
+o.scrolloff = 4
 o.cursorline = true
 o.cursorlineopt = 'both'
 
