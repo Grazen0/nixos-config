@@ -2,7 +2,7 @@
 {
   imports = [
     ../ttymax
-    ./services.nix
+    ./services
   ];
 
   # Font packages
