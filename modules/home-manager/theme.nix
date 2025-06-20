@@ -50,7 +50,7 @@ in
 
   config =
     let
-      inherit (lib) mkIf optionals;
+      inherit (lib) mkIf;
       inherit (cfg) wallpaper cursor;
     in
     {

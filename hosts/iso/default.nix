@@ -18,9 +18,6 @@ in
     printing.enable = mkForce false;
     gvfs.enable = mkForce false;
 
-    displayManager = {
-      autoLogin.enable = false; # Doesn't seem to work
-      defaultSession = "river-uwsm";
-    };
+    displayManager.autoLogin.enable = false;
   };
 }

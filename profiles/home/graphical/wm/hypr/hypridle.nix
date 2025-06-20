@@ -11,7 +11,6 @@
     settings =
       let
         inherit (lib') timeStrToSecs;
-        hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
         swaylock = "${config.programs.swaylock.package}/bin/swaylock";
         brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
       in
@@ -19,7 +18,7 @@
         general = {
           lock_cmd = "pidof ${swaylock} || ${swaylock}";
           before_sleep_cmd = "loginctl lock-session";
-          after_sleep_cmd = "${hyprctl} dispatch dpms on";
+          after_sleep_cmd = "hyprctl dispatch dpms on";
         };
 
         listener = [
@@ -37,8 +36,8 @@
           {
             # Screen off
             timeout = timeStrToSecs "10m 30s";
-            on-timeout = "${hyprctl} dispatch dpms off";
-            on-resume = "${hyprctl} dispatch dpms on";
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyprctl dispatch dpms on";
           }
           {
             # Suspend

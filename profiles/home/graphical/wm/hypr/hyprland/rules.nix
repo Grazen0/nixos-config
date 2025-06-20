@@ -13,9 +13,7 @@
           "File Upload"
         ];
 
-        dialogRules = map (title: [
-          "float, title:^(${title})(.*)$"
-        ]) dialogTitles;
+        dialogRules = map (title: [ "float, title:^(${title})(.*)$" ]) dialogTitles;
       in
       [
         # Gives complete control over maximizing

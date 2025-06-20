@@ -61,9 +61,6 @@
             exec = media-query;
           };
 
-        "hyprland/workspaces" = {
-        };
-
         pulseaudio =
           let
             pamixer = "${pkgs.pamixer}/bin/pamixer";
