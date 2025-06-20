@@ -9,23 +9,24 @@
     ./workspaces.nix
   ];
 
+  home.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
+
   wayland.windowManager.hyprland = {
+    enable = true;
     xwayland.enable = true;
     systemd.enable = false; # Conflicts with UWSM
 
     settings = {
       monitor = [ ", preferred, auto, 1" ];
 
-      env = [
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_TYPE,wayland"
-        "XDG_SESSION_DESKTOP,Hyprland"
-        "QT_GPA_PLATFORM,wayland"
-        "NIXOS_OZONE_WL,1"
-        "WLR_NO_HARDWARE_CURSORS,1"
-        # idc, this is for a local server
-        "OBSIDIAN_REST_API_KEY,fcaf7dede9cdedd5bbbb8e1d2889cf88974d7ed5340b1f225a01a50e8faa444e"
-      ];
+      ecosystem = {
+        no_update_news = true;
+        no_donation_nag = true;
+      };
     };
 
     systemd.variables = [ "--all" ];

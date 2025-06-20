@@ -9,7 +9,7 @@
   home.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
 
   wayland.windowManager.river = rec {
-    enable = true;
+    enable = false;
     package = null; # Let river NixOS module handle this
 
     settings = with config.scheme; {

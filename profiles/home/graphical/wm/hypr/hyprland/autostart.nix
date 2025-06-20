@@ -8,22 +8,22 @@
   wayland.windowManager.hyprland.settings.exec-once =
     let
       inherit (lib) concatStringsSep;
-      inherit (config.meta.mainPrograms) browser;
       uwsmApp = "uwsm app --";
 
+      waybar = "${config.programs.waybar.package}/bin/waybar";
       wbg = "${pkgs.wbg}/bin/wbg";
       polkit-gnome = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
       wl-paste = "${pkgs.wl-clipboard}/bin/wl-paste";
-
+      cliphist = "${config.services.cliphist.package}/bin/cliphist";
       eww = "${config.programs.eww.package}/bin/eww";
     in
     [
       "${uwsmApp} ${wbg} ${config.theme.home.wallpaper.source}"
+      "${uwsmApp} ${waybar}"
       "${uwsmApp} ${eww} open-many ${concatStringsSep " " config.meta.eww.autostartWidgets}"
       "${uwsmApp} ${polkit-gnome}"
-      "${uwsmApp} ${wl-paste} --watch ${pkgs.cliphist}/bin/cliphist store"
+      "${uwsmApp} ${wl-paste} --watch ${cliphist} store"
 
-      "[workspace 2 silent] ${uwsmApp} ${browser}"
       "[workspace 7 silent] ${uwsmApp} equibop --start-minimized"
     ];
 }

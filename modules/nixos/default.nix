@@ -1,1 +1,1 @@
-{ imports = [ ./river-uwsm.nix ]; }
+{ imports = [ ./river.nix ]; }

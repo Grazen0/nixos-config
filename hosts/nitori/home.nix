@@ -39,13 +39,6 @@ in
   };
 
   meta.eww = {
-    autostartWidgets = [
-      "desktop-clock"
-      "desktop-cow"
-      "bar-primary"
-      "bar-secondary"
-    ];
-
     battery = "BAT1";
 
     outputs = {

@@ -29,11 +29,15 @@
   programs = {
     dconf.enable = true;
 
-    river = {
+    hyprland = {
       enable = true;
       withUWSM = true;
-      # Would install waybar, foot and dmenu for some reason
-      extraPackages = [ ];
+    };
+
+    river = {
+      enable = false;
+      withUWSM = true;
+      extraPackages = [ ]; # Would install waybar, foot and dmenu for some reason
     };
 
     thunar = {
@@ -45,6 +49,8 @@
       ];
     };
   };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   boot = {
     # v4l2loopback module required for OBS Virtual Camera

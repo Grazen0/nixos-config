@@ -1,4 +1,7 @@
 { config, lib, ... }:
+let
+  cfg = config.programs.river;
+in
 {
   options = {
     programs.river.withUWSM = lib.mkEnableOption null // {
@@ -8,7 +11,7 @@
     };
   };
 
-  config = lib.mkIf config.programs.river.withUWSM {
+  config = lib.mkIf (cfg.enable && cfg.withUWSM) {
     programs.uwsm = {
       enable = true;
       waylandCompositors.river = {

@@ -16,7 +16,7 @@
       kanshictl = "${config.services.kanshi.package}/bin/kanshictl";
     in
     {
-      enable = true;
+      enable = false;
 
       timeouts = [
         {

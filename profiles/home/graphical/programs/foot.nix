@@ -5,7 +5,7 @@
     server.enable = false;
 
     settings = with config.scheme; {
-      main.font = "${config.theme.font.regular}:size=11";
+      main.font = "${config.theme.font.regular}:size=11.5";
 
       colors = {
         background = base00;

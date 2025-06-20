@@ -2,20 +2,17 @@
 {
   wayland.windowManager.hyprland.settings =
     let
-      inherit (config) theme;
-      colors = theme.colors.hex;
+      inherit (config) scheme;
     in
     {
       general = {
-        gaps_in = 4;
-        gaps_out = 8;
-        border_size = 3;
+        gaps_in = 5;
+        gaps_out = 10;
+        border_size = 2;
 
-        "col.active_border" = "rgb(${colors.blue}) rgb(${colors.magenta}) 45deg";
-        "col.inactive_border" = "rgba(${colors.brightBlack}ee)";
+        "col.active_border" = "rgb(${scheme.blue})";
+        "col.inactive_border" = "rgb(${scheme.base04})";
         no_focus_fallback = true;
-
-        layout = "dwindle";
 
         allow_tearing = true;
       };
@@ -27,36 +24,13 @@
       };
 
       decoration = {
-        rounding = 6;
+        rounding = 0;
 
-        shadow = {
-          enabled = true;
-          color = "0xcc${colors.black}";
-          range = 32;
-        };
-
-        blur = {
-          enabled = true;
-          size = 10;
-          passes = 3;
-        };
+        shadow.enabled = false;
+        blur.enabled = false;
       };
 
-      animations = {
-        enabled = true;
-        first_launch_animation = false;
-
-        bezier = "expo, 0.16, 1, 0.3, 1";
-        animation = [
-          "windows, 1, 3, expo"
-          "windowsOut, 1, 3, expo, popin 80%"
-          "border, 1, 4, expo"
-          "borderangle, 1, 3, expo"
-          "fade, 1, 3, expo"
-          "workspaces, 1, 3, expo"
-          "layersIn, 1, 4, expo"
-        ];
-      };
+      animations.enabled = false;
 
       xwayland.force_zero_scaling = true;
     };

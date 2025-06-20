@@ -64,12 +64,5 @@ in
         XCURSOR_THEME = cursor.name;
         XCURSOR_SIZE = toString cursor.size;
       };
-
-      wayland.windowManager.hyprland.settings.env =
-        optionals config.wayland.windowManager.hyprland.enable
-          [
-            "XCURSOR_THEME,${cursor.name}"
-            "XCURSOR_SIZE,${toString cursor.size}"
-          ];
     };
 }

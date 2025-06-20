@@ -15,7 +15,7 @@ writeShellApplication {
       *"Hibernate")
         systemctl hibernate;;
       *"Log out")
-        loginctl terminate-session "''${XDG_SESSION_ID-}";;
+        uwsm stop;;
       *"Reboot")
         systemctl reboot;;
       *"Shut down")

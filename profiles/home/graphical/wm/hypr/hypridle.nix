@@ -6,16 +6,18 @@
 }:
 {
   services.hypridle = {
+    enable = true;
+
     settings =
       let
         inherit (lib') timeStrToSecs;
         hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
-        hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
+        swaylock = "${config.programs.swaylock.package}/bin/swaylock";
         brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
       in
       {
         general = {
-          lock_cmd = "pidof ${hyprlock} || ${hyprlock}";
+          lock_cmd = "pidof ${swaylock} || ${swaylock}";
           before_sleep_cmd = "loginctl lock-session";
           after_sleep_cmd = "${hyprctl} dispatch dpms on";
         };

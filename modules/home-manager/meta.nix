@@ -25,7 +25,6 @@ in
         default = [
           "desktop-clock"
           "desktop-cow"
-          "bar-primary"
         ];
       };
 

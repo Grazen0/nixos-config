@@ -1,14 +1,14 @@
 { config, ... }:
 let
   inherit (config) theme;
-  colors = theme.colors.hexWithHashtag;
 in
+with config.scheme.withHashtag;
 # css
 ''
   /* GENERAL */
   * {
     font-family: ${theme.font.propo}, monospace;
-    font-size: 12px;
+    font-size: 13px;
     color: inherit;
     border-radius: 0;
     margin: 0;
@@ -18,83 +18,57 @@ in
   }
 
   window#waybar {
-    background-color: ${colors.background};
-    color: ${colors.foreground};
+    background-color: ${base00};
+    color: ${base06};
   }
 
   window#waybar.hidden {
     opacity: 0.2;
   }
 
-  #custom-sysmenu,
-  #tray,
-  #language,
-  #custom-media,
-  #tags,
   #pulseaudio,
-  #battery,
-  #temperature,
+  #memory,
   #network,
+  #battery,
   #clock,
   #custom-notifications,
   #custom-power {
-    padding: 0 12px;
-  }
-
-  #custom-sysmenu:hover,
-  #tray:hover,
-  #language:hover,
-  #custom-media:hover,
-  #pulseaudio:hover,
-  #battery:hover,
-  #temperature:hover,
-  #network:hover,
-  #clock:hover,
-  #custom-notifications:hover,
-  #custom-power:hover {
-    border-color: ${colors.blue};
+    margin: 0 2px;
+    padding: 0px 10px;
+    border-bottom: 2px solid;
   }
 
   /* SYSMENU */
   #custom-sysmenu {
-    color: ${colors.brightBlue};
-    font-size: 1.2em;
+    color: ${bright-blue};
+    margin-left: 10px;
+    font-size: 1.5em;
   }
 
   /* TRAY */
-  #tray > .passive {
-    -gtk-icon-effect: dim;
-  }
-
-  #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-  }
-
-  /* LANGUAGE */
-  #language {
-    color: ${colors.white};
+  #tray {
+    margin: 0 8px;
   }
 
   /* MEDIA */
   #custom-media {
-    color: ${colors.magenta};
+    color: ${magenta};
   }
 
   #custom-media.paused {
-    color: ${colors.brightBlack};
+    color: ${base04};
   }
 
   #custom-media.inactive {
     opacity: 0;
   }
 
-  /* TAGS */
+  /* RIVER TAGS */
   #tags {
     padding: 0 16px;
   }
 
   #tags button {
-    padding: 0;
     min-width: 32px;
   }
 
@@ -107,17 +81,17 @@ in
   }
 
   #tags button:not(.focused):not(.occupied) {
-    color: ${colors.brightBlack};
+    color: ${base04};
   }
 
   #tags button.focused {
-    background-color: ${colors.blue};
-    color: ${colors.black};
+    background-color: ${blue};
+    color: ${base01};
   }
 
   #tags button.urgent {
-    background-color: ${colors.magenta};
-    color: ${colors.black};
+    background-color: ${magenta};
+    color: ${base01};
   }
 
   /* Scratchpad stuff */
@@ -126,39 +100,112 @@ in
   }
 
   #tags button:last-child.occupied:not(.focused) {
-    color: ${colors.brightMagenta};
+    color: ${bright-magenta};
   }
 
   #tags button:last-child.focused {
-    background-color: ${colors.brightMagenta};
+    background-color: ${bright-magenta};
+  }
+
+  /* HYPRLAND WORKSPACE */
+  #workspaces {
+    margin: 0 16px;
+  }
+
+  #workspaces button {
+    min-width: 32px;
+    border-bottom: 2px solid;
+    border-color: transparent;
+  }
+
+  /* Disable default some GTK stuff */
+  #workspaces button:hover {
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
+  }
+
+  #workspaces button.visible,
+  #workspaces button.active {
+    color: ${blue};
+    border-color: ${blue};
+  }
+
+  #workspaces button.urgent {
+    color: ${orange};
+    border-color: ${orange};
+  }
+
+  #workspaces button.empty:not(.visible):not(.active) {
+    color: ${base04};
   }
 
   /* PULSEAUDIO */
+  #pulseaudio {
+    color: ${magenta};
+    border-color: ${magenta};
+    min-width: 42px; /* Ensure consistent width */
+  }
+
   #pulseaudio.muted {
-    color: ${colors.brightBlack};
+    color: ${base04};
+    border-color: ${base04};
+  }
+
+  /* MEMORY */
+  #memory {
+    color: ${blue};
+    border-color: ${blue};
   }
 
   /* NETWORK */
   #network {
-    color: ${colors.green};
+    color: ${cyan};
+    border-color: ${cyan};
   }
 
   #network.disconnected {
-    color: ${colors.red};
+    color: ${red};
+    border-color: ${red};
   }
 
   /* BATTERY */
+  #battery.plugged {
+    color: ${green};
+    border-color: ${green};
+  }
+
   #battery.critical:not(.charging) {
-    background-color: ${colors.red};
+    color: ${red};
+    border-color: ${red};
   }
 
   /* CLOCK */
   #clock {
-    color: ${colors.yellow};
+    color: ${yellow};
+    border-color: ${yellow};
+  }
+
+  #clock .icon {
+  background-color: red;
   }
 
   /* NOTIFICATIONS */
+  #custom-notifications {
+    color: ${orange};
+    border-color: ${orange};
+    min-width: 14px; /* Ensure consistent width */
+  }
+
   #custom-notifications.paused {
-    color: ${colors.brightBlack};
+    color: ${base04};
+    border-color: ${base04};
+  }
+
+  #custom-power {
+    color: ${red};
+    border-color: ${red};
+    margin-right: 10px;
   }
 ''
