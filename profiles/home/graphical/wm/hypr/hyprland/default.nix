@@ -17,6 +17,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = null; # Let the NixOS module handle this
+
     xwayland.enable = true;
     systemd.enable = false; # Conflicts with UWSM
 
