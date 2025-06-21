@@ -12,8 +12,8 @@
 
         "col.active_border" = "rgb(${scheme.blue})";
         "col.inactive_border" = "rgb(${scheme.base04})";
-        no_focus_fallback = true;
 
+        no_focus_fallback = true;
         allow_tearing = true;
       };
 
@@ -25,12 +25,14 @@
 
       decoration = {
         rounding = 0;
-
         shadow.enabled = false;
         blur.enabled = false;
       };
 
-      animations.enabled = false;
+      animations = {
+        enabled = false;
+        first_launch_animation = false;
+      };
 
       xwayland.force_zero_scaling = true;
     };
