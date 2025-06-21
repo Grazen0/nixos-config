@@ -67,7 +67,6 @@ return {
   },
   {
     'pmizio/typescript-tools.nvim',
-    enabled = false,
     ft = {
       'javascript',
       'javascriptreact',

@@ -21,10 +21,10 @@ return {
         },
         nil_ls = {},
         lua_ls = {},
-        vtsls = {
-          root_dir = util.root_pattern('package.json'),
-          single_file_support = false,
-        },
+        -- vtsls = {
+        --   root_dir = util.root_pattern('package.json'),
+        --   single_file_support = false,
+        -- },
         denols = {
           root_dir = util.root_pattern('deno.json', 'deno.jsonc'),
         },
