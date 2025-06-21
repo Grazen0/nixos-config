@@ -17,6 +17,7 @@ return {
   },
   {
     'mikavilpas/yazi.nvim',
+    enabled = false,
     keys = {
       {
         '<leader>-',
@@ -50,7 +51,7 @@ return {
       'UndotreePersistUndo',
     },
     keys = {
-      { '<leader>u', '<cmd>UndotreeShow<CR>', desc = 'Open undotree' },
+      { '<leader>u', '<cmd>UndotreeShow<CR>', desc = 'Show undotree' },
     },
   },
   {

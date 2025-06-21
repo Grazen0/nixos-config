@@ -64,7 +64,8 @@
       # Editor
       blink-cmp
       multicursor-nvim
-      yazi-nvim
+      # yazi-nvim
+      oil-nvim
       nvim-spectre
       luasnip
       luasnip-latex-snippets-nvim
