@@ -8,50 +8,47 @@
   programs.tmux = {
     enable = true;
 
-    plugins =
-      with pkgs.tmuxPlugins;
-      with pkgs.tmuxPlugins;
-      [
-        sensible
-        vim-tmux-navigator
-        yank
-        better-mouse-mode
-        {
-          plugin = kanagawa;
-          extraConfig =
-            # tmux
-            ''
-              set -g @kanagawa-ignore-window-colors true
-              set -g @kanagawa-plugins "cwd git time"
-              set -g @kanagawa-show-timezone false
-              set -g @kanagawa-git-disable-status true
+    plugins = with pkgs.tmuxPlugins; [
+      sensible
+      vim-tmux-navigator
+      yank
+      better-mouse-mode
+      {
+        plugin = kanagawa;
+        extraConfig =
+          # tmux
+          ''
+            set -g @kanagawa-ignore-window-colors true
+            set -g @kanagawa-plugins "cwd git time"
+            set -g @kanagawa-show-timezone false
+            set -g @kanagawa-git-disable-status true
 
-              set -g @kanagawa-show-powerline true
-              set -g @kanagawa-show-left-sep " "
-              set -g @kanagawa-show-right-sep " "
-            '';
-        }
-        {
-          plugin = resurrect;
-          extraConfig =
-            # tmux
-            ''
-              set -g @resurrect-capture-pane-contents 'on'
-              set -g @resurrect-strategy-nvim 'session'
-              set -g @resurrect-dir "${config.xdg.dataHome}/tmux/resurrect"
-              set -g @resurrect-processes 'false'
-            '';
-        }
-        {
-          plugin = continuum;
-          extraConfig =
-            # tmux
-            ''
-              set -g @continuum-restore 'on'
-              set -g @continuum-boot 'on'
-            '';
-        }
-      ];
+            set -g @kanagawa-show-powerline true
+            set -g @kanagawa-show-left-sep " "
+            set -g @kanagawa-show-right-sep " "
+          '';
+      }
+      {
+        plugin = resurrect;
+        extraConfig =
+          # tmux
+          ''
+            set -g @resurrect-capture-pane-contents 'on'
+            set -g @resurrect-strategy-nvim 'session'
+            set -g @resurrect-dir "${config.xdg.dataHome}/tmux/resurrect"
+            set -g @resurrect-processes 'false'
+          '';
+      }
+      {
+        plugin = continuum;
+        extraConfig =
+          # tmux
+          ''
+            set -g @continuum-restore 'on'
+            set -g @continuum-boot 'on'
+          '';
+      }
+    ];
 
     terminal = "tmux-256color";
     shortcut = "a";
@@ -106,6 +103,7 @@
 
         # Other stuff
         set -g popup-border-style fg=white
+        set -g renumber-windows on
       '';
   };
 }
