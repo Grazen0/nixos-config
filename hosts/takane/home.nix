@@ -4,7 +4,11 @@ let
 in
 {
   wayland.windowManager = {
-    hyprland.settings.input.kb_layout = mkForce "latam,us";
+    hyprland.settings.input = {
+      kb_layout = mkForce "latam,us";
+      kb_variant = mkForce "";
+      kb_options = mkForce "grp:alt_shift_toggle,caps:swapescape";
+    };
     river.settings.keyboard-layout = mkForce "-options 'grp:alt_shift_toggle,caps:swapescape' 'latam,us'";
   };
 
