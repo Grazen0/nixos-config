@@ -21,17 +21,16 @@ return {
         },
         nil_ls = {},
         lua_ls = {},
-        -- vtsls = {
-        --   root_dir = util.root_pattern('package.json'),
-        --   single_file_support = false,
-        -- },
+        ts_ls = {
+          root_dir = util.root_pattern('package.json'),
+          single_file_support = false,
+        },
         denols = {
           root_dir = util.root_pattern('deno.json', 'deno.jsonc'),
         },
         eslint = {},
         tailwindcss = {},
         html = {},
-        -- emmet_language_server = {},
         cssls = {},
         svelte = {},
         pyright = {},
@@ -51,7 +50,7 @@ return {
         cmake = {},
         autotools_ls = {},
         taplo = {},
-        vimls = {},
+        -- vimls = {},
         jsonls = {
           settings = {
             json = {
