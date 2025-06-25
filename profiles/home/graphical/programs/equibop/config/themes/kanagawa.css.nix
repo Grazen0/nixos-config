@@ -92,7 +92,7 @@ with config.scheme.withHashtag;
       --bg-4: ${base00}; /* main background color */
       --hover: ${base03}; /* channels and buttons when hovered */
       --active: ${base03}; /* channels and buttons when clicked or selected */
-      --active-2: red; /* extra state for transparent buttons */
+      --active-2: ${base02}; /* extra state for transparent buttons */
       --message-hover: color-mix(in srgb, var(--bg-4), 4% ${base05}); /* messages when hovered */
 
       /* accent colors */
