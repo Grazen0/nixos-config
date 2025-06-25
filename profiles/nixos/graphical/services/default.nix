@@ -1,8 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./display-manager.nix
-  ];
+  imports = [ ./display-manager.nix ];
 
   services = {
     blueman.enable = true;
