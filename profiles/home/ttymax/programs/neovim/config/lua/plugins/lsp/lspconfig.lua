@@ -29,6 +29,7 @@ return {
           root_dir = util.root_pattern('deno.json', 'deno.jsonc'),
         },
         eslint = {},
+        tailwindcss = {},
         html = {},
         -- emmet_language_server = {},
         cssls = {},

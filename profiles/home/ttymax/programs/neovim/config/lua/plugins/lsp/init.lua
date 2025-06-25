@@ -99,6 +99,7 @@ return {
   },
   {
     'luckasRanarison/tailwind-tools.nvim',
+    enabled = false,
     ft = {
       'javascript',
       'javascriptreact',

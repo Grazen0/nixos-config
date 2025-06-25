@@ -112,7 +112,6 @@
       nvim-dap-virtual-text
       # overseer-nvim
       cmake-tools-nvim
-      tailwind-tools-nvim
       typescript-tools-nvim
       snacks-nvim
       nvim-dbee
