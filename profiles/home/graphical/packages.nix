@@ -1,6 +1,5 @@
 {
   pkgs,
-  customPkgs,
   inputs,
   ...
 }:
@@ -17,7 +16,7 @@
     inkscape
     # insomnia
     obsidian
-    customPkgs.zoom-us
+    zoom-us
     postman
 
     # Basic gaming
