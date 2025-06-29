@@ -40,7 +40,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-zoom.url = "github:NixOS/nixpkgs/bcb68885668cccec12276bbb379f8f2557aa06ce";
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
