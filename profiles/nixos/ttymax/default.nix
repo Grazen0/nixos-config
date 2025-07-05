@@ -34,6 +34,13 @@
         max-cache-ttl = 604800;
       };
     };
+
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        sfml
+      ];
+    };
   };
 
   virtualisation.docker = {
