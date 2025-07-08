@@ -24,25 +24,6 @@
         dependencies = with vimPlugins; [ instant-nvim ];
       };
 
-      obsidian-nvim = buildVimPlugin {
-        pname = "obsidian.nvim";
-        version = "main";
-        src = inputs.nvim-plugin-obsidian;
-        dependencies = with vimPlugins; [ plenary-nvim ];
-        patches = [ ./patches/obsidian-nvim.patch ];
-        doCheck = false;
-      };
-
-      obsidian-bridge-nvim = buildVimPlugin {
-        pname = "obsidian-bridge.nvim";
-        version = "main";
-        src = inputs.nvim-plugin-obsidian-bridge;
-        dependencies = with vimPlugins; [
-          plenary-nvim
-          obsidian-nvim
-        ];
-      };
-
       luasnip-latex-snippets-nvim = buildVimPlugin {
         pname = "luasnip-latex-snippets.nvim";
         version = "main";
@@ -105,8 +86,8 @@
       markdown-preview-nvim
       lazydev-nvim
       which-key-nvim
-      obsidian-nvim
-      obsidian-bridge-nvim
+      # obsidian-nvim
+      # obsidian-bridge-nvim
       nvim-dap
       nvim-dap-ui
       nvim-dap-virtual-text

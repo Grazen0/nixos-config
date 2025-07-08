@@ -37,9 +37,7 @@
 
     nix-ld = {
       enable = true;
-      libraries = with pkgs; [
-        sfml
-      ];
+      libraries = with pkgs; [ sfml ];
     };
   };
 
