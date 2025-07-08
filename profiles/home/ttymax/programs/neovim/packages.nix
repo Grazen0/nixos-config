@@ -37,7 +37,7 @@
       tailwindcss-language-server
       taplo # TOML
       texlab # LaTeX
-      typescript-language-server
+      vtsls
       vim-language-server
       vscode-langservers-extracted # HTML, CSS, JSON
       yaml-language-server

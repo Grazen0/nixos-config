@@ -21,7 +21,7 @@ return {
         },
         nil_ls = {},
         lua_ls = {},
-        ts_ls = {
+        vtsls = {
           root_dir = util.root_pattern('package.json'),
           single_file_support = false,
         },
