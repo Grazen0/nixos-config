@@ -5,6 +5,8 @@
     editors = {
       idea-ultimate.enable = true;
       datagrip.enable = true;
+      clion.enable = true;
+      webstorm.enable = true;
     };
 
     ideavimrc =
