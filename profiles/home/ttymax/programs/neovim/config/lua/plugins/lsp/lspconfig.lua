@@ -50,7 +50,6 @@ return {
         cmake = {},
         autotools_ls = {},
         taplo = {},
-        -- vimls = {},
         jsonls = {
           settings = {
             json = {
@@ -67,7 +66,6 @@ return {
             },
           },
         },
-        -- arduino_language_server = {},
       },
       diagnostic_config = {
         virtual_text = true,
