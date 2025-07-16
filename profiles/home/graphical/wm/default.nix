@@ -13,6 +13,7 @@
     ./fnott.nix
     ./fuzzel.nix
     ./kanshi.nix
+    ./rofi.nix
     ./wob.nix
   ];
 

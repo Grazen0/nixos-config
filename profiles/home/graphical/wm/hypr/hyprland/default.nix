@@ -5,6 +5,7 @@
     ./input.nix
     ./look.nix
     ./misc.nix
+    ./plugins.nix
     ./rules.nix
     ./workspaces.nix
   ];

@@ -53,7 +53,7 @@
           "SUPER, Space, exec, ${appLauncher}"
           "SUPER, V, exec, ${cliphist} list | ${dmenu} | ${cliphist} decode | ${wl-copy}"
           "SUPER, Period, exec, BEMOJI_PICKER_CMD='${dmenu} -d' ${pkgs.bemoji}/bin/bemoji -n -t"
-          "SUPER, Comma, exec, ${uwsmApp} ${menu-qalc} --dmenu=fuzzel"
+          "SUPER, Comma, exec, ${uwsmApp} ${menu-qalc} --dmenu=rofi"
           "SUPER SHIFT, X, exec, ${uwsmApp} ${fuzzel-power-menu}"
 
           # Screen capture

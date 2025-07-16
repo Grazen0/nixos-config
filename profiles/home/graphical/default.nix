@@ -13,8 +13,8 @@
     terminal = "foot";
     browser = "firefox";
     fileManager = "thunar";
-    appLauncher = "fuzzel";
-    dmenu = "fuzzel --dmenu";
+    appLauncher = "rofi -show drun";
+    dmenu = "rofi -dmenu";
   };
 
   home.packages = with pkgs; [
