@@ -13,7 +13,7 @@
     terminal = "foot";
     browser = "firefox";
     fileManager = "thunar";
-    appLauncher = "rofi -show drun";
+    appLauncher = "rofi -show drun -show-icons";
     dmenu = "rofi -dmenu";
   };
 

@@ -5,10 +5,6 @@
   ...
 }:
 {
-  home.packages = with pkgs; [
-    wtype # Required for bemoji
-  ];
-
   wayland.windowManager.hyprland = {
     settings =
       let
@@ -28,8 +24,7 @@
         cliphist = "${config.services.cliphist.package}/bin/cliphist";
         brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
         volume-update = "${customPkgs.volume-update}/bin/volume-update";
-        fuzzel-power-menu = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
-        menu-qalc = "${customPkgs.menu-qalc}/bin/=";
+        rofi-power-menu = "${pkgs.rofi-power-menu}/bin/rofi-power-menu";
 
         volumeStep = "5";
         resizeStep = "20";
@@ -52,9 +47,9 @@
           # Menus
           "SUPER, Space, exec, ${appLauncher}"
           "SUPER, V, exec, ${cliphist} list | ${dmenu} | ${cliphist} decode | ${wl-copy}"
-          "SUPER, Period, exec, BEMOJI_PICKER_CMD='${dmenu} -d' ${pkgs.bemoji}/bin/bemoji -n -t"
-          "SUPER, Comma, exec, ${uwsmApp} ${menu-qalc} --dmenu=rofi"
-          "SUPER SHIFT, X, exec, ${uwsmApp} ${fuzzel-power-menu}"
+          "SUPER, Period, exec, rofi -show emoji"
+          "SUPER, Comma, exec, ${uwsmApp} rofi -show calc"
+          "SUPER SHIFT, X, exec, ${uwsmApp} rofi -show power-menu -modi power-menu:${rofi-power-menu}"
 
           # Screen capture
           ", Print, exec, pidof -q slurp || ${slurp} -w 0 -b 00000088 | ${grim} -g - - | ${wl-copy}"

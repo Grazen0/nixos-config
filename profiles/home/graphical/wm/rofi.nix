@@ -13,8 +13,13 @@
       package = pkgs.rofi-wayland;
 
       font = "${theme.font.propo} 12";
-      terminal = "${pkgs.foot}/bin/foot";
+      terminal = config.meta.mainPrograms.terminal;
       location = "center";
+      modes = [
+        "drun"
+        "calc"
+        "emoji"
+      ];
 
       plugins = with pkgs; [
         rofi-calc
@@ -74,11 +79,6 @@
             text-color = lit base05;
           };
 
-          entry = {
-            placeholder = "Search...";
-            placeholder-color = lit base02;
-          };
-
           message = {
             padding = lit "6px 16px";
             border = lit "0 0 3px 0";
@@ -92,8 +92,8 @@
           };
 
           element = {
-            padding = lit "6px 16px";
-            spacing = 10;
+            padding = lit "10px 24px";
+            spacing = 16;
             highlight = lit "none";
           };
 
@@ -102,7 +102,7 @@
           };
 
           element-icon = {
-            size = lit "1.25em";
+            size = lit "1.2em";
           };
 
           element-text = {

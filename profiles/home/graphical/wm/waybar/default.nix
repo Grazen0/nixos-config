@@ -155,12 +155,12 @@
 
         "custom/power" =
           let
-            fuzzel-power-menu = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
+            rofi-power-menu = "${pkgs.rofi-power-menu}/bin/rofi-power-menu";
           in
           {
             format = "";
             tooltip-format = "Power menu";
-            on-click = fuzzel-power-menu;
+            on-click = "rofi -show power-menu -modi power-menu:${rofi-power-menu}";
           };
       };
     };
