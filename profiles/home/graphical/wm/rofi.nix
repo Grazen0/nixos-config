@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   programs.rofi =
     let
@@ -13,7 +9,7 @@
       package = pkgs.rofi-wayland;
 
       font = "${theme.font.propo} 12";
-      terminal = config.meta.mainPrograms.terminal;
+      inherit (config.meta.mainPrograms) terminal;
       location = "center";
       modes = [
         "drun"
