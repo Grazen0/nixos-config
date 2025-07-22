@@ -16,7 +16,8 @@
     postman
 
     # Basic gaming
-    wine
+    wine64
+    winetricks
     wl-clipboard
     # customPkgs.fceux
     # snes9x-gtk
