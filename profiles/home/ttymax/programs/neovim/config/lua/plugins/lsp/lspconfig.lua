@@ -8,6 +8,7 @@ return {
 
     return {
       servers = {
+        autotools_ls = {},
         bashls = {},
         clangd = {
           cmd = {
@@ -19,23 +20,27 @@ return {
             '--pch-storage=memory',
           },
         },
-        nil_ls = {},
-        lua_ls = {},
-        vtsls = {
-          root_dir = util.root_pattern('package.json'),
-          single_file_support = false,
-        },
+        cmake = {},
+        cssls = {},
         denols = {
           root_dir = util.root_pattern('deno.json', 'deno.jsonc'),
         },
         eslint = {},
-        tailwindcss = {},
-        html = {},
-        cssls = {},
-        svelte = {},
-        pyright = {},
-        texlab = {},
         gopls = {},
+        html = {},
+        jsonls = {
+          settings = {
+            json = {
+              schemas = require('schemastore').json.schemas(),
+              validate = { enable = true },
+            },
+          },
+        },
+        lua_ls = {},
+        -- metals = {},
+        nil_ls = {},
+        pyright = {},
+        -- r_language_server = {},
         rust_analyzer = {
           settings = {
             ['rust-analyzer'] = {
@@ -45,18 +50,13 @@ return {
             },
           },
         },
-        -- r_language_server = {},
-        -- zls = {},
-        cmake = {},
-        autotools_ls = {},
+        svelte = {},
+        tailwindcss = {},
         taplo = {},
-        jsonls = {
-          settings = {
-            json = {
-              schemas = require('schemastore').json.schemas(),
-              validate = { enable = true },
-            },
-          },
+        texlab = {},
+        vtsls = {
+          root_dir = util.root_pattern('package.json'),
+          single_file_support = false,
         },
         yamlls = {
           settings = {
@@ -66,6 +66,7 @@ return {
             },
           },
         },
+        -- zls = {},
       },
       diagnostic_config = {
         virtual_text = true,

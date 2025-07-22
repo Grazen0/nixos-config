@@ -102,5 +102,6 @@
       neotest-java
       FixCursorHold-nvim
       fidget-nvim
+      nvim-metals
     ];
 }

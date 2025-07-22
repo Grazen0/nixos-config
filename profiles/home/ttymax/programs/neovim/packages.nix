@@ -24,7 +24,8 @@
       bash-language-server
       cmake-language-server
       clang-tools
-      # emmet-language-server
+      coursier
+      metals # scala
       gopls # Go
       # haskell-language-server
       jdt-language-server # Java
