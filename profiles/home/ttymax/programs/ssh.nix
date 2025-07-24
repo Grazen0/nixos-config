@@ -10,6 +10,12 @@
         inherit (config.home) homeDirectory;
       in
       {
+        # My Raspberry Pi 3
+        "shinmy" = {
+          hostname = "192.168.100.201";
+          user = "jdgt";
+        };
+
         "github.com" = {
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/github_auth_id_ed25519";
