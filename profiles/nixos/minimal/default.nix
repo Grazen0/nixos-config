@@ -20,11 +20,6 @@
     nftables.enable = true;
   };
 
-  console = {
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-v16b.psf.gz";
-    keyMap = "us";
-  };
-
   nix = {
     gc = {
       automatic = true;

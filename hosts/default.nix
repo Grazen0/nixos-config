@@ -51,6 +51,21 @@ in
     ] ++ nixosModules;
   };
 
+  shinmy = mkSystem {
+    system = "x86_64-linux";
+    modules = [
+      ./shinmy/configuration.nix
+      ../profiles/nixos/minimal
+      (mkUserModule {
+        username = "jdgt";
+        homeManagerModules = [
+          ./takane/home.nix
+          ../profiles/home/minimal
+        ] ++ homeManagerModules;
+      })
+    ];
+  };
+
   iso = mkSystem {
     system = "x86_64-linux";
     modules = [
