@@ -62,7 +62,7 @@ in
       (mkUserModule {
         username = "jdgt";
         homeManagerModules = [
-          ./takane/home.nix
+          ./shinmy/home.nix
           ../profiles/home/minimal
         ] ++ homeManagerModules;
       })
