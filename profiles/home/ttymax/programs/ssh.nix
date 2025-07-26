@@ -10,10 +10,11 @@
         inherit (config.home) homeDirectory;
       in
       {
-        # My Raspberry Pi 3
-        "shinmy" = {
+        "shinmy-lan" = {
           hostname = "192.168.100.201";
           user = "jdgt";
+          identitiesOnly = true;
+          identityFile = "${homeDirectory}/.ssh/shinmy_auth_id_ed25519";
         };
 
         "github.com" = {
