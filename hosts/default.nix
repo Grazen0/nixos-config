@@ -21,6 +21,7 @@ in
       ../components/nixos/laptop
       ../components/nixos/nvidia
       ../components/nixos/gaming
+      ../components/nixos/tailscale
       (mkUserModule {
         username = "jdgt";
         homeManagerModules = [
@@ -40,6 +41,7 @@ in
       ../components/nixos/laptop
       ../components/nixos/nvidia
       ../components/nixos/gaming
+      ../components/nixos/tailscale
       (mkUserModule {
         username = "jdgt";
         homeManagerModules = [
@@ -56,6 +58,7 @@ in
     modules = [
       ./shinmy/configuration.nix
       ../profiles/nixos/minimal
+      ../components/nixos/tailscale
       (mkUserModule {
         username = "jdgt";
         homeManagerModules = [
