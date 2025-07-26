@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   programs.ssh = {
     enable = true;
@@ -11,7 +11,15 @@
       in
       {
         "shinmy-lan" = {
-          hostname = "192.168.100.201";
+          hostname = "192.168.100.99";
+          user = "jdgt";
+          identitiesOnly = true;
+          identityFile = "${homeDirectory}/.ssh/shinmy_auth_id_ed25519";
+        };
+
+        "shinmy" = {
+          proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname %h";
+          hostname = "shinmy.unilife.lat";
           user = "jdgt";
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/shinmy_auth_id_ed25519";
