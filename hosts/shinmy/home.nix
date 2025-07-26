@@ -6,8 +6,11 @@
     pnpm
   ];
 
+  services.ssh-agent.enable = true;
+
   programs.fastfetch.enable = true;
   programs.htop.enable = true;
+  programs.lazygit.enable = true;
 
   programs.btop = {
     enable = true;
