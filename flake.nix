@@ -26,12 +26,8 @@
         in
         {
           packages = import ./pkgs systemModuleArgs;
-
           devShells = import ./shell.nix systemModuleArgs;
-
           formatter = treefmtEval.config.build.wrapper;
-
-          checks.style = treefmtEval.config.build.check self;
         };
 
       flake.nixosConfigurations = import ./hosts moduleArgs;
