@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
   programs.ssh = {
     enable = true;
@@ -18,7 +18,6 @@
         };
 
         "shinmy" = {
-          proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname %h";
           hostname = "shinmy.unilife.lat";
           user = "jdgt";
           identitiesOnly = true;
