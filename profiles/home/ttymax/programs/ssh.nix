@@ -16,14 +16,18 @@
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/shinmy_auth_id_ed25519";
         };
-
         "shinmy" = {
           hostname = "shinmy.unilife.lat";
           user = "jdgt";
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/shinmy_auth_id_ed25519";
         };
-
+        "nitori" = {
+          hostname = "nitori.unilife.lat";
+          user = "jdgt";
+          identitiesOnly = true;
+          identityFile = "${homeDirectory}/.ssh/nitori_auth_id_ed25519";
+        };
         "github.com" = {
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/github_auth_id_ed25519";
