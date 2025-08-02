@@ -5,15 +5,12 @@
     pavucontrol
     file-roller
     gimp
-    wdisplays
 
     inputs.thorium-browser.defaultPackage.${pkgs.system}
-    audacity
     inkscape
     # insomnia
     obsidian
     zoom-us
-    postman
 
     # Basic gaming
     wine64
