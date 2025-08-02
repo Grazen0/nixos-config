@@ -2,12 +2,7 @@
   programs.jetbrains = {
     enable = true;
 
-    editors = {
-      idea-ultimate.enable = true;
-      datagrip.enable = true;
-      clion.enable = true;
-      webstorm.enable = true;
-    };
+    editors.datagrip.enable = true;
 
     ideavimrc =
       # vim
