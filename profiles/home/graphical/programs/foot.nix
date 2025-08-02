@@ -8,6 +8,8 @@
       main.font = "${config.theme.font.regular}:size=11.5";
 
       colors = {
+        cursor = "${base00} ${base05}";
+
         background = base00;
         foreground = base05;
 
@@ -34,8 +36,6 @@
       };
 
       mouse.hide-when-typing = "yes";
-
-      cursor.color = "${base00} ${base05}";
 
       scrollback.lines = 10000;
     };
