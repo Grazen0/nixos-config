@@ -1,19 +1,12 @@
 {
-  lib,
-  pkgs,
   inputs,
   ...
 }:
-let
-  inherit (lib) mkForce;
-in
 {
   imports = [
     inputs.nixos-hardware.nixosModules.common-gpu-intel
     ./hardware-configuration.nix
   ];
-
-  console.font = mkForce "${pkgs.terminus_font}/share/consolefonts/ter-v20b.psf.gz";
 
   # i got arch btw
   boot.loader.systemd-boot.extraEntries = {

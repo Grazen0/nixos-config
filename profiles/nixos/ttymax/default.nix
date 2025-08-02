@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../minimal
@@ -35,10 +35,7 @@
       };
     };
 
-    nix-ld = {
-      enable = true;
-      libraries = with pkgs; [ sfml ];
-    };
+    nix-ld.enable = true;
   };
 
   virtualisation.docker = {
@@ -48,23 +45,4 @@
       setSocketVariable = true;
     };
   };
-
-  console.colors = with config.scheme; [
-    base01
-    red
-    green
-    yellow
-    blue
-    magenta
-    cyan
-    base06
-    base04
-    bright-red
-    bright-green
-    yellow
-    bright-blue
-    bright-magenta
-    bright-cyan
-    base05
-  ];
 }
