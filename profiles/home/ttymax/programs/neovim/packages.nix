@@ -36,7 +36,6 @@
       clippy
       svelte-language-server
       tailwindcss-language-server
-      taplo # TOML
       texlab # LaTeX
       vtsls
       vscode-langservers-extracted # HTML, CSS, JSON

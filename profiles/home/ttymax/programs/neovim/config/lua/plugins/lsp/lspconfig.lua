@@ -52,7 +52,6 @@ return {
         },
         svelte = {},
         tailwindcss = {},
-        taplo = {},
         texlab = {},
         vtsls = {
           root_dir = util.root_pattern('package.json'),
@@ -66,7 +65,6 @@ return {
             },
           },
         },
-        -- zls = {},
       },
       diagnostic_config = {
         virtual_text = true,
