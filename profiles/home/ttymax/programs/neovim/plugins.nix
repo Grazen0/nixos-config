@@ -97,9 +97,9 @@
       nvim-dbee
       marp-nvim
       hex-nvim
-      neotest
-      neotest-rust
-      neotest-java
+      # neotest
+      # neotest-rust
+      # neotest-java
       FixCursorHold-nvim
       fidget-nvim
       nvim-metals
