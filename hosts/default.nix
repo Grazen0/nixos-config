@@ -21,7 +21,7 @@ in
       ../components/nixos/laptop
       ../components/nixos/nvidia
       ../components/nixos/gaming
-      ../components/nixos/tailscale
+      ../components/nixos/vpn
       (mkUserModule {
         username = "jdgt";
         homeManagerModules = [
@@ -41,7 +41,7 @@ in
       ../components/nixos/laptop
       ../components/nixos/nvidia
       ../components/nixos/gaming
-      ../components/nixos/tailscale
+      ../components/nixos/vpn
       (mkUserModule {
         username = "jdgt";
         homeManagerModules = [
@@ -58,7 +58,7 @@ in
     modules = [
       ./shinmy/configuration.nix
       ../profiles/nixos/minimal
-      ../components/nixos/tailscale
+      ../components/nixos/vpn
       (mkUserModule {
         username = "jdgt";
         homeManagerModules = [
