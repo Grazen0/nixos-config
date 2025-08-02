@@ -32,8 +32,21 @@ in
     '';
   };
 
-  services.openssh.settings.AllowUsers = [ "jdgt" ];
   servides.flatpak.enable = true;
+
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+      AllowUsers = [ "jdgt" ];
+    };
+  };
+  services.fail2ban.enable = true;
+  users.users.jdgt.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA3+5X33zUyHXb5HCwe5VhDxus/tsK1gAfCGqJJaZc4b josedanielgrayson@proton.me"
+  ];
 
   hardware.nvidia.prime = {
     intelBusId = "PCI:0:2:0";
