@@ -43,7 +43,7 @@
       yaml-language-server
 
       # Plugin-specifics
-      texlive.combined.scheme-full # vimtex
+      texlive.combined.scheme-small # vimtex
       cmake # cmake-tools.nvim
       marp-cli # marp.nvim
       xxd # hex.nvim
