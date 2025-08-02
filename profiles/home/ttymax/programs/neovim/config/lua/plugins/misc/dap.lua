@@ -113,7 +113,7 @@ return {
         },
         configurations = {
           c = { configs.codelldb },
-          javascript = { configs['pwa-node'], configs['pwa-node-main'] },
+          -- javascript = { configs['pwa-node'], configs['pwa-node-main'] },
         },
       }
     end,
@@ -193,6 +193,7 @@ return {
   },
   {
     'theHamsta/nvim-dap-virtual-text',
+    enabled = false,
     lazy = true,
     opts = {
       virt_text_pos = 'eol',

@@ -90,7 +90,7 @@
       # obsidian-bridge-nvim
       nvim-dap
       nvim-dap-ui
-      nvim-dap-virtual-text
+      # nvim-dap-virtual-text
       # overseer-nvim
       cmake-tools-nvim
       snacks-nvim

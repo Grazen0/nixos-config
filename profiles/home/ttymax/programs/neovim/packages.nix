@@ -39,24 +39,14 @@
       taplo # TOML
       texlab # LaTeX
       vtsls
-      vim-language-server
       vscode-langservers-extracted # HTML, CSS, JSON
       yaml-language-server
-      # zls # Zig
-      # zig
-
-      # nvim-dap
-      jq
-      vscode-js-debug
-      # inputs.haskell-debug-adapter.packages.${system}.default
 
       # Plugin-specifics
       texlive.combined.scheme-full # vimtex
-      # lldb # rustaceanvim
       cmake # cmake-tools.nvim
       marp-cli # marp.nvim
       xxd # hex.nvim
-      # cargo-nextest # neotest-rust
     ];
   };
 }
