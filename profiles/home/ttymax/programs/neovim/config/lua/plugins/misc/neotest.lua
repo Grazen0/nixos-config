@@ -103,13 +103,15 @@ return {
         desc = 'Stop watching tests',
       },
     },
-    opts = {
-      adapters = {
-        require('neotest-rust'),
-        require('neotest-java')({
-          junit_jar = require('nix').junit_path,
-        }),
-      },
-    },
+    opts = function()
+      return {
+        adapters = {
+          require('neotest-rust'),
+          require('neotest-java')({
+            junit_jar = require('nix').junit_path,
+          }),
+        },
+      }
+    end,
   },
 }
