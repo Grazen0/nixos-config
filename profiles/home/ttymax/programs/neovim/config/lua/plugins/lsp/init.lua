@@ -21,22 +21,6 @@ return {
     },
   },
   {
-    'SmiteshP/nvim-navbuddy',
-    enabled = false,
-    dependencies = {
-      'SmiteshP/nvim-navic',
-      'MunifTanjim/nui.nvim',
-    },
-    cmd = 'Nabuddy',
-    keys = {
-      { '<leader>n', '<cmd>Navbuddy<CR>', desc = 'Open Navbuddy' },
-    },
-    opts = {
-      window = { border = vim.o.winborder },
-      lsp = { auto_attach = true },
-    },
-  },
-  {
     'folke/lazydev.nvim',
     ft = 'lua',
     opts = {
@@ -66,20 +50,6 @@ return {
     },
   },
   {
-    'pmizio/typescript-tools.nvim',
-    enabled = false,
-    ft = {
-      'javascript',
-      'javascriptreact',
-      'javascript.jsx',
-      'typescript',
-      'typescriptreact',
-      'typescript.tsx',
-    },
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opts = {},
-  },
-  {
     'mrcjkb/rustaceanvim',
     enabled = false,
     event = 'VeryLazy',
@@ -97,43 +67,5 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim', 'stevearc/overseer.nvim' },
     main = 'cmake-tools',
     opts = {},
-  },
-  {
-    'luckasRanarison/tailwind-tools.nvim',
-    enabled = false,
-    ft = {
-      'javascript',
-      'javascriptreact',
-      'typescript',
-      'typescriptreact',
-      'css',
-      'scss',
-      'sass',
-      'svelte',
-    },
-    main = 'tailwind-tools',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'neovim/nvim-lspconfig',
-    },
-    opts = {
-      document_color = {
-        enabled = true,
-        kind = 'background', -- Until debounce actually works
-      },
-      conceal = { enabled = true },
-    },
-  },
-  {
-    'mrcjkb/haskell-tools.nvim',
-    enabled = false,
-    event = 'VeryLazy',
-    init = function()
-      vim.g.haskell_tools = {
-        tools = {
-          hover = { border = vim.o.winborder },
-        },
-      }
-    end,
   },
 }

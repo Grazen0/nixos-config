@@ -5,17 +5,6 @@ return {
     opts = {},
   },
   {
-    'numToStr/comment.nvim',
-    enabled = false,
-    event = 'InsertEnter',
-    opts = {},
-  },
-  {
-    'nvim-pack/nvim-spectre',
-    cmd = 'Spectre',
-    opts = {},
-  },
-  {
     'mikavilpas/yazi.nvim',
     enabled = false,
     keys = {
@@ -52,22 +41,6 @@ return {
     },
     keys = {
       { '<leader>u', '<cmd>UndotreeShow<CR>', desc = 'Show undotree' },
-    },
-  },
-  {
-    'kdheepak/lazygit.nvim',
-    enabled = false,
-    lazy = true,
-    cmd = {
-      'LazyGit',
-      'LazyGitConfig',
-      'LazyGitCurrentFile',
-      'LazyGitFilter',
-      'LazyGitFilterCurrentFile',
-    },
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    keys = {
-      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'Open LazyGit' },
     },
   },
   {

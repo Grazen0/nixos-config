@@ -23,10 +23,6 @@
     '';
   });
 
-  vim-plugin-haskell-tools-nvim = pkgs.vimPlugins.haskell-tools-nvim.overrideAttrs (prev: {
-    patches = [ ./patches/haskell-tools.patch ] ++ (prev.patches or [ ]);
-  });
-
   r-package-irkernel = pkgs.rPackages.IRkernel.overrideAttrs (prev: {
     patches = [ ./patches/irkernel.patch ] ++ (prev.patches or [ ]);
   });

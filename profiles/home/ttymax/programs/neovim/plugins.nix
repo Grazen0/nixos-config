@@ -74,7 +74,7 @@
       lualine-nvim
       bufferline-nvim
       markview-nvim
-      vim-illuminate
+      # vim-illuminate
       gitsigns-nvim
 
       # Misc
