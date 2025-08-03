@@ -25,7 +25,7 @@
     '';
   };
 
-  servides.flatpak.enable = true;
+  services.flatpak.enable = true;
 
   services.openssh = {
     enable = true;
