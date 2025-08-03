@@ -1,5 +1,6 @@
 return {
   'kevinhwang91/nvim-ufo',
+  enabled = false,
   event = 'BufRead',
   dependencies = { 'kevinhwang91/promise-async' },
   keys = {
