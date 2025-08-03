@@ -103,5 +103,6 @@
       FixCursorHold-nvim
       fidget-nvim
       nvim-metals
+      typst-preview-nvim
     ];
 }

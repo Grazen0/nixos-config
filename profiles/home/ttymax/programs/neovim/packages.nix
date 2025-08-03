@@ -22,23 +22,23 @@
       # LSP servers
       autotools-language-server # Makefile
       bash-language-server
-      cmake-language-server
       clang-tools
+      clippy
+      cmake-language-server
       coursier
-      metals # scala
       gopls # Go
-      # haskell-language-server
       jdt-language-server # Java
-      nil # Nix
       lua-language-server
+      metals
+      nil # Nix
       pyright # Python
       rust-analyzer
-      clippy
       svelte-language-server
       tailwindcss-language-server
       texlab # LaTeX
-      vtsls
+      tinymist
       vscode-langservers-extracted # HTML, CSS, JSON
+      vtsls
       yaml-language-server
 
       # Plugin-specifics

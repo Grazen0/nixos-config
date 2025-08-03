@@ -43,16 +43,13 @@ return {
         -- r_language_server = {},
         rust_analyzer = {
           settings = {
-            ['rust-analyzer'] = {
-              check = {
-                command = 'clippy',
-              },
-            },
+            ['rust-analyzer'] = { check = { command = 'clippy' } },
           },
         },
         svelte = {},
         tailwindcss = {},
         texlab = {},
+        tinymist = {},
         vtsls = {
           root_dir = util.root_pattern('package.json'),
           single_file_support = false,

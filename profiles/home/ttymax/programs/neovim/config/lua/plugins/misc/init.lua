@@ -89,6 +89,11 @@ return {
     opts = {},
   },
   {
+    'chomosuke/typst-preview.nvim',
+    ft = 'typst',
+    opts = {},
+  },
+  {
     'scalameta/nvim-metals',
     dependencies = {
       'nvim-lua/plenary.nvim',
