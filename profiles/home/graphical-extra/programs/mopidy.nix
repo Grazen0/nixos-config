@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   services.mopidy = {
-    enable = true;
+    enable = false;
 
     extraConfigFiles = [ config.sops.templates."mopidy-secrets.conf".path ];
 
