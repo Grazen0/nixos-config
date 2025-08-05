@@ -36,6 +36,7 @@ return {
             },
           },
         },
+        ltex_plus = {},
         lua_ls = {},
         -- metals = {},
         nil_ls = {},

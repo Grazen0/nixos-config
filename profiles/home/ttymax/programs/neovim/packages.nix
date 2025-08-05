@@ -30,6 +30,7 @@
       gopls # Go
       jdt-language-server # Java
       lua-language-server
+      ltex-ls-plus
       metals
       nil # Nix
       pyright # Python
