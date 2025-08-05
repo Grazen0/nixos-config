@@ -83,7 +83,6 @@
       live-share-nvim
       crates-nvim
       markdown-preview-nvim
-      lazydev-nvim
       which-key-nvim
       # obsidian-nvim
       # obsidian-bridge-nvim
