@@ -18,6 +18,7 @@
       rustfmt
       sql-formatter
       stylua
+      typstyle
 
       # LSP servers
       autotools-language-server # Makefile
