@@ -68,11 +68,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    haskell-debug-adapter = {
-      url = "github:phoityne/haskell-debug-adapter/8f31926595109ade331b6c314d862e0d00a5734a";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     ppick = {
       url = "github:Grazen0/ppick";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -90,7 +85,6 @@
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
-      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     aphrodite-terminal-theme = {
