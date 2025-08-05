@@ -14,21 +14,6 @@
       yank
       better-mouse-mode
       {
-        plugin = kanagawa;
-        extraConfig =
-          # tmux
-          ''
-            set -g @kanagawa-ignore-window-colors true
-            set -g @kanagawa-plugins "cwd git time"
-            set -g @kanagawa-show-timezone false
-            set -g @kanagawa-git-disable-status true
-
-            set -g @kanagawa-show-powerline true
-            set -g @kanagawa-show-left-sep " "
-            set -g @kanagawa-show-right-sep " "
-          '';
-      }
-      {
         plugin = resurrect;
         extraConfig =
           # tmux
@@ -75,22 +60,9 @@
         bind -r C-k resize-pane -U
         bind -r C-l resize-pane -R
 
-        # https://reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
-        set -ga terminal-overrides ",*256col*:Tc"
-        set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-        set-environment -g COLORTERM "truecolor"
-
-        # Open panes in current directory
-        bind % split-window -h -c "#{pane_current_path}"
-        bind '"' split-window -v -c "#{pane_current_path}"
-
-        # Also better split commands
+        # Nicer split commands
         bind | split-window -h -c "#{pane_current_path}"
         bind - split-window -v -c "#{pane_current_path}"
-
-        # Session select start at index 1
-        # https://unix.stackexchange.com/questions/313577/how-to-make-tmux-sessions-count-from-1-instead-of-0/755474#755474
-        bind-key s choose-tree -ZsK '#{?#{e|<:#{line},9},#{e|+:1,#{line}},#{?#{e|<:#{line},35},M-#{a:#{e|+:97,#{e|-:#{line},9}}},}}'
 
         set-window-option -g mode-keys vi
 
@@ -101,9 +73,21 @@
         # Awesome session picker
         bind o run-shell "${session-picker}"
 
+        # Lazygit binding
+        bind g display-popup -E -w 90% -h 90% -S 'fg=brightblack' -d '#{pane_current_path}' lazygit
+
         # Other stuff
         set -g popup-border-style fg=white
         set -g renumber-windows on
+
+        # Style
+        set -g status-position top
+        set -g status-justify absolute-centre
+        set -g status-left ' [#S] '
+        set -g status-left-style 'fg=brightblack'
+        set -g status-right '  #(git -C "#{pane_current_path}" rev-parse --abbrev-ref HEAD) '
+        setw -g window-status-current-style 'fg=cyan bg=default bold'
+        setw -g window-status-style 'fg=brightblack'
       '';
   };
 }
