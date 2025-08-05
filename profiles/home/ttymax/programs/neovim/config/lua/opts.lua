@@ -27,19 +27,12 @@ o.tabstop = 4
 o.expandtab = true
 
 -- Fold
--- https://www.reddit.com/r/neovim/comments/1jmqd7t/sorry_ufo_these_7_lines_replaced_you/
 vim.o.foldenable = true
 vim.o.foldlevel = 99
 vim.o.foldtext = ''
-vim.opt.foldcolumn = '1'
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.opt.fillchars:append({
-  fold = ' ',
-  foldopen = '',
-  foldclose = '',
-  foldsep = ' ',
-})
+vim.opt.fillchars:append({ fold = ' ' })
 
 -- Use LSP folding if available
 vim.api.nvim_create_autocmd('LspAttach', {
