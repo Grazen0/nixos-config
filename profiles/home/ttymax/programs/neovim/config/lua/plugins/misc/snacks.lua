@@ -11,12 +11,6 @@ return {
       desc = 'Open explorer',
     },
     {
-      '<leader>lg',
-      function()
-        require('snacks').lazygit()
-      end,
-    },
-    {
       '<leader>q',
       function()
         require('snacks').bufdelete()
@@ -139,57 +133,6 @@ return {
   opts = {
     bigfile = { enabled = true },
     quickfile = { enabled = true },
-    lazygit = {
-      enabled = true,
-      win = { border = vim.o.winborder },
-    },
-    dashboard = {
-      enabled = false,
-      preset = {
-        header = [[
-                                                                    
-      ████ ██████           █████      ██                     
-     ███████████             █████                             
-     █████████ ███████████████████ ███   ███████████   
-    █████████  ███    █████████████ █████ ██████████████   
-   █████████ ██████████ █████████ █████ █████ ████ █████   
- ███████████ ███    ███ █████████ █████ █████ ████ █████  
-██████  █████████████████████ ████ █████ █████ ████ ██████ 
-        ]],
-        keys = {
-          {
-            icon = '  ',
-            key = 'e',
-            desc = 'New file',
-            action = ':ene | startinsert',
-          },
-          {
-            icon = '  ',
-            key = 'f',
-            desc = 'Find a file',
-            action = ':FzfLua files',
-          },
-          {
-            icon = '  ',
-            key = 'g',
-            desc = 'Find a word',
-            action = ':FzfLua live_grep_native',
-          },
-          {
-            icon = '  ',
-            key = 'r',
-            desc = 'Recent files',
-            action = ':FzfLua oldfiles',
-          },
-          { icon = '  ', key = 'q', desc = 'Quit', action = ':qa!' },
-        },
-      },
-      sections = {
-        { section = 'header' },
-        { section = 'keys', gap = 1, padding = 1 },
-        { section = 'startup', icon = '' },
-      },
-    },
     indent = {
       enabled = true,
       scope = { hl = 'SignColumn' },
