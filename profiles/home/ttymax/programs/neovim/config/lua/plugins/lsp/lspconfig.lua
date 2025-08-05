@@ -37,7 +37,20 @@ return {
           },
         },
         ltex_plus = {},
-        lua_ls = {},
+        lua_ls = {
+          settings = {
+            Lua = {
+              runtime = {
+                version = 'LuaJIT',
+              },
+              workspace = {
+                -- Support for Neovim lua API
+                library = vim.api.nvim_get_runtime_file('', true),
+              },
+              telemetry = { enable = false },
+            },
+          },
+        },
         -- metals = {},
         nil_ls = {},
         pyright = {},
