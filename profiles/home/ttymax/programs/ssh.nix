@@ -15,12 +15,14 @@
           user = "jdgt";
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/shinmy_auth_id_ed25519";
+          setEnv.TERM = "xterm-kitty";
         };
         "shinmy" = {
           hostname = "shinmy.unilife.lat";
           user = "jdgt";
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/shinmy_auth_id_ed25519";
+          setEnv.TERM = "xterm-kitty";
         };
         "nitori" = {
           hostname = "nitori.unilife.lat";
