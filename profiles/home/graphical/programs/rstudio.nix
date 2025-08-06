@@ -26,7 +26,5 @@
       stringi
       stringr
     ];
-
-    themes.kanagawa = lib.readFile "${inputs.kanagawa-rstudio}/kanagawa.rstheme";
   };
 }

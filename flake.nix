@@ -22,12 +22,10 @@
           systemModuleArgs = moduleArgs // {
             inherit pkgs;
           };
-          treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
         in
         {
           packages = import ./pkgs systemModuleArgs;
           devShells = import ./shell.nix systemModuleArgs;
-          formatter = treefmtEval.config.build.wrapper;
         };
 
       flake.nixosConfigurations = import ./hosts moduleArgs;
@@ -36,11 +34,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
-
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     systems.url = "github:nix-systems/default-linux";
@@ -94,18 +87,13 @@
 
     yazi.url = "github:sxyazi/yazi";
 
-    yazi-flavor-kanagawa = {
-      url = "github:dangooddd/kanagawa.yazi";
-      flake = false;
-    };
-
     yazi-plugins = {
       url = "github:yazi-rs/plugins";
       flake = false;
     };
 
-    kanagawa-rstudio = {
-      url = "github:camartinezbu/kanagawa-rstudio";
+    yazi-plugin-restore = {
+      url = "github:boydaihungst/restore.yazi";
       flake = false;
     };
 
@@ -159,23 +147,8 @@
       flake = false;
     };
 
-    grkstyle = {
-      url = "github:gadenbuie/grkstyle";
-      flake = false;
-    };
-
     colorout = {
       url = "github:jalvesaq/colorout";
-      flake = false;
-    };
-
-    inkscape-figures = {
-      url = "github:gillescastel/inkscape-figures";
-      flake = false;
-    };
-
-    yazi-plugin-restore = {
-      url = "github:boydaihungst/restore.yazi";
       flake = false;
     };
 

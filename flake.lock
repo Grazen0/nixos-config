@@ -226,38 +226,6 @@
         "type": "github"
       }
     },
-    "inkscape-figures": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1637347359,
-        "narHash": "sha256-6znS/zTwEnJT0gmsJTc9Z/gJsReCkA32rzT86GHCaOw=",
-        "owner": "gillescastel",
-        "repo": "inkscape-figures",
-        "rev": "02deea60751102641a7d6d9c6e8b535c0255f2eb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gillescastel",
-        "repo": "inkscape-figures",
-        "type": "github"
-      }
-    },
-    "kanagawa-rstudio": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1725391011,
-        "narHash": "sha256-0IgGbyLrdNnq9mEI6lnPNbrw99Q1K1dvOvwwExoyUoA=",
-        "owner": "camartinezbu",
-        "repo": "kanagawa-rstudio",
-        "rev": "e59f255e7f2838a8d8e97004561f9ee525c0a434",
-        "type": "github"
-      },
-      "original": {
-        "owner": "camartinezbu",
-        "repo": "kanagawa-rstudio",
-        "type": "github"
-      }
-    },
     "menu-qalc": {
       "flake": false,
       "locked": {
@@ -630,8 +598,6 @@
         "flake-parts": "flake-parts",
         "grkstyle": "grkstyle",
         "home-manager": "home-manager",
-        "inkscape-figures": "inkscape-figures",
-        "kanagawa-rstudio": "kanagawa-rstudio",
         "menu-qalc": "menu-qalc",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
@@ -652,10 +618,8 @@
         "spicetify-nix": "spicetify-nix",
         "systems": "systems_5",
         "thorium-browser": "thorium-browser",
-        "treefmt-nix": "treefmt-nix",
         "tt-schemes": "tt-schemes",
         "yazi": "yazi",
-        "yazi-flavor-kanagawa": "yazi-flavor-kanagawa",
         "yazi-plugin-restore": "yazi-plugin-restore",
         "yazi-plugins": "yazi-plugins"
       }
@@ -846,26 +810,6 @@
         "url": "https://codeberg.org/Tomkoid/thorium-browser-nix"
       }
     },
-    "treefmt-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1754061284,
-        "narHash": "sha256-ONcNxdSiPyJ9qavMPJYAXDNBzYobHRxw0WbT38lKbwU=",
-        "owner": "numtide",
-        "repo": "treefmt-nix",
-        "rev": "58bd4da459f0a39e506847109a2a5cfceb837796",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
     "tt-schemes": {
       "flake": false,
       "locked": {
@@ -899,22 +843,6 @@
       "original": {
         "owner": "sxyazi",
         "repo": "yazi",
-        "type": "github"
-      }
-    },
-    "yazi-flavor-kanagawa": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1740321321,
-        "narHash": "sha256-phwGd1i/n0mZH/7Ukf1FXwVgYRbXQEWlNRPCrmR5uNk=",
-        "owner": "dangooddd",
-        "repo": "kanagawa.yazi",
-        "rev": "31167ed54c9cc935b2fa448d64d367b1e5a1105d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dangooddd",
-        "repo": "kanagawa.yazi",
         "type": "github"
       }
     },

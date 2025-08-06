@@ -56,27 +56,6 @@
         inherit (pkgs) rPackages;
         inherit (rPackages) buildRPackage;
 
-        grkstyle = buildRPackage {
-          name = "grkstyle";
-          src = inputs.grkstyle;
-          propagatedBuildInputs = with rPackages; [
-            magrittr
-            purrr
-            rlang
-            rprojroot
-            styler
-          ];
-        };
-
-        r-nvim = buildRPackage {
-          name = "r-nvim";
-          src = inputs.r-nvim;
-          propagatedBuildInputs = with rPackages; [
-            styler
-            grkstyle
-          ];
-        };
-
         colorout = buildRPackage {
           name = "colorout";
           src = inputs.colorout;
@@ -104,7 +83,6 @@
         quarto
         customPkgs.r-package-irkernel
         colorout
-        r-nvim
         nvimcom
         languageserver
       ];

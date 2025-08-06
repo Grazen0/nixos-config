@@ -16,9 +16,6 @@
     package = inputs.yazi.packages.${pkgs.system}.default;
     shellWrapperName = "y";
 
-    flavors.kanagawa = inputs.yazi-flavor-kanagawa;
-    theme.flavor.use = "kanagawa";
-
     plugins =
       let
         inherit (lib) genAttrs;

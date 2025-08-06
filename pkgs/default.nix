@@ -5,16 +5,12 @@
 }@moduleArgs:
 let
   inherit (pkgs) callPackage;
-  callPy3Package = pkgs.python3Packages.callPackage;
 
   ppick = inputs.ppick.packages.${pkgs.system}.default;
 in
 rec {
   # Existing packages
   menu-qalc = callPackage ./menu-qalc.nix { src = inputs.menu-qalc; };
-
-  # Python packages
-  inkscape-figures = callPy3Package ./python/inkscape-figures.nix { src = inputs.inkscape-figures; };
 
   # My own stuff
   exe2png = callPackage ./scripts/exe2png.nix { };
