@@ -4,10 +4,21 @@
 
   services = {
     blueman.enable = true;
-    printing.enable = true;
     libinput.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
+
+    # Enable autodiscovery of network printers
+    printing = {
+      enable = true;
+      drivers = with pkgs; [ epson-escpr ];
+    };
+
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
 
     pipewire = {
       enable = true;
