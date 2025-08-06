@@ -190,22 +190,6 @@
         "type": "github"
       }
     },
-    "grkstyle": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1698073028,
-        "narHash": "sha256-yyI9BnAc7+GPzVWdVdCtE64kCXaHWDJ58+2MyhBBNRk=",
-        "owner": "gadenbuie",
-        "repo": "grkstyle",
-        "rev": "53051cba7772fd087e730848fb172271715b679c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gadenbuie",
-        "repo": "grkstyle",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -596,7 +580,6 @@
         "base16-zathura": "base16-zathura",
         "colorout": "colorout",
         "flake-parts": "flake-parts",
-        "grkstyle": "grkstyle",
         "home-manager": "home-manager",
         "menu-qalc": "menu-qalc",
         "nixos-hardware": "nixos-hardware",
