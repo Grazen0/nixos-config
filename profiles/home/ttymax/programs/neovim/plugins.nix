@@ -72,8 +72,8 @@
       nvim-colorizer-lua
       lualine-nvim
       bufferline-nvim
-      markview-nvim
-      # vim-illuminate
+      # markview-nvim
+      vim-illuminate
       gitsigns-nvim
 
       # Misc
