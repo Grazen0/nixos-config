@@ -91,7 +91,10 @@ return {
   {
     'chomosuke/typst-preview.nvim',
     ft = 'typst',
-    opts = {},
+    opts = {
+      open_cmd = 'firefox --new-window %s',
+      invert_colors = 'auto',
+    },
   },
   {
     'scalameta/nvim-metals',
