@@ -1,15 +1,9 @@
-{
-  config,
-  pkgs,
-  customPkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   programs.fish.shellAliases =
     let
       flakeDir = "${config.xdg.configHome}/nixos";
       yt-dlp = "${pkgs.yt-dlp}/bin/yt-dlp";
-      tmux-music = "${customPkgs.tmux-music}/bin/tmux-music";
     in
     {
       # Required so that sudo can use aliases
@@ -22,13 +16,7 @@
       lt = "ls --tree --icons=auto";
       lta = "lt -a";
       l = "lla -h";
-      lsfr = "${pkgs.coreutils}/bin/ls";
 
-      mkdir = "mkdir -p";
-      ".." = "cd ..";
-      "..." = "cd ../..";
-
-      df = "df -h";
       grep = "grep --color=auto";
       ta = "tmux attach";
       lg = "lazygit";
@@ -37,22 +25,13 @@
       catfr = "${pkgs.coreutils}/bin/cat";
 
       rm = "rmtrash";
-      rmdir = "rmdirtrash";
       rmfr = "${pkgs.coreutils}/bin/rm";
-      rmdirfr = "${pkgs.coreutils}/bin/rmdir";
-      restore = "trash-restore";
 
       v = "nvim";
       vs = "nvim -S";
-      emacs = "nvim";
-      emacss = "vs";
 
-      peaclock = "peaclock --config-dir ${config.xdg.configHome}/peaclock";
-
-      ccat = "wl-copy <";
       # "Borrowed" from https://github.com/NotAShelf/nyx/blob/main/homes/notashelf/programs/terminal/shell/zsh/aliases.nix#L39
       ytmp3 = ''${yt-dlp} -x -c --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"'';
-      music = "${tmux-music} ${./default_album_art.png}";
 
       nrs = "sudo nixos-rebuild switch --no-reexec --flake ${flakeDir}";
       nrb = "sudo nixos-rebuild boot --no-reexec --flake ${flakeDir}";
