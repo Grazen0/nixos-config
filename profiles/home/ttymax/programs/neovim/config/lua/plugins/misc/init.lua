@@ -79,11 +79,6 @@ return {
     opts = {},
   },
   {
-    'mpas/marp-nvim',
-    cmd = { 'MarpStart', 'MarpStatus', 'MarpToggle' },
-    opts = {},
-  },
-  {
     'RaafatTurki/hex.nvim',
     event = 'VeryLazy',
     opts = {},

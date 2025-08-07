@@ -31,12 +31,6 @@
         dependencies = with vimPlugins; [ luasnip ];
       };
 
-      marp-nvim = buildVimPlugin {
-        pname = "marp-nvim";
-        version = "main";
-        src = inputs.nvim-plugin-marp;
-      };
-
     in
     with vimPlugins;
     [
@@ -93,7 +87,6 @@
       cmake-tools-nvim
       snacks-nvim
       nvim-dbee
-      marp-nvim
       hex-nvim
       # neotest
       # neotest-rust

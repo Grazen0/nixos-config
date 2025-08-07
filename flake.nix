@@ -112,11 +112,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvim-plugin-marp = {
-      url = "github:mpas/marp-nvim";
-      flake = false;
-    };
-
     nvim-plugin-multicursor = {
       url = "github:jake-stewart/multicursor.nvim";
       flake = false;
