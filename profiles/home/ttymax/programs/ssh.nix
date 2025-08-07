@@ -16,6 +16,10 @@
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/shinmy_auth_id_ed25519";
           setEnv.TERM = "xterm-kitty";
+          extraOptions = {
+            RequestTTY = "yes";
+            RemoteCommand = "tmux new -A -s main";
+          };
         };
         "shinmy" = {
           hostname = "shinmy.unilife.lat";
@@ -23,6 +27,10 @@
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/shinmy_auth_id_ed25519";
           setEnv.TERM = "xterm-kitty";
+          extraOptions = {
+            RequestTTY = "yes";
+            RemoteCommand = "tmux new -A -s main";
+          };
         };
         "nitori" = {
           hostname = "nitori.unilife.lat";
