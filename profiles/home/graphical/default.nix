@@ -11,7 +11,7 @@
 
   meta.mainPrograms = {
     terminal = "foot";
-    browser = "firefox";
+    browser = "zen";
     fileManager = "thunar";
     appLauncher = "rofi -show drun -show-icons";
     dmenu = "rofi -dmenu";

@@ -61,15 +61,6 @@
           src = inputs.colorout;
         };
 
-        nvimcom = buildRPackage {
-          name = "nvimcom";
-          src = "${inputs.nvim-plugin-r-nvim}/nvimcom";
-          propagatedBuildInputs = with rPackages; [
-            knitr
-            rmarkdown
-            quarto
-          ];
-        };
       in
       [
         ggplot2
@@ -83,7 +74,6 @@
         quarto
         customPkgs.r-package-irkernel
         colorout
-        nvimcom
         languageserver
       ];
   };

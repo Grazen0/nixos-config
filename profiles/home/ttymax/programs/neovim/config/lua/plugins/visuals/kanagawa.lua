@@ -17,7 +17,6 @@ return {
     },
     overrides = function(colors)
       local theme = colors.theme
-      local palette = colors.palette
 
       local make_bg_blended_color = function(color, ratio)
         local c = require('kanagawa.lib.color')
@@ -29,10 +28,7 @@ return {
 
       return {
         -- Custom window separator line
-        WinSeparator = { link = 'LineNr' },
-
-        -- Clearer fold column
-        -- FoldColumn = { link = 'SignColumn' },
+        WinSeparator = { link = 'FloatBorder' },
 
         -- Dark completion background
         Pmenu = {
@@ -55,29 +51,6 @@ return {
         DiagnosticVirtualTextInfo = make_bg_blended_color(theme.diag.info),
         DiagnosticVirtualTextWarn = make_bg_blended_color(theme.diag.warning),
         DiagnosticVirtualTextError = make_bg_blended_color(theme.diag.error),
-
-        -- dashboard-nvim
-        DashboardHeader = { fg = palette.crystalBlue },
-        DashboardIcon = { fg = palette.springGreen },
-
-        -- markview.nvim headings and custom callouts
-        MarkviewHeading1 = make_bg_blended_color(palette.peachRed, 0.9),
-        MarkviewHeading2 = make_bg_blended_color(palette.surimiOrange, 0.9),
-        MarkviewHeading3 = make_bg_blended_color(palette.carpYellow, 0.9),
-        MarkviewHeading4 = make_bg_blended_color(palette.springGreen, 0.9),
-        MarkviewHeading5 = make_bg_blended_color(palette.springBlue, 0.9),
-        MarkviewHeading6 = make_bg_blended_color(palette.springViolet1, 0.9),
-        MarkviewBlockQuoteDefinition = { fg = palette.carpYellow },
-        MarkviewBlockQuoteTheorem = { fg = palette.oniViolet },
-        MarkviewBlockQuoteLemma = { fg = palette.springViolet1 },
-        MarkviewBlockQuoteCorollary = { fg = palette.springViolet1 },
-        MarkviewBlockQuoteProperty = { fg = palette.springGreen },
-        MarkviewBlockQuoteObservation = { fg = palette.springGreen },
-        MarkviewBlockQuoteProof = { fg = palette.springBlue },
-        MarkviewBlockQuoteExercise = { fg = palette.surimiOrange },
-
-        -- nvim-window-picker
-        WindowPickerStatusLineNC = { bg = theme.ui.bg_p1 },
       }
     end,
   },

@@ -5,32 +5,6 @@ return {
     opts = {},
   },
   {
-    'mikavilpas/yazi.nvim',
-    enabled = false,
-    keys = {
-      {
-        '<leader>-',
-        mode = { 'n', 'v' },
-        '<cmd>Yazi<CR>',
-        desc = 'Open yazi at the current file',
-      },
-    },
-  },
-  {
-    'bullets-vim/bullets.vim',
-    ft = { 'markdown', 'quarto' },
-    init = function()
-      vim.g.bullets_enabled_file_types = {
-        'markdown',
-        'text',
-        'gitcommit',
-        'scratch',
-        'quarto',
-      }
-      vim.g.bullets_outline_levels = { 'std-' }
-    end,
-  },
-  {
     'mbbill/undotree',
     cmd = {
       'UndotreeShow',
@@ -60,5 +34,9 @@ return {
       { '<C-l>', '<cmd><C-u>TmuxNavigateRight<CR>' },
       { '<C-\\>', '<cmd><C-u>TmuxNavigatePrevious<CR>' },
     },
+  },
+  {
+    'nmac427/guess-indent.nvim',
+    opts = {},
   },
 }

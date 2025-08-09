@@ -16,7 +16,7 @@
 
   networking = {
     networkmanager.enable = true;
-    firewall.enable = true;
+    firewall.enable = false;
     nftables.enable = true;
   };
 

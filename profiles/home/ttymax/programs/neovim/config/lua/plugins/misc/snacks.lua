@@ -5,129 +5,78 @@ return {
   keys = {
     {
       '<leader>e',
-      function()
-        require('snacks').explorer({ auto_close = true, hidden = true })
-      end,
+      function() require('snacks').explorer({ auto_close = true, hidden = true }) end,
       desc = 'Open explorer',
     },
     {
       '<leader>q',
-      function()
-        require('snacks').bufdelete()
-      end,
+      function() require('snacks').bufdelete() end,
       desc = 'Delete buffer',
     },
     {
       '<leader>C',
-      function()
-        require('snacks').bufdelete.other()
-      end,
+      function() require('snacks').bufdelete.other() end,
       desc = 'Delete other buffers',
     },
     {
       '<F1>',
-      function()
-        require('snacks').picker.help()
-      end,
+      function() require('snacks').picker.help() end,
       desc = 'Find help tags',
     },
     {
       '<leader><leader>',
-      function()
-        require('snacks').picker.buffers()
-      end,
+      function() require('snacks').picker.buffers() end,
       desc = 'Find buffers',
     },
     {
       '<leader>ff',
-      function()
-        require('snacks').picker.files({ hidden = true })
-      end,
+      function() require('snacks').picker.files({ hidden = true }) end,
       desc = 'Find files',
     },
     {
       '<leader>fg',
-      function()
-        require('snacks').picker.grep()
-      end,
+      function() require('snacks').picker.grep() end,
       desc = 'Find with grep',
     },
     {
       '<leader>fd',
-      function()
-        require('snacks').picker.diagnostics_buffer()
-      end,
+      function() require('snacks').picker.diagnostics_buffer() end,
       desc = 'Find buffer diagnostics',
     },
     {
       '<leader>fD',
-      function()
-        require('snacks').picker.diagnostics()
-      end,
+      function() require('snacks').picker.diagnostics() end,
       desc = 'Find diagnostics',
     },
     {
       '<leader>ft',
-      function()
-        require('snacks').picker.pick({ source = 'todo_comments' })
-      end,
+      function() require('snacks').picker.todo_comments() end,
       desc = 'Find todo comments',
     },
     {
       '<leader>fm',
-      function()
-        require('snacks').picker.man()
-      end,
+      function() require('snacks').picker.man() end,
       desc = 'Find man pages',
     },
     {
       'gd',
-      function()
-        require('snacks').picker.lsp_definitions()
-      end,
+      function() require('snacks').picker.lsp_definitions() end,
       desc = 'Goto Definition',
     },
     {
       'gD',
-      function()
-        require('snacks').picker.lsp_declarations()
-      end,
+      function() require('snacks').picker.lsp_declarations() end,
       desc = 'Goto Declaration',
     },
     {
       'grr',
-      function()
-        require('snacks').picker.lsp_references()
-      end,
+      function() require('snacks').picker.lsp_references() end,
       desc = 'References',
     },
     {
-      'gI',
-      function()
-        require('snacks').picker.lsp_implementations()
-      end,
-      desc = 'Goto Implementation',
-    },
-    {
       'gO',
-      function()
-        require('snacks').picker.lsp_symbols()
-      end,
+      function() require('snacks').picker.lsp_symbols() end,
       desc = 'Open Document symbols',
-    },
-    {
-      'gW',
-      function()
-        require('snacks').picker.lsp_workspace_symbols()
-      end,
-      desc = 'Open Workspace symbols',
-    },
-    {
-      'grt',
-      function()
-        require('snacks').picker.lsp_type_definitions()
-      end,
-      desc = 'Goto Type Definition',
     },
   },
   opts = {

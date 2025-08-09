@@ -1,54 +1,46 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
-local function keyset(mode, lhs, rhs, opts)
+local function map(mode, lhs, rhs, opts)
   opts = opts or {}
   opts.silent = opts.silent or true
 
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
--- gh/gl instead of ^/$
-keyset({ 'n', 'v' }, 'gh', '^')
-keyset({ 'n', 'v' }, 'gl', '$')
+map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- https://www.reddit.com/r/neovim/comments/1jdvvei/my_list_of_useful_keybinds_i_dont_see_mentioned/
--- Text object to select entire buffer.
--- So you can do `yie` / `die` / `vie` to yank / delete /select the entire buffer
-vim.keymap.set('o', 'ie', ':<C-u>normal! mzggVG<CR>`z')
-vim.keymap.set('x', 'ie', ':<C-u>normal! ggVG<CR>')
+-- gh/gl instead of ^/$
+map({ 'n', 'v' }, 'gh', '^')
+map({ 'n', 'v' }, 'gl', '$')
 
 -- Better redo
-keyset('n', 'U', '<C-r>')
+map('n', 'U', '<C-r>')
 
 -- Window navigation
-keyset('n', '<C-h>', '<C-w>h')
-keyset('n', '<C-j>', '<C-w>j')
-keyset('n', '<C-k>', '<C-w>k')
-keyset('n', '<C-l>', '<C-w>l')
+map('n', '<C-h>', '<C-w>h')
+map('n', '<C-j>', '<C-w>j')
+map('n', '<C-k>', '<C-w>k')
+map('n', '<C-l>', '<C-w>l')
 
 -- Window positioning
-keyset('n', '<A-h>', '<C-w>H')
-keyset('n', '<A-j>', '<C-w>J')
-keyset('n', '<A-k>', '<C-w>K')
-keyset('n', '<A-l>', '<C-w>L')
+map('n', '<A-h>', '<C-w>H')
+map('n', '<A-j>', '<C-w>J')
+map('n', '<A-k>', '<C-w>K')
+map('n', '<A-l>', '<C-w>L')
 
 -- Window resizing
-keyset('n', '<A-,>', '<C-w><lt>')
-keyset('n', '<A-.>', '<C-w>>')
-keyset('n', '<A-->', '<C-w>-')
-keyset('n', '<A-=>', '<C-w>+')
+map('n', '<A-,>', '<C-w><lt>')
+map('n', '<A-.>', '<C-w>>')
+map('n', '<A-->', '<C-w>-')
+map('n', '<A-=>', '<C-w>+')
 
 -- Soft line wrap movement
-keyset({ 'n', 'v' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
-keyset({ 'n', 'v' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
-
--- n/N always move forwards/backwards, respectively
-keyset({ 'n', 'v' }, 'n', 'v:searchforward ? "n" : "N"', { expr = true })
-keyset({ 'n', 'v' }, 'N', 'v:searchforward ? "N" : "n"', { expr = true })
+map({ 'n', 'v' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
+map({ 'n', 'v' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
 -- Floating diagnostic window
-keyset('n', '<leader>d', vim.diagnostic.open_float)
+map('n', '<leader>d', vim.diagnostic.open_float)
 
 -- Spell quick fix
-keyset('i', '<C-l>', '<C-g>u<Esc>[s1z=`]a<C-g>u')
+map('i', '<C-l>', '<C-g>u<Esc>[s1z=`]a<C-g>u')

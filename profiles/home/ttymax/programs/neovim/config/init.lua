@@ -17,6 +17,7 @@ require('lazy').setup({
   install = { missing = false },
   change_detection = { enabled = false },
   spec = {
+    { import = 'plugins.mini' },
     { import = 'plugins.visuals' },
     { import = 'plugins.editor' },
     { import = 'plugins.lsp' },

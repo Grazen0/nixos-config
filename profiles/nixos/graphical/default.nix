@@ -13,6 +13,7 @@
     liberation_ttf
     nerd-fonts.commit-mono
     nerd-fonts.comic-shanns-mono
+    comic-neue
   ];
 
   # Required for some things to work properly

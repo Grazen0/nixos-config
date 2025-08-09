@@ -71,6 +71,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     thorium-browser = {
       url = "git+https://codeberg.org/Tomkoid/thorium-browser-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -78,6 +83,7 @@
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     aphrodite-terminal-theme = {
@@ -97,11 +103,6 @@
       flake = false;
     };
 
-    r-nvim = {
-      url = "github:devOpifex/r.nvim";
-      flake = false;
-    };
-
     menu-qalc = {
       url = "github:Grazen0/menu-qalc-wayland";
       flake = false;
@@ -110,36 +111,6 @@
     river-shifttags = {
       url = "gitlab:Grazen0/river-shifttags";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nvim-plugin-multicursor = {
-      url = "github:jake-stewart/multicursor.nvim";
-      flake = false;
-    };
-
-    nvim-plugin-live-share = {
-      url = "github:azratul/live-share.nvim";
-      flake = false;
-    };
-
-    nvim-plugin-r-nvim = {
-      url = "github:R-nvim/R.nvim";
-      flake = false;
-    };
-
-    nvim-plugin-obsidian = {
-      url = "github:obsidian-nvim/obsidian.nvim";
-      flake = false;
-    };
-
-    nvim-plugin-obsidian-bridge = {
-      url = "github:Grazen0/obsidian-bridge.nvim";
-      flake = false;
-    };
-
-    nvim-plugin-luasnip-latex-snippets = {
-      url = "github:iurimateus/luasnip-latex-snippets.nvim";
-      flake = false;
     };
 
     colorout = {

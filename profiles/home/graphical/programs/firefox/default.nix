@@ -6,7 +6,7 @@
 
   # Credit: https://github.com/c1d3r24/dotfiles-config/blob/main/home/common/firefox.nix
   programs.firefox = {
-    enable = true;
+    enable = false;
     package = pkgs.firefox-wayland;
 
     languagePacks = [

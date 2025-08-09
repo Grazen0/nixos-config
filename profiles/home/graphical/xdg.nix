@@ -34,7 +34,7 @@
 
       defaultApplications =
         let
-          browser = [ "firefox.desktop" ];
+          browser = [ "zen-twilight.desktop" ];
           documentViewer = [ "org.pwmt.zathura.desktop" ];
           fileManager = [ "thunar.desktop" ];
           archiver = [ "org.gnome.FileRoller.desktop" ];

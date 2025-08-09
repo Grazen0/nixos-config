@@ -6,10 +6,6 @@ return {
   event = 'BufWritePre',
   opts = {
     formatters_by_ft = {
-      arduino = { 'clang-format' },
-      bash = { 'beautysh' },
-      c = { 'clang-format' },
-      cpp = { 'clang-format' },
       css = { 'prettierd' },
       graphql = { 'prettierd' },
       haskell = { 'ormolu' },
@@ -17,22 +13,18 @@ return {
       javascript = { 'prettierd' },
       javascriptreact = { 'prettierd' },
       json = { 'prettierd' },
-      lua = { 'stylua' },
       markdown = { 'prettierd' },
       nix = { 'nixfmt' },
       python = { 'isort', 'black' },
       quarto = { 'prettierd' },
       r = { 'styler' },
-      rust = { 'rustfmt' },
       sass = { 'prettierd' },
       scss = { 'prettierd' },
-      sh = { 'beautysh' },
       sql = { 'sql_formatter' },
       typescript = { 'prettierd' },
       typescriptreact = { 'prettierd' },
       typst = { 'typstyle' },
       yaml = { 'prettierd' },
-      zsh = { 'beautysh' },
     },
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable
@@ -80,7 +72,7 @@ return {
 
       if args.count ~= -1 then
         local end_line =
-          vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+            vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
         range = {
           start = { args.line1, 0 },
           ['end'] = { args.line2, end_line:len() },

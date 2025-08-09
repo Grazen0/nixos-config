@@ -1,38 +1,38 @@
-local o = vim.opt
-
--- Just in case
-o.encoding = 'utf-8'
-o.compatible = false
-o.termguicolors = true
--- Numbering and stuff
-o.number = true
-o.relativenumber = true
-o.signcolumn = 'yes'
-o.scrolloff = 4
-o.cursorline = true
-o.cursorlineopt = 'both'
-
--- Wrapping
-o.breakindent = true
-o.linebreak = true
-
--- Searching
-o.ignorecase = true
-o.smartcase = true
-o.hlsearch = true
-
--- Spacing
-o.shiftwidth = 4
-o.tabstop = 4
-o.expandtab = true
-
--- Fold
-vim.o.foldenable = true
-vim.o.foldlevel = 99
-vim.o.foldtext = ''
-vim.o.foldmethod = 'expr'
-vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.termguicolors = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.signcolumn = 'yes'
+vim.opt.scrolloff = 4
+vim.opt.cursorline = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = true
+vim.opt.breakindent = true
+vim.opt.linebreak = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldtext = ''
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.fillchars:append({ fold = ' ' })
+vim.opt.swapfile = false
+vim.opt.showmode = false
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.autoread = true
+vim.opt.mouse = 'a'
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.undofile = true
+vim.opt.updatetime = 300
+vim.opt.spell = true
+vim.opt.spelllang = { 'es', 'en_us' }
+vim.opt.winborder = 'single'
+
 
 -- Use LSP folding if available
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -45,20 +45,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 vim.api.nvim_create_autocmd('LspDetach', { command = 'setl foldexpr<' })
-
--- Misc (?)
-o.showmode = false
-o.list = true
-o.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-o.autoread = true
-o.mouse = 'a' -- No shame
-o.splitright = true
-o.splitbelow = true
-o.undofile = true
-o.updatetime = 300
-o.spell = true
-o.spelllang = { 'es', 'en_us' }
-o.confirm = true
-o.winborder = 'single'
 
 vim.g.tex_flavor = 'latex'

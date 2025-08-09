@@ -1,9 +1,5 @@
 return {
   {
-    'tpope/vim-obsession',
-    event = 'VeryLazy',
-  },
-  {
     'folke/which-key.nvim',
     event = 'VeryLazy',
     keys = {
@@ -21,35 +17,17 @@ return {
     },
   },
   {
+    'folke/todo-comments.nvim',
+    event = 'VeryLazy',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {},
+  },
+  {
     'iamcco/markdown-preview.nvim',
     ft = { 'markdown', 'quarto' },
     init = function()
       vim.g.mkdp_filetypes = { 'markdown', 'quarto' }
     end,
-  },
-  {
-    'Saecki/crates.nvim',
-    ft = { 'rust', 'toml' },
-    opts = {},
-  },
-  {
-    'azratul/live-share.nvim',
-    cmd = { 'LiveShareJoin', 'LiveShareServer' },
-    dependencies = {
-      {
-        'jbyuki/instant.nvim',
-        init = function()
-          vim.g.instant_username = 'Grazen'
-        end,
-      },
-    },
-    opts = {},
-  },
-  {
-    'folke/todo-comments.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    event = { 'BufReadPre', 'BufNewFile' },
-    opts = {},
   },
   {
     'lervag/vimtex',
@@ -59,80 +37,28 @@ return {
     end,
   },
   {
-    'j-hui/fidget.nvim',
-    event = 'VeryLazy',
-    opts = {
-      notification = {
-        override_vim_notify = true,
-      },
-    },
-  },
-  {
-    'jghauser/mkdir.nvim',
-    enabled = false,
-    event = 'BufWritePre',
-  },
-  {
     'kndndrj/nvim-dbee',
     dependencies = { 'MunifTanjim/nui.nvim' },
     cmd = 'Dbee',
     opts = {},
   },
   {
-    'RaafatTurki/hex.nvim',
-    event = 'VeryLazy',
-    opts = {},
-  },
-  {
     'chomosuke/typst-preview.nvim',
     ft = 'typst',
     opts = {
-      open_cmd = 'firefox --new-window %s',
+      open_cmd = require('nix').browser .. ' --new-window %s',
       invert_colors = 'auto',
     },
   },
   {
     'scalameta/nvim-metals',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      {
-        'j-hui/fidget.nvim',
-        opts = {},
-      },
-      {
-        'mfussenegger/nvim-dap',
-        config = function(self, opts)
-          -- Debug settings if you're using nvim-dap
-          local dap = require('dap')
-
-          dap.configurations.scala = {
-            {
-              type = 'scala',
-              request = 'launch',
-              name = 'RunOrTest',
-              metals = {
-                runType = 'runOrTestFile',
-                --args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
-              },
-            },
-            {
-              type = 'scala',
-              request = 'launch',
-              name = 'Test Target',
-              metals = {
-                runType = 'testTarget',
-              },
-            },
-          }
-        end,
-      },
-    },
-    ft = { 'scala', 'sbt', 'java' },
+    enabled = false,
+    dependencies = { 'nvim-lua/plenary.nvim', 'j-hui/fidget.nvim' },
+    ft = { 'scala', 'sbt' },
     opts = function()
       local metals_config = require('metals').bare_config()
 
       metals_config.init_options.statusBarProvider = 'off'
-
       metals_config.capabilities = require('blink.cmp').get_lsp_capabilities({})
 
       metals_config.on_attach = function()
@@ -162,7 +88,7 @@ return {
     end,
     config = function(self, metals_config)
       local nvim_metals_group =
-        vim.api.nvim_create_augroup('nvim-metals', { clear = true })
+          vim.api.nvim_create_augroup('nvim-metals', { clear = true })
       vim.api.nvim_create_autocmd('FileType', {
         pattern = self.ft,
         callback = function()

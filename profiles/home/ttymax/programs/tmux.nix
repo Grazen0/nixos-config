@@ -83,9 +83,12 @@
         # Style
         set -g status-position top
         set -g status-justify absolute-centre
+        set -g status-style 'fg=white bg=default'
         set -g status-left ' [#S] '
+        set -g status-left-length 100
         set -g status-left-style 'fg=brightblack'
         set -g status-right '  #(git -C "#{pane_current_path}" rev-parse --abbrev-ref HEAD) '
+        set -g status-right-length 100
         setw -g window-status-current-style 'fg=cyan bg=default bold'
         setw -g window-status-style 'fg=brightblack'
       '';
