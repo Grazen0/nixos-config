@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   services.mopidy = {
     extraConfigFiles = [ config.sops.templates."mopidy-secrets.conf".path ];
@@ -37,12 +42,4 @@
       spotify.enabled = true;
     };
   };
-
-  sops.templates."mopidy-secrets.conf".content =
-    # toml
-    ''
-      [spotify]
-      client_id = ${config.sops.placeholder."mopidy/spotify_client_id"}
-      client_secret = ${config.sops.placeholder."mopidy/spotify_client_secret"}
-    '';
 }

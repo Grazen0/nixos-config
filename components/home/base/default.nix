@@ -1,9 +1,6 @@
 { config, ... }:
 {
-  home = {
-    username = config.meta.mainUser;
-    homeDirectory = "/home/${config.home.username}";
-  };
+  home.homeDirectory = "/home/${config.home.username}";
 
   programs.git.enable = true;
 }

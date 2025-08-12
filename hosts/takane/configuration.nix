@@ -8,11 +8,11 @@ in
     ../../options/nixos
     ../../configs/nixos
 
-    ../components/common/theme
-    ../components/nixos/base
-    ../components/nixos/graphical
-    ../components/nixos/laptop
-    ../components/nixos/nvidia
+    ../../components/common/theme
+    ../../components/nixos/base
+    ../../components/nixos/graphical
+    ../../components/nixos/laptop
+    ../../components/nixos/nvidia
 
     ./hardware-configuration.nix
 
