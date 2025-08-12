@@ -14,7 +14,9 @@
       lib' = import ./lib (moduleArgs // { inherit lib; });
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = import inputs.systems;
+      systems = [ "x86_64-linux" ];
+
+      flake.nixosConfigurations = import ./hosts moduleArgs;
 
       perSystem =
         { pkgs, ... }:
@@ -27,8 +29,6 @@
           packages = import ./pkgs systemModuleArgs;
           devShells = import ./shell.nix systemModuleArgs;
         };
-
-      flake.nixosConfigurations = import ./hosts moduleArgs;
     };
 
   inputs = {
@@ -36,7 +36,6 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
-    systems.url = "github:nix-systems/default-linux";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
     base16.url = "github:SenchoPens/base16.nix";

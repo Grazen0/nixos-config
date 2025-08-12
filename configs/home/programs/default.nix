@@ -1,0 +1,33 @@
+{
+
+  imports = [
+    ./bat
+    ./btop
+    ./direnv
+    ./fastfetch
+    ./fish
+    ./foot
+    ./fuzzel
+    ./git
+    ./hyprlock
+    ./jetbrains
+    ./kitty
+    ./lazygit
+    ./mopidy
+    ./mpv
+    ./ncmpcpp
+    ./neovim
+    ./r
+    ./rofi
+    ./spicetify
+    ./ssh
+    ./swayimg
+    ./swaylock
+    ./taskwarrior
+    ./tmux
+    ./vscode
+    ./waybar
+    ./yazi
+    ./zathura
+  ];
+}

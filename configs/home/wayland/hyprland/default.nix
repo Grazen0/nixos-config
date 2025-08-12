@@ -1,0 +1,37 @@
+{ config, lib, ... }:
+{
+  imports = [
+    ./autostart.nix
+    ./binds.nix
+    ./input.nix
+    ./look.nix
+    ./misc.nix
+    ./plugins.nix
+    ./rules.nix
+    ./workspaces.nix
+  ];
+
+  home.sessionVariables = lib.mkIf config.wayland.windowManager.hyprland.enable {
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
+
+  wayland.windowManager.hyprland = {
+    package = null; # Let the NixOS module handle this
+
+    xwayland.enable = true;
+    systemd.enable = false; # Conflicts with UWSM
+
+    settings = {
+      monitor = [ ", preferred, auto, 1" ];
+
+      ecosystem = {
+        no_update_news = true;
+        no_donation_nag = true;
+      };
+    };
+
+    systemd.variables = [ "--all" ];
+  };
+}

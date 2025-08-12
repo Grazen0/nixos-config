@@ -12,6 +12,7 @@ in
   home.packages = with pkgs; [
     kdePackages.kdenlive
     prismlauncher
+    osu-lazer
   ];
 
   wayland.windowManager = {

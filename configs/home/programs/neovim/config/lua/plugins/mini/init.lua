@@ -1,0 +1,58 @@
+return {
+  {
+    'echasnovski/mini.ai',
+    event = 'VeryLazy',
+    dependencies = { 'echasnovski/mini.extra' },
+    opts = function()
+      return {
+        custom_textobjects = {
+          e = require('mini.extra').gen_ai_spec.buffer(),
+        },
+      }
+    end,
+  },
+  {
+    'echasnovski/mini.hipatterns',
+    event = 'VeryLazy',
+    dependencies = { 'echasnovski/mini.extra' },
+    opts = function()
+      return {
+        highlighters = {
+          hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
+        },
+
+      }
+    end,
+  },
+  {
+
+    'echasnovski/mini.icons',
+    lazy = false,
+    priority = 1000,
+    setup = function(_, opts)
+      local MiniIcons = require('mini.icons')
+      MiniIcons.setup(opts)
+      MiniIcons.mock_nvim_web_devicons()
+    end,
+  },
+  {
+    'echasnovski/mini.pairs',
+    event = 'VeryLazy',
+    opts = {},
+  },
+  {
+    'echasnovski/mini.sessions',
+    opts = {},
+  },
+  {
+    'echasnovski/mini.surround',
+    event = 'VeryLazy',
+    opts = {
+      mappings = {
+        add = 'ys',
+        delete = 'ds',
+        replace = 'cs',
+      },
+    },
+  },
+}

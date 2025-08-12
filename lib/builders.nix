@@ -57,7 +57,7 @@ in
 
         users.${username} = {
           imports = homeManagerModules;
-          meta.mainUser = username;
+          home.username = username;
         };
       };
     };
