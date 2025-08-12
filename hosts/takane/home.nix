@@ -7,7 +7,7 @@ in
     hyprland.settings.input = {
       kb_layout = mkForce "latam,us";
       kb_variant = mkForce "";
-      kb_options = mkForce "grp:alt_shift_toggle,caps:swapescape";
+      kb_options = mkForce "grp:alt_shift_toggle,caps:swapescape,altwin:swap_lalt_lwin";
     };
     river.settings.keyboard-layout = mkForce "-options 'grp:alt_shift_toggle,caps:swapescape' 'latam,us'";
   };
