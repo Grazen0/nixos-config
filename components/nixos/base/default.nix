@@ -4,12 +4,6 @@
   networking.firewall.enable = true;
   networking.nftables.enable = true;
 
-  programs.nix-ld.enable = true;
-
-  # Required for some things to work properly
-  security.polkit.enable = true;
-  security.rtkit.enable = true;
-
   hardware.enableAllFirmware = true;
 
   boot.loader = {

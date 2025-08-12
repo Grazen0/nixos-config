@@ -2,6 +2,10 @@
 {
   hardware.bluetooth.enable = true;
 
+  # Required for some things to work properly
+  security.polkit.enable = true;
+  security.rtkit.enable = true;
+
   programs.dconf.enable = true;
   programs.hyprland.enable = true;
   programs.thunar.enable = true;
