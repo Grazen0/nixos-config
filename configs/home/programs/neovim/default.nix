@@ -84,6 +84,7 @@
       pyright # Python
       rust-analyzer
       svelte-language-server
+      statix
       tailwindcss-language-server
       texlab # LaTeX
       tinymist
