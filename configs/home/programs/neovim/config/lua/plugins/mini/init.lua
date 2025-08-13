@@ -44,15 +44,4 @@ return {
     'echasnovski/mini.sessions',
     opts = {},
   },
-  {
-    'echasnovski/mini.surround',
-    event = 'VeryLazy',
-    opts = {
-      mappings = {
-        add = 'ys',
-        delete = 'ds',
-        replace = 'cs',
-      },
-    },
-  },
 }

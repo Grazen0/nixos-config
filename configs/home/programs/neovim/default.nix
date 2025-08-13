@@ -18,12 +18,12 @@
       mini-icons
       mini-pairs
       mini-sessions
-      mini-surround
 
       # Editor
       blink-cmp
       guess-indent-nvim
       nvim-spectre
+      nvim-surround
       oil-nvim
       snacks-nvim
       undotree

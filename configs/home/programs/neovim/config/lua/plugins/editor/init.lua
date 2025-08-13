@@ -1,5 +1,10 @@
 return {
   {
+    'kylechui/nvim-surround',
+    event = 'VeryLazy',
+    opts = {},
+  },
+  {
     'mbbill/undotree',
     cmd = {
       'UndotreeShow',
