@@ -1,32 +1,15 @@
 {
   pkgs ? import <nixpkgs> { },
-  ...
 }:
-rec {
-  default = pkgs.mkShellNoCC {
-    name = "nixos-dev";
+pkgs.mkShell {
+  name = "nixos-dev";
 
-    env = {
-      NIX_CONFIG = "experimental-features = nix-command flakes";
-      DIRENV_LOG_FORMAT = "";
-    };
-
-    packages = with pkgs; [
-      git
-      sops
-
-      nixfmt-rfc-style
-      deadnix
-      nil
-      nh
-      nix-diff
-      nix-tree
-    ];
+  env = {
+    NIX_CONFIG = "experimental-features = nix-command flakes";
+    DIRENV_LOG_FORMAT = "";
   };
 
-  iso = default.overrideAttrs (prev: {
-    name = "nixos-dev-iso";
-
-    packages = with pkgs; [ qemu ] ++ (prev.packages or [ ]);
-  });
+  packages = with pkgs; [
+    git
+  ];
 }

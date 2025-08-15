@@ -38,6 +38,11 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay/3cf910c2727eed304b8aabcfddc109e0c0371bfb";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     base16.url = "github:SenchoPens/base16.nix";
 
     tt-schemes = {

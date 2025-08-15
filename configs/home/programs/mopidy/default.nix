@@ -1,16 +1,12 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
 {
   services.mopidy = {
-    extraConfigFiles = [ config.sops.templates."mopidy-secrets.conf".path ];
-
     extensionPackages = with pkgs; [
       mopidy-mpd
-      mopidy-spotify
       mopidy-mpris
     ];
 
@@ -38,8 +34,6 @@
         hostname = "127.0.0.1";
         port = 6600;
       };
-
-      spotify.enabled = true;
     };
   };
 }

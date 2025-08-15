@@ -15,22 +15,7 @@ in
 
   shinmy = mkSystem {
     system = "x86_64-linux";
-    modules = [
-      ../options/common
-      ../options/nixos
-      ../configs/nixos
-      ./shinmy/configuration.nix
-      ../profiles/nixos/minimal
-      (mkUserModule {
-        username = "jdgt";
-        homeManagerModules = [
-          ../options/common
-          ../options/home-manager
-          ./shinmy/home.nix
-          ../profiles/home/minimal
-        ];
-      })
-    ];
+    modules = [ ./shinmy/configuration.nix ];
   };
 
   iso = mkSystem {

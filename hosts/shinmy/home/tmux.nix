@@ -1,32 +1,12 @@
 { config, pkgs, ... }:
 {
 
-  home.packages = with pkgs; [
-    nodejs
-    pnpm
-  ];
-
-  services.ssh-agent.enable = true;
-
-  programs.fastfetch.enable = true;
-  programs.htop.enable = true;
-  programs.lazygit.enable = true;
-
-  programs.btop = {
-    enable = true;
-
-    settings = {
-      color_theme = "TTY";
-      theme_background = false;
-      vim_keys = true;
-    };
-  };
-
   programs.tmux = {
     enable = true;
 
     plugins = with pkgs.tmuxPlugins; [
       sensible
+      vim-tmux-navigator
       {
         plugin = resurrect;
         extraConfig =
@@ -62,11 +42,6 @@
         bind -r C-k resize-pane -U
         bind -r C-l resize-pane -R
 
-        # https://reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
-        set -ga terminal-overrides ",*256col*:Tc"
-        set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-        set-environment -g COLORTERM "truecolor"
-
         # Open panes in current directory
         bind % split-window -h -c "#{pane_current_path}"
         bind '"' split-window -v -c "#{pane_current_path}"
@@ -75,20 +50,30 @@
         bind | split-window -h -c "#{pane_current_path}"
         bind - split-window -v -c "#{pane_current_path}"
 
-        # Session select start at index 1
-        # https://unix.stackexchange.com/questions/313577/how-to-make-tmux-sessions-count-from-1-instead-of-0/755474#755474
-        bind-key s choose-tree -ZsK '#{?#{e|<:#{line},9},#{e|+:1,#{line}},#{?#{e|<:#{line},35},M-#{a:#{e|+:97,#{e|-:#{line},9}}},}}'
-
         set-window-option -g mode-keys vi
 
-        bind-key -T copy-mode-vi v send-keys -X begin-selection
-        bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-        bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+        bind -T copy-mode-vi v send-keys -X begin-selection
+        bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
+        bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+        # Lazygit binding
+        bind g display-popup -E -w 90% -h 90% -S 'fg=brightblack' -d '#{pane_current_path}' lazygit
 
         # Other stuff
+        set -g popup-border-style fg=white
         set -g renumber-windows on
+
+        # Style
+        set -g status-position top
+        set -g status-justify absolute-centre
+        set -g status-style 'fg=white bg=default'
+        set -g status-left ' [#S] '
+        set -g status-left-length 100
+        set -g status-left-style 'fg=brightblack'
+        set -g status-right '  #(git -C "#{pane_current_path}" rev-parse --abbrev-ref HEAD) '
+        set -g status-right-length 100
+        set -g window-status-current-style 'fg=yellow bg=default bold'
+        set -g window-status-style 'fg=brightblack'
       '';
   };
-
-  home.stateVersion = "24.05";
 }
