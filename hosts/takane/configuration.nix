@@ -13,25 +13,14 @@ in
     ../../components/nixos/graphical
     ../../components/nixos/laptop
     ../../components/nixos/nvidia
-
-    ./hardware-configuration.nix
+    ../../components/nixos/obs-virtual-camera
 
     (lib'.mkUserModule {
       username = "jdgt";
-      homeManagerModules = [
-        ../../options/common
-        ../../options/home-manager
-        ../../configs/home
-
-        ../../components/common/theme
-        ../../components/home/base
-        ../../components/home/graphical
-        ../../components/home/touhou
-        ../../components/home/tty
-
-        ./home.nix
-      ];
+      homeManagerModules = [ ./home.nix ];
     })
+
+    ./hardware-configuration.nix
   ];
 
   console.keyMap = mkForce "la-latin1";

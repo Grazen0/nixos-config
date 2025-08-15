@@ -9,6 +9,18 @@ let
   inherit (lib) mkForce;
 in
 {
+  imports = [
+    ../../options/common
+    ../../options/home-manager
+    ../../configs/home
+
+    ../../components/common/theme
+    ../../components/home/base
+    ../../components/home/graphical
+    ../../components/home/touhou
+    ../../components/home/tty
+  ];
+
   home.packages = with pkgs; [
     kdePackages.kdenlive
     prismlauncher

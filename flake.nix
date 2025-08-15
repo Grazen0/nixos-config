@@ -27,7 +27,7 @@
         in
         {
           packages = import ./pkgs systemModuleArgs;
-          devShells = import ./shell.nix systemModuleArgs;
+          devShells.default = pkgs.callPackage ./shell.nix { };
         };
     };
 

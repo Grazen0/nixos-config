@@ -1,9 +1,29 @@
-{ lib, modulesPath, ... }:
+{
+  lib,
+  lib',
+  modulesPath,
+  ...
+}:
 let
   inherit (lib) mkForce;
 in
 {
-  imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-base.nix") ];
+  imports = [
+    ../../options/common
+    ../../options/nixos
+    ../../configs/nixos
+
+    ../../components/common/theme
+    ../../components/nixos/base
+    ../../components/nixos/graphical
+
+    (lib'.mkUserModule {
+      username = "nixos";
+      homeManagerModules = [ ./home.nix ];
+    })
+
+    (modulesPath + "/installer/cd-dvd/installation-cd-base.nix")
+  ];
 
   networking.wireless.enable = mkForce false;
 

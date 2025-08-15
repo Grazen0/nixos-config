@@ -1,6 +1,6 @@
 { lib', ... }:
 let
-  inherit (lib') mkSystem mkUserModule;
+  inherit (lib') mkSystem;
 in
 {
   nitori = mkSystem {
@@ -20,21 +20,6 @@ in
 
   iso = mkSystem {
     system = "x86_64-linux";
-    modules = [
-      ../options/common
-      ../options/nixos
-      ../configs/nixos
-      ./iso/configuration.nix
-      ../profiles/nixos/graphical
-      (mkUserModule {
-        username = "nixos";
-        homeManagerModules = [
-          ../options/common
-          ../options/home-manager
-          ./iso/home.nix
-          ../profiles/home/graphical
-        ];
-      })
-    ];
+    modules = [ ./iso/configuration.nix ];
   };
 }

@@ -10,26 +10,14 @@
     ../../components/nixos/graphical
     ../../components/nixos/laptop
     ../../components/nixos/nvidia
-
-    ./hardware-configuration.nix
+    ../../components/nixos/obs-virtual-camera
 
     (lib'.mkUserModule {
       username = "jdgt";
-      homeManagerModules = [
-        ../../options/common
-        ../../options/home-manager
-        ../../configs/home
-
-        ../../components/common/theme
-        ../../components/home/base
-        ../../components/home/graphical
-        ../../components/home/sops
-        ../../components/home/touhou
-        ../../components/home/tty
-
-        ./home.nix
-      ];
+      homeManagerModules = [ ./home.nix ];
     })
+
+    ./hardware-configuration.nix
   ];
 
   programs.steam.enable = true;

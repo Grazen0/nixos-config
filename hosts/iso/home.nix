@@ -3,6 +3,17 @@ let
   inherit (lib) mkForce;
 in
 {
+  imports = [
+    ../../options/common
+    ../../options/home-manager
+    ../../configs/home
+
+    ../../components/common/theme
+    ../../components/home/base
+    ../../components/home/tty
+    ../../components/home/graphical
+  ];
+
   disabledModules = [
     ../../profiles/home/graphical/programs/equibop
     ../../profiles/home/graphical/packages.nix
