@@ -11,6 +11,12 @@
     extraSetFlags = [ "--advertise-exit-node" ];
   };
 
+  services.filebrowser = {
+    enable = true;
+    user = "root";
+    settings.root = "/";
+  };
+
   services.zerotierone.enable = true;
 
   services.cloudflared = {
