@@ -85,6 +85,7 @@
       rust-analyzer
       svelte-language-server
       statix
+      kotlin-language-server
       tailwindcss-language-server
       texlab # LaTeX
       tinymist

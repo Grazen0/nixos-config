@@ -19,7 +19,6 @@ return {
             '--pch-storage=memory',
           },
         },
-        cmake = {},
         cssls = {},
         denols = {
           root_dir = util.root_pattern('deno.json', 'deno.jsonc'),
@@ -36,6 +35,7 @@ return {
             },
           },
         },
+        kotlin_language_server = {},
         lua_ls = {
           on_init = function(client)
             if client.workspace_folders then
