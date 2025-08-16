@@ -46,6 +46,7 @@
         "float, title:^(Steam Settings)$"
         "float, class:fceux"
         "size 639 612, class:fceux"
+        "float, class:gemu"
       ]
       ++ lib.concatLists dialogRules;
 
