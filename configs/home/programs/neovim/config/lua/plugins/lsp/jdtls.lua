@@ -1,6 +1,6 @@
 return {
   'mfussenegger/nvim-jdtls',
-  ft = { 'java', 'kotlin', 'groovy' },
+  ft = { 'java', 'groovy' },
   opts = function()
     return {
       cmd = {
