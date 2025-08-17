@@ -38,6 +38,7 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       font-name = "${config.theme.font.propo} 11";
+      color-scheme = "prefer-dark";
     };
   };
 
