@@ -1,8 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   xdg.nixConfigFile.nvim.source = ./config;
 
   programs.neovim = {
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
