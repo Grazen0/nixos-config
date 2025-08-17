@@ -16,7 +16,6 @@
       # Mini
       mini-ai
       mini-extra
-      mini-hipatterns
       mini-icons
       mini-pairs
       mini-sessions

@@ -12,19 +12,6 @@ return {
     end,
   },
   {
-    'echasnovski/mini.hipatterns',
-    event = 'VeryLazy',
-    dependencies = { 'echasnovski/mini.extra' },
-    opts = function()
-      return {
-        highlighters = {
-          hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
-        },
-
-      }
-    end,
-  },
-  {
 
     'echasnovski/mini.icons',
     lazy = false,

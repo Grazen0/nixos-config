@@ -11,8 +11,6 @@ vim.pack.add({
   'https://github.com/echasnovski/mini.pairs',
   'https://github.com/echasnovski/mini.ai',
   'https://github.com/echasnovski/mini.sessions',
-  'https://github.com/echasnovski/mini.hipatterns',
-  'https://github.com/folke/snacks.nvim',
   'https://github.com/mbbill/undotree',
   'https://github.com/christoomey/vim-tmux-navigator',
   { src = 'https://github.com/saghen/blink.cmp', version = 'v1.6.0' },
@@ -216,17 +214,6 @@ require('mini.pairs').setup()
 require('mini.ai').setup()
 require('mini.sessions').setup()
 
-require('mini.hipatterns').setup({
-  highlighters = {
-    fix = { pattern = '%f[%w]()FIX()%f[%W]', group = 'MiniHipatternsFixme' },
-    warn = { pattern = '%f[%w]()WARN()%f[%W]', group = 'MiniHipatternsHack' },
-    todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
-    note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
-
-    hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
-  },
-})
-
 require('snacks').setup({
   indent = {
     enabled = true,
@@ -300,7 +287,7 @@ require('gitsigns').setup()
 -- Format on save
 vim.api.nvim_create_autocmd('BufWritePre', {
   callback = function()
-      vim.lsp.buf.format()
+    vim.lsp.buf.format()
   end,
 })
 
