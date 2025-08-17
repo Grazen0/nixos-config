@@ -33,10 +33,6 @@ map('n', '<a-.>', '<c-w>>')
 map('n', '<a-->', '<c-w>-')
 map('n', '<a-=>', '<c-w>+')
 
--- Soft line wrap movement
-map({ 'n', 'v' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
-map({ 'n', 'v' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
-
 -- Floating diagnostic window
 map('n', '<leader>d', vim.diagnostic.open_float)
 
