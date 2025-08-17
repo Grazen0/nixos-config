@@ -23,6 +23,7 @@
       # Editor
       blink-cmp
       guess-indent-nvim
+      luasnip
       nvim-spectre
       nvim-surround
       oil-nvim
@@ -31,11 +32,11 @@
       vim-tmux-navigator
 
       # LSP
-      SchemaStore-nvim
       conform-nvim
       nvim-jdtls
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
+      SchemaStore-nvim
 
       # Visual
       fidget-nvim
