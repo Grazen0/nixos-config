@@ -61,6 +61,11 @@
           game = "12";
           fullName = "Undefined Fantastic Object";
         }
+        {
+          game = "20";
+          fullName = "Fossilized Wonders";
+          exec = "th20.exe";
+        }
       ];
     in
     lib.listToAttrs (
