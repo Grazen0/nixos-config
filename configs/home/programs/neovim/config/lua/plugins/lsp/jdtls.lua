@@ -7,7 +7,7 @@ return {
   },
   config = function(_, opts)
     vim.api.nvim_create_autocmd('FileType', {
-      pattern = { 'java' },
+      pattern = 'java',
       callback = function()
         require('jdtls').start_or_attach(opts)
       end,
