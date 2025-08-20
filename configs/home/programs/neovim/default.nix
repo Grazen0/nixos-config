@@ -80,14 +80,15 @@
       emmet-language-server
       gopls # Go
       jdt-language-server # Java
+      kotlin-language-server
       lua-language-server
       metals
       nil # Nix
       pyright # Python
       rust-analyzer
-      svelte-language-server
       statix
-      kotlin-language-server
+      svelte-language-server
+      svls
       tailwindcss-language-server
       texlab # LaTeX
       tinymist

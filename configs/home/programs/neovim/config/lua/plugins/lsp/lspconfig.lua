@@ -76,6 +76,7 @@ return {
         },
         statix = {},
         svelte = {},
+        svls = {},
         tailwindcss = {},
         texlab = {},
         tinymist = {},
