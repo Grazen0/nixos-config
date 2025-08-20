@@ -10,7 +10,7 @@
         # Geometry
         width = 360;
         height = 300;
-        origin = "bottom-right";
+        origin = "top-right";
         offset = "10x10";
         scale = 0; # Auto-detect
         notification_limit = 20;
