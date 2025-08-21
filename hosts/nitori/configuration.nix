@@ -20,6 +20,7 @@
     ./hardware-configuration.nix
   ];
 
+  programs.nix-ld.enable = true;
   programs.steam.enable = true;
 
   services.openssh = {
