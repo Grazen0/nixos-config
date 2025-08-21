@@ -47,7 +47,9 @@ return {
     ft = 'typst',
     opts = {
       open_cmd = require('nix').browser .. ' --new-window %s',
-      invert_colors = 'auto',
+    },
+    keys = {
+      { '<localleader>tp', '<cmd>TypstPreview<cr>' },
     },
   },
   {

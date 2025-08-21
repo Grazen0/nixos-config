@@ -5,6 +5,6 @@ return {
     fmta('$<>$ ', { i(1) })
   ),
   s({ trig = 'mmt', snippetType = 'autosnippet', hidden = true },
-    fmta('$ <> $', { i(0) })
+    fmta('$ <> $', { i(1) })
   ),
 }
