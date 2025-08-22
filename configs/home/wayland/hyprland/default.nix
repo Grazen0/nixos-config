@@ -127,6 +127,13 @@
           workspace_swipe_min_speed_to_force = 7;
         };
 
+        device = [
+          {
+            name = "wacom-one-by-wacom-s-pen";
+            output = "eDP-1";
+          }
+        ];
+
         misc = {
           disable_hyprland_logo = true;
           middle_click_paste = false;
