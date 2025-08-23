@@ -76,7 +76,6 @@ return {
         },
         statix = {},
         svelte = {},
-        svls = {},
         tailwindcss = {},
         texlab = {},
         tinymist = {},
@@ -84,6 +83,7 @@ return {
           root_dir = util.root_pattern('package.json'),
           single_file_support = false,
         },
+        verible = {},
         yamlls = {
           settings = {
             yaml = {

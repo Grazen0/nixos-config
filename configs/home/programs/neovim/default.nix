@@ -88,11 +88,11 @@
       rust-analyzer
       statix
       svelte-language-server
-      svls
       tailwindcss-language-server
       texlab # LaTeX
       tinymist
       typescript-language-server
+      verible
       vscode-langservers-extracted # HTML, CSS, JSON
       yaml-language-server
 
