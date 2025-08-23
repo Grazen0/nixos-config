@@ -18,6 +18,7 @@ return {
       python = { 'isort', 'black' },
       quarto = { 'prettierd' },
       r = { 'styler' },
+      rust = { 'rustfmt' },
       sass = { 'prettierd' },
       scss = { 'prettierd' },
       sql = { 'sql_formatter' },
