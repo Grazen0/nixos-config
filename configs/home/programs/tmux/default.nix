@@ -16,7 +16,6 @@
         extraConfig =
           # tmux
           ''
-            set -g @resurrect-capture-pane-contents 'on'
             set -g @resurrect-strategy-nvim 'session'
             set -g @resurrect-dir "${config.xdg.dataHome}/tmux/resurrect"
             set -g @resurrect-processes 'false'
