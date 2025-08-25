@@ -56,7 +56,11 @@
         set fish_color_selection brwhite --background ${config.scheme.base02}
 
         fish_vi_key_bindings
-        bind -M insert ctrl-f 'accept-autosuggestion'
+        for mode in normal insert
+          bind -M $mode ctrl-space 'accept-autosuggestion'
+          bind -M $mode ctrl-p 'history-prefix-search-backward'
+          bind -M $mode ctrl-n 'history-prefix-search-forward'
+        end
       '';
   };
 }
