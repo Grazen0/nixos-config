@@ -15,6 +15,7 @@
   programs.ssh.enable = true;
   programs.tmux.enable = true;
   programs.yazi.enable = true;
+  programs.zoxide.enable = true;
 
   xdg.userDirs.enable = true;
 
