@@ -28,7 +28,7 @@ in
   services.xserver.videoDrivers = [ "intel" ]; # Fixes graphical boot issues
   services.tailscale.enable = true;
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless.enable = true;
 
   networking.hostName = "takane";
   system.stateVersion = "24.05";

@@ -42,7 +42,7 @@
   services.tailscale.enable = true;
   services.zerotierone.enable = true;
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless.enable = true;
 
   hardware.nvidia.prime = {
     intelBusId = "PCI:0:2:0";
