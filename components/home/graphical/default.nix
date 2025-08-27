@@ -96,8 +96,9 @@
     inputs.thorium-browser.defaultPackage.${pkgs.system}
     inkscape
     obsidian
-    zoom-us
+    postman
     signal-desktop-bin
+    zoom-us
 
     # Basic gaming
     wine64
