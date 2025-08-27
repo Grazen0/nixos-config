@@ -56,6 +56,10 @@ in
                       url = "https://mccue.dev/feed.xml";
                       title = "mccue.dev";
                     }
+                    {
+                      url = "https://www.worthe-it.co.za/rss.xml";
+                      title = "Justin Wernick's Blog";
+                    }
                   ];
                 }
               ];
