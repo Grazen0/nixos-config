@@ -60,6 +60,7 @@
 
   networking.firewall.allowedTCPPorts = [
     7777 # Terraria server
+    5232
   ];
 
   networking.hostName = "shinmy";

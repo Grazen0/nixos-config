@@ -9,6 +9,9 @@
     secrets = {
       "cloudflared/tunnel_credentials" = { };
       "caddy/cloudflare_api_token" = { };
+      "radicale/htpasswd" = {
+        owner = "radicale";
+      };
       "unilife/minio_env" = { };
       "unilife/db_env" = { };
       "unilife/backend_env" = { };

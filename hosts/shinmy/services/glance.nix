@@ -243,6 +243,11 @@ in
                       url = "https://navidrome.unilife.lat";
                       icon = "di:navidrome";
                     }
+                    {
+                      title = "Radicale";
+                      url = "https://dav.unilife.lat";
+                      icon = "di:radicale";
+                    }
                   ];
                 }
                 {

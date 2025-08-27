@@ -65,6 +65,18 @@
     user = "jdgt";
   };
 
+  services.radicale = {
+    enable = true;
+    settings = {
+      server.hosts = [ "0.0.0.0:5232" ];
+      auth = {
+        type = "htpasswd";
+        htpasswd_filename = config.sops.secrets."radicale/htpasswd".path;
+        htpasswd_encryption = "autodetect";
+      };
+    };
+  };
+
   services.minecraft-server = {
     package = pkgs.papermcServers.papermc-1_21_5;
     eula = true;

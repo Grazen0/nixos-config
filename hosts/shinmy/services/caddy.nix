@@ -14,6 +14,7 @@
           glance
           immich
           navidrome
+          radicale
           seafile
           vaultwarden
           ;
@@ -57,6 +58,10 @@
 
         bitwarden.unilife.lat {
           reverse_proxy 127.0.0.1:${toString vaultwarden.config.ROCKET_PORT}
+        }
+
+        dav.unilife.lat {
+          reverse_proxy ${builtins.elemAt radicale.settings.server.hosts 0}
         }
       '';
   };
