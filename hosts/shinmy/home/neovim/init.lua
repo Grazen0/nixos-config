@@ -17,6 +17,7 @@ vim.pack.add({
   'https://github.com/j-hui/fidget.nvim',
   'https://github.com/NMAC427/guess-indent.nvim',
   'https://github.com/lewis6991/gitsigns.nvim',
+  'https://github.com/folke/snacks.nvim',
 })
 
 
