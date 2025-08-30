@@ -83,7 +83,9 @@ return {
           root_dir = util.root_pattern('package.json'),
           single_file_support = false,
         },
-        verible = {},
+        verible = {
+          cmd = { 'verible-verilog-ls', '--rules_config_search' },
+        },
         yamlls = {
           settings = {
             yaml = {

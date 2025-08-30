@@ -91,6 +91,19 @@ map('i', '<c-l>', '<c-g>u<esc>[s1z=`]a<c-g>u')
 -- Autocmds
 -- ============================================================================
 
+-- Recognize verilog files
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = { '*.v' },
+  command = 'set filetype=verilog',
+})
+
+-- Recognize systemverilog files
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = { '*.sv' },
+  command = 'set filetype=systemverilog',
+})
+
+
 -- Highlight yanked text
 vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
