@@ -74,6 +74,7 @@ return {
             ['rust-analyzer'] = { check = { command = 'clippy' } },
           },
         },
+        sqls = {},
         statix = {},
         svelte = {},
         tailwindcss = {},

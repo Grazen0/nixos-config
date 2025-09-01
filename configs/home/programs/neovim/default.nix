@@ -87,6 +87,7 @@
       nil # Nix
       pyright # Python
       rust-analyzer
+      sqls
       statix
       svelte-language-server
       tailwindcss-language-server
