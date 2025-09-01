@@ -1,14 +1,17 @@
 { config, ... }:
 {
   programs.ssh = {
-    forwardAgent = true;
-    addKeysToAgent = "yes";
-
+    enableDefaultConfig = false;
     matchBlocks =
       let
         inherit (config.home) homeDirectory;
       in
       {
+        "*" = {
+          addKeysToAgent = "yes";
+          forwardAgent = true;
+        };
+
         "shinmy-lan" = {
           hostname = "192.168.100.99";
           user = "jdgt";
