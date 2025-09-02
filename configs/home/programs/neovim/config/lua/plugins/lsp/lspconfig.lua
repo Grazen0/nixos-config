@@ -5,6 +5,7 @@ return {
   dependencies = { 'saghen/blink.cmp' },
   opts = {
     servers = {
+      basedpyright = {},
       bashls = {},
       clangd = {
         cmd = {
@@ -62,7 +63,6 @@ return {
       },
       metals = {},
       nil_ls = {},
-      pyright = {},
       rust_analyzer = {
         settings = {
           ['rust-analyzer'] = { check = { command = 'clippy' } },

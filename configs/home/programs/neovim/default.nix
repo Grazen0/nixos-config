@@ -73,6 +73,7 @@
       typstyle
 
       # LSP servers
+      basedpyright # Python
       bash-language-server
       clang-tools
       clippy
@@ -85,7 +86,6 @@
       lua-language-server
       metals
       nil # Nix
-      pyright # Python
       rust-analyzer
       sqls
       statix
