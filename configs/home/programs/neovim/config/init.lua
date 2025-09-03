@@ -91,17 +91,19 @@ map('i', '<c-l>', '<c-g>u<esc>[s1z=`]a<c-g>u')
 -- Autocmds
 -- ============================================================================
 
--- Recognize verilog files
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  pattern = { '*.v' },
-  command = 'set filetype=verilog',
-})
+-- Recognize some wonky filetypes
+local fts = {
+  ['*.v'] = 'verilog',
+  ['*.sv'] = 'systemverilog',
+  ['*.tf'] = 'terraform',
+}
 
--- Recognize systemverilog files
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  pattern = { '*.sv' },
-  command = 'set filetype=systemverilog',
-})
+for pattern, ft in pairs(fts) do
+  vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+    pattern = pattern,
+    command = 'set filetype=' .. ft,
+  })
+end
 
 
 -- Highlight yanked text
