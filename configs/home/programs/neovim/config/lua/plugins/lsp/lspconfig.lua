@@ -72,6 +72,7 @@ return {
       statix = {},
       svelte = {},
       tailwindcss = {},
+      terraform_lsp = {},
       texlab = {},
       tinymist = {},
       ts_ls = {},

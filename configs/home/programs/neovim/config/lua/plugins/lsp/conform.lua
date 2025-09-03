@@ -26,6 +26,7 @@ return {
       typescriptreact = { 'prettierd' },
       typst = { 'typstyle' },
       yaml = { 'prettierd' },
+      terraform = { 'terraform_fmt' },
     },
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable

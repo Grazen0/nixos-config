@@ -91,6 +91,7 @@
       statix
       svelte-language-server
       tailwindcss-language-server
+      terraform-lsp
       texlab # LaTeX
       tinymist
       typescript-language-server
