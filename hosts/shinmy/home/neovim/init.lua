@@ -31,7 +31,7 @@ vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.signcolumn = 'yes'
-vim.opt.scrolloff = 4
+vim.opt.scrolloff = 1
 vim.opt.cursorline = true
 vim.opt.wrap = false
 

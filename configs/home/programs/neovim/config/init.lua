@@ -22,7 +22,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.mouse = 'a'
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 4
+vim.opt.scrolloff = 1
 vim.opt.shiftwidth = 4
 vim.opt.showmode = false
 vim.opt.signcolumn = 'yes'
