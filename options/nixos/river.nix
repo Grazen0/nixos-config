@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-  cfg = config.programs.river;
+  cfg = config.programs.river-classic;
 in
 {
   options = {
-    programs.river.withUWSM = lib.mkEnableOption null // {
+    programs.river-classic.withUWSM = lib.mkEnableOption null // {
       description = ''
         Launch River with the UWSM (Universal Wayland Session Manager) session manager.
       '';
