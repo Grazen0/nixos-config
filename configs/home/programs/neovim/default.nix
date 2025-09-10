@@ -35,6 +35,7 @@
 
       # LSP servers
       astro-language-server
+      arduino-language-server
       basedpyright # Python
       bash-language-server
       clang-tools

@@ -429,6 +429,7 @@ local default_capabilities = {
 }
 
 local servers = {
+  arduino_language_server = {},
   astro = {
     init_options = {
       typescript = {
