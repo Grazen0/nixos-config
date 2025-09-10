@@ -73,6 +73,7 @@
       typstyle
 
       # LSP servers
+      arduino-language-server
       basedpyright # Python
       bash-language-server
       clang-tools

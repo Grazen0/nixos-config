@@ -5,6 +5,7 @@ return {
   dependencies = { 'saghen/blink.cmp' },
   opts = {
     servers = {
+      arduino_language_server = {},
       basedpyright = {},
       bashls = {},
       clangd = {
