@@ -6,6 +6,7 @@ return {
   event = 'BufWritePre',
   opts = {
     formatters_by_ft = {
+      arduino = { 'clang-format' },
       css = { 'prettierd' },
       graphql = { 'prettierd' },
       haskell = { 'ormolu' },
