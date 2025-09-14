@@ -50,6 +50,14 @@
     sync.enable = true;
   };
 
+  services.udev.extraRules = ''
+    # ST-Link v2 and v2-1 programmer
+    ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="0666", GROUP="plugdev"
+    ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", MODE="0666", GROUP="plugdev"
+  '';
+
+  users.groups.plugdev.members = [ "jdgt" ];
+
   networking.hostName = "nitori";
   system.stateVersion = "24.05";
 }
