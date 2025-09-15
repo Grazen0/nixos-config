@@ -5,8 +5,6 @@
       inherit (config) theme;
     in
     {
-      package = pkgs.rofi-wayland;
-
       font = "${theme.font.propo} 12";
       inherit (config.meta.mainPrograms) terminal;
       location = "center";
@@ -18,7 +16,7 @@
 
       plugins = with pkgs; [
         rofi-calc
-        rofi-emoji-wayland
+        rofi-emoji
       ];
 
       extraConfig = {
