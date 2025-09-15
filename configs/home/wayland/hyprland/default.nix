@@ -93,10 +93,7 @@
           blur.enabled = false;
         };
 
-        animations = {
-          enabled = false;
-          first_launch_animation = false;
-        };
+        animations.enabled = false;
 
         xwayland.force_zero_scaling = true;
 
@@ -121,8 +118,6 @@
         };
 
         gestures = {
-          workspace_swipe = true;
-          workspace_swipe_fingers = 3;
           workspace_swipe_forever = true;
           workspace_swipe_min_speed_to_force = 7;
         };
