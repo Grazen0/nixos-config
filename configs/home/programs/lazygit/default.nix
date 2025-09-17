@@ -6,6 +6,9 @@
         border = "single";
         nerdFontsVersion = "3";
       };
+      git = {
+        overrideGpg = true;
+      };
     };
   };
 }
