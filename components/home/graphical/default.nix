@@ -98,6 +98,7 @@
     obsidian
     postman
     signal-desktop-bin
+    xournalpp
     zoom-us
 
     # Basic gaming
