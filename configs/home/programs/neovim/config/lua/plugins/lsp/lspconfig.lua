@@ -113,7 +113,7 @@ return {
   },
   config = function(_, opts)
     vim.diagnostic.config(opts.diagnostic_config)
-    vim.lsp.on_type_formatting.enable()
+    -- vim.lsp.on_type_formatting.enable()
 
     local blink = require('blink.cmp')
 
