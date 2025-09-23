@@ -21,9 +21,6 @@
       ta = "tmux attach";
       lg = "lazygit";
 
-      cat = "bat";
-      catfr = "${pkgs.coreutils}/bin/cat";
-
       rm = "rmtrash";
       rmfr = "${pkgs.coreutils}/bin/rm";
 
