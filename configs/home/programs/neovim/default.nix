@@ -26,6 +26,7 @@
       luasnip
       nvim-spectre
       nvim-surround
+      nvim-ts-autotag
       oil-nvim
       snacks-nvim
       undotree
@@ -80,7 +81,6 @@
       clippy
       cmake-language-server
       coursier
-      emmet-language-server
       gopls # Go
       jdt-language-server # Java
       kotlin-language-server

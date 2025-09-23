@@ -5,6 +5,11 @@ return {
     opts = {},
   },
   {
+    'windwp/nvim-ts-autotag',
+    event = 'VeryLazy',
+    opts = {},
+  },
+  {
     'mbbill/undotree',
     cmd = {
       'UndotreeShow',
