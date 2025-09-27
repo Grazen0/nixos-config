@@ -64,11 +64,10 @@
       wl-clipboard
 
       # Conform formatters
-      black
-      isort
       nixfmt-rfc-style
       ormolu
       prettierd
+      ruff
       rustfmt
       sql-formatter
       typstyle
