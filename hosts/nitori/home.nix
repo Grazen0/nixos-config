@@ -51,8 +51,6 @@ in
       };
   };
 
-  programs.jetbrains.editors.webstorm.enable = true;
-
   meta.eww = {
     battery = "BAT1";
 
