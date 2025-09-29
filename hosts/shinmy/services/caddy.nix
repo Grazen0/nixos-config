@@ -1,8 +1,17 @@
-{ config, pkgs, ... }:
 {
-  networking.firewall.allowedTCPPorts = [
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.services.caddy;
+in
+{
+  networking.firewall.allowedTCPPorts = lib.optionals cfg.enable [
     80
     443
+    8084
   ];
 
   sops.templates."Caddyfile" = {
@@ -15,7 +24,6 @@
           immich
           navidrome
           radicale
-          seafile
           vaultwarden
           ;
       in
@@ -37,11 +45,11 @@
         }
 
         drive.unilife.lat {
-          reverse_proxy ${seafile.seahubAddress}
+          reverse_proxy 127.0.0.1:8083
         }
         drive.unilife.lat/seafhttp* {
           uri strip_prefix seafhttp
-          reverse_proxy 127.0.0.1:${toString seafile.seafileSettings.fileserver.port}
+          reverse_proxy 127.0.0.1:8081
         }
 
         minio.unilife.lat {
@@ -63,6 +71,10 @@
         dav.unilife.lat {
           reverse_proxy ${builtins.elemAt radicale.settings.server.hosts 0}
         }
+
+        calendar.unilife.lat {
+          reverse_proxy 127.0.0.1:8084
+        }
       '';
   };
 
@@ -70,7 +82,7 @@
     enable = true;
     package = pkgs.caddy.withPlugins {
       plugins = [ "github.com/caddy-dns/cloudflare@v0.2.1" ];
-      hash = "sha256-S1JN7brvH2KIu7DaDOH1zij3j8hWLLc0HdnUc+L89uU=";
+      hash = "sha256-j+xUy8OAjEo+bdMOkQ1kVqDnEkzKGTBIbMDVL7YDwDY=";
     };
 
     configFile = config.sops.templates."Caddyfile".path;

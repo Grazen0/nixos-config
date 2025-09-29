@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./caddy.nix
@@ -33,18 +38,6 @@
     host = "127.0.0.1";
   };
 
-  services.seafile = {
-    enable = true;
-
-    seafileSettings.fileserver.host = "127.0.0.1";
-    seafileSettings.fileserver.port = 8082;
-    ccnetSettings.General.SERVICE_URL = "https://drive.unilife.lat";
-    seahubAddress = "127.0.0.1:8083";
-
-    adminEmail = "josedanielgrayson@proton.me";
-    initialAdminPassword = "123456";
-  };
-
   services.vaultwarden = {
     enable = true;
     config = {
@@ -56,7 +49,6 @@
   };
 
   services.navidrome = {
-    enable = true;
     settings.Port = 4533;
     # settings.MusicFolder = "/var/lib/navidrome/music";
   };
@@ -76,6 +68,9 @@
       };
     };
   };
+  networking.firewall.allowedTCPPorts = lib.optionals config.services.radicale.enable [
+    5232 # Recommended by the NixOS wiki
+  ];
 
   services.minecraft-server = {
     package = pkgs.papermcServers.papermc-1_21_5;

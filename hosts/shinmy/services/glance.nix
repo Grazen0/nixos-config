@@ -1,14 +1,5 @@
-{ config, lib, ... }:
-let
-  cfg = config.services.glance;
-in
 {
-  # Allows glance to read docker.sock
-  systemd.services.glance.serviceConfig.SupplementaryGroups = lib.mkIf cfg.enable "docker";
-
   services.glance = {
-    enable = true;
-
     settings = {
       server = {
         port = 5678;

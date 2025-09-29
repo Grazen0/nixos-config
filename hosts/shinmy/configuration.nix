@@ -30,8 +30,7 @@
   powerManagement.powertop.enable = true;
   services.tlp.enable = true;
 
-  virtualisation.docker.enable = true;
-  users.users.jdgt.extraGroups = [ "docker" ];
+  virtualisation.docker.rootless.enable = true;
 
   services.openssh = {
     enable = true;
@@ -60,7 +59,6 @@
 
   networking.firewall.allowedTCPPorts = [
     7777 # Terraria server
-    5232
   ];
 
   networking.hostName = "shinmy";
