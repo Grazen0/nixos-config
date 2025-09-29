@@ -1,5 +1,7 @@
 {
   services.glance = {
+    enable = true;
+
     settings = {
       server = {
         port = 5678;
