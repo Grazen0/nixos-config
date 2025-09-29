@@ -1,6 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
-  event = { 'BufReadPost', 'BufNewFile' },
+  event = 'VeryLazy',
   cmd = { 'LspInfo', 'LspInstall', 'LspUninstall' },
   dependencies = { 'saghen/blink.cmp' },
   opts = {
