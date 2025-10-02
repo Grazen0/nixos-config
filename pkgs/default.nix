@@ -24,5 +24,6 @@ rec {
   tmux-session-picker = callPackage ./scripts/tmux/session-picker.nix { inherit ppick; };
   waybar-notifications-state = callPackage ./scripts/waybar/notifications-state.nix { };
   waybar-media-query = callPackage ./scripts/waybar/media-query.nix { };
+  nextpnr-xilinx = callPackage ./nextpnr-xilinx.nix { src = inputs.nextpnr-xilinx; };
 }
 // (import ./modded.nix moduleArgs)

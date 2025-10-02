@@ -412,6 +412,22 @@
         "type": "github"
       }
     },
+    "nextpnr-xilinx": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1728633720,
+        "narHash": "sha256-k5znwLYyIfhfy0++onNo6xBNhH6SdTzBlYyxNU+R8W8=",
+        "owner": "gatecat",
+        "repo": "nextpnr-xilinx",
+        "rev": "8f178fc6a6d4dfbc57bef66c3ccff34d558047d5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gatecat",
+        "repo": "nextpnr-xilinx",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1758663926,
@@ -625,6 +641,7 @@
         "home-manager": "home-manager",
         "menu-qalc": "menu-qalc",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
+        "nextpnr-xilinx": "nextpnr-xilinx",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",

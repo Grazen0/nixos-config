@@ -126,6 +126,11 @@
       url = "github:ViniciusSSilva/ristate";
       flake = false;
     };
+
+    nextpnr-xilinx = {
+      url = "github:gatecat/nextpnr-xilinx";
+      flake = false;
+    };
   };
 
   nixConfig = {
