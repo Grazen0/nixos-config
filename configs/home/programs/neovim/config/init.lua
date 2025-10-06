@@ -133,6 +133,15 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Nice man page scrolling
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'man',
+  callback = function()
+    vim.keymap.set('n', 'J', '<c-e>', { buffer = true, silent = true })
+    vim.keymap.set('n', 'K', '<c-y>', { buffer = true, silent = true })
+  end,
+})
+
 
 -- ============================================================================
 -- LSP
