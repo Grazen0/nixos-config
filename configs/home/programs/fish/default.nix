@@ -40,6 +40,7 @@
     interactiveShellInit =
       # fish
       ''
+        set -x MANPAGER "nvim +Man!"
         set -x APHRODITE_THEME_SHOW_TIME yes
         source ${inputs.aphrodite-terminal-theme}/fish_prompt.fish
 
