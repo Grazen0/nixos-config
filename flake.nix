@@ -131,6 +131,11 @@
       url = "github:gatecat/nextpnr-xilinx";
       flake = false;
     };
+
+    prjxray = {
+      url = "github:f4pga/prjxray";
+      flake = false;
+    };
   };
 
   nixConfig = {
