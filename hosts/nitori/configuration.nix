@@ -35,7 +35,6 @@
 
   users.users.jdgt.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA3+5X33zUyHXb5HCwe5VhDxus/tsK1gAfCGqJJaZc4b josedanielgrayson@proton.me"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAg8Tow2FYjkWZMV9Q8EYYU2lV1CupQeEM6aqkMLipfO josedanielgrayson@proton.me"
   ];
 
   services.fail2ban.enable = true;
