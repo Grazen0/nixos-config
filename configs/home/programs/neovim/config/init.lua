@@ -37,6 +37,7 @@ vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.updatetime = 300
+vim.opt.virtualedit = 'all'
 vim.opt.winborder = 'single'
 vim.opt.wrap = false
 
@@ -138,8 +139,8 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'man',
   callback = function()
     vim.opt_local.spell = false
-    vim.keymap.set('n', 'J', '<c-e>', { buffer = true, silent = true })
-    vim.keymap.set('n', 'K', '<c-y>', { buffer = true, silent = true })
+    vim.keymap.set('n', 'K', 'k<c-y>', { buffer = true, silent = true })
+    vim.keymap.set('n', 'J', 'j<c-e>', { buffer = true, silent = true })
   end,
 })
 
