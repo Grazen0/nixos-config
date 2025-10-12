@@ -1,4 +1,12 @@
+{ config, lib, ... }:
+let
+  cfg = config.services.glance;
+in
 {
+  systemd.services = lib.mkIf cfg.enable {
+    glance.serviceConfig.SupplementaryGroups = [ "docker" ];
+  };
+
   services.glance = {
     enable = true;
 
@@ -190,26 +198,9 @@
                   title = "Services";
                   sites = [
                     {
-                      title = "Overleaf";
-                      url = "https://overleaf.unilife.lat";
-                      icon = "di:overleaf";
-                    }
-                    {
                       title = "Vaultwarden";
                       url = "https://bitwarden.unilife.lat";
                       icon = "di:vaultwarden";
-                    }
-                    {
-                      title = "UniLife";
-                      url = "https://unilife.lat";
-                      check-url = "https://unilife.lat/api/health";
-                      icon = "mdi:school";
-                    }
-                    {
-                      title = "UniLife API";
-                      url = "https://api.unilife.lat";
-                      check-url = "https://api.unilife.lat/actuator/health";
-                      icon = "mdi:school-outline";
                     }
                     {
                       title = "Immich";
@@ -222,19 +213,9 @@
                       icon = "di:seafile";
                     }
                     {
-                      title = "Jellyfin";
-                      url = "https://jellyfin.unilife.lat";
-                      icon = "di:jellyfin";
-                    }
-                    {
                       title = "Filebrowser";
                       url = "https://files.unilife.lat";
                       icon = "di:filebrowser";
-                    }
-                    {
-                      title = "Navidrome";
-                      url = "https://navidrome.unilife.lat";
-                      icon = "di:navidrome";
                     }
                     {
                       title = "Radicale";
