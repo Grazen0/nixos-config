@@ -30,7 +30,7 @@
   powerManagement.powertop.enable = true;
   services.tlp.enable = true;
 
-  virtualisation.docker.rootless.enable = true;
+  virtualisation.docker.enable = true;
 
   services.openssh = {
     enable = true;
@@ -45,6 +45,23 @@
 
   users.users.jdgt.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAOkSF7oISnWuVsOxvgZ6JiAx4u/d2+AOXoQW7KAmA3T josedanielgrayson@proton.me"
+  ];
+
+  users.users.jdgt.extraGroups = [ "docker" ];
+
+  security.sudo.extraRules = [
+    {
+      users = [ "jdgt" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [
+            "NOPASSWD"
+            "SETENV"
+          ];
+        }
+      ];
+    }
   ];
 
   environment.systemPackages =
