@@ -9,6 +9,7 @@
     secrets = {
       "cloudflared/tunnel_credentials" = { };
       "caddy/cloudflare_api_token" = { };
+      "glance/immich_api_key" = { };
       "radicale/htpasswd" = {
         owner = "radicale";
       };

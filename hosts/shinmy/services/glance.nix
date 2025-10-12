@@ -7,8 +7,14 @@ in
     glance.serviceConfig.SupplementaryGroups = [ "docker" ];
   };
 
+  sops.templates."glance_env".content = ''
+    IMMICH_API_KEY=${config.sops.placeholder."glance/immich_api_key"}
+  '';
+
   services.glance = {
     enable = true;
+
+    environmentFile = config.sops.templates."glance_env".path;
 
     settings = {
       server = {
@@ -144,7 +150,7 @@ in
                   cache = "15m";
                   url = "https://photos.unilife.lat/api/server/statistics";
                   headers = {
-                    x-api-key = "KTYzLemXgbqGGof5DJlURLsw912jjDwNu7UBDVxaE";
+                    x-api-key = "\${IMMICH_API_KEY}";
                     Accept = "application/json";
                   };
                   template =
