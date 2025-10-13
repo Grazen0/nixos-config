@@ -30,8 +30,6 @@
   powerManagement.powertop.enable = true;
   services.tlp.enable = true;
 
-  virtualisation.docker.enable = true;
-
   services.openssh = {
     enable = true;
     settings = {
@@ -66,7 +64,11 @@
 
   environment.systemPackages =
     with pkgs;
-    (lib.optionals config.services.cloudflared.enable [ cloudflared ])
+    [
+      podman-tui
+      podman-compose
+    ]
+    ++ (lib.optionals config.services.cloudflared.enable [ cloudflared ])
     ++ (lib.optionals config.services.minecraft-server.enable [ mcrcon ])
     ++ (lib.optionals config.services.jellyfin.enable [
       jellyfin

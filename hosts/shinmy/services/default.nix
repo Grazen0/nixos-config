@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ./containers
     ./caddy.nix
     ./glance.nix
   ];
