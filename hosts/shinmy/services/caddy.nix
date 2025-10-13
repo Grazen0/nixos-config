@@ -47,10 +47,6 @@ in
         drive.unilife.lat {
           reverse_proxy 127.0.0.1:8083
         }
-        drive.unilife.lat/seafhttp* {
-          uri strip_prefix seafhttp
-          reverse_proxy 127.0.0.1:8081
-        }
 
         minio.unilife.lat {
           reverse_proxy 127.0.0.1:9001
