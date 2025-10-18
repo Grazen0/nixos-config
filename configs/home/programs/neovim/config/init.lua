@@ -95,6 +95,7 @@ map('i', '<c-l>', '<c-g>u<esc>[s1z=`]a<c-g>u')
 -- Recognize some wonky filetypes
 local fts = {
   ['*.v'] = 'verilog',
+  ['*.vh'] = 'verilog',
   ['*.sv'] = 'systemverilog',
   ['*.tf'] = 'terraform',
 }
