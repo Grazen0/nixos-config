@@ -77,11 +77,7 @@ return {
       tinymist = {},
       ts_ls = {},
       verible = {
-        cmd = {
-          'verible-verilog-ls',
-          '--rules_config_search',
-          '--indentation_spaces=4',
-        },
+        cmd = { 'verible-verilog-ls', '--rules_config_search' },
       },
       yamlls = {
         settings = {
