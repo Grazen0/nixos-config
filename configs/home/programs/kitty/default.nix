@@ -1,11 +1,12 @@
 { config, ... }:
 {
   programs.kitty = {
+    enable = true;
     themeFile = "kanagawa";
 
     font = {
       name = config.theme.font.regular;
-      size = 9.5;
+      size = 12;
     };
 
     settings = {
