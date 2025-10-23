@@ -6,7 +6,7 @@
 
     font = {
       name = config.theme.font.regular;
-      size = 12;
+      size = 11.5;
     };
 
     settings = {
