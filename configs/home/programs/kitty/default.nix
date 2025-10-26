@@ -13,6 +13,7 @@
       enable_audio_bell = "no";
       tab_bar_style = "separator";
       tab_separator = " | ";
+      confirm_os_window_close = 0;
     };
 
     keybindings = {
