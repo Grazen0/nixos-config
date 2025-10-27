@@ -74,7 +74,7 @@
 
       # LSP servers
       arduino-language-server
-      basedpyright # Python
+      pyright # Python
       bash-language-server
       clang-tools
       clippy

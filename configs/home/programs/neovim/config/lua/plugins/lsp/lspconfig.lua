@@ -6,7 +6,7 @@ return {
   opts = {
     servers = {
       arduino_language_server = {},
-      basedpyright = {},
+      pyright = {},
       bashls = {},
       clangd = {
         cmd = {
