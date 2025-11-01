@@ -89,7 +89,7 @@
     # Desktop utilities
     file-roller
     gimp
-    onlyoffice-bin
+    onlyoffice-desktopeditors
     pavucontrol
 
     inputs.zen-browser.packages.${pkgs.system}.twilight

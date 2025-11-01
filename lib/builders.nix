@@ -10,7 +10,7 @@ let
   specialArgsFor = system: {
     inherit lib' inputs;
     stablePkgs = import nixpkgs-stable {
-      inherit system;
+      stdenv.hostPlatform.system = system;
       config.allowUnfree = true;
     };
     customPkgs = self.packages.${system};
@@ -19,7 +19,7 @@ in
 {
   mkSystem =
     { system, modules }:
-    lib.nixosSystem rec {
+    lib.nixosSystem {
       inherit system modules;
       specialArgs = specialArgsFor system;
     };

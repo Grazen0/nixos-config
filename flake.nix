@@ -81,7 +81,7 @@
     };
 
     thorium-browser = {
-      url = "git+https://codeberg.org/Tomkoid/thorium-browser-nix";
+      url = "github:Grazen0/thorium-browser-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
