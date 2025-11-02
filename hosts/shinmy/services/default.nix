@@ -23,7 +23,7 @@
     settings.root = "/";
   };
 
-  services.zerotierone.enable = true;
+  # services.zerotierone.enable = true;
 
   services.cloudflared = {
     enable = true;
@@ -37,6 +37,7 @@
     enable = true;
     port = 2283;
     host = "127.0.0.1";
+    machine-learning.enable = false;
   };
 
   services.vaultwarden = {
