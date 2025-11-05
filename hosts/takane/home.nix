@@ -27,7 +27,7 @@ in
 
   programs = {
     foot.settings.main.font = mkForce "${config.theme.font.regular}:size=10.5";
-    kitty.font.size = mkForce 10;
+    kitty.font.size = mkForce 10.5;
     spicetify.enable = mkForce false;
   };
 
