@@ -5,8 +5,6 @@ let
 in
 # yuck
 ''
-  (include "./bar.yuck")
-
   (defpoll fortune :interval "15m"
     `${fortune} -s | ${cowsay} | sed 's/\\\\/\\\\\\\\/g'`)
 
