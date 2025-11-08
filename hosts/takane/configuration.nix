@@ -32,11 +32,8 @@ in
 
   services.udev.extraRules = ''
     # ST-Link v2 and v2-1 programmer
-    ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="0666", GROUP="plugdev"
-    ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", MODE="0666", GROUP="plugdev"
+    ATTR{idVendor}=="0483", ATTR{idProduct}=="3748", MODE="666"
   '';
-
-  users.groups.plugdev.members = [ "jdgt" ];
 
   networking.hostName = "takane";
   system.stateVersion = "24.05";
