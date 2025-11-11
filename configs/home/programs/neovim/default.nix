@@ -48,8 +48,6 @@
 
       # Misc
       markdown-preview-nvim
-      nvim-dap
-      nvim-dap-ui
       nvim-dbee
       todo-comments-nvim
       typst-preview-nvim
@@ -70,7 +68,6 @@
       black
       isort
       rustfmt
-      sql-formatter
       typstyle
 
       # LSP servers
@@ -83,7 +80,7 @@
       coursier
       gopls # Go
       jdt-language-server # Java
-      kotlin-language-server
+      # kotlin-language-server
       lua-language-server
       metals
       nil # Nix

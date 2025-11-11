@@ -52,6 +52,10 @@
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/codeberg_auth_id_ed25519";
         };
+        "gitea.unilife.lat" = {
+          identitiesOnly = true;
+          identityFile = "${homeDirectory}/.ssh/gitea_auth_id_ed25519";
+        };
       };
   };
 

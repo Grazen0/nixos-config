@@ -22,7 +22,6 @@ return {
       rust = { 'rustfmt' },
       sass = { 'prettierd' },
       scss = { 'prettierd' },
-      sql = { 'sql_formatter' },
       typescript = { 'prettierd' },
       typescriptreact = { 'prettierd' },
       typst = { 'typstyle' },
