@@ -67,7 +67,8 @@
       nixfmt-rfc-style
       ormolu
       prettierd
-      ruff
+      black
+      isort
       rustfmt
       sql-formatter
       typstyle

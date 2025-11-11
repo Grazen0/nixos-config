@@ -16,7 +16,7 @@ return {
       json = { 'prettierd' },
       markdown = { 'prettierd' },
       nix = { 'nixfmt' },
-      python = { 'ruff' },
+      python = { 'isort', 'black' },
       quarto = { 'prettierd' },
       r = { 'styler' },
       rust = { 'rustfmt' },
