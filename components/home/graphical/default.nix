@@ -71,7 +71,7 @@
     concatStringsSep "\n" lines;
 
   meta.mainPrograms = {
-    terminal = "kitty";
+    terminal = "foot";
     browser = "zen";
     fileManager = "thunar";
     appLauncher = "rofi -show drun -show-icons";
