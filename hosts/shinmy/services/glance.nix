@@ -4,7 +4,7 @@ let
 in
 {
   systemd.services = lib.mkIf cfg.enable {
-    glance.serviceConfig.SupplementaryGroups = [ "docker" ];
+    glance.serviceConfig.SupplementaryGroups = [ "podman" ];
   };
 
   sops.templates."glance_env".content = ''
@@ -232,7 +232,7 @@ in
                 }
                 {
                   type = "docker-containers";
-                  sock-path = "/var/run/docker.sock";
+                  sock-path = "/var/run/podman/podman.sock";
                 }
               ];
             }

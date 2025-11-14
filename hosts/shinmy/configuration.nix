@@ -45,23 +45,6 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAOkSF7oISnWuVsOxvgZ6JiAx4u/d2+AOXoQW7KAmA3T josedanielgrayson@proton.me"
   ];
 
-  users.users.jdgt.extraGroups = [ "docker" ];
-
-  security.sudo.extraRules = [
-    {
-      users = [ "jdgt" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [
-            "NOPASSWD"
-            "SETENV"
-          ];
-        }
-      ];
-    }
-  ];
-
   environment.systemPackages =
     with pkgs;
     [
