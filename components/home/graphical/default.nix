@@ -102,7 +102,7 @@
     zoom-us
 
     # Basic gaming
-    wine64
+    wine
     winetricks
     wl-clipboard
   ];
