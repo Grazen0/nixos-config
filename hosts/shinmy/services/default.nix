@@ -45,7 +45,7 @@
     config = {
       ROCKET_ADDRESS = "127.0.0.1";
       ROCKET_PORT = 8222;
-      DOMAIN = "https://bitwarden.unilife.lat";
+      DOMAIN = "https://bitwarden.grazen.xyz";
       ADMIN_TOKEN = "1234567890";
     };
   };

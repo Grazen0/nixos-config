@@ -52,7 +52,7 @@ in
         verbose = true;
         useGlobalPkgs = true;
         useUserPackages = true;
-        extraSpecialArgs = specialArgsFor pkgs.system;
+        extraSpecialArgs = specialArgsFor pkgs.stdenv.hostPlatform.system;
         backupFileExtension = "backup";
 
         users.${username} = {

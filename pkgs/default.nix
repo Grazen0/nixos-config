@@ -6,7 +6,7 @@
 let
   inherit (pkgs) callPackage;
 
-  ppick = inputs.ppick.packages.${pkgs.system}.default;
+  ppick = inputs.ppick.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 rec {
   # Existing packages

@@ -18,6 +18,8 @@ in
     owner = "caddy";
     content =
       let
+        domain = "grazen.xyz";
+
         inherit (config.services)
           filebrowser
           glance
@@ -32,19 +34,19 @@ in
           acme_dns cloudflare ${config.sops.placeholder."caddy/cloudflare_api_token"}
         }
 
-        start.unilife.lat {
+        start.${domain} {
           reverse_proxy 127.0.0.1:${toString glance.settings.server.port}
         }
 
-        files.unilife.lat {
+        files.${domain} {
           reverse_proxy 127.0.0.1:${toString filebrowser.settings.port}
         }
 
-        photos.unilife.lat {
+        photos.${domain} {
           reverse_proxy 127.0.0.1:${toString immich.port}
         }
 
-        drive.unilife.lat {
+        drive.${domain} {
           reverse_proxy 127.0.0.1:8083
         }
 
@@ -52,24 +54,20 @@ in
           reverse_proxy 127.0.0.1:9001
         }
 
-        jellyfin.unilife.lat {
+        jellyfin.${domain} {
           reverse_proxy 127.0.0.1:8096
         }
 
-        navidrome.unilife.lat {
+        navidrome.${domain} {
           reverse_proxy 127.0.0.1:${toString navidrome.settings.Port}
         }
 
-        bitwarden.unilife.lat {
+        bitwarden.${domain} {
           reverse_proxy 127.0.0.1:${toString vaultwarden.config.ROCKET_PORT}
         }
 
         dav.unilife.lat {
           reverse_proxy ${builtins.elemAt radicale.settings.server.hosts 0}
-        }
-
-        calendar.unilife.lat {
-          reverse_proxy 127.0.0.1:8084
         }
       '';
   };

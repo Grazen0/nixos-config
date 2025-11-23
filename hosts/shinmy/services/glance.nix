@@ -148,7 +148,7 @@ in
                   type = "custom-api";
                   title = "Immich stats";
                   cache = "15m";
-                  url = "https://photos.unilife.lat/api/server/statistics";
+                  url = "https://photos.grazen.xyz/api/server/statistics";
                   headers = {
                     x-api-key = "\${IMMICH_API_KEY}";
                     Accept = "application/json";
@@ -210,22 +210,22 @@ in
                     }
                     {
                       title = "Immich";
-                      url = "https://photos.unilife.lat";
+                      url = "https://photos.grazen.xyz";
                       icon = "di:immich";
                     }
                     {
                       title = "Seafile";
-                      url = "https://drive.unilife.lat";
+                      url = "https://drive.grazen.xyz";
                       icon = "di:seafile";
                     }
                     {
                       title = "Filebrowser";
-                      url = "https://files.unilife.lat";
+                      url = "https://files.grazen.xyz";
                       icon = "di:filebrowser";
                     }
                     {
                       title = "Radicale";
-                      url = "https://dav.unilife.lat";
+                      url = "https://dav.grazen.xyz";
                       icon = "di:radicale";
                     }
                   ];
