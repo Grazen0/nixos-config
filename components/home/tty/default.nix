@@ -31,7 +31,7 @@
     python3
     rustc
 
-    inputs.plates.packages.${pkgs.system}.default
+    inputs.plates.packages.${pkgs.stdenv.hostPlatform.system}.default
     cloc
     github-cli
     lazydocker

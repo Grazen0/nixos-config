@@ -92,8 +92,8 @@
     onlyoffice-desktopeditors
     pavucontrol
 
-    inputs.zen-browser.packages.${pkgs.system}.twilight
-    inputs.thorium-browser.defaultPackage.${pkgs.system}
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.twilight
+    inputs.thorium-browser.defaultPackage.${pkgs.stdenv.hostPlatform.system}
     inkscape
     obsidian
     postman

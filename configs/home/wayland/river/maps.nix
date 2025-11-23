@@ -34,7 +34,9 @@
       volume-update = "${customPkgs.volume-update}/bin/volume-update";
       brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
       playerctl = "${pkgs.playerctl}/bin/playerctl -p mopidy,spotify";
-      river-shifttags = "${inputs.river-shifttags.packages.${pkgs.system}.default}/bin/river-shifttags";
+      river-shifttags = "${
+        inputs.river-shifttags.packages.${pkgs.stdenv.hostPlatform.system}.default
+      }/bin/river-shifttags";
       fuzzel-power-menu = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
       menu-qalc = "${customPkgs.menu-qalc}/bin/=";
       bemoji = "${pkgs.bemoji}/bin/bemoji";
