@@ -10,7 +10,7 @@ let
   specialArgsFor = system: {
     inherit lib' inputs;
     stablePkgs = import nixpkgs-stable {
-      stdenv.hostPlatform.system = system;
+      inherit system;
       config.allowUnfree = true;
     };
     customPkgs = self.packages.${system};
