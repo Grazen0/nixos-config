@@ -1,4 +1,9 @@
-{ lib', pkgs, ... }:
+{
+  lib',
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
     ../../options/common
@@ -17,8 +22,11 @@
       homeManagerModules = [ ./home.nix ];
     })
 
+    inputs.nix-gaming.nixosModules.pipewireLowLatency
     ./hardware-configuration.nix
   ];
+
+  services.pipewire.lowLatency.enable = true;
 
   programs.nix-ld.enable = true;
   programs.steam.enable = true;
@@ -85,6 +93,10 @@
       '';
     })
   ];
+
+  hardware.opentabletdriver.enable = true;
+  hardware.uinput.enable = true;
+  boot.kernelModules = [ "uinput" ];
 
   networking.hostName = "nitori";
   system.stateVersion = "24.05";

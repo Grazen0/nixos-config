@@ -3,6 +3,7 @@
   lib',
   pkgs,
   customPkgs,
+  inputs,
   ...
 }:
 let
@@ -24,7 +25,7 @@ in
   home.packages = with pkgs; [
     kdePackages.kdenlive
     prismlauncher
-    osu-lazer
+    inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
   ];
 
   wayland.windowManager = {
