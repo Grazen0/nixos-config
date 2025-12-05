@@ -3,7 +3,11 @@
     ./unilife.nix
   ];
 
+  users.users.jdgt.extraGroups = [ "docker" ];
+
   virtualisation = {
+    docker.enable = true;
+
     containers = {
       enable = true;
       containersConf.settings.compose_providers = [ "podman-compose" ];
@@ -11,7 +15,6 @@
 
     podman = {
       enable = true;
-      dockerCompat = true;
       autoPrune.enable = true;
       defaultNetwork.settings.dns_enabled = true;
     };
