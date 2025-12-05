@@ -67,6 +67,10 @@ in
                       url = "https://www.worthe-it.co.za/rss.xml";
                       title = "Justin Wernick's Blog";
                     }
+                    {
+                      url = "https://danielchasehooper.com/feed.xml";
+                      title = "Daniel Hooper";
+                    }
                   ];
                 }
               ];
