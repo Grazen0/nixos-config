@@ -26,6 +26,8 @@ in
     kdePackages.kdenlive
     prismlauncher
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
+
+    bitwig-studio
   ];
 
   wayland.windowManager = {

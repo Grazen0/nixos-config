@@ -94,11 +94,8 @@
 
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.twilight
     inputs.thorium-browser.defaultPackage.${pkgs.stdenv.hostPlatform.system}
-    bitwig-studio
     inkscape
     obsidian
-    postman
-    signal-desktop-bin
     xournalpp
     zoom-us
 
