@@ -102,7 +102,6 @@
           kb_variant = "altgr-intl";
           kb_options = "caps:swapescape,altwin:swap_lalt_lwin";
 
-          numlock_by_default = true;
           follow_mouse = 2;
           float_switch_override_focus = 0;
 
