@@ -9,6 +9,7 @@
       "Session.vim"
       "*~"
       "*.swp"
+      ".direnv/"
     ];
 
     settings = {
