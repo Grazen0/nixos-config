@@ -19,7 +19,7 @@
 
   xdg.userDirs.enable = true;
 
-  xdg.configFile."plates".source = ./plates-config;
+  # xdg.configFile."plates".source = ./plates-config;
 
   home.packages = with pkgs; [
     cargo
@@ -31,7 +31,7 @@
     python3
     rustc
 
-    inputs.plates.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # inputs.plates.packages.${pkgs.stdenv.hostPlatform.system}.default
     cloc
     github-cli
     lazydocker
