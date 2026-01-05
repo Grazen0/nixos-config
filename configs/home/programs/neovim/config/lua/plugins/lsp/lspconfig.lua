@@ -87,6 +87,7 @@ return {
           },
         },
       },
+      zls = {},
     },
     diagnostic_config = {
       virtual_text = true,

@@ -108,6 +108,7 @@
         verible
         vscode-langservers-extracted # HTML, CSS, JSON
         yaml-language-server
+        zls
 
         # Plugin-specifics
         texlive.combined.scheme-small # vimtex
