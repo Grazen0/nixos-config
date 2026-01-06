@@ -209,7 +209,7 @@ in
                   sites = [
                     {
                       title = "Vaultwarden";
-                      url = "https://bitwarden.unilife.lat";
+                      url = "https://bitwarden.grazen.xyz";
                       icon = "di:vaultwarden";
                     }
                     {
@@ -229,7 +229,7 @@ in
                     }
                     {
                       title = "Radicale";
-                      url = "https://dav.grazen.xyz";
+                      url = "https://dav.unilife.lat";
                       icon = "di:radicale";
                     }
                   ];
