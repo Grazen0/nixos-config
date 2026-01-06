@@ -24,7 +24,7 @@
           };
         };
         "shinmy" = {
-          hostname = "shinmy.unilife.lat";
+          hostname = "100.93.85.10";
           user = "jdgt";
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/shinmy_auth_id_ed25519";
