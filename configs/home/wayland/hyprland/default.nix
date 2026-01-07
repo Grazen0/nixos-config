@@ -23,7 +23,6 @@
     {
       package = null; # Let the NixOS module handle this
 
-      xwayland.enable = true;
       systemd.enable = false; # Conflicts with UWSM
 
       settings = {
@@ -95,7 +94,10 @@
 
         animations.enabled = false;
 
-        xwayland.force_zero_scaling = true;
+        xwayland = {
+          enabled = true;
+          force_zero_scaling = true;
+        };
 
         input = {
           kb_layout = "us";
