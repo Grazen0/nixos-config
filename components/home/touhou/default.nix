@@ -62,6 +62,10 @@
           fullName = "Undefined Fantastic Object";
         }
         {
+          game = "15";
+          fullName = "Legacy of Lunatic Kingdom";
+        }
+        {
           game = "20";
           fullName = "Fossilized Wonders";
           exec = "th20.exe";
