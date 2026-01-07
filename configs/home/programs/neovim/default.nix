@@ -45,7 +45,7 @@
         conform-nvim
         nvim-jdtls
         nvim-lspconfig
-        nvim-treesitter.withAllGrammars
+        nvim-treesitter
         SchemaStore-nvim
 
         # Visual

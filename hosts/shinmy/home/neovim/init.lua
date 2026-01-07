@@ -236,8 +236,7 @@ require('snacks').setup({
   bufdelete = { enable = true },
 })
 
---- @diagnostic disable: missing-fields
-require('nvim-treesitter.configs').setup({
+require('nvim-treesitter').setup({
   auto_install = true,
   highlight = { enable = true },
 })
