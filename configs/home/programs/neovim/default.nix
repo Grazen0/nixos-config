@@ -45,7 +45,7 @@
         conform-nvim
         nvim-jdtls
         nvim-lspconfig
-        nvim-treesitter
+        nvim-treesitter.withAllGrammars
         SchemaStore-nvim
 
         # Visual
@@ -69,6 +69,7 @@
         fd
         ripgrep
         wl-clipboard
+        tree-sitter
 
         # Conform formatters
         nixfmt-rfc-style
