@@ -50,10 +50,5 @@
         "match:class gtkwave, float on"
       ]
       ++ lib.concatLists dialogRules;
-
-    layerrule = [
-      # fuzzel
-      "match:namespace rofi, dim_around on"
-    ];
   };
 }

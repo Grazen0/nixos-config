@@ -22,9 +22,10 @@
         pamixer = "${pkgs.pamixer}/bin/pamixer";
         wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
         cliphist = "${config.services.cliphist.package}/bin/cliphist";
+        bemoji = "${pkgs.bemoji}/bin/bemoji";
         brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
         volume-update = "${customPkgs.volume-update}/bin/volume-update";
-        rofi-power-menu = "${pkgs.rofi-power-menu}/bin/rofi-power-menu";
+        fuzzel-power-menu = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
 
         volumeStep = "5";
         resizeStep = "20";
@@ -46,8 +47,8 @@
           # Menus
           "SUPER, Space, exec, ${appLauncher}"
           "SUPER, V, exec, ${cliphist} list | ${dmenu} | ${cliphist} decode | ${wl-copy}"
-          "SUPER, Period, exec, rofi -show emoji"
-          "SUPER SHIFT, X, exec, ${uwsmApp} rofi -show power-menu -modi power-menu:${rofi-power-menu}"
+          "SUPER, Period, exec, BEMOJI_PICKER_CMD='fuzzel --dmenu' ${uwsmApp} ${bemoji} -t"
+          "SUPER SHIFT, X, exec, ${uwsmApp} ${fuzzel-power-menu}"
 
           # Screen capture
           ", Print, exec, pidof -q slurp || ${slurp} -w 0 -b 00000088 | ${grim} -g - - | ${wl-copy}"

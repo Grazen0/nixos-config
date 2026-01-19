@@ -19,7 +19,7 @@
   programs.swayimg.enable = true;
   programs.obs-studio.enable = true;
 
-  programs.rofi.enable = true;
+  programs.fuzzel.enable = true;
   programs.waybar.enable = true;
   programs.swaylock.enable = true;
   programs.spicetify.enable = true;
@@ -74,8 +74,8 @@
     terminal = "foot";
     browser = "zen";
     fileManager = "thunar";
-    appLauncher = "rofi -show drun -show-icons";
-    dmenu = "rofi -dmenu";
+    appLauncher = "fuzzel";
+    dmenu = "fuzzel --dmenu";
   };
 
   home.packages = with pkgs; [
