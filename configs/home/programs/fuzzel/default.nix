@@ -20,16 +20,16 @@
         radius = 0;
       };
 
-      colors = with config.scheme; {
-        background = "${base00}ff";
+      colors = with config.scheme; rec {
+        background = "${base01}ff";
         text = "${base05}ff";
         prompt = "${blue}ff";
         placeholder = "${base04}ff";
         input = "${base05}ff";
         match = "${base05}ff";
-        selection = "${blue}ff";
-        selection-text = "${base00}ff";
-        selection-match = "${base00}ff";
+        selection = "${base00}ff";
+        selection-text = text;
+        selection-match = "${orange}ff";
         border = "${blue}ff";
       };
 
