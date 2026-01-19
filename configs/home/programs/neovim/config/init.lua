@@ -171,12 +171,6 @@ require('lazy').setup({
     reset_packpath = false,
     rtp = { reset = false },
   },
-  dev = {
-    path = require('nix').lazy_dev_path,
-    patterns = { '' },
-  },
-  install = { missing = false },
-  change_detection = { enabled = false },
   spec = {
     { import = 'plugins.mini' },
     { import = 'plugins.visuals' },

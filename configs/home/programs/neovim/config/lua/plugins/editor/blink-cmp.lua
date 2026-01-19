@@ -2,6 +2,7 @@ return {
   'saghen/blink.cmp',
   event = { 'BufReadPost', 'BufNewFile' },
   dependencies = { 'L3MON4D3/luasnip' },
+  version = '1.*',
   opts = {
     snippets = { preset = 'luasnip' },
     keymap = { preset = 'enter' },
