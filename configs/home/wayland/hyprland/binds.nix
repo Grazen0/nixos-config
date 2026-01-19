@@ -47,7 +47,6 @@
           "SUPER, Space, exec, ${appLauncher}"
           "SUPER, V, exec, ${cliphist} list | ${dmenu} | ${cliphist} decode | ${wl-copy}"
           "SUPER, Period, exec, rofi -show emoji"
-          "SUPER, Comma, exec, ${uwsmApp} rofi -show calc"
           "SUPER SHIFT, X, exec, ${uwsmApp} rofi -show power-menu -modi power-menu:${rofi-power-menu}"
 
           # Screen capture

@@ -10,12 +10,10 @@
       location = "center";
       modes = [
         "drun"
-        "calc"
         "emoji"
       ];
 
       plugins = with pkgs; [
-        rofi-calc
         rofi-emoji
       ];
 
