@@ -1,12 +1,13 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    lazy = false,
-    build = ':TSUpdate',
-    config = function(_, opts)
-      vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufNewFile' }, {
-        callback = function() vim.treesitter.start() end,
-      })
-    end,
+    event = { 'BufReadPost', 'BufNewFile' },
+    opts = {
+      auto_install = true,
+      highlight = {
+        enable = true,
+        disable = { 'latex' }, -- Managed by vimtex
+      },
+    },
   },
 }
