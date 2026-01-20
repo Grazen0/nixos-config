@@ -4,7 +4,7 @@
     settings = {
       main = {
         launch-prefix = "uwsm app -- ";
-        font = "${config.theme.font.propo}:size=12";
+        font = "${config.theme.font.propo}:size=12.5";
         inherit (config.meta.mainPrograms) terminal;
         use-bold = "yes";
         fields = "filename,name,generic,keywords";
