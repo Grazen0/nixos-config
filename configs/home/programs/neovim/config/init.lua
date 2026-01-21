@@ -92,6 +92,11 @@ map('i', '<c-l>', '<c-g>u<esc>[s1z=`]a<c-g>u')
 -- Autocmds
 -- ============================================================================
 
+-- Auto-start treesitter
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  callback = function() vim.treesitter.start() end,
+})
+
 -- Recognize some wonky filetypes
 local fts = {
   ['*.v'] = 'verilog',
