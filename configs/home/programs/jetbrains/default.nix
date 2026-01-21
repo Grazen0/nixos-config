@@ -1,7 +1,5 @@
 {
   programs.jetbrains = {
-    editors.datagrip.enable = true;
-
     ideavimrc =
       # vim
       ''
