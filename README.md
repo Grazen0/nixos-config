@@ -17,8 +17,8 @@ These are the NixOS configurations I daily drive. Contains configs for:
 
 ![Miscellaneous screenshot][ss-misc]
 
-[ss-desktop]: https://github.com/Grazen0/nixos-config/blob/main/.github/screenshots/desktop.png?raw=true
-[ss-latex]: https://github.com/Grazen0/nixos-config/blob/main/.github/screenshots/latex.png?raw=true
-[ss-misc]: https://github.com/Grazen0/nixos-config/blob/main/.github/screenshots/misc.png?raw=true
-[ss-music]: https://github.com/Grazen0/nixos-config/blob/main/.github/screenshots/music.png?raw=true
-[ss-neovim]: https://github.com/Grazen0/nixos-config/blob/main/.github/screenshots/neovim.png?raw=true
+[ss-desktop]: https://codeberg.org/Grazen0/nixos-config/raw/branch/main/.github/screenshots/desktop.png
+[ss-latex]: https://codeberg.org/Grazen0/nixos-config/raw/branch/main/.github/screenshots/latex.png
+[ss-misc]: https://codeberg.org/Grazen0/nixos-config/raw/branch/main/.github/screenshots/misc.png
+[ss-music]: https://codeberg.org/Grazen0/nixos-config/raw/branch/main/.github/screenshots/music.png
+[ss-neovim]: https://codeberg.org/Grazen0/nixos-config/raw/branch/main/.github/screenshots/neovim.png
