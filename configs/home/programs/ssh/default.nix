@@ -48,7 +48,7 @@
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/gitlab_auth_id_ed25519";
         };
-        "codeberg.com" = {
+        "codeberg.org" = {
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/codeberg_auth_id_ed25519";
         };
