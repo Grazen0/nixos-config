@@ -27,7 +27,7 @@
 
   services.cloudflared = {
     enable = true;
-    tunnels."dd024d94-7349-4dd3-889f-7c22987e8097" = {
+    tunnels."bed6cacf-c810-4b71-9a62-d6346bd71344" = {
       credentialsFile = config.sops.secrets."cloudflared/tunnel_credentials".path;
       default = "http_status:404";
     };
