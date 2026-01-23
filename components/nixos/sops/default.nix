@@ -17,6 +17,7 @@
       "unilife/db_env" = { };
       "unilife/backend_env" = { };
       "unilife/frontend_env" = { };
+      "forgejo/token" = { };
     };
   };
 
