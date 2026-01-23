@@ -28,6 +28,29 @@
     pnpm
   ];
 
+  programs.ssh = {
+    enableDefaultConfig = false;
+    matchBlocks = {
+      "*" = {
+        addKeysToAgent = "yes";
+        forwardAgent = true;
+      };
+
+      "github.com" = {
+        identitiesOnly = true;
+        identityFile = "~/.ssh/github_auth_id_ed25519";
+      };
+      "gitlab.com" = {
+        identitiesOnly = true;
+        identityFile = "~/.ssh/gitlab_auth_id_ed25519";
+      };
+      "codeberg.org" = {
+        identitiesOnly = true;
+        identityFile = "~/.ssh/codeberg_auth_id_ed25519";
+      };
+    };
+  };
+
   services.ssh-agent.enable = true;
 
   programs.kitty.enable = true; # To use xterm-kitty
