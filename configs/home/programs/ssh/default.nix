@@ -47,10 +47,6 @@
         identitiesOnly = true;
         identityFile = "~/.ssh/codeberg_auth_id_ed25519";
       };
-      "gitea.grazen.xyz" = {
-        identitiesOnly = true;
-        identityFile = "~/.ssh/gitea_auth_id_ed25519";
-      };
     };
   };
 
