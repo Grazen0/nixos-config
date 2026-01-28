@@ -37,4 +37,6 @@ in
 
   networking.hostName = "takane";
   system.stateVersion = "24.05";
+
+  programs.steam.enable = true;
 }
