@@ -87,6 +87,7 @@
     networkmanagerapplet
 
     # Desktop utilities
+    audacity
     file-roller
     gimp
     onlyoffice-desktopeditors
