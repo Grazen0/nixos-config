@@ -61,6 +61,7 @@
       tinymist
       typescript-language-server
       verible
+      verilator
       vscode-langservers-extracted # HTML, CSS, JSON
       yaml-language-server
       zls
