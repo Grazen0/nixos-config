@@ -23,7 +23,7 @@ in
   ];
 
   home.packages = with pkgs; [
-    kdePackages.kdenlive
+    # kdePackages.kdenlive
     prismlauncher
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
 
