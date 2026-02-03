@@ -74,25 +74,6 @@
     5232 # Recommended by the NixOS wiki
   ];
 
-  services.minecraft-server = {
-    package = pkgs.papermcServers.papermc-1_21_5;
-    eula = true;
-    openFirewall = true;
-    declarative = true;
-
-    serverProperties = {
-      difficulty = "normal";
-      max-players = 5;
-      motd = "Eso tilin";
-      online-mode = false;
-
-      enable-rcon = true;
-      "rcon.password" = "123456";
-    };
-
-    jvmOpts = "-Xms4G -Xmx4G";
-  };
-
   services.gitea-actions-runner = {
     package = pkgs.forgejo-runner;
     instances.default = {
