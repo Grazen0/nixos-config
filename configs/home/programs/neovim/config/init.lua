@@ -186,3 +186,5 @@ require('lazy').setup({
   },
   ui = { border = vim.o.winborder },
 })
+
+require('mini.icons').mock_nvim_web_devicons()

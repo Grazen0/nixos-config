@@ -15,7 +15,6 @@ return {
 
     'echasnovski/mini.icons',
     lazy = false,
-    priority = 1000,
     setup = function(_, opts)
       local MiniIcons = require('mini.icons')
       MiniIcons.setup(opts)
