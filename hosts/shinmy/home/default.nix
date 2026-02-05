@@ -1,5 +1,7 @@
 {
+  config,
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -13,6 +15,7 @@
 
     ./neovim
     ./tmux.nix
+
   ];
 
   programs.bash = {
@@ -26,7 +29,10 @@
   home.packages = with pkgs; [
     nodejs
     pnpm
+    ngrok
   ];
+
+  programs.java.enable = true;
 
   programs.ssh = {
     enable = true;
