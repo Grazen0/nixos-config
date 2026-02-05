@@ -13,7 +13,7 @@
     vimAlias = true;
     viAlias = true;
 
-    extraLuaConfig = lib.readFile ./init.lua;
+    initLua = lib.readFile ./init.lua;
 
     extraPackages = with pkgs; [
       fd
