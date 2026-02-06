@@ -1,4 +1,4 @@
-# My NixOS configurations · [![Check](https://github.com/Grazen0/nixos-config/actions/workflows/check.yml/badge.svg)](https://github.com/Grazen0/nixos-config/actions/workflows/check.yml)
+# My NixOS configurations
 
 These are the NixOS configurations I daily drive. Contains configs for:
 
