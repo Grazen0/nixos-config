@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   wayland.windowManager.hyprland.enable = true;
 
@@ -19,8 +19,6 @@
 
   xdg.userDirs.enable = true;
 
-  # xdg.configFile."plates".source = ./plates-config;
-
   home.packages = with pkgs; [
     cargo
     cmake
@@ -31,7 +29,6 @@
     python3
     rustc
 
-    # inputs.plates.packages.${pkgs.stdenv.hostPlatform.system}.default
     cloc
     github-cli
     lazydocker
