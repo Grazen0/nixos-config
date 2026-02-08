@@ -30,6 +30,7 @@
     nodejs
     pnpm
     ngrok
+    jq
   ];
 
   programs.java.enable = true;
