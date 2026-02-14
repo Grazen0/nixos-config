@@ -13,9 +13,9 @@
       templates = "${config.xdg.dataHome}/templates";
 
       extraConfig = {
-        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
-        XDG_CODE_DIR = "${config.home.homeDirectory}/Code";
-        XDG_GAMES_DIR = "${config.home.homeDirectory}/Games";
+        SCREENSHOTS = "${config.xdg.userDirs.pictures}/Screenshots";
+        CODE = "${config.home.homeDirectory}/Code";
+        GAMES = "${config.home.homeDirectory}/Games";
       };
     };
 
