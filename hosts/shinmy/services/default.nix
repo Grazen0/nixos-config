@@ -90,4 +90,18 @@
       ];
     };
   };
+
+  services.nginx = {
+    enable = true;
+
+    virtualHosts."_" = {
+      listen = [
+        {
+          addr = "127.0.0.1";
+          port = 8009;
+        }
+      ];
+      root = "/srv/www/logic-sim";
+    };
+  };
 }
