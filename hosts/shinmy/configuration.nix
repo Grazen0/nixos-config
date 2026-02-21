@@ -45,6 +45,8 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAOkSF7oISnWuVsOxvgZ6JiAx4u/d2+AOXoQW7KAmA3T josedanielgrayson@proton.me"
   ];
 
+  programs.nix-ld.enable = true;
+
   environment.systemPackages =
     with pkgs;
     [
@@ -61,6 +63,7 @@
 
   networking.firewall.allowedTCPPorts = [
     7777 # Terraria server
+    25565 # Minecraft server
   ];
 
   networking.hostName = "shinmy";
