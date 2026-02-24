@@ -72,7 +72,7 @@
 
   meta.mainPrograms = {
     terminal = "foot";
-    browser = "zen";
+    browser = "zen-twilight";
     fileManager = "thunar";
     appLauncher = "fuzzel";
     dmenu = "fuzzel --dmenu";
