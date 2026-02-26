@@ -35,6 +35,8 @@ in
     ATTR{idVendor}=="0483", ATTR{idProduct}=="3748", MODE="666"
   '';
 
+  programs.nix-ld.enable = true;
+
   networking.hostName = "takane";
   system.stateVersion = "24.05";
 
