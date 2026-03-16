@@ -29,6 +29,10 @@
           RemoteCommand = "tmux new -A -s main";
         };
       };
+      "shinmy.ocicat-ray.ts.net" = {
+        identitiesOnly = true;
+        identityFile = "~/.ssh/shinmy_auth_id_ed25519";
+      };
       "nitori" = {
         hostname = "nitori.unilife.lat";
         user = "jdgt";
