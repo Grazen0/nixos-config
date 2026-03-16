@@ -6,7 +6,7 @@
     settings = with config.scheme; {
       main.font = "${config.theme.font.regular}:size=11.5";
 
-      colors = {
+      colors-dark = {
         cursor = "${base00} ${base05}";
 
         background = base00;
