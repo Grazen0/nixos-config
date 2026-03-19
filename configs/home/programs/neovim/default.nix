@@ -68,6 +68,7 @@
 
       # Plugin-specifics
       texlive.combined.scheme-small # vimtex
+      tree-sitter
     ];
 
   };
