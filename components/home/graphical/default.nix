@@ -83,6 +83,7 @@
     cryptsetup
     rmtrash
     trash-cli
+    gemini-cli
 
     networkmanagerapplet
 
