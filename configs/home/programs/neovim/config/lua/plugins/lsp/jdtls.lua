@@ -1,5 +1,6 @@
 return {
   'mfussenegger/nvim-jdtls',
+  enabled = false,
   event = 'VeryLazy',
   opts = {
     cmd = { 'jdtls', '--jvm-arg=-javaagent:' .. require('nix').lombok_path },

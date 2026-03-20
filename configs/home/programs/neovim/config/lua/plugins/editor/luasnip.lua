@@ -1,5 +1,6 @@
 return {
   'L3MON4D3/luasnip',
+  enabled = false,
   event = { 'BufReadPre', 'BufNewFile' },
   opts = {
     enable_autosnippets = true,

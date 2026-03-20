@@ -2,14 +2,7 @@ return {
   {
     'echasnovski/mini.ai',
     event = 'VeryLazy',
-    dependencies = { 'echasnovski/mini.extra' },
-    opts = function()
-      return {
-        custom_textobjects = {
-          e = require('mini.extra').gen_ai_spec.buffer(),
-        },
-      }
-    end,
+    opts = {},
   },
   {
 

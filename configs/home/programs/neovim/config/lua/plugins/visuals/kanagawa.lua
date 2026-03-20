@@ -6,20 +6,12 @@ return {
     vim.cmd.colorscheme('kanagawa')
   end,
   opts = {
-    colors = {
-      theme = {
-        all = {
-          ui = {
-            bg_gutter = 'none',
-          },
-        },
-      },
-    },
+    colors = { theme = { all = { ui = { bg_gutter = 'none' } } } },
     overrides = function(colors)
       local theme = colors.theme
+      local c = require('kanagawa.lib.color')
 
-      local make_bg_blended_color = function(color, ratio)
-        local c = require('kanagawa.lib.color')
+      local blend = function(color, ratio)
         return {
           fg = color,
           bg = c(color):blend(theme.ui.bg, ratio or 0.95):to_hex(),
@@ -47,10 +39,10 @@ return {
         FloatTitle = { bg = 'none' },
 
         -- Tint background of diagnostic messages with their foreground color
-        DiagnosticVirtualTextHint = make_bg_blended_color(theme.diag.hint),
-        DiagnosticVirtualTextInfo = make_bg_blended_color(theme.diag.info),
-        DiagnosticVirtualTextWarn = make_bg_blended_color(theme.diag.warning),
-        DiagnosticVirtualTextError = make_bg_blended_color(theme.diag.error),
+        DiagnosticVirtualTextHint = blend(theme.diag.hint),
+        DiagnosticVirtualTextInfo = blend(theme.diag.info),
+        DiagnosticVirtualTextWarn = blend(theme.diag.warning),
+        DiagnosticVirtualTextError = blend(theme.diag.error),
       }
     end,
   },

@@ -10,9 +10,7 @@ vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.fillchars:append({ fold = ' ' })
 vim.opt.foldenable = true
-vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldlevel = 99
-vim.opt.foldmethod = 'expr'
 vim.opt.foldtext = ''
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
@@ -87,26 +85,24 @@ map('n', '<leader>d', vim.diagnostic.open_float)
 -- Spell quick fix
 map('i', '<c-l>', '<c-g>u<esc>[s1z=`]a<c-g>u')
 
+map('n', '<leader>m', function()
+  vim.opt.makeprg = vim.fn.input('makeprg: ', vim.o.makeprg)
+  vim.cmd('make')
+end)
+
+vim.cmd('packadd nvim.undotree')
 
 -- ============================================================================
 -- Autocmds
 -- ============================================================================
 
--- Recognize some wonky filetypes
-local fts = {
-  ['*.v'] = 'verilog',
-  ['*.vh'] = 'verilog',
-  ['*.sv'] = 'systemverilog',
-  ['*.tf'] = 'terraform',
-}
-
-for pattern, ft in pairs(fts) do
-  vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-    pattern = pattern,
-    command = 'set filetype=' .. ft,
-  })
-end
-
+vim.filetype.add({
+  extension = {
+    v = 'systemverilog',
+    vh = 'systemverilog',
+    tf = 'terraform',
+  },
+})
 
 -- Highlight yanked text
 vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -135,17 +131,6 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Nice man page scrolling
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'man',
-  callback = function()
-    vim.opt_local.spell = false
-    vim.keymap.set('n', 'K', 'k<c-y>', { buffer = true, silent = true })
-    vim.keymap.set('n', 'J', 'j<c-e>', { buffer = true, silent = true })
-  end,
-})
-
-
 -- ============================================================================
 -- LSP
 -- ============================================================================
@@ -156,6 +141,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if client and client:supports_method('textDocument/foldingRange') then
       local win = vim.api.nvim_get_current_win()
+      vim.wo[win][0].foldmethod = 'expr'
       vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
     end
   end,

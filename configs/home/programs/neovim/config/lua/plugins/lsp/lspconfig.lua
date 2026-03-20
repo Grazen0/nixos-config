@@ -2,7 +2,7 @@ return {
   'neovim/nvim-lspconfig',
   event = 'VeryLazy',
   cmd = { 'LspInfo', 'LspInstall', 'LspUninstall' },
-  dependencies = { 'saghen/blink.cmp', 'b0o/SchemaStore.nvim' },
+  dependencies = { 'saghen/blink.cmp' },
   opts = function()
     return {
       servers = {
@@ -23,14 +23,7 @@ return {
         eslint = {},
         gopls = {},
         html = {},
-        jsonls = {
-          settings = {
-            json = {
-              schemas = require('schemastore').json.schemas(),
-              validate = { enable = true },
-            },
-          },
-        },
+        jsonls = {},
         kotlin_language_server = {},
         lua_ls = {
           on_init = function(client)
@@ -80,14 +73,7 @@ return {
         verible = {
           cmd = { 'verible-verilog-ls', '--rules_config_search' },
         },
-        yamlls = {
-          settings = {
-            yaml = {
-              schemas = require('schemastore').yaml.schemas(),
-              schemaStore = { enable = false, url = '' },
-            },
-          },
-        },
+        yamlls = {},
         zls = {},
       },
       diagnostic_config = {

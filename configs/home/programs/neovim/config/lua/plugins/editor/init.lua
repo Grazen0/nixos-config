@@ -10,19 +10,6 @@ return {
     opts = {},
   },
   {
-    'mbbill/undotree',
-    cmd = {
-      'UndotreeShow',
-      'UndotreeHide',
-      'UndotreeToggle',
-      'UndotreeFocus',
-      'UndotreePersistUndo',
-    },
-    keys = {
-      { '<leader>u', '<cmd>UndotreeShow<cr>', desc = 'Show undotree' },
-    },
-  },
-  {
     'christoomey/vim-tmux-navigator',
     cmd = {
       'TmuxNavigateLeft',
@@ -43,13 +30,6 @@ return {
   {
     'nmac427/guess-indent.nvim',
     opts = {},
-  },
-  {
-    'nvim-pack/nvim-spectre',
-    opts = {},
-    keys = {
-      { '<c-s>' },
-    },
   },
   {
     'nvim-pack/nvim-spectre',

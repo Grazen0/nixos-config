@@ -67,7 +67,7 @@
       zls
 
       # Plugin-specifics
-      texlive.combined.scheme-small # vimtex
+      # texlive.combined.scheme-small # vimtex
       tree-sitter
     ];
 
