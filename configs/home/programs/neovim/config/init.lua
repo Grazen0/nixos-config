@@ -14,6 +14,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldtext = ''
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
+vim.opt.laststatus = 3
 vim.opt.linebreak = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
@@ -30,6 +31,7 @@ vim.opt.spell = true
 vim.opt.spelllang = { 'es', 'en_us' }
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.statusline = [[  %<%f %h%m%r %y %= %-14.(%l,%c%V%) %p%%  ]]
 vim.opt.swapfile = false
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
@@ -38,6 +40,7 @@ vim.opt.updatetime = 300
 vim.opt.virtualedit = 'all'
 vim.opt.winborder = 'single'
 vim.opt.wrap = false
+
 
 
 -- ============================================================================
@@ -129,6 +132,10 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.textwidth = 80
     vim.opt_local.formatoptions:append('t')
   end,
+})
+
+vim.api.nvim_create_autocmd('QuickFixCmdPre', {
+  command = 'wall',
 })
 
 -- ============================================================================
