@@ -23,6 +23,7 @@
     cargo
     cmake
     gcc
+    gdb
     gnumake
     nodejs
     pnpm
