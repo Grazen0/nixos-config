@@ -49,11 +49,6 @@ return {
       desc = 'Find diagnostics',
     },
     {
-      '<leader>ft',
-      function() require('snacks').picker.todo_comments() end,
-      desc = 'Find todo comments',
-    },
-    {
       '<leader>fm',
       function() require('snacks').picker.man() end,
       desc = 'Find man pages',
