@@ -4,13 +4,14 @@
 }:
 {
   programs.git = {
-
     ignores = [
       "Session.vim"
       "*~"
       "*.swp"
       ".direnv/"
     ];
+
+    signing.format = "openpgp";
 
     settings = {
       init.defaultBranch = "main";

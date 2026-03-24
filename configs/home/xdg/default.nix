@@ -7,6 +7,7 @@
 {
   xdg = {
     userDirs = {
+      setSessionVariables = true;
       createDirectories = true;
 
       publicShare = "${config.xdg.dataHome}/public";

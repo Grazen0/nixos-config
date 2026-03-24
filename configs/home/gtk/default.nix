@@ -12,5 +12,6 @@
     };
 
     gtk4.extraCss = config.gtk.gtk3.extraCss;
+    gtk4.theme = config.gtk.theme;
   };
 }
