@@ -50,6 +50,7 @@
   services.tailscale.enable = true;
   services.zerotierone.enable = true;
 
+  virtualisation.docker.enable = true;
   virtualisation.docker.rootless.enable = true;
 
   hardware.nvidia.prime = {
@@ -92,6 +93,10 @@
         ACTION=="add", ATTR{idVendor}=="0403", ATTR{manufacturer}=="Xilinx", MODE:="666"
       '';
     })
+  ];
+
+  environment.systemPackages = with pkgs; [
+    distrobox
   ];
 
   hardware.opentabletdriver.enable = true;
