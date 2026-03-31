@@ -6,7 +6,6 @@ return {
   opts = function()
     return {
       servers = {
-        arduino_language_server = {},
         pyright = {},
         bashls = {},
         clangd = {
@@ -21,21 +20,14 @@ return {
         },
         cssls = {},
         eslint = {},
-        gopls = {},
         html = {},
-        jsonls = {},
-        kotlin_language_server = {},
         lua_ls = {
           on_init = function(client)
             if client.workspace_folders then
               local path = client.workspace_folders[1].name
               if
                   path ~= vim.fn.stdpath('config')
-                  and (
-                  --- @diagnostic disable: undefined-field
-                    vim.uv.fs_stat(path .. '/.luarc.json')
-                    or vim.uv.fs_stat(path .. '/.luarc.jsonc')
-                  )
+                  and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
               then
                 return
               end
@@ -55,14 +47,13 @@ return {
           end,
           settings = { Lua = {} },
         },
-        metals = {},
         nil_ls = {},
         rust_analyzer = {
           settings = {
             ['rust-analyzer'] = { check = { command = 'clippy' } },
           },
         },
-        sqls = {},
+        sqls = { cmd = { 'sqls', '-config', '~/.config/sqls/config.yml' } },
         statix = {},
         svelte = {},
         tailwindcss = {},
@@ -70,9 +61,7 @@ return {
         texlab = {},
         tinymist = {},
         ts_ls = {},
-        verible = {
-          cmd = { 'verible-verilog-ls', '--rules_config_search' },
-        },
+        verible = { cmd = { 'verible-verilog-ls', '--rules_config_search' } },
         yamlls = {},
         zls = {},
       },
@@ -102,7 +91,7 @@ return {
   end,
   config = function(_, opts)
     vim.diagnostic.config(opts.diagnostic_config)
-    -- vim.lsp.on_type_formatting.enable()
+    vim.lsp.on_type_formatting.enable()
 
     local blink = require('blink.cmp')
 
@@ -112,7 +101,8 @@ return {
       config.capabilities = vim.tbl_deep_extend(
         'force',
         blink.get_lsp_capabilities(config.capabilities),
-        opts.default_capabilities
+        opts.default_capabilities,
+        config.capabilities or {}
       )
       vim.lsp.config(server, config)
     end

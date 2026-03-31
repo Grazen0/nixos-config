@@ -35,7 +35,6 @@
       typstyle
 
       # LSP servers
-      arduino-language-server
       pyright # Python
       bash-language-server
       clang-tools
@@ -43,13 +42,9 @@
       stdenv.cc.libc.dev
       llvmPackages.libcxx
       clippy
-      cmake-language-server
-      coursier
-      gopls # Go
       jdt-language-server # Java
       # kotlin-language-server
       lua-language-server
-      metals
       nil # Nix
       rust-analyzer
       sqls
@@ -61,7 +56,6 @@
       tinymist
       typescript-language-server
       verible
-      verilator
       vscode-langservers-extracted # HTML, CSS, JSON
       yaml-language-server
       zls
