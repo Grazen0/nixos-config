@@ -34,6 +34,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-river.url = "github:NixOS/nixpkgs/318f1c48f0d996079031f4c2badca89a7c4b173a";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
