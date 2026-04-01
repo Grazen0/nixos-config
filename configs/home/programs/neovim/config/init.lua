@@ -158,17 +158,6 @@ vim.api.nvim_create_autocmd('FileType', {
 -- ============================================================================
 
 
-require('lazy').setup({
-  performance = {
-    reset_packpath = false,
-    rtp = { reset = false },
-  },
-  spec = {
-    { import = 'plugins.lsp' },
-  },
-  ui = { border = vim.o.winborder },
-})
-
 vim.pack.add({
   { src = 'https://github.com/saghen/blink.cmp', version = 'v1.10.1' },
   'https://github.com/folke/snacks.nvim',
@@ -368,4 +357,15 @@ require('fidget').setup({
   notification = {
     override_vim_notify = true,
   },
+})
+
+require('lazy').setup({
+  performance = {
+    reset_packpath = false,
+    rtp = { reset = false },
+  },
+  spec = {
+    { import = 'plugins.lsp' },
+  },
+  ui = { border = vim.o.winborder },
 })

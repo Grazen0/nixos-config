@@ -2,7 +2,6 @@ return {
   'neovim/nvim-lspconfig',
   event = 'VeryLazy',
   cmd = { 'LspInfo', 'LspInstall', 'LspUninstall' },
-  dependencies = { 'saghen/blink.cmp' },
   opts = function()
     return {
       servers = {
