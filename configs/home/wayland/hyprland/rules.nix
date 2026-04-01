@@ -47,6 +47,7 @@
         "match:class fceux, float on"
         "match:class fceux, size 639 612"
         "match:class gemu, float on"
+        "match:class qemu, float on"
         "match:class gtkwave, float on"
         "match:title Logic Simulator, float on"
       ]
