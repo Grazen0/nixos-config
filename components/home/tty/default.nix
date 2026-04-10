@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  wayland.windowManager.hyprland.enable = true;
-
   programs.fastfetch.enable = true;
   programs.fish.enable = true;
   programs.neovim.enable = true;
