@@ -79,8 +79,8 @@ map('n', '<a-=>', '<c-w>+')
 -- Spell quick fix
 map('i', '<c-l>', '<c-g>u<esc>[s1z=`]a<c-g>u')
 
-vim.cmd.packadd('nvim.undotree')
-vim.cmd.packadd('termdebug')
+vim.cmd('packadd! nvim.undotree')
+vim.cmd('packadd! termdebug')
 
 -- ============================================================================
 -- Autocmds
@@ -91,6 +91,7 @@ vim.filetype.add({
     v = 'systemverilog',
     vh = 'systemverilog',
     tf = 'terraform',
+    uma = 'uma',
   },
 })
 
@@ -123,18 +124,6 @@ vim.api.nvim_create_autocmd('QuickFixCmdPre', {
   command = 'wall',
 })
 
--- Use LSP folding if available
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client:supports_method('textDocument/foldingRange') then
-      local win = vim.api.nvim_get_current_win()
-      vim.wo[win][0].foldmethod = 'expr'
-      vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
-    end
-  end,
-})
-
 -- Auto-start treesitter
 vim.api.nvim_create_autocmd('FileType', {
   callback = function(args)
@@ -161,7 +150,9 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.pack.add({
   { src = 'https://github.com/saghen/blink.cmp', version = 'v1.10.1' },
   'https://github.com/folke/snacks.nvim',
+  'https://github.com/neovim/nvim-lspconfig',
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
+  'https://github.com/stevearc/conform.nvim',
   'https://github.com/windwp/nvim-ts-autotag',
   'https://github.com/alexghergh/nvim-tmux-navigation',
   'https://github.com/nmac427/guess-indent.nvim',
@@ -178,6 +169,10 @@ vim.pack.add({
   'https://github.com/RRethy/vim-illuminate',
   'https://github.com/lewis6991/gitsigns.nvim',
   'https://github.com/j-hui/fidget.nvim',
+  'https://github.com/mfussenegger/nvim-jdtls',
+  'https://github.com/chomosuke/typst-preview.nvim',
+  'https://github.com/kndndrj/nvim-dbee',
+  'https://github.com/MunifTanjim/nui.nvim',
 })
 
 require('mini.icons').setup()
@@ -359,13 +354,230 @@ require('fidget').setup({
   },
 })
 
-require('lazy').setup({
-  performance = {
-    reset_packpath = false,
-    rtp = { reset = false },
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    '--branch=stable',
+    lazyrepo,
+    lazypath,
+  })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
+      { out, 'WarningMsg' },
+      { '\nPress any key to exit...' },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+
+require('dbee').setup()
+
+local conform = require('conform')
+conform.setup({
+  formatters_by_ft = {
+    arduino = { 'clang-format' },
+    css = { 'prettierd' },
+    graphql = { 'prettierd' },
+    haskell = { 'ormolu' },
+    html = { 'prettierd' },
+    javascript = { 'prettierd' },
+    javascriptreact = { 'prettierd' },
+    json = { 'prettierd' },
+    markdown = { 'prettierd' },
+    nix = { 'nixfmt' },
+    python = { 'isort', 'black' },
+    quarto = { 'prettierd' },
+    r = { 'styler' },
+    rust = { 'rustfmt' },
+    sass = { 'prettierd' },
+    scss = { 'prettierd' },
+    typescript = { 'prettierd' },
+    typescriptreact = { 'prettierd' },
+    typst = { 'typstyle' },
+    yaml = { 'prettierd' },
+    terraform = { 'terraform_fmt' },
   },
-  spec = {
-    { import = 'plugins.lsp' },
-  },
-  ui = { border = vim.o.winborder },
+  format_on_save = function(bufnr)
+    -- Disable with a global or buffer-local variable
+    if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+      return
+    end
+
+    return {
+      timeout_ms = 2000,
+      lsp_format = 'fallback',
+    }
+  end,
 })
+
+vim.api.nvim_create_user_command('FormatEnable', function()
+  vim.b.disable_autoformat = false
+  vim.g.disable_autoformat = false
+end, { bang = true })
+
+vim.api.nvim_create_user_command('FormatDisable', function(args)
+  if args.bang then
+    -- FormatDisable! will disable formatting just for this buffer
+    vim.b.disable_autoformat = true
+  else
+    vim.g.disable_autoformat = true
+  end
+end, { bang = true })
+
+-- Save without formatting
+vim.api.nvim_create_user_command('Mfw', function()
+  local prev = vim.b.disable_autoformat
+  vim.b.disable_autoformat = true
+  vim.cmd('write')
+  vim.b.disable_autoformat = prev
+end, {})
+
+-- Format command
+vim.api.nvim_create_user_command('Format', function(args)
+  local range = nil
+
+  if args.count ~= -1 then
+    local end_line =
+        vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+    range = {
+      start = { args.line1, 0 },
+      ['end'] = { args.line2, end_line:len() },
+    }
+  end
+
+  conform.format({
+    async = true,
+    lsp_format = 'fallback',
+    range = range,
+  })
+end, { range = true })
+
+-- ============================================================================
+-- LSP
+-- ============================================================================
+
+-- Use LSP folding if available
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client:supports_method('textDocument/foldingRange') then
+      local win = vim.api.nvim_get_current_win()
+      vim.wo[win][0].foldmethod = 'expr'
+      vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+    end
+  end,
+})
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = ' ',
+      [vim.diagnostic.severity.WARN] = ' ',
+      [vim.diagnostic.severity.HINT] = ' ',
+      [vim.diagnostic.severity.INFO] = ' ',
+    },
+  },
+})
+vim.lsp.on_type_formatting.enable()
+
+local blink = require('blink.cmp')
+
+local default_capabilities = {
+  textDocument = {
+    onTypeFormatting = {
+      dynamicRegistration = true,
+    },
+    foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    },
+  },
+}
+
+local servers = {
+  pyright = {},
+  bashls = {},
+  clangd = {
+    cmd = {
+      'clangd',
+      '--background-index',
+      '--clang-tidy',
+      '--completion-style=detailed',
+      '--header-insertion=iwyu',
+      '--pch-storage=memory',
+    },
+  },
+  cssls = {},
+  eslint = {},
+  html = {},
+  jsonls = {},
+  lua_ls = {
+    on_init = function(client)
+      if client.workspace_folders then
+        local path = client.workspace_folders[1].name
+        if
+            path ~= vim.fn.stdpath('config')
+            and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+        then
+          return
+        end
+      end
+
+      client.config.settings.Lua =
+          vim.tbl_deep_extend('force', client.config.settings.Lua, {
+            runtime = {
+              version = 'LuaJIT',
+              path = { 'lua/?.lua', 'lua/?/init.lua' },
+            },
+            workspace = {
+              checkThirdParty = false,
+              library = { vim.env.VIMRUNTIME },
+            },
+          })
+    end,
+    settings = { Lua = {} },
+  },
+  nil_ls = {},
+  rust_analyzer = {
+    settings = {
+      ['rust-analyzer'] = { check = { command = 'clippy' } },
+    },
+  },
+  sqls = { cmd = { 'sqls', '-config', '~/.config/sqls/config.yml' } },
+  statix = {},
+  svelte = {},
+  tailwindcss = {},
+  terraform_lsp = {},
+  texlab = {},
+  tinymist = {},
+  ts_ls = {},
+  verible = { cmd = { 'verible-verilog-ls', '--rules_config_search' } },
+  yamlls = {},
+  zls = {},
+  umals = {
+    cmd = { 'target/debug/umals', '--stdio' },
+    filetypes = { 'uma' },
+    root_markers = { '.git' },
+  },
+}
+
+for server, config in pairs(servers) do
+  vim.lsp.enable(server)
+
+  config.capabilities = vim.tbl_deep_extend(
+    'force',
+    blink.get_lsp_capabilities(config.capabilities),
+    default_capabilities,
+    config.capabilities or {}
+  )
+  vim.lsp.config(server, config)
+end

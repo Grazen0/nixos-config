@@ -14,10 +14,6 @@
     vimAlias = true;
     vimdiffAlias = true;
 
-    plugins = with pkgs.vimPlugins; [
-      lazy-nvim
-    ];
-
     extraPackages = with pkgs; [
       # Essentials
       fd
@@ -43,12 +39,11 @@
       llvmPackages.libcxx
       clippy
       jdt-language-server # Java
-      # kotlin-language-server
       lua-language-server
       nil # Nix
       rust-analyzer
       sqls
-      statix
+      statix # Nix
       svelte-language-server
       tailwindcss-language-server
       terraform-lsp
