@@ -13,6 +13,7 @@
   ];
 
   programs.jetbrains.enable = true;
+  programs.jetbrains.editors.datagrip.enable = true;
   programs.mpv.enable = true;
   programs.foot.enable = true;
   programs.zathura.enable = true;
