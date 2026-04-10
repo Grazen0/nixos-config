@@ -25,7 +25,6 @@
     ./swaylock
     ./taskwarrior
     ./tmux
-    ./vscode
     ./waybar
     ./yazi
     ./zathura
