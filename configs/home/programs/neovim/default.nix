@@ -14,6 +14,10 @@
     vimAlias = true;
     vimdiffAlias = true;
 
+    withPython3 = true;
+    withNodeJs = true;
+    withRuby = false;
+
     extraPackages = with pkgs; [
       # Essentials
       fd
