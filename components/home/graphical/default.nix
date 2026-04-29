@@ -100,6 +100,7 @@
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.twilight
     inputs.thorium-browser.defaultPackage.${pkgs.stdenv.hostPlatform.system}
     inkscape
+    mattermost-desktop
     obsidian
     xournalpp
     zoom-us
