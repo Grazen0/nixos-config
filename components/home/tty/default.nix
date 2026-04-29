@@ -33,6 +33,8 @@
     lazydocker
     nitch
     pciutils
+    valgrind
+    xxd
   ];
 
   meta.mainPrograms = {
