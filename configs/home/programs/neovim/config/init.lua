@@ -137,7 +137,6 @@ vim.api.nvim_create_autocmd('FileType', {
 
     vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     vim.wo.foldmethod = 'expr'
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
 })
 
@@ -148,7 +147,6 @@ vim.api.nvim_create_autocmd('FileType', {
 
 
 vim.pack.add({
-  { src = 'https://github.com/saghen/blink.cmp', version = 'v1.10.1' },
   'https://github.com/folke/snacks.nvim',
   'https://github.com/neovim/nvim-lspconfig',
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
@@ -158,7 +156,8 @@ vim.pack.add({
   'https://github.com/nmac427/guess-indent.nvim',
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/nvim-pack/nvim-spectre',
-  'https://github.com/stevearc/oil.nvim',
+  'https://github.com/nvim-mini/mini.completion',
+  'https://github.com/nvim-mini/mini.files',
   'https://github.com/nvim-mini/mini.surround',
   'https://github.com/nvim-mini/mini.ai',
   'https://github.com/nvim-mini/mini.icons',
@@ -175,8 +174,12 @@ vim.pack.add({
   'https://github.com/MunifTanjim/nui.nvim',
 })
 
-require('mini.icons').setup()
-require('mini.icons').mock_nvim_web_devicons()
+require('mini.icons').setup({
+  extension = {
+    uma = { glyph = '', hl = 'MiniIconsOrange' },
+  },
+})
+MiniIcons.mock_nvim_web_devicons()
 
 require('kanagawa').setup({
   colors = { theme = { all = { ui = { bg_gutter = 'none' } } } },
@@ -196,12 +199,14 @@ require('kanagawa').setup({
       WinSeparator = { link = 'FloatBorder' },
 
       -- Dark completion background
-      Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg },
-      PmenuExtra = { fg = theme.syn.comment, bg = theme.ui.bg },
+      Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
+      PmenuKind = { bg = theme.ui.bg_p1 },
+      PmenuExtra = { fg = theme.syn.comment, bg = theme.ui.bg_p1 },
       PmenuSel = { fg = 'none', bg = theme.ui.bg_p2 },
+      PmenuKindSel = { fg = 'none', bg = theme.ui.bg_p2 },
+      PmenuExtraSel = { fg = 'none', bg = theme.ui.bg_p2 },
       PmenuSbar = { bg = theme.ui.bg_m1 },
       PmenuThumb = { bg = theme.ui.bg_p2 },
-      BlinkCmpMenuBorder = { link = 'FloatBorder' },
 
       -- Transparent widgets and floating windows
       NormalFloat = { bg = 'none' },
@@ -218,33 +223,6 @@ require('kanagawa').setup({
 })
 vim.cmd.colorscheme('kanagawa')
 
-require('blink.cmp').setup({
-  keymap = { preset = 'enter' },
-  signature = { enabled = true },
-  completion = {
-    ghost_text = { enabled = true },
-    documentation = {
-      auto_show = true,
-      auto_show_delay_ms = 500,
-    },
-    list = {
-      selection = {
-        preselect = false,
-        auto_insert = false,
-      },
-    },
-    menu = {
-      draw = {
-        columns = {
-          { 'label', 'label_description', gap = 1 },
-          { 'kind_icon', 'kind', gap = 1 },
-        },
-      },
-    },
-  },
-})
-
-
 local snacks = require('snacks')
 
 snacks.setup({
@@ -255,29 +233,34 @@ snacks.setup({
     scope = { hl = 'SignColumn' },
     animate = { enabled = false },
   },
-  input = { enabled = true },
-  picker = { enable = true },
-  explorer = { enable = true },
+  picker = { enabled = true },
   rename = { enabled = true },
   bufdelete = { enabled = true },
 })
 
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'MiniFilesActionRename',
+  callback = function(event)
+    require('snacks').rename.on_rename_file(event.data.from, event.data.to)
+  end,
+})
+
 map('n', '<leader>e',
-  function() snacks.explorer({ auto_close = true, hidden = true }) end)
-map('n', '<leader>q', function() snacks.bufdelete() end)
-map('n', '<leader>C', snacks.bufdelete.other)
-map('n', '<F1>', snacks.picker.help)
-map('n', '<leader><leader>', snacks.picker.buffers)
+  function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end)
+map('n', '<leader>q', function() Snacks.bufdelete() end)
+map('n', '<leader>C', Snacks.bufdelete.other)
+map('n', '<F1>', Snacks.picker.help)
+map('n', '<leader><leader>', Snacks.picker.buffers)
 map('n', '<leader>ff',
-  function() snacks.picker.files({ hidden = true }) end)
-map('n', '<leader>fg', snacks.picker.grep)
-map('n', '<leader>fd', snacks.picker.diagnostics_buffer)
-map('n', '<leader>fD', snacks.picker.diagnostics)
-map('n', '<leader>fm', snacks.picker.man)
-map('n', 'gd', snacks.picker.lsp_definitions)
-map('n', 'gD', snacks.picker.lsp_declarations)
-map('n', 'grr', snacks.picker.lsp_references)
-map('n', 'gO', snacks.picker.lsp_symbols)
+  function() Snacks.picker.files({ hidden = true }) end)
+map('n', '<leader>fg', Snacks.picker.grep)
+map('n', '<leader>fd', Snacks.picker.diagnostics_buffer)
+map('n', '<leader>fD', Snacks.picker.diagnostics)
+map('n', '<leader>fm', Snacks.picker.man)
+map('n', 'gd', Snacks.picker.lsp_definitions)
+map('n', 'gD', Snacks.picker.lsp_declarations)
+map('n', 'grr', Snacks.picker.lsp_references)
+map('n', 'gO', Snacks.picker.lsp_symbols)
 
 local parsers = {
   'bash',
@@ -306,6 +289,18 @@ local parsers = {
 
 require('nvim-treesitter').install(parsers)
 
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'TSUpdate',
+  callback = function()
+    require('nvim-treesitter.parsers').uma = {
+      install_info = {
+        path = '~/Code/utec/compi/tracen/tree-sitter-uma',
+        generate = true,
+      },
+    }
+  end,
+})
+
 require('nvim-ts-autotag').setup()
 require('guess-indent').setup()
 require('spectre').setup()
@@ -322,20 +317,21 @@ require('nvim-tmux-navigation').setup({
   },
 })
 
-require('oil').setup({
-  delete_to_trash = true,
-  watch_for_changes = true,
-  view_options = { show_hidden = true },
-  keymaps = {
-    ['<c-v>'] = { 'actions.select', opts = { vertical = true } },
-    ['<c-s>'] = { 'actions.select', opts = { horizontal = true } },
+require('mini.completion').setup()
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'snacks_picker_input',
+  command = 'lua vim.b.minicompletion_disable = true',
+})
+
+require('mini.files').setup({
+  options = {
+    permanent_delete = false,
   },
-  win_options = {
-    signcolumn = vim.o.signcolumn,
+  windows = {
+    preview = true,
   },
 })
-map('n', '-', '<cmd>Oil<cr>')
-
 require('mini.ai').setup()
 require('mini.surround').setup()
 require('mini.pairs').setup()
@@ -489,8 +485,6 @@ vim.diagnostic.config({
 })
 vim.lsp.on_type_formatting.enable()
 
-local blink = require('blink.cmp')
-
 local default_capabilities = {
   textDocument = {
     onTypeFormatting = {
@@ -518,6 +512,7 @@ local servers = {
   },
   cssls = {},
   eslint = {},
+  gopls = {},
   html = {},
   jsonls = {},
   lua_ls = {
@@ -573,11 +568,8 @@ local servers = {
 for server, config in pairs(servers) do
   vim.lsp.enable(server)
 
-  config.capabilities = vim.tbl_deep_extend(
-    'force',
-    blink.get_lsp_capabilities(config.capabilities),
-    default_capabilities,
-    config.capabilities or {}
-  )
+  config.capabilities = vim.tbl_deep_extend('force', default_capabilities,
+    config.capabilities or {
+    })
   vim.lsp.config(server, config)
 end
