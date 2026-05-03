@@ -33,6 +33,7 @@
     lazydocker
     nitch
     pciutils
+    qrencode
     valgrind
     xxd
   ];
