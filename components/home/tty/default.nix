@@ -22,6 +22,8 @@
     cmake
     gcc
     gdb
+    stack
+    ghc
     gnumake
     nodejs
     pnpm
