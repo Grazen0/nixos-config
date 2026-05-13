@@ -86,7 +86,9 @@
     cryptsetup
     rmtrash
     trash-cli
+    codex
     gemini-cli
+    opencode
 
     networkmanagerapplet
 
