@@ -15,6 +15,12 @@
 
     initLua = lib.readFile ./init.lua;
 
+    withPython3 = true;
+    withNodeJs = true;
+    withRuby = false;
+
+    sideloadInitLua = true;
+
     extraPackages = with pkgs; [
       fd
       gcc
