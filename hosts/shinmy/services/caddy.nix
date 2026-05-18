@@ -25,6 +25,7 @@ in
           glance
           immich
           navidrome
+          ollama
           radicale
           vaultwarden
           ;
@@ -68,6 +69,10 @@ in
 
         dav.unilife.lat {
           reverse_proxy ${builtins.elemAt radicale.settings.server.hosts 0}
+        }
+
+        ollama.${domain} {
+          reverse_proxy ${ollama.host}:${toString ollama.port}
         }
       '';
   };
