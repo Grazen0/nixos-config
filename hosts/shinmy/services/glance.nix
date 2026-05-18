@@ -229,7 +229,7 @@ in
                     }
                     {
                       title = "Radicale";
-                      url = "https://dav.unilife.lat";
+                      url = "https://dav.grazen.xyz";
                       icon = "di:radicale";
                     }
                   ];

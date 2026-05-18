@@ -34,7 +34,7 @@
         identityFile = "~/.ssh/shinmy_auth_id_ed25519";
       };
       "nitori" = {
-        hostname = "nitori.unilife.lat";
+        hostname = "nitori.grazen.xyz";
         user = "jdgt";
         identitiesOnly = true;
         identityFile = "~/.ssh/nitori_auth_id_ed25519";

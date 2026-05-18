@@ -9,8 +9,10 @@ let
 in
 {
   networking.firewall.allowedTCPPorts = lib.optionals cfg.enable [
+    # caddy
     80
     443
+
     8084
   ];
 
@@ -51,7 +53,7 @@ in
           reverse_proxy 127.0.0.1:8083
         }
 
-        minio.unilife.lat {
+        minio.${domain} {
           reverse_proxy 127.0.0.1:9001
         }
 
@@ -67,7 +69,7 @@ in
           reverse_proxy 127.0.0.1:${toString vaultwarden.config.ROCKET_PORT}
         }
 
-        dav.unilife.lat {
+        dav.${domain} {
           reverse_proxy ${builtins.elemAt radicale.settings.server.hosts 0}
         }
 
@@ -86,5 +88,4 @@ in
 
     configFile = config.sops.templates."Caddyfile".path;
   };
-
 }
