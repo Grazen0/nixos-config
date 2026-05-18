@@ -11,6 +11,7 @@
     ../../options/nixos
     ../../configs/nixos
 
+    ../../components/common/theme
     ../../components/nixos/base
     ../../components/nixos/sops
 
