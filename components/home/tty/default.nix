@@ -20,10 +20,11 @@
   home.packages = with pkgs; [
     cargo
     cmake
+    meson
+    ninja
     gcc
     gdb
-    stack
-    ghc
+    (haskellPackages.ghcWithPackages (ps: with ps; [ cabal-install ]))
     gnumake
     nodejs
     pnpm
