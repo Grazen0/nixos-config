@@ -41,6 +41,7 @@
       bash-language-server
       clang-tools
       clang
+      haskell-language-server # Haskell
       stdenv.cc.libc.dev
       llvmPackages.libcxx
       clippy
