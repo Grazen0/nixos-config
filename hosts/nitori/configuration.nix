@@ -105,4 +105,7 @@
 
   networking.hostName = "nitori";
   system.stateVersion = "24.05";
+  networking.firewall.allowedUDPPorts = [
+    4534 # armagetron
+  ];
 }
