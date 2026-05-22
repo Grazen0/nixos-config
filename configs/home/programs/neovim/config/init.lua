@@ -505,7 +505,7 @@ local servers = {
       ['rust-analyzer'] = { check = { command = 'clippy' } },
     },
   },
-  sqls = { cmd = { 'sqls', '-config', '~/.config/sqls/config.yml' } },
+  -- sqls = { cmd = { 'sqls', '-config', '~/.config/sqls/config.yml' } },
   statix = {},
   svelte = {},
   tailwindcss = {},
