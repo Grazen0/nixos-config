@@ -60,6 +60,7 @@
     # idc, this is for a local server
     OBSIDIAN_REST_API_KEY = "fcaf7dede9cdedd5bbbb8e1d2889cf88974d7ed5340b1f225a01a50e8faa444e";
     EDITOR = config.meta.mainPrograms.editor;
+    OLLAMA_HOST = "https://ollama.grazen.xyz";
   };
 
   # Export home.sessionVariables from .config/uwsm/env
@@ -89,6 +90,7 @@
     codex
     gemini-cli
     opencode
+    ollama
 
     networkmanagerapplet
 
@@ -104,6 +106,9 @@
     inkscape
     mattermost-desktop
     obsidian
+    postgresql
+    pgadmin4
+    postman
     xournalpp
     zoom-us
 
