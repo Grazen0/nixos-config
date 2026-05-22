@@ -113,4 +113,22 @@
       OLLAMA_ORIGINS = "*";
     };
   };
+
+  services.armagetronad.servers.yoyu = {
+    name = "yoyu";
+    enable = true;
+    openFirewall = true;
+    settings = {
+      CYCLE_RUBBER = 6;
+      CYCLE_DELAY = 0.05;
+      SPEED_FACTOR = 1.5;
+
+      TALK_TO_MASTER = 0;
+
+      SAY = [
+        "puto el que lo lea"
+        "https://grazen.xyz"
+      ];
+    };
+  };
 }
