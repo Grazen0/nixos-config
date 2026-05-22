@@ -23,7 +23,7 @@
     settings.root = "/";
   };
 
-  # services.zerotierone.enable = true;
+  services.zerotierone.enable = true;
 
   services.cloudflared = {
     enable = true;
