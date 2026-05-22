@@ -19,7 +19,7 @@
       "shinmy" = {
         HostName = "100.93.85.10";
         User = "jdgt";
-        UdentitiesOnly = true;
+        IdentitiesOnly = true;
         IdentityFile = "~/.ssh/shinmy_auth_id_ed25519";
         SetEnv.TERM = "xterm-kitty";
         RequestTTY = "yes";
