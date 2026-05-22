@@ -59,7 +59,6 @@
           "SUPER, F, fullscreen"
           "SUPER, M, fullscreen, 1"
           "SUPER, T, togglefloating"
-          "SUPER SHIFT, T, togglesplit"
 
           # Move window focus
           "SUPER, H, movefocus, l"
