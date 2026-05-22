@@ -515,6 +515,7 @@ local servers = {
   ts_ls = {},
   verible = { cmd = { 'verible-verilog-ls', '--rules_config_search' } },
   yamlls = {},
+  hls = {},
   zls = {},
   umals = {
     cmd = { 'target/debug/umals', '--stdio' },
