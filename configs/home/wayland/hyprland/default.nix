@@ -22,8 +22,8 @@
     in
     {
       package = null; # Let the NixOS module handle this
-
       systemd.enable = false; # Conflicts with UWSM
+      configType = "hyprlang";
 
       settings = {
         monitor = [ ", preferred, auto, 1" ];
