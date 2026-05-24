@@ -1,14 +1,11 @@
 {
   pkgs,
-  inputs,
   ...
 }:
 {
   xdg.nixConfigFile.nvim.source = ./config;
 
   programs.neovim = {
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
-
     sideloadInitLua = true;
 
     defaultEditor = true;
