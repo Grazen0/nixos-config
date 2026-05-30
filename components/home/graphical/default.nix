@@ -14,6 +14,7 @@
 
   programs.jetbrains.enable = true;
   programs.jetbrains.editors.datagrip.enable = true;
+  programs.jetbrains.editors.idea.enable = true;
   programs.mpv.enable = true;
   programs.foot.enable = true;
   programs.zathura.enable = true;
@@ -106,8 +107,9 @@
     inkscape
     mattermost-desktop
     obsidian
-    postgresql
     pgadmin4
+    pinta
+    postgresql
     postman
     xournalpp
     zoom-us
