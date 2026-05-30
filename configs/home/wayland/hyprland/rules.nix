@@ -50,6 +50,9 @@
         "match:class qemu, float on"
         "match:class gtkwave, float on"
         "match:title Logic Simulator, float on"
+        "match:title annotate_toolbar, float on"
+        "match:class org-tinyuml-Main, float on"
+        "match:class Matplotlib, float on"
       ]
       ++ lib.concatLists dialogRules;
   };
