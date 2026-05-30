@@ -24,7 +24,7 @@ let
     "gateway"
     "goland"
     "idea-community-bin"
-    "idea-ultimate"
+    "idea"
     "mps"
     "phpstorm"
     "pycharm-community-bin"
