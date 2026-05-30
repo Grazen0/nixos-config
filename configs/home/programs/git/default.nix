@@ -4,6 +4,8 @@
 }:
 {
   programs.git = {
+    lfs.enable = true;
+
     ignores = [
       "Session.vim"
       "*~"
