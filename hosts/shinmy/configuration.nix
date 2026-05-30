@@ -62,10 +62,15 @@
       jellyfin-ffmpeg
     ]);
 
-  networking.firewall.allowedTCPPorts = [
-    7777 # Terraria server
-    25565 # Minecraft server
-  ];
+  networking.firewall.allowedTCPPorts =
+    let
+      inherit (config.services) jenkins;
+    in
+    [
+      7777 # Terraria server
+      25565 # Minecraft server
+      jenkins.port
+    ];
 
   networking.hostName = "shinmy";
   system.stateVersion = "24.05";

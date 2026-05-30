@@ -26,6 +26,7 @@ in
           filebrowser
           glance
           immich
+          jenkins
           navidrome
           ollama
           radicale
@@ -76,6 +77,10 @@ in
         ollama.${domain} {
           reverse_proxy ${ollama.host}:${toString ollama.port}
         }
+
+        jenkins.${domain} {
+          reverse_proxy ${jenkins.listenAddress}:${toString jenkins.port}
+        }
       '';
   };
 
@@ -83,7 +88,7 @@ in
     enable = true;
     package = pkgs.caddy.withPlugins {
       plugins = [ "github.com/caddy-dns/cloudflare@v0.2.1" ];
-      hash = "sha256-hEIqK6F+9OCcd4JueVSidfUgQsVPWo0/imciD1UnqRo=";
+      hash = "sha256-RIqZlp7sV+Qka9stLN1NshgmvuSfUZdi4D9hP862jpQ=";
     };
 
     configFile = config.sops.templates."Caddyfile".path;

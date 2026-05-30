@@ -131,4 +131,11 @@
       ];
     };
   };
+
+  services.jenkins = {
+    enable = true;
+    port = 8089;
+    listenAddress = "0.0.0.0";
+    withCLI = true;
+  };
 }
