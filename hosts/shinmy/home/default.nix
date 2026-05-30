@@ -38,23 +38,23 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "*" = {
-        addKeysToAgent = "yes";
-        forwardAgent = true;
+        AddKeysToAgent = "yes";
+        ForwardAgent = true;
       };
 
       "github.com" = {
-        identitiesOnly = true;
-        identityFile = "~/.ssh/github_auth_id_ed25519";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/github_auth_id_ed25519";
       };
       "gitlab.com" = {
-        identitiesOnly = true;
-        identityFile = "~/.ssh/gitlab_auth_id_ed25519";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/gitlab_auth_id_ed25519";
       };
       "codeberg.org" = {
-        identitiesOnly = true;
-        identityFile = "~/.ssh/codeberg_auth_id_ed25519";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/codeberg_auth_id_ed25519";
       };
     };
   };
