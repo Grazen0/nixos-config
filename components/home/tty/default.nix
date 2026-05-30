@@ -28,7 +28,13 @@
     gnumake
     nodejs
     pnpm
-    python3
+    (python3.withPackages (
+      ps: with ps; [
+        numpy
+        matplotlib
+        locust
+      ]
+    ))
     rustc
 
     cloc
