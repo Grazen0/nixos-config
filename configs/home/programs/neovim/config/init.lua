@@ -152,7 +152,6 @@ vim.pack.add({
   'https://github.com/j-hui/fidget.nvim',
   'https://github.com/mfussenegger/nvim-jdtls',
   'https://github.com/chomosuke/typst-preview.nvim',
-  'https://github.com/kndndrj/nvim-dbee',
   'https://github.com/MunifTanjim/nui.nvim',
 })
 
@@ -331,8 +330,6 @@ require('fidget').setup({
     override_vim_notify = true,
   },
 })
-
-require('dbee').setup()
 
 local conform = require('conform')
 conform.setup({
