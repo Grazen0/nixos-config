@@ -17,7 +17,7 @@ in
   (defwidget desktop-clock []
     (box :class "desktop-time" :orientation "v" :space-evenly false
       (label :class "time" :text {formattime(EWW_TIME, "%I:%M %p")})
-      (label :class "date" :text {formattime(EWW_TIME, "%A, %B %-d %p")})))
+      (label :class "date" :text {formattime(EWW_TIME, "%A, %B %-d")})))
 
 
   (defwindow desktop-cow
