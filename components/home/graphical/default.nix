@@ -114,6 +114,10 @@
     xournalpp
     zoom-us
 
+    # Pentesting
+    firefox
+    zap
+
     # Basic gaming
     wine
     winetricks
