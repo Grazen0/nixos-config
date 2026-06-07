@@ -21,15 +21,6 @@
             set -g @resurrect-processes 'false'
           '';
       }
-      {
-        plugin = continuum;
-        extraConfig =
-          # tmux
-          ''
-            set -g @continuum-restore 'on'
-            set -g @continuum-boot 'on'
-          '';
-      }
     ];
 
     terminal = "tmux-256color";
