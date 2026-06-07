@@ -22,7 +22,7 @@
         "${uwsmApp} ${polkit-gnome}"
         "${uwsmApp} ${wl-paste} --watch ${cliphist} store"
 
-        "${uwsmApp} equibop --start-minimized"
+        "${uwsmApp} vesktop --start-minimized"
       ];
     in
     map escapeShellArg spawns;

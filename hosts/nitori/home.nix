@@ -44,7 +44,7 @@ in
       in
       {
         "-app-id" = {
-          "'equibop'" = mkForce [
+          "'vesktop'" = mkForce [
             "output HDMI-A-1"
             "tags ${tagNumStr 2}"
           ];

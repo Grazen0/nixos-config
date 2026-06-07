@@ -23,7 +23,8 @@
         "match:fullscreen 1, border_color rgb(${yellow})"
 
         # Workspace-specific programs
-        "match:class equibop, workspace 7"
+        "match:class vesktop, workspace 7"
+        "match:class vesktop, workspace 7"
         "match:class spotify, workspace 10"
 
         "match:class [Tt]hunar, float on"

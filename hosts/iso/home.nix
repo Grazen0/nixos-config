@@ -15,7 +15,7 @@ in
   ];
 
   disabledModules = [
-    ../../profiles/home/graphical/programs/equibop
+    ../../profiles/home/graphical/programs/vesktop
     ../../profiles/home/graphical/packages.nix
     ../../profiles/home/ttymax/packages/dev.nix
   ];

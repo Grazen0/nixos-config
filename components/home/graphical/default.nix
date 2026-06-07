@@ -8,7 +8,7 @@
 }:
 {
   imports = [
-    ./equibop
+    ./vesktop
     ./eww
   ];
 

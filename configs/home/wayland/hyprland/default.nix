@@ -77,7 +77,7 @@
             "${uwsmApp} ${polkit-gnome}"
             "${uwsmApp} ${wl-paste} --watch ${cliphist} store"
 
-            "[workspace 7 silent] ${uwsmApp} equibop --start-minimized"
+            "[workspace 7 silent] ${uwsmApp} vesktop --start-minimized"
           ];
 
         dwindle = {

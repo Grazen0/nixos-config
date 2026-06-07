@@ -42,7 +42,7 @@
           "dimensions 1200 800"
         ];
 
-        "'equibop'" = [ "tags ${tagNumStr 7}" ];
+        "'vesktop'" = [ "tags ${tagNumStr 7}" ];
       };
 
       "-title" = {
