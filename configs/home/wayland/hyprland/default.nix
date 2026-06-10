@@ -76,8 +76,6 @@
             "${uwsmApp} ${eww} open-many ${concatStringsSep " " config.meta.eww.autostartWidgets}"
             "${uwsmApp} ${polkit-gnome}"
             "${uwsmApp} ${wl-paste} --watch ${cliphist} store"
-
-            "[workspace 7 silent] ${uwsmApp} vesktop --start-minimized"
           ];
 
         dwindle = {
