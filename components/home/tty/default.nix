@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, stablePkgs, ... }:
 {
   programs.fastfetch.enable = true;
   programs.fish.enable = true;
@@ -18,7 +18,9 @@
   xdg.userDirs.enable = true;
 
   home.packages = with pkgs; [
+    stablePkgs.gtkwave
     cargo
+    clippy
     cmake
     meson
     ninja
