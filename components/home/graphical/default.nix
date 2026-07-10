@@ -91,7 +91,6 @@
     codex
     gemini-cli
     opencode
-    pyright
     ollama
 
     networkmanagerapplet
