@@ -34,7 +34,8 @@
       typstyle
 
       # LSP servers
-      pyright # Python
+      astro-language-server
+      basedpyright # Python
       bash-language-server
       clang-tools
       clang

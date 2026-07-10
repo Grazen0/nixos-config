@@ -92,6 +92,7 @@ vim.filetype.add({
     vh = 'systemverilog',
     tf = 'terraform',
     uma = 'uma',
+    mdx = 'mdx',
   },
 })
 
@@ -270,18 +271,6 @@ local parsers = {
 
 require('nvim-treesitter').install(parsers)
 
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'TSUpdate',
-  callback = function()
-    require('nvim-treesitter.parsers').uma = {
-      install_info = {
-        path = '~/Code/utec/compi/tracen/tree-sitter-uma',
-        generate = true,
-      },
-    }
-  end,
-})
-
 require('nvim-ts-autotag').setup()
 require('guess-indent').setup()
 require('spectre').setup()
@@ -335,6 +324,7 @@ local conform = require('conform')
 conform.setup({
   formatters_by_ft = {
     arduino = { 'clang-format' },
+    astro = { 'prettierd' },
     css = { 'prettierd' },
     graphql = { 'prettierd' },
     haskell = { 'ormolu' },
@@ -453,7 +443,14 @@ local default_capabilities = {
 }
 
 local servers = {
-  pyright = {},
+  astro = {
+    init_options = {
+      typescript = {
+        tsdk = require('nix').tsdk,
+      },
+    },
+  },
+  basedpyright = {},
   bashls = {},
   clangd = {
     cmd = {
