@@ -56,7 +56,10 @@ in
     {
       home.file.wallpaper = mkIf wallpaper.enable { inherit (wallpaper) source target; };
 
-      home.pointerCursor = mkIf cursor.enable { inherit (cursor) package name size; };
+      home.pointerCursor = mkIf cursor.enable {
+        enable = true;
+        inherit (cursor) package name size;
+      };
 
       gtk.cursorTheme = mkIf cursor.enable { inherit (cursor) package name size; };
 
