@@ -152,7 +152,6 @@ vim.pack.add({
   'https://github.com/lewis6991/gitsigns.nvim',
   'https://github.com/j-hui/fidget.nvim',
   'https://github.com/mfussenegger/nvim-jdtls',
-  'https://github.com/chomosuke/typst-preview.nvim',
   'https://github.com/MunifTanjim/nui.nvim',
 })
 
@@ -307,9 +306,6 @@ require('mini.surround').setup()
 require('mini.pairs').setup()
 require('mini.sessions').setup()
 
-require('typst-preview').setup()
-map('n', '<localleader>tp', '<cmd>TypstPreview<cr>')
-
 vim.cmd.colorscheme('kanagawa')
 
 require('illuminate').configure()
@@ -417,17 +413,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = ' ',
-      [vim.diagnostic.severity.WARN] = ' ',
-      [vim.diagnostic.severity.HINT] = ' ',
-      [vim.diagnostic.severity.INFO] = ' ',
-    },
-  },
-})
+vim.diagnostic.config({ virtual_text = true })
 vim.lsp.on_type_formatting.enable()
 
 local default_capabilities = {
