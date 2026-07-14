@@ -68,7 +68,7 @@
       }
       {
         on = "!";
-        run = ''shell "$SHELL" --block --confirm'';
+        run = ''shell "$SHELL" --block'';
         desc = "Open shell here";
       }
       {
@@ -89,7 +89,7 @@
       {
         on = "<c-n>";
         run = ''
-          shell '${pkgs.dragon-drop}/bin/dragon-drop -i -T "$@"' --confirm
+          shell -- ${pkgs.dragon-drop}/bin/dragon-drop -x -i -T "%h"
         '';
         desc = "Dragon drop";
       }
