@@ -19,6 +19,7 @@
   services.avahi.enable = true;
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   fonts.packages = with pkgs; [
     liberation_ttf
