@@ -22,7 +22,6 @@
 
   environment.systemPackages = with pkgs; [
     fd
-    file
     lsof
     man-pages
     man-pages-posix

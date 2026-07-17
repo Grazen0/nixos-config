@@ -29,7 +29,6 @@
   home.packages = with pkgs; [
     nodejs
     pnpm
-    ngrok
     jq
   ];
 

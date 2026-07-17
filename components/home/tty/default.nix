@@ -21,26 +21,21 @@
     stablePkgs.gtkwave
     cargo
     clippy
+    rustc
+
+    gcc
+    gdb
+    gnumake
     cmake
     meson
     ninja
-    gcc
-    gdb
-    (haskellPackages.ghcWithPackages (ps: with ps; [ cabal-install ]))
-    gnumake
+
     nodejs
     pnpm
-    (python3.withPackages (
-      ps: with ps; [
-        numpy
-        matplotlib
-        locust
-      ]
-    ))
-    rustc
+
+    python314
 
     cloc
-    github-cli
     lazydocker
     nitch
     pciutils

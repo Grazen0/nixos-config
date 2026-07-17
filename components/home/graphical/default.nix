@@ -89,9 +89,7 @@
     rmtrash
     trash-cli
     codex
-    gemini-cli
     opencode
-    ollama
 
     networkmanagerapplet
 
@@ -104,19 +102,13 @@
 
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.twilight
     inputs.thorium-browser.defaultPackage.${pkgs.stdenv.hostPlatform.system}
-    inkscape
     mattermost-desktop
-    obsidian
-    pgadmin4
+    element-desktop
+    fractal
     pinta
     postgresql
-    postman
     xournalpp
     zoom-us
-
-    # Pentesting
-    firefox
-    zap
 
     # Basic gaming
     wine

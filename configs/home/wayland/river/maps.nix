@@ -8,7 +8,11 @@
   ...
 }:
 {
-  home.packages = with pkgs; [ wtype ];
+  home.packages =
+    with pkgs;
+    lib.optionals config.wayland.windowManager.river.enable [
+      wtype
+    ];
 
   wayland.windowManager.river.settings =
     let

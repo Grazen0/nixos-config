@@ -21,7 +21,6 @@
   services.displayManager.sddm.enable = true;
 
   fonts.packages = with pkgs; [
-    comic-neue
     liberation_ttf
     nerd-fonts.comic-shanns-mono
     noto-fonts
