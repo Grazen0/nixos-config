@@ -81,6 +81,14 @@ in
         jenkins.${domain} {
           reverse_proxy ${jenkins.listenAddress}:${toString jenkins.port}
         }
+
+        cobalt-api.${domain} {
+          reverse_proxy 127.0.0.1:9002
+        }
+
+        cobalt.${domain} {
+          reverse_proxy 127.0.0.1:9003
+        }
       '';
   };
 
@@ -88,7 +96,7 @@ in
     enable = true;
     package = pkgs.caddy.withPlugins {
       plugins = [ "github.com/caddy-dns/cloudflare@v0.2.1" ];
-      hash = "sha256-RIqZlp7sV+Qka9stLN1NshgmvuSfUZdi4D9hP862jpQ=";
+      hash = "sha256-F7d4HwM4oCkQrFMr4SFSC0r52ONxY+PW6z5BJawW8Ok=";
     };
 
     configFile = config.sops.templates."Caddyfile".path;
