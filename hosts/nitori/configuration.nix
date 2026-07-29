@@ -63,8 +63,10 @@
     ATTR{idVendor}=="0483", ATTR{idProduct}=="3748", MODE="666"
   '';
 
-  services.udev.packages = [
-    (pkgs.writeTextFile {
+  services.udev.packages = with pkgs; [
+    platformio-core.udev
+    openocd
+    (writeTextFile {
       name = "xilinx-dilligent-usb-udev";
       destination = "/etc/udev/rules.d/52-xilinx-digilent-usb.rules";
       text = ''
@@ -72,7 +74,7 @@
         ACTION=="add", ATTR{idVendor}=="0403", ATTR{manufacturer}=="Digilent", MODE:="666"
       '';
     })
-    (pkgs.writeTextFile {
+    (writeTextFile {
       name = "xilinx-pcusb-udev";
       destination = "/etc/udev/rules.d/52-xilinx-pcusb.rules";
       text = ''
@@ -85,7 +87,7 @@
         ATTR{idVendor}=="03fd", ATTR{idProduct}=="0015", MODE="666"
       '';
     })
-    (pkgs.writeTextFile {
+    (writeTextFile {
       name = "xilinx-ftdi-usb-udev";
       destination = "/etc/udev/rules.d/52-xilinx-ftdi-usb.rules";
       text = ''
