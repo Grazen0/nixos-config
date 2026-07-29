@@ -46,7 +46,6 @@
   ];
 
   services.fail2ban.enable = true;
-  services.flatpak.enable = true;
   services.tailscale.enable = true;
   services.zerotierone.enable = true;
 
