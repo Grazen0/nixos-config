@@ -88,6 +88,10 @@ vim.cmd('packadd! termdebug')
 
 vim.filetype.add({
   extension = {
+    -- for z80 and 6502 development
+    asm = 'asm',
+    inc = 'asm',
+
     v = 'systemverilog',
     vh = 'systemverilog',
     tf = 'terraform',
