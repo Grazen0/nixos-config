@@ -105,15 +105,6 @@
     };
   };
 
-  services.ollama = {
-    enable = true;
-    host = "0.0.0.0";
-    loadModels = [ "gemma3:1b" ];
-    environmentVariables = {
-      OLLAMA_ORIGINS = "*";
-    };
-  };
-
   services.armagetronad.servers.yoyu = {
     name = "yoyu";
     enable = true;

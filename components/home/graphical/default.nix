@@ -58,10 +58,7 @@
     SDL_VIDEODRIVER = "wayland";
     NIXOS_OZONE_WL = "1";
     BEMOJI_PICKER_CMD = config.meta.mainPrograms.dmenu;
-    # idc, this is for a local server
-    OBSIDIAN_REST_API_KEY = "fcaf7dede9cdedd5bbbb8e1d2889cf88974d7ed5340b1f225a01a50e8faa444e";
     EDITOR = config.meta.mainPrograms.editor;
-    OLLAMA_HOST = "https://ollama.grazen.xyz";
   };
 
   # Export home.sessionVariables from .config/uwsm/env
@@ -84,7 +81,6 @@
   };
 
   home.packages = with pkgs; [
-    customPkgs.make-writable
     cryptsetup
     rmtrash
     trash-cli
@@ -104,15 +100,15 @@
     inputs.thorium-browser.defaultPackage.${pkgs.stdenv.hostPlatform.system}
     mattermost-desktop
     element-desktop
-    fractal
     pinta
     postgresql
     xournalpp
     zoom-us
+    feishin # music client
+    kicad
 
     # Basic gaming
-    wine
-    winetricks
+    wine64
     wl-clipboard
   ];
 

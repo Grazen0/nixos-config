@@ -28,7 +28,6 @@ in
           immich
           jenkins
           navidrome
-          ollama
           radicale
           vaultwarden
           ;
@@ -74,9 +73,6 @@ in
           reverse_proxy ${builtins.elemAt radicale.settings.server.hosts 0}
         }
 
-        ollama.${domain} {
-          reverse_proxy ${ollama.host}:${toString ollama.port}
-        }
 
         jenkins.${domain} {
           reverse_proxy ${jenkins.listenAddress}:${toString jenkins.port}
