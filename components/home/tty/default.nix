@@ -8,7 +8,10 @@
   programs.eza.enable = true;
   programs.fzf.enable = true;
   programs.lazygit.enable = true;
-  programs.java.enable = true;
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk25;
+  };
   programs.direnv.enable = true;
   programs.ssh.enable = true;
   programs.tmux.enable = true;
