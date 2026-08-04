@@ -35,7 +35,7 @@
 
       opener.open = [
         {
-          run = "xdg-open \"$@\"";
+          run = "xdg-open %s1";
           desc = "Open";
           orphan = true;
         }
