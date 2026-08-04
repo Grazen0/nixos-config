@@ -150,7 +150,6 @@ vim.pack.add({
   'https://github.com/nvim-mini/mini.icons',
   'https://github.com/nvim-mini/mini.pairs',
   'https://github.com/nvim-mini/mini.sessions',
-  'https://github.com/chomosuke/typst-preview.nvim',
   'https://github.com/rebelot/kanagawa.nvim',
   'https://github.com/RRethy/vim-illuminate',
   'https://github.com/lewis6991/gitsigns.nvim',
