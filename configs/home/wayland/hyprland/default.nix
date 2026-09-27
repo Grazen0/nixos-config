@@ -100,7 +100,7 @@
         input = {
           kb_layout = "us";
           kb_variant = "altgr-intl";
-          kb_options = "caps:swapescape,altwin:swap_lalt_lwin";
+          kb_options = "altwin:swap_lalt_lwin";
 
           follow_mouse = 2;
           float_switch_override_focus = 0;

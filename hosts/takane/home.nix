@@ -20,7 +20,7 @@ in
       kb_layout = mkForce "latam,us";
       kb_variant = mkForce "";
     };
-    river.settings.keyboard-layout = mkForce "-options 'caps:swapescape' 'latam,us'";
+    river.settings.keyboard-layout = mkForce "'latam,us'";
   };
 
   meta.eww.outputs.primary = "BOE";

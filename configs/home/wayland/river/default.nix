@@ -19,7 +19,7 @@
     package = null; # Let river NixOS module handle this
 
     settings = with config.scheme; {
-      keyboard-layout = "-options 'caps:swapescape' -variant 'altgr-intl' 'us'";
+      keyboard-layout = " -variant 'altgr-intl' 'us'";
 
       border-width = 2;
 
