@@ -26,6 +26,10 @@ in
     # kdePackages.kdenlive
     prismlauncher
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
+
+    kicad
+    feishin
+    postgresql
   ];
 
   wayland.windowManager = {

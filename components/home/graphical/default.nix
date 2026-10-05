@@ -12,9 +12,6 @@
     ./eww
   ];
 
-  programs.jetbrains.enable = true;
-  programs.jetbrains.editors.datagrip.enable = true;
-  programs.jetbrains.editors.idea.enable = true;
   programs.mpv.enable = true;
   programs.foot.enable = true;
   programs.zathura.enable = true;
@@ -84,7 +81,6 @@
     cryptsetup
     rmtrash
     trash-cli
-    codex
     opencode
 
     networkmanagerapplet
@@ -99,13 +95,9 @@
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.twilight
     inputs.thorium-browser.defaultPackage.${pkgs.stdenv.hostPlatform.system}
     mattermost-desktop
-    element-desktop
     pinta
-    postgresql
     xournalpp
     zoom-us
-    feishin # music client
-    kicad
 
     # Basic gaming
     wine64
