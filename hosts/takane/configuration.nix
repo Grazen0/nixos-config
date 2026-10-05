@@ -30,15 +30,6 @@ in
 
   virtualisation.docker.rootless.enable = true;
 
-  services.udev.extraRules = ''
-    # ST-Link v2 and v2-1 programmer
-    ATTR{idVendor}=="0483", ATTR{idProduct}=="3748", MODE="666"
-  '';
-
-  programs.nix-ld.enable = true;
-
   networking.hostName = "takane";
   system.stateVersion = "24.05";
-
-  programs.steam.enable = true;
 }
