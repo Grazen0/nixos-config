@@ -100,7 +100,7 @@
     zoom-us
 
     # Basic gaming
-    wine64
+    wineWow64Packages.stable
     wl-clipboard
   ];
 
