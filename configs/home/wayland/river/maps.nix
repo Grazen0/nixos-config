@@ -28,8 +28,6 @@
         dmenu
         ;
 
-      uwsmApp = "uwsm app --";
-
       grim = "${pkgs.grim}/bin/grim";
       slurp = "${pkgs.slurp}/bin/slurp";
       cliphist = "${config.services.cliphist.package}/bin/cliphist";
@@ -61,18 +59,18 @@
           "Super+Ctrl+Alt Q" = "exit";
 
           # Programs
-          "Super Return" = spawn "${uwsmApp} ${terminal}";
-          "Super+Shift Return" = spawn "${uwsmApp} ${terminal} --app-id=foot-float";
-          "Super E" = spawn "${uwsmApp} ${fileManager}";
-          "Super+Shift E" = spawn "${uwsmApp} ${terminal} --app-id=foot-float -- ${fileManagerCli}";
-          "Super B" = spawn "${uwsmApp} ${browser}";
+          "Super Return" = spawn "${terminal}";
+          "Super+Shift Return" = spawn "${terminal} --app-id=foot-float";
+          "Super E" = spawn "${fileManager}";
+          "Super+Shift E" = spawn "${terminal} --app-id=foot-float -- ${fileManagerCli}";
+          "Super B" = spawn "${browser}";
 
           # Menus
           "Super Space" = spawn "${appLauncher}";
           "Super V" = spawn "${cliphist} list | ${dmenu} | ${cliphist} decode | ${wl-copy}";
           "Super Period" = spawn "${bemoji} -n -t";
-          "Super Comma" = spawn "${uwsmApp} ${menu-qalc} --dmenu=fuzzel";
-          "Super+Shift X" = spawn "${uwsmApp} ${fuzzel-power-menu}";
+          "Super Comma" = spawn "${menu-qalc} --dmenu=fuzzel";
+          "Super+Shift X" = spawn "${fuzzel-power-menu}";
 
           # Screen capture
           "None Print" = spawn "pidof -q slurp || ${slurp} -w 0 -b 00000088 | ${grim} -g - - | ${wl-copy}";

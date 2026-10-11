@@ -58,17 +58,6 @@
     EDITOR = config.meta.mainPrograms.editor;
   };
 
-  # Export home.sessionVariables from .config/uwsm/env
-  xdg.configFile."uwsm/env".text =
-    let
-      inherit (lib) mapAttrsToList escapeShellArg concatStringsSep;
-
-      lines = mapAttrsToList (
-        key: value: "export ${key}=${escapeShellArg value}"
-      ) config.home.sessionVariables;
-    in
-    concatStringsSep "\n" lines;
-
   meta.mainPrograms = {
     terminal = "foot";
     browser = "zen-twilight";

@@ -35,26 +35,25 @@
 
         volumeStep = "5";
         resizeStep = "20";
-        uwsmApp = "uwsm app --";
       in
       {
         bind = [
           # Hyprland control
-          "SUPER ALT, Q, exec, uwsm stop"
+          "SUPER ALT, Q, exec, hyprctl dispatch exit"
           "SUPER ALT, R, exec, hyprctl reload"
 
           # Programs
-          "SUPER, Return, exec, ${uwsmApp} ${terminal}"
-          "SUPER SHIFT, Return, exec, [float; size 960 540] ${uwsmApp} ${terminal}"
-          "SUPER, E, exec, ${uwsmApp} ${fileManager}"
-          "SUPER SHIFT, E, exec, [float; size 960 540] ${uwsmApp} ${terminal} ${fileManagerCli}"
-          "SUPER, B, exec, ${uwsmApp} ${browser}"
+          "SUPER, Return, exec, ${terminal}"
+          "SUPER SHIFT, Return, exec, [float; size 960 540] ${terminal}"
+          "SUPER, E, exec, ${fileManager}"
+          "SUPER SHIFT, E, exec, [float; size 960 540] ${terminal} ${fileManagerCli}"
+          "SUPER, B, exec, ${browser}"
 
           # Menus
           "SUPER, Space, exec, ${appLauncher}"
           "SUPER, V, exec, ${cliphist} list | ${dmenu} | ${cliphist} decode | ${wl-copy}"
-          "SUPER, Period, exec, BEMOJI_PICKER_CMD='fuzzel --dmenu' ${uwsmApp} ${bemoji} -t"
-          "SUPER SHIFT, X, exec, ${uwsmApp} ${fuzzel-power-menu}"
+          "SUPER, Period, exec, BEMOJI_PICKER_CMD='fuzzel --dmenu' ${bemoji} -t"
+          "SUPER SHIFT, X, exec, ${fuzzel-power-menu}"
 
           # Screen capture
           ", Print, exec, pidof -q slurp || ${slurp} -w 0 -b 00000088 | ${grim} -g - - | ${wl-copy}"

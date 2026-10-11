@@ -1,5 +1,0 @@
-{
-  programs.hyprland = {
-    withUWSM = true;
-  };
-}

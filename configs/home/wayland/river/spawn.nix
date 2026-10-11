@@ -8,7 +8,6 @@
   wayland.windowManager.river.settings.spawn =
     let
       inherit (lib) concatStringsSep escapeShellArg;
-      uwsmApp = "uwsm app --";
 
       wbg = "${pkgs.wbg}/bin/wbg";
       polkit-gnome = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
@@ -17,12 +16,12 @@
       eww = "${config.programs.eww.package}/bin/eww";
 
       spawns = [
-        "${uwsmApp} ${wbg} ${config.theme.home.wallpaper.source}"
-        "${uwsmApp} ${eww} open-many ${concatStringsSep " " config.meta.eww.autostartWidgets}"
-        "${uwsmApp} ${polkit-gnome}"
-        "${uwsmApp} ${wl-paste} --watch ${cliphist} store"
+        "${wbg} ${config.theme.home.wallpaper.source}"
+        "${eww} open-many ${concatStringsSep " " config.meta.eww.autostartWidgets}"
+        "${polkit-gnome}"
+        "${wl-paste} --watch ${cliphist} store"
 
-        "${uwsmApp} vesktop --start-minimized"
+        "vesktop --start-minimized"
       ];
     in
     map escapeShellArg spawns;

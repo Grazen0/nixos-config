@@ -15,7 +15,7 @@ writeShellApplication {
       *"Hibernate")
         systemctl hibernate;;
       *"Log out")
-        uwsm stop;;
+        hyprctl dispatch exit;;
       *"Reboot")
         systemctl reboot;;
       *"Shut down")

@@ -22,7 +22,6 @@
     in
     {
       package = null; # Let the NixOS module handle this
-      systemd.enable = false; # Conflicts with UWSM
       configType = "hyprlang";
 
       settings = {
@@ -61,7 +60,6 @@
         exec-once =
           let
             inherit (lib) concatStringsSep;
-            uwsmApp = "uwsm app --";
 
             waybar = "${config.programs.waybar.package}/bin/waybar";
             wbg = "${pkgs.wbg}/bin/wbg";
@@ -71,11 +69,11 @@
             eww = "${config.programs.eww.package}/bin/eww";
           in
           [
-            "${uwsmApp} ${wbg} ${config.theme.home.wallpaper.source}"
-            "${uwsmApp} ${waybar}"
-            "${uwsmApp} ${eww} open-many ${concatStringsSep " " config.meta.eww.autostartWidgets}"
-            "${uwsmApp} ${polkit-gnome}"
-            "${uwsmApp} ${wl-paste} --watch ${cliphist} store"
+            "${wbg} ${config.theme.home.wallpaper.source}"
+            "${waybar}"
+            "${eww} open-many ${concatStringsSep " " config.meta.eww.autostartWidgets}"
+            "${polkit-gnome}"
+            "${wl-paste} --watch ${cliphist} store"
           ];
 
         dwindle = {
