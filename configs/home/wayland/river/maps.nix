@@ -4,7 +4,6 @@
   lib',
   pkgs,
   customPkgs,
-  inputs,
   ...
 }:
 {
@@ -36,9 +35,6 @@
       volume-update = "${customPkgs.volume-update}/bin/volume-update";
       brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
       playerctl = "${pkgs.playerctl}/bin/playerctl -p mopidy,spotify";
-      river-shifttags = "${
-        inputs.river-shifttags.packages.${pkgs.stdenv.hostPlatform.system}.default
-      }/bin/river-shifttags";
       fuzzel-power-menu = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
       menu-qalc = "${customPkgs.menu-qalc}/bin/=";
       bemoji = "${pkgs.bemoji}/bin/bemoji";
@@ -98,10 +94,6 @@
           "Super+Shift J" = "swap down";
           "Super+Shift K" = "swap up";
           "Super+Shift L" = "swap right";
-
-          # Send view to next/previous tag
-          "Super+Shift S" = spawn "${river-shifttags} --view --shifts 1";
-          "Super+Shift A" = spawn "${river-shifttags} --view --shifts -1";
 
           # Back-and-forth between recent tags
           "Super Tab" = "focus-previous-tags";
@@ -170,10 +162,6 @@
             # Change split ratios
             "Super I" = "send-layout-cmd wideriver '--ratio +${ratioStep}'";
             "Super U" = "send-layout-cmd wideriver '--ratio -${ratioStep}'";
-
-            # Cycle tags
-            "Super S" = spawn "${river-shifttags} --shifts 1";
-            "Super A" = spawn "${river-shifttags} --shifts -1";
 
             # Audio control
             "None XF86AudioRaiseVolume" = spawn "${pamixer} -i ${volumeStep} && ${volume-update}";

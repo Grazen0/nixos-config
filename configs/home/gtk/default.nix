@@ -1,9 +1,14 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  stablePkgs,
+  ...
+}:
 {
   gtk = {
     theme = {
       name = "Kanagawa-BL";
-      package = pkgs.kanagawa-gtk-theme;
+      package = stablePkgs.kanagawa-gtk-theme;
     };
 
     iconTheme = {

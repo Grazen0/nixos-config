@@ -65,16 +65,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    plates = {
-      url = "github:Grazen0/plates";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     thorium-browser = {
       url = "github:Grazen0/thorium-browser-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -105,11 +95,6 @@
     menu-qalc = {
       url = "github:Grazen0/menu-qalc-wayland";
       flake = false;
-    };
-
-    river-shifttags = {
-      url = "gitlab:Grazen0/river-shifttags";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     colorout = {
