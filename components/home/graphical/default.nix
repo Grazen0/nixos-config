@@ -60,7 +60,7 @@
 
   meta.mainPrograms = {
     terminal = "foot";
-    browser = "zen-twilight";
+    browser = "firefox";
     fileManager = "thunar";
     appLauncher = "fuzzel";
     dmenu = "fuzzel --dmenu";
@@ -72,16 +72,13 @@
     trash-cli
     opencode
 
-    networkmanagerapplet
-
     # Desktop utilities
     audacity
     file-roller
-    gimp
     onlyoffice-desktopeditors
     pavucontrol
 
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.twilight
+    firefox
     inputs.thorium-browser.defaultPackage.${pkgs.stdenv.hostPlatform.system}
     mattermost-desktop
     pinta

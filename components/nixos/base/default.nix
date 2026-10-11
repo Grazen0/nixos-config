@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  networking.networkmanager.enable = true;
+  networking.wireless.iwd.enable = true;
   networking.firewall.enable = true;
   networking.nftables.enable = true;
 

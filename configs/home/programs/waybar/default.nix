@@ -98,7 +98,6 @@
           format-ethernet = "󰈀 ethernet";
           tooltip-format = "{essid}";
           format-disconnected = "󰤮 Offline";
-          on-click = "nm-connection-editor";
         };
 
         battery = {

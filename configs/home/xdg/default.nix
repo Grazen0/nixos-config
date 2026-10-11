@@ -28,7 +28,7 @@
     mimeApps = {
       defaultApplications =
         let
-          browser = [ "zen-twilight.desktop" ];
+          browser = [ "firefox.desktop" ];
           documentViewer = [ "org.pwmt.zathura.desktop" ];
           fileManager = [ "thunar.desktop" ];
           archiver = [ "org.gnome.FileRoller.desktop" ];

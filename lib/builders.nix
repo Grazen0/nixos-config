@@ -30,7 +30,6 @@ in
       extraGroups ? [
         "wheel"
         "audio"
-        "networkmanager"
         "dialout"
       ],
       homeManagerModules ? null,
