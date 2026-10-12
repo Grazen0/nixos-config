@@ -39,12 +39,11 @@
 
     python314
 
-    cloc
+    impala
+    pandoc
     lazydocker
-    nitch
     pciutils
     qrencode
-    valgrind
     xxd
   ];
 
