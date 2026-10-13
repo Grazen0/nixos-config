@@ -17,7 +17,6 @@
     ./mpv
     ./ncmpcpp
     ./neovim
-    ./r
     ./rofi
     ./spicetify
     ./ssh

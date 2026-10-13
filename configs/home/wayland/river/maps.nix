@@ -36,7 +36,6 @@
       brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
       playerctl = "${pkgs.playerctl}/bin/playerctl -p mopidy,spotify";
       fuzzel-power-menu = "${customPkgs.fuzzel-power-menu}/bin/fuzzel-power-menu";
-      menu-qalc = "${customPkgs.menu-qalc}/bin/=";
       bemoji = "${pkgs.bemoji}/bin/bemoji";
 
       moveStep = "50";
@@ -65,7 +64,6 @@
           "Super Space" = spawn "${appLauncher}";
           "Super V" = spawn "${cliphist} list | ${dmenu} | ${cliphist} decode | ${wl-copy}";
           "Super Period" = spawn "${bemoji} -n -t";
-          "Super Comma" = spawn "${menu-qalc} --dmenu=fuzzel";
           "Super+Shift X" = spawn "${fuzzel-power-menu}";
 
           # Screen capture

@@ -9,9 +9,6 @@ let
   ppick = inputs.ppick.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 rec {
-  # Existing packages
-  menu-qalc = callPackage ./menu-qalc.nix { src = inputs.menu-qalc; };
-
   # My own stuff
   exe2png = callPackage ./scripts/exe2png.nix { };
   fuzzel-power-menu = callPackage ./scripts/fuzzel-power-menu.nix { };
@@ -24,6 +21,5 @@ rec {
   tmux-session-picker = callPackage ./scripts/tmux/session-picker.nix { inherit ppick; };
   waybar-notifications-state = callPackage ./scripts/waybar/notifications-state.nix { };
   waybar-media-query = callPackage ./scripts/waybar/media-query.nix { };
-  nextpnr-xilinx = callPackage ./nextpnr-xilinx.nix { src = inputs.nextpnr-xilinx; };
 }
 // (import ./modded.nix moduleArgs)

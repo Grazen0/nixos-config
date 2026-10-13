@@ -92,28 +92,8 @@
       flake = false;
     };
 
-    menu-qalc = {
-      url = "github:Grazen0/menu-qalc-wayland";
-      flake = false;
-    };
-
-    colorout = {
-      url = "github:jalvesaq/colorout";
-      flake = false;
-    };
-
     ristate = {
       url = "github:ViniciusSSilva/ristate";
-      flake = false;
-    };
-
-    nextpnr-xilinx = {
-      url = "github:gatecat/nextpnr-xilinx";
-      flake = false;
-    };
-
-    prjxray = {
-      url = "github:f4pga/prjxray";
       flake = false;
     };
 

@@ -22,8 +22,4 @@
         --replace-fail "/usr" "$out"
     '';
   });
-
-  r-package-irkernel = pkgs.rPackages.IRkernel.overrideAttrs (prev: {
-    patches = [ ./patches/irkernel.patch ] ++ (prev.patches or [ ]);
-  });
 }

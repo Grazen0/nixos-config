@@ -50,22 +50,6 @@
         "type": "github"
       }
     },
-    "colorout": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1749519172,
-        "narHash": "sha256-QCYR00rC0GB12xgztlJWr7OmNEQsti/1p0gnhqPQv1Y=",
-        "owner": "jalvesaq",
-        "repo": "colorout",
-        "rev": "64863bb252ea9a6c3aeac10fcba6ce547697d176",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jalvesaq",
-        "repo": "colorout",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -230,38 +214,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "menu-qalc": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1737323954,
-        "narHash": "sha256-l+IQSgqHtow0j64SN3xu+GD3SlqZQy2/+tOVVdLckHY=",
-        "owner": "Grazen0",
-        "repo": "menu-qalc-wayland",
-        "rev": "99ca4cbbbb528ff7c6a33dff5c40088397abfba2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Grazen0",
-        "repo": "menu-qalc-wayland",
-        "type": "github"
-      }
-    },
-    "nextpnr-xilinx": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1728633720,
-        "narHash": "sha256-k5znwLYyIfhfy0++onNo6xBNhH6SdTzBlYyxNU+R8W8=",
-        "owner": "gatecat",
-        "repo": "nextpnr-xilinx",
-        "rev": "8f178fc6a6d4dfbc57bef66c3ccff34d558047d5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gatecat",
-        "repo": "nextpnr-xilinx",
         "type": "github"
       }
     },
@@ -435,22 +387,6 @@
         "type": "github"
       }
     },
-    "prjxray": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1749136554,
-        "narHash": "sha256-f2G6nNLR2uG2mHplDwufSNEhcnJxREw+euiTH92m9bw=",
-        "owner": "f4pga",
-        "repo": "prjxray",
-        "rev": "c9f02d8576042325425824647ab5555b1bc77833",
-        "type": "github"
-      },
-      "original": {
-        "owner": "f4pga",
-        "repo": "prjxray",
-        "type": "github"
-      }
-    },
     "ristate": {
       "flake": false,
       "locked": {
@@ -472,17 +408,13 @@
         "aphrodite-terminal-theme": "aphrodite-terminal-theme",
         "base16": "base16",
         "base16-zathura": "base16-zathura",
-        "colorout": "colorout",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
-        "menu-qalc": "menu-qalc",
-        "nextpnr-xilinx": "nextpnr-xilinx",
         "nix-gaming": "nix-gaming",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
         "ppick": "ppick",
-        "prjxray": "prjxray",
         "ristate": "ristate",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
