@@ -5,23 +5,26 @@
       inherit (config) theme;
     in
     {
-      font = "${theme.font.propo} 12";
-      inherit (config.meta.mainPrograms) terminal;
-      location = "center";
-      modes = [
-        "drun"
-        "emoji"
-      ];
-
       plugins = with pkgs; [
         rofi-emoji
       ];
 
-      extraConfig = {
-        display-drun = "";
-        drun-display-format = "{name}";
-        hide-scrollbar = true;
-        m = -4;
+      settings = {
+        font = "${theme.font.propo} 12";
+        inherit (config.meta.mainPrograms) terminal;
+
+        location = "center";
+        modes = [
+          "drun"
+          "emoji"
+        ];
+
+        extraConfig = {
+          display-drun = "";
+          drun-display-format = "{name}";
+          hide-scrollbar = true;
+          m = -4;
+        };
       };
 
       theme =
