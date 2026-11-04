@@ -32,6 +32,14 @@
         RequestTTY = "yes";
         RemoteCommand = "tmux new -A -s main";
       };
+      "csl-vps" = {
+        HostName = "158.69.192.129";
+        User = "jdgt";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/csl_vps_id_ed25519";
+        RequestTTY = "yes";
+        RemoteCommand = "tmux new -A -s main";
+      };
       "shinmy.ocicat-ray.ts.net" = {
         IdentitiesOnly = true;
         IdentityFile = "~/.ssh/shinmy_auth_id_ed25519";

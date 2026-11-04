@@ -94,7 +94,6 @@ vim.filetype.add({
     v = 'systemverilog',
     vh = 'systemverilog',
     tf = 'terraform',
-    uma = 'uma',
     mdx = 'mdx',
   },
 })
@@ -168,11 +167,7 @@ vim.pack.add({
   'https://github.com/MunifTanjim/nui.nvim',
 })
 
-require('mini.icons').setup({
-  extension = {
-    uma = { glyph = '', hl = 'MiniIconsOrange' },
-  },
-})
+require('mini.icons').setup()
 MiniIcons.mock_nvim_web_devicons()
 
 require('kanagawa').setup({
@@ -510,11 +505,6 @@ local servers = {
   yamlls = {},
   hls = {},
   zls = {},
-  umals = {
-    cmd = { 'target/debug/umals', '--stdio' },
-    filetypes = { 'uma' },
-    root_markers = { '.git' },
-  },
 }
 
 for server, config in pairs(servers) do
