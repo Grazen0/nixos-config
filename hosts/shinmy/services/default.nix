@@ -18,12 +18,12 @@
   };
 
   services.filebrowser = {
-    enable = true;
+    enable = false;
     user = "root";
     settings.root = "/";
   };
 
-  services.zerotierone.enable = true;
+  services.zerotierone.enable = false;
 
   services.cloudflared = {
     enable = true;
@@ -78,20 +78,24 @@
     5232 # Recommended by the NixOS wiki
   ];
 
-  services.gitea-actions-runner = {
+  services.forgejo-runner = {
     package = pkgs.forgejo-runner;
     instances.default = {
       enable = true;
 
-      name = "eirin";
-      tokenFile = config.sops.secrets."forgejo/token".path;
-      url = "https://codeberg.org";
+      secrets.server.connections.default.token_url = config.sops.secrets."forgejo/token".path;
 
-      labels = [
-        "ubuntu-latest:docker://ghcr.io/catthehacker/ubuntu:act-latest"
-        "ubuntu-22.04:docker://ghcr.io/catthehacker/ubuntu:act-latest"
-        "ubuntu-20.04:docker://ghcr.io/catthehacker/ubuntu:act-latest"
-      ];
+      settings = {
+        server.connections.default = {
+          url = "https://codeberg.org";
+          uuid = "80fea40d-1859-49f1-9aa0-b2a316ffffb1";
+        };
+        runner.labels = [
+          "ubuntu-latest:docker://ghcr.io/catthehacker/ubuntu:act-latest"
+          "ubuntu-22.04:docker://ghcr.io/catthehacker/ubuntu:act-latest"
+          "ubuntu-20.04:docker://ghcr.io/catthehacker/ubuntu:act-latest"
+        ];
+      };
     };
   };
 
@@ -128,7 +132,7 @@
   };
 
   services.jenkins = {
-    enable = true;
+    enable = false;
     port = 8089;
     listenAddress = "0.0.0.0";
     withCLI = true;
