@@ -1,62 +1,39 @@
 vim.loader.enable()
 
-vim.pack.add({
-  'https://github.com/rebelot/kanagawa.nvim',
-  'https://github.com/nvim-lualine/lualine.nvim',
-  'https://github.com/nvim-treesitter/nvim-treesitter',
-  'https://github.com/neovim/nvim-lspconfig',
-  'https://github.com/stevearc/oil.nvim',
-  'https://github.com/kylechui/nvim-surround',
-  'https://github.com/nvim-mini/mini.icons',
-  'https://github.com/nvim-mini/mini.pairs',
-  'https://github.com/nvim-mini/mini.ai',
-  'https://github.com/nvim-mini/mini.sessions',
-  'https://github.com/mbbill/undotree',
-  'https://github.com/christoomey/vim-tmux-navigator',
-  { src = 'https://github.com/saghen/blink.cmp', version = 'v1.6.0' },
-  'https://github.com/j-hui/fidget.nvim',
-  'https://github.com/NMAC427/guess-indent.nvim',
-  'https://github.com/lewis6991/gitsigns.nvim',
-  'https://github.com/folke/snacks.nvim',
-})
-
 
 -- ============================================================================
 -- Options
 -- ============================================================================
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-
-vim.opt.termguicolors = true
-vim.opt.undofile = true
-vim.opt.signcolumn = 'yes'
-vim.opt.scrolloff = 1
+vim.opt.breakindent = true
 vim.opt.cursorline = true
-vim.opt.wrap = false
-
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-
-vim.opt.smartindent = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = true
-
+vim.opt.fillchars:append({ fold = ' ' })
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldtext = ''
-vim.opt.fillchars:append({ fold = ' ' })
-
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.laststatus = 3
+vim.opt.linebreak = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-vim.opt.autoread = true
-vim.opt.updatetime = 300
-vim.opt.winborder = 'rounded'
+vim.opt.mouse = 'a'
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.scrolloff = 1
+vim.opt.shiftwidth = 4
+vim.opt.signcolumn = 'yes'
+vim.opt.smartcase = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.undofile = true
+vim.opt.updatetime = 300
+vim.opt.virtualedit = 'all'
+vim.opt.winborder = 'single'
 
 
 -- ============================================================================
@@ -68,6 +45,21 @@ vim.g.maplocalleader = ','
 
 local map = vim.keymap.set
 
+map('n', '<esc>', '<cmd>nohlsearch<cr>')
+
+-- Helix-like bindings
+map({ 'n', 'v', 'x' }, 'U', '<c-r>')
+map({ 'n', 'v', 'x' }, 'gh', '^')
+map({ 'n', 'v', 'x' }, 'gl', '$')
+map({ 'n', 'v', 'x' }, 'gH', 'g^')
+map({ 'n', 'v', 'x' }, 'gL', 'g$')
+
+map('n', '<esc>', '<cmd>nohlsearch<cr>')
+map('t', '<esc>', '<c-\\><c-n>')
+map('n', '<leader>s', '<cmd>e #<cr>')
+map('n', '<leader>d', vim.diagnostic.open_float)
+
+-- Window navigation
 map('n', '<c-h>', '<c-w>h')
 map('n', '<c-j>', '<c-w>j')
 map('n', '<c-k>', '<c-w>k')
@@ -81,50 +73,28 @@ map('n', '<a-.>', '<c-w>>')
 map('n', '<a-->', '<c-w>-')
 map('n', '<a-=>', '<c-w>+')
 
-map({ 'n', 'v', 'x' }, '<leader>y', '"+y')
-map({ 'n', 'v', 'x' }, '<leader>d', '"+d')
-map({ 'n', 'v', 'x' }, '<leader>p', '"+p')
-map('n', '<esc>', '<cmd>nohlsearch<cr>')
-map('n', '<leader>s', '<cmd>e #<cr>')
-map('n', '<leader>d', vim.diagnostic.open_float)
-
--- Helix-like bindings
-map({ 'n', 'v', 'x' }, 'U', '<c-r>')
-map({ 'n', 'v', 'x' }, 'gh', '^')
-map({ 'n', 'v', 'x' }, 'gl', '$')
-map({ 'n', 'v', 'x' }, 'gH', 'g^')
-map({ 'n', 'v', 'x' }, 'gL', 'g$')
-
-map('n', '<leader>q', function() require('snacks').bufdelete() end)
-map('n', '<leader>C', require('snacks').bufdelete.other)
-map('n', '<leader>e', function()
-  require('snacks').explorer({
-    auto_close = true,
-    hidden = true,
-  })
-end)
-
-map('n', '<leader><leader>', require('snacks').picker.buffers)
-map('n', '<leader>ff',
-  function() require('snacks').picker.files({ hidden = true }) end)
-map('n', '<leader>fg', require('snacks').picker.grep)
-map('n', '<leader>fd', require('snacks').picker.diagnostics_buffer)
-map('n', '<leader>fD', require('snacks').picker.diagnostics)
-map('n', 'gO', require('snacks').picker.lsp_symbols)
-map('n', '<f1>', require('snacks').picker.help)
-
-map('n', '-', '<cmd>Oil<cr>')
-map('n', '<leader>u', '<cmd>UndotreeShow<cr>')
-
-
--- ============================================================================
--- Misc. autocmds
--- ============================================================================
+vim.cmd('packadd! nvim.undotree')
 
 -- Highlight yanked text
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
-    vim.highlight.on_yank({ higroup = 'Search', timeout = 500 })
+    vim.hl.on_yank()
+  end,
+})
+
+-- Auto-start treesitter
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(args)
+    local buf, filetype = args.buf, args.match
+
+    local language = vim.treesitter.language.get_lang(filetype)
+    if not language then return end
+
+    if not vim.treesitter.language.add(language) then return end
+    vim.treesitter.start(buf, language)
+
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.wo.foldmethod = 'expr'
   end,
 })
 
@@ -133,204 +103,136 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Plugins
 -- ============================================================================
 
+
+vim.pack.add({
+  'https://github.com/folke/snacks.nvim',
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
+  'https://github.com/alexghergh/nvim-tmux-navigation',
+  'https://github.com/nmac427/guess-indent.nvim',
+  'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/nvim-pack/nvim-spectre',
+  'https://github.com/nvim-mini/mini.files',
+  'https://github.com/nvim-mini/mini.surround',
+  'https://github.com/nvim-mini/mini.ai',
+  'https://github.com/nvim-mini/mini.icons',
+  'https://github.com/nvim-mini/mini.pairs',
+  'https://github.com/nvim-mini/mini.sessions',
+  'https://github.com/rebelot/kanagawa.nvim',
+  'https://github.com/RRethy/vim-illuminate',
+  'https://github.com/lewis6991/gitsigns.nvim',
+})
+
 require('mini.icons').setup()
-require('mini.icons').mock_nvim_web_devicons()
+MiniIcons.mock_nvim_web_devicons()
 
 require('kanagawa').setup({
-  colors = {
-    theme = {
-      all = {
-        ui = {
-          bg_gutter = 'none',
-        },
-      },
-    },
-  },
+  colors = { theme = { all = { ui = { bg_gutter = 'none' } } } },
   overrides = function(colors)
     local theme = colors.theme
-    local makeDiagnosticColor = function(color)
-      local c = require('kanagawa.lib.color')
-      return { fg = color, bg = c(color):blend(theme.ui.bg, 0.95):to_hex() }
+    local c = require('kanagawa.lib.color')
+
+    local blend = function(color, ratio)
+      return {
+        fg = color,
+        bg = c(color):blend(theme.ui.bg, ratio or 0.95):to_hex(),
+      }
     end
 
     return {
+      -- Custom window separator line
       WinSeparator = { link = 'FloatBorder' },
 
-      Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg },
-      PmenuExtra = { fg = theme.syn.comment, bg = theme.ui.bg },
+      -- Dark completion background
+      Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
+      PmenuKind = { bg = theme.ui.bg_p1 },
+      PmenuExtra = { fg = theme.syn.comment, bg = theme.ui.bg_p1 },
       PmenuSel = { fg = 'none', bg = theme.ui.bg_p2 },
+      PmenuKindSel = { fg = 'none', bg = theme.ui.bg_p2 },
+      PmenuExtraSel = { fg = 'none', bg = theme.ui.bg_p2 },
       PmenuSbar = { bg = theme.ui.bg_m1 },
       PmenuThumb = { bg = theme.ui.bg_p2 },
 
+      -- Transparent widgets and floating windows
       NormalFloat = { bg = 'none' },
       FloatBorder = { bg = 'none' },
       FloatTitle = { bg = 'none' },
 
-      DiagnosticVirtualTextHint = makeDiagnosticColor(theme.diag.hint),
-      DiagnosticVirtualTextInfo = makeDiagnosticColor(theme.diag.info),
-      DiagnosticVirtualTextWarn = makeDiagnosticColor(theme.diag.warning),
-      DiagnosticVirtualTextError = makeDiagnosticColor(theme.diag.error),
-
-      BlinkCmpMenuBorder = { link = 'FloatBorder' },
+      -- Tint background of diagnostic messages with their foreground color
+      DiagnosticVirtualTextHint = blend(theme.diag.hint),
+      DiagnosticVirtualTextInfo = blend(theme.diag.info),
+      DiagnosticVirtualTextWarn = blend(theme.diag.warning),
+      DiagnosticVirtualTextError = blend(theme.diag.error),
     }
   end,
 })
 vim.cmd.colorscheme('kanagawa')
 
-require('lualine').setup({
-  options = {
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
-    globalstatus = true,
-  },
-  sections = {
-    lualine_a = { 'mode' },
-    lualine_b = {
-      { 'filetype', icon_only = true },
-      {
-        'filename',
-        path = 1,
-        symbols = { modified = ' ', readonly = ' ' },
-      },
-    },
-    lualine_c = {},
-    lualine_x = {
-      'diagnostics',
-      'lsp_status',
-    },
-    lualine_y = {
-      { 'searchcount', maxcount = 999, timeout = 120 },
-      { 'branch', icon = '' },
-    },
-    lualine_z = { 'progress', 'location', 'fileformat' },
-  },
+local snacks = require('snacks')
 
-})
-
-require('nvim-surround').setup()
-
-require('mini.pairs').setup()
-require('mini.ai').setup()
-require('mini.sessions').setup()
-
-require('snacks').setup({
+snacks.setup({
+  bigfile = { enabled = true },
+  quickfile = { enabled = true },
   indent = {
     enabled = true,
     scope = { hl = 'SignColumn' },
     animate = { enabled = false },
   },
-  picker = {
-    enable = true,
-    win = {
-      list = {
-        keys = {
-          -- Mostly for file explorer
-          ['w'] = { { 'pick_win', 'jump' }, mode = { 'n', 'i' } },
-        },
-      },
-    },
-  },
-  explorer = { enable = true },
-  bufdelete = { enable = true },
+  picker = { enabled = true },
+  rename = { enabled = true },
+  bufdelete = { enabled = true },
 })
 
-require('nvim-treesitter').setup({
-  auto_install = true,
-  highlight = { enable = true },
-})
+map('n', '<leader>e',
+  function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end)
+map('n', '<leader>q', function() Snacks.bufdelete() end)
+map('n', '<leader>C', Snacks.bufdelete.other)
+map('n', '<F1>', Snacks.picker.help)
+map('n', '<leader><leader>', Snacks.picker.buffers)
+map('n', '<leader>ff',
+  function() Snacks.picker.files({ hidden = true }) end)
+map('n', '<leader>fg', Snacks.picker.grep)
 
-require('oil').setup({
-  watch_for_changes = true,
-  view_options = { show_hidden = true },
-  win_options = {
-    signcolumn = vim.o.signcolumn,
-  },
-})
+local parsers = {
+  'bash',
+  'comment',
+  'diff',
+  'json',
+  'lua',
+  'luadoc',
+  'markdown',
+  'markdown_inline',
+  'nix',
+  'vim',
+  'vimdoc',
+  'yaml',
+}
+require('nvim-treesitter').install(parsers)
 
-require('blink.cmp').setup({
-  keymap = { preset = 'enter' },
-  signature = { enabled = true },
-  completion = {
-    ghost_text = { enabled = true },
-    documentation = {
-      auto_show = true,
-      auto_show_delay_ms = 500,
-    },
-    list = {
-      selection = {
-        preselect = false,
-        auto_insert = false,
-      },
-    },
-    menu = {
-      draw = {
-        columns = {
-          { 'label', 'label_description', gap = 1 },
-          { 'kind_icon', 'kind', gap = 1 },
-        },
-      },
-    },
-  },
-})
-
-require('fidget').setup({ notification = { override_vim_notify = true } })
 require('guess-indent').setup()
-require('gitsigns').setup()
+require('spectre').setup()
 
-
--- ============================================================================
--- LSP
--- ============================================================================
-
--- Format on save
-vim.api.nvim_create_autocmd('BufWritePre', {
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
-
--- Folding
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-
-    if client and client:supports_method('textDocument/foldingRange') then
-      local win = vim.api.nvim_get_current_win()
-      vim.wo[win][0].foldmethod = 'expr'
-      vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
-    end
-  end,
-})
-
-vim.lsp.enable({ 'lua_ls', 'nil_ls' })
-
-vim.lsp.config('lua_ls', {
-  on_init = function(client)
-    if client.workspace_folders then
-      local path = client.workspace_folders[1].name
-      if
-          path ~= vim.fn.stdpath('config')
-          and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
-      then
-        return
-      end
-    end
-
-    client.config.settings.Lua = vim.tbl_deep_extend('force',
-      client.config.settings.Lua, {
-        runtime = {
-          version = 'LuaJIT',
-          path = { 'lua/?.lua', 'lua/?/init.lua' },
-        },
-        workspace = {
-          checkThirdParty = false,
-          library = { vim.env.VIMRUNTIME },
-        },
-      })
-  end,
-  settings = {
-    Lua = {},
+require('nvim-tmux-navigation').setup({
+  disable_when_zoomed = true, -- defaults to false
+  keybindings = {
+    left = '<C-h>',
+    down = '<C-j>',
+    up = '<C-k>',
+    right = '<C-l>',
+    last_active = '<C-\\>',
+    next = '<C-Space>',
   },
 })
 
-vim.diagnostic.config({ virtual_text = true })
+require('mini.files').setup({
+  options = { permanent_delete = false },
+  windows = { preview = true },
+})
+require('mini.ai').setup()
+require('mini.surround').setup()
+require('mini.pairs').setup()
+require('mini.sessions').setup()
+
+vim.cmd.colorscheme('kanagawa')
+
+require('illuminate').configure()
+require('gitsigns').setup()

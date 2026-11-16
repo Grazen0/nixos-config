@@ -24,10 +24,6 @@
       gcc
       ripgrep
       tree-sitter
-
-      lua-language-server
-      nil
-      typescript-language-server
     ];
   };
 }
