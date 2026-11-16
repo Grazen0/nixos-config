@@ -1,4 +1,9 @@
-{ pkgs, stablePkgs, ... }:
+{
+  pkgs,
+  stablePkgs,
+  inputs,
+  ...
+}:
 {
   programs.fastfetch.enable = true;
   programs.fish.enable = true;
@@ -45,6 +50,8 @@
     pciutils
     qrencode
     xxd
+
+    inputs.mines.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   meta.mainPrograms = {
