@@ -13,7 +13,7 @@ in
     ../../components/nixos/graphical
     ../../components/nixos/laptop
     ../../components/nixos/nvidia
-    ../../components/nixos/obs-virtual-camera
+    # ../../components/nixos/obs-virtual-camera
 
     (lib'.mkUserModule {
       username = "jdgt";
