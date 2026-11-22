@@ -2,6 +2,7 @@
   lib,
   lib',
   pkgs,
+  stablePkgs,
   customPkgs,
   inputs,
   ...
@@ -27,9 +28,9 @@ in
     prismlauncher
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
 
+    stablePkgs.audacity
     kicad
-    feishin
-    postgresql
+    # postgresql
   ];
 
   wayland.windowManager = {

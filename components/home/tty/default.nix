@@ -41,11 +41,9 @@
 
     nodejs
     pnpm
-
     python314
 
     impala
-    pandoc
     lazydocker
     pciutils
     qrencode

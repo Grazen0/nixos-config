@@ -73,7 +73,6 @@
     opencode
 
     # Desktop utilities
-    audacity
     file-roller
     onlyoffice-desktopeditors
     pavucontrol
