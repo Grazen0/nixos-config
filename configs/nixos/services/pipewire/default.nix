@@ -6,7 +6,6 @@
       support32Bit = true;
     };
     pulse.enable = true;
-    jack.enable = true;
 
     configPackages = [
       # Credit: https://discourse.nixos.org/t/pipewire-selects-msbc-by-default/46728
