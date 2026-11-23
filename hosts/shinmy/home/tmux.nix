@@ -63,6 +63,7 @@
         set -g renumber-windows on
 
         # Style
+        set -g theme terminal
         set -g status-position top
         set -g status-justify absolute-centre
         set -g status-style 'fg=white bg=default'
