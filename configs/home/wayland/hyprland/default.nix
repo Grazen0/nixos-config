@@ -5,10 +5,7 @@
   ...
 }:
 {
-  imports = [
-    ./binds.nix
-    ./rules.nix
-  ];
+  imports = [ ./binds.nix ];
 
   home.sessionVariables = lib.mkIf config.wayland.windowManager.hyprland.enable {
     XDG_CURRENT_DESKTOP = "Hyprland";
@@ -16,125 +13,59 @@
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
-  wayland.windowManager.hyprland =
-    let
-      inherit (config) scheme;
-    in
-    {
-      package = null; # Let the NixOS module handle this
-      configType = "hyprlang";
+  wayland.windowManager.hyprland = {
+    package = null; # Let the NixOS module handle this
+    configType = "lua";
 
-      settings = {
-        monitor = [ ", preferred, auto, 1" ];
-
-        ecosystem = {
-          no_update_news = true;
-          no_donation_nag = true;
-        };
-
-        workspace = [
-          "1, monitor:eDP-1, persistent:true, default:true"
-          "2, monitor:eDP-1, persistent:true"
-          "3, monitor:eDP-1, persistent:true"
-          "4, monitor:eDP-1, persistent:true"
-          "5, monitor:eDP-1, persistent:true"
-          "6, monitor:HDMI-A-1, persistent:true, default:true"
-          "7, monitor:HDMI-A-1, persistent:true"
-          "8, monitor:HDMI-A-1, persistent:true"
-          "9, monitor:HDMI-A-1, persistent:true"
-          "10, monitor:HDMI-A-1, persistent:true"
-        ];
-
-        general = {
-          gaps_in = 5;
-          gaps_out = 10;
-          border_size = 2;
-
-          "col.active_border" = "rgb(${scheme.blue})";
-          "col.inactive_border" = "rgb(${scheme.base04})";
-
-          no_focus_fallback = true;
-          allow_tearing = true;
-        };
-
-        exec-once =
-          let
-            inherit (lib) concatStringsSep;
-
-            waybar = "${config.programs.waybar.package}/bin/waybar";
-            wbg = "${pkgs.wbg}/bin/wbg";
-            polkit-gnome = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-            wl-paste = "${pkgs.wl-clipboard}/bin/wl-paste";
-            cliphist = "${config.services.cliphist.package}/bin/cliphist";
-            eww = "${config.programs.eww.package}/bin/eww";
-          in
-          [
-            "${wbg} ${config.theme.home.wallpaper.source}"
-            "${waybar}"
-            "${eww} open-many ${concatStringsSep " " config.meta.eww.autostartWidgets}"
-            "${polkit-gnome}"
-            "${wl-paste} --watch ${cliphist} store"
-          ];
-
-        dwindle = {
-          force_split = 2; # Split to the bottom right
-          preserve_split = true;
-          default_split_ratio = 1.04;
-        };
-
-        decoration = {
-          rounding = 0;
-          shadow.enabled = false;
-          blur.enabled = false;
-        };
-
-        animations.enabled = false;
-
-        xwayland = {
-          enabled = true;
-          force_zero_scaling = true;
-        };
-
-        input = {
-          kb_layout = "us";
-          kb_variant = "altgr-intl";
-          kb_options = "altwin:swap_lalt_lwin";
-
-          follow_mouse = 2;
-          float_switch_override_focus = 0;
-
-          touchpad.natural_scroll = true;
-
-          repeat_rate = 50;
-          repeat_delay = 300;
-        };
-
-        cursor = {
-          no_hardware_cursors = true; # Nvidia thing
-          no_warps = true;
-        };
-
-        gestures = {
-          workspace_swipe_forever = true;
-          workspace_swipe_min_speed_to_force = 7;
-        };
-
-        device = [
-          {
-            name = "wacom-one-by-wacom-s-pen";
-            output = "eDP-1";
+    # Home Manager loads these before settings, so host overrides apply last.
+    extraLuaFiles = {
+      settings = ./settings.lua;
+      binds = ./binds.lua;
+      rules = ./rules.lua;
+      theme = {
+        autoLoad = false;
+        content = "return ${
+          lib.generators.toLua { } {
+            inherit (config.scheme) blue base04 yellow;
           }
-        ];
-
-        misc = {
-          disable_hyprland_logo = true;
-          middle_click_paste = false;
-          mouse_move_focuses_monitor = false;
-          focus_on_activate = true;
-          vrr = 1;
-        };
+        }";
       };
-
-      systemd.variables = [ "--all" ];
     };
+
+    settings = {
+      monitor = [
+        {
+          output = "";
+          mode = "preferred";
+          position = "auto";
+          scale = 1;
+        }
+      ];
+
+      on = [
+        {
+          _args = [
+            "hyprland.start"
+            (lib.generators.mkLuaInline ''
+              function()
+                for _, command in ipairs(${
+                  lib.generators.toLua { } [
+                    "${pkgs.wbg}/bin/wbg ${config.theme.home.wallpaper.source}"
+                    "${config.programs.waybar.package}/bin/waybar"
+                    "${config.programs.eww.package}/bin/eww open-many ${lib.concatStringsSep " " config.meta.eww.autostartWidgets}"
+                    "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
+                    "${pkgs.wl-clipboard}/bin/wl-paste --watch ${config.services.cliphist.package}/bin/cliphist store"
+                  ]
+                }) do
+                  hl.exec_cmd(command)
+                end
+              end
+            '')
+          ];
+        }
+      ];
+    };
+
+    systemd.variables = [ "--all" ];
+  };
 }

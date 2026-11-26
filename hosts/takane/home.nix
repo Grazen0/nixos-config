@@ -16,7 +16,7 @@ in
   ];
 
   wayland.windowManager = {
-    hyprland.settings.input = {
+    hyprland.settings.config.input = {
       kb_layout = mkForce "latam,us";
       kb_variant = mkForce "";
     };

@@ -36,11 +36,32 @@ in
   wayland.windowManager = {
     hyprland.settings = {
       monitor = mkForce [
-        ", preferred, auto, 1.2"
-        "HDMI-A-1, preferred, auto-left, 1"
+        {
+          output = "";
+          mode = "preferred";
+          position = "auto";
+          scale = 1.2;
+        }
+        {
+          output = "HDMI-A-1";
+          mode = "preferred";
+          position = "auto-left";
+          scale = 1;
+        }
       ];
 
-      exec-once = [ "${customPkgs.handle-monitor-connect}/bin/handle-monitor-connect" ];
+      on = lib.mkAfter [
+        {
+          _args = [
+            "hyprland.start"
+            (lib.generators.mkLuaInline ''
+              function()
+                hl.exec_cmd("${customPkgs.handle-monitor-connect}/bin/handle-monitor-connect")
+              end
+            '')
+          ];
+        }
+      ];
     };
 
     river.settings.rule-add =
